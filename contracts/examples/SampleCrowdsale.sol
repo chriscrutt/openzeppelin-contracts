@@ -14,7 +14,7 @@ import "../token/ERC20/ERC20.sol";
  * It is meant to be used in a crowdsale contract.
  */
 contract SampleCrowdsaleToken is ERC20Mintable {
-    constructor() public ERC20("Sample Crowdsale Token", "SCT", 18) {
+    constructor() ERC20("Sample Crowdsale Token", "SCT", 18) {
         // solhint-disable-previous-line no-empty-blocks
     }
 }
@@ -46,7 +46,6 @@ contract SampleCrowdsale is
         ERC20Mintable token,
         uint256 goal
     )
-        public
         Crowdsale(rate, wallet, token)
         CappedCrowdsale(cap)
         TimedCrowdsale(openingTime, closingTime)

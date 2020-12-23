@@ -10,14 +10,14 @@ import "../validation/TimedCrowdsale.sol";
  * @dev Extension of TimedCrowdsale with a one-off finalization action, where one
  * can do extra work after finishing.
  */
-contract FinalizableCrowdsale is TimedCrowdsale {
+abstract contract FinalizableCrowdsale is TimedCrowdsale {
     using SafeMath for uint256;
 
     bool private _finalized;
 
     event CrowdsaleFinalized();
 
-    constructor () internal {
+    constructor() {
         _finalized = false;
     }
 
@@ -47,7 +47,7 @@ contract FinalizableCrowdsale is TimedCrowdsale {
      * should call super._finalization() to ensure the chain of finalization is
      * executed entirely.
      */
-    function _finalization() internal {
+    function _finalization() internal virtual {
         // solhint-disable-previous-line no-empty-blocks
     }
 }
