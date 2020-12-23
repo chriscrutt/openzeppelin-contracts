@@ -1,18 +1,20 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.6.0 <0.9.0;
 
 import "../crowdsale/validation/CappedCrowdsale.sol";
 import "../crowdsale/distribution/RefundableCrowdsale.sol";
 import "../crowdsale/emission/MintedCrowdsale.sol";
 import "../token/ERC20/ERC20Mintable.sol";
-import "../token/ERC20/ERC20Detailed.sol";
+import "../token/ERC20/ERC20.sol";
 
 /**
  * @title SampleCrowdsaleToken
  * @dev Very simple ERC20 Token that can be minted.
  * It is meant to be used in a crowdsale contract.
  */
-contract SampleCrowdsaleToken is ERC20Mintable, ERC20Detailed {
-    constructor () public ERC20Detailed("Sample Crowdsale Token", "SCT", 18) {
+contract SampleCrowdsaleToken is ERC20Mintable {
+    constructor() public ERC20("Sample Crowdsale Token", "SCT", 18) {
         // solhint-disable-previous-line no-empty-blocks
     }
 }
@@ -30,8 +32,12 @@ contract SampleCrowdsaleToken is ERC20Mintable, ERC20Detailed {
  * After adding multiple features it's good practice to run integration tests
  * to ensure that subcontracts works together as intended.
  */
-contract SampleCrowdsale is CappedCrowdsale, RefundableCrowdsale, MintedCrowdsale {
-    constructor (
+contract SampleCrowdsale is
+    CappedCrowdsale,
+    RefundableCrowdsale,
+    MintedCrowdsale
+{
+    constructor(
         uint256 openingTime,
         uint256 closingTime,
         uint256 rate,

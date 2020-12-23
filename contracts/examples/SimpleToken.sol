@@ -1,8 +1,9 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.6.0 <0.9.0;
 
 import "../GSN/Context.sol";
 import "../token/ERC20/ERC20.sol";
-import "../token/ERC20/ERC20Detailed.sol";
 
 /**
  * @title SimpleToken
@@ -10,12 +11,11 @@ import "../token/ERC20/ERC20Detailed.sol";
  * Note they can later distribute these tokens as they wish using `transfer` and other
  * `ERC20` functions.
  */
-contract SimpleToken is Context, ERC20, ERC20Detailed {
-
+contract SimpleToken is Context, ERC20 {
     /**
      * @dev Constructor that gives _msgSender() all of existing tokens.
      */
-    constructor () public ERC20Detailed("SimpleToken", "SIM", 18) {
-        _mint(_msgSender(), 10000 * (10 ** uint256(decimals())));
+    constructor() ERC20("SimpleToken", "SIM", 18) {
+        _mint(_msgSender(), 10000 * (10**uint256(decimals())));
     }
 }

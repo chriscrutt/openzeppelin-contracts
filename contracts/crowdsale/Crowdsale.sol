@@ -54,28 +54,28 @@ contract Crowdsale is Context, ReentrancyGuard {
     );
 
     /**
-     * @param __rate Number of token units a buyer gets per wei
+     * @param rate_ Number of token units a buyer gets per wei
      * @dev The rate is the conversion between wei and the smallest and indivisible
      * token unit. So, if you are using a rate of 1 with a ERC20Detailed token
      * with 3 decimals called TOK, 1 wei will give you 1 unit, or 0.001 TOK.
-     * @param __wallet Address where collected funds will be forwarded to
-     * @param __token Address of the token being sold
+     * @param wallet_ Address where collected funds will be forwarded to
+     * @param token_ Address of the token being sold
      */
     constructor(
-        uint256 __rate,
-        address payable __wallet,
-        IERC20 __token
+        uint256 rate_,
+        address payable wallet_,
+        IERC20 token_
     ) {
-        require(__rate > 0, "Crowdsale: rate is 0");
-        require(__wallet != address(0), "Crowdsale: wallet is the zero address");
+        require(rate_ > 0, "Crowdsale: rate is 0");
+        require(wallet_ != address(0), "Crowdsale: wallet is the zero address");
         require(
-            address(__token) != address(0),
+            address(token_) != address(0),
             "Crowdsale: token is the zero address"
         );
 
-        _rate = __rate;
-        _wallet = __wallet;
-        _token = __token;
+        _rate = rate_;
+        _wallet = wallet_;
+        _token = token_;
     }
 
     /**
