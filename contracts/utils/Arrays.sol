@@ -17,16 +17,16 @@ library Arrays {
      * `array` is expected to be sorted in ascending order, and to contain no
      * repeated elements.
      */
-    function findUpperBound(uint256[] storage array, uint256 element) internal view returns (uint256) {
+    function findUpperBound(uint[] storage array, uint element) internal view returns (uint) {
         if (array.length == 0) {
             return 0;
         }
 
-        uint256 low = 0;
-        uint256 high = array.length;
+        uint low = 0;
+        uint high = array.length;
 
         while (low < high) {
-            uint256 mid = Math.average(low, high);
+            uint mid = Math.average(low, high);
 
             // Note that mid will always be strictly less than high (i.e. it will be a valid array index)
             // because Math.average rounds down (it does integer division with truncation).

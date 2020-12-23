@@ -17,7 +17,7 @@ abstract contract ERC721Burnable is Context, ERC721 {
      *
      * - The caller must own `tokenId` or be an approved operator.
      */
-    function burn(uint256 tokenId) public virtual {
+    function burn(uint tokenId) public virtual {
         //solhint-disable-next-line max-line-length
         require(_isApprovedOrOwner(_msgSender(), tokenId), "ERC721Burnable: caller is not owner nor approved");
         _burn(tokenId);

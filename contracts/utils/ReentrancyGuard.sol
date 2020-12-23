@@ -19,7 +19,7 @@ pragma solidity >=0.6.0 <0.9.0;
  * https://blog.openzeppelin.com/reentrancy-after-istanbul/[Reentrancy After Istanbul].
  */
 abstract contract ReentrancyGuard {
-    // Booleans are more expensive than uint256 or any type that takes up a full
+    // Booleans are more expensive than uint or any type that takes up a full
     // word because each write operation emits an extra SLOAD to first read the
     // slot's contents, replace the bits taken up by the boolean, and then write
     // back. This is the compiler's defense against contract upgrades and
@@ -30,10 +30,10 @@ abstract contract ReentrancyGuard {
     // amount. Since refunds are capped to a percentage of the total
     // transaction's gas, it is best to keep them low in cases like this one, to
     // increase the likelihood of the full refund coming into effect.
-    uint256 private constant _NOT_ENTERED = 1;
-    uint256 private constant _ENTERED = 2;
+    uint private constant _NOT_ENTERED = 1;
+    uint private constant _ENTERED = 2;
 
-    uint256 private _status;
+    uint private _status;
 
     constructor () internal {
         _status = _NOT_ENTERED;

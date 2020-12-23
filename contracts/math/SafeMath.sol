@@ -26,8 +26,8 @@ library SafeMath {
      *
      * - Addition cannot overflow.
      */
-    function add(uint256 a, uint256 b) internal pure returns (uint256) {
-        uint256 c = a + b;
+    function add(uint a, uint b) internal pure returns (uint) {
+        uint c = a + b;
         require(c >= a, "SafeMath: addition overflow");
 
         return c;
@@ -43,7 +43,7 @@ library SafeMath {
      *
      * - Subtraction cannot overflow.
      */
-    function sub(uint256 a, uint256 b) internal pure returns (uint256) {
+    function sub(uint a, uint b) internal pure returns (uint) {
         return sub(a, b, "SafeMath: subtraction overflow");
     }
 
@@ -57,9 +57,9 @@ library SafeMath {
      *
      * - Subtraction cannot overflow.
      */
-    function sub(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+    function sub(uint a, uint b, string memory errorMessage) internal pure returns (uint) {
         require(b <= a, errorMessage);
-        uint256 c = a - b;
+        uint c = a - b;
 
         return c;
     }
@@ -74,7 +74,7 @@ library SafeMath {
      *
      * - Multiplication cannot overflow.
      */
-    function mul(uint256 a, uint256 b) internal pure returns (uint256) {
+    function mul(uint a, uint b) internal pure returns (uint) {
         // Gas optimization: this is cheaper than requiring 'a' not being zero, but the
         // benefit is lost if 'b' is also tested.
         // See: https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522
@@ -82,7 +82,7 @@ library SafeMath {
             return 0;
         }
 
-        uint256 c = a * b;
+        uint c = a * b;
         require(c / a == b, "SafeMath: multiplication overflow");
 
         return c;
@@ -100,7 +100,7 @@ library SafeMath {
      *
      * - The divisor cannot be zero.
      */
-    function div(uint256 a, uint256 b) internal pure returns (uint256) {
+    function div(uint a, uint b) internal pure returns (uint) {
         return div(a, b, "SafeMath: division by zero");
     }
 
@@ -116,9 +116,9 @@ library SafeMath {
      *
      * - The divisor cannot be zero.
      */
-    function div(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+    function div(uint a, uint b, string memory errorMessage) internal pure returns (uint) {
         require(b > 0, errorMessage);
-        uint256 c = a / b;
+        uint c = a / b;
         // assert(a == b * c + a % b); // There is no case in which this doesn't hold
 
         return c;
@@ -136,7 +136,7 @@ library SafeMath {
      *
      * - The divisor cannot be zero.
      */
-    function mod(uint256 a, uint256 b) internal pure returns (uint256) {
+    function mod(uint a, uint b) internal pure returns (uint) {
         return mod(a, b, "SafeMath: modulo by zero");
     }
 
@@ -152,7 +152,7 @@ library SafeMath {
      *
      * - The divisor cannot be zero.
      */
-    function mod(uint256 a, uint256 b, string memory errorMessage) internal pure returns (uint256) {
+    function mod(uint a, uint b, string memory errorMessage) internal pure returns (uint) {
         require(b != 0, errorMessage);
         return a % b;
     }

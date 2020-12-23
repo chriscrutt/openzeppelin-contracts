@@ -11,7 +11,7 @@ import "../proxy/Initializable.sol";
 contract InitializableMock is Initializable {
 
   bool public initializerRan;
-  uint256 public x;
+  uint public x;
 
   function initialize() public initializer {
     initializerRan = true;
@@ -21,11 +21,11 @@ contract InitializableMock is Initializable {
     initialize();
   }
 
-  function initializeWithX(uint256 _x) public payable initializer {
+  function initializeWithX(uint _x) public payable initializer {
     x = _x;
   }
 
-  function nonInitializable(uint256 _x) public payable {
+  function nonInitializable(uint _x) public payable {
     x = _x;
   }
 

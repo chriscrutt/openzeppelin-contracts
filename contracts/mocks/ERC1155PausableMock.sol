@@ -20,8 +20,8 @@ contract ERC1155PausableMock is ERC1155Mock, ERC1155Pausable {
         address operator,
         address from,
         address to,
-        uint256[] memory ids,
-        uint256[] memory amounts,
+        uint[] memory ids,
+        uint[] memory amounts,
         bytes memory data
     )
         internal virtual override(ERC1155, ERC1155Pausable)

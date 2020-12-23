@@ -7,9 +7,9 @@ abstract contract Impl {
 }
 
 contract DummyImplementation {
-  uint256 public value;
+  uint public value;
   string public text;
-  uint256[] public values;
+  uint[] public values;
 
   function initializeNonPayable() public {
     value = 10;
@@ -19,15 +19,15 @@ contract DummyImplementation {
     value = 100;
   }
 
-  function initializeNonPayableWithValue(uint256 _value) public {
+  function initializeNonPayableWithValue(uint _value) public {
     value = _value;
   }
 
-  function initializePayableWithValue(uint256 _value) public payable {
+  function initializePayableWithValue(uint _value) public payable {
     value = _value;
   }
 
-  function initialize(uint256 _value, string memory _text, uint256[] memory _values) public {
+  function initialize(uint _value, string memory _text, uint[] memory _values) public {
     value = _value;
     text = _text;
     values = _values;
@@ -47,7 +47,7 @@ contract DummyImplementation {
 }
 
 contract DummyImplementationV2 is DummyImplementation {
-  function migrate(uint256 newVal) public payable {
+  function migrate(uint newVal) public payable {
     value = newVal;
   }
 

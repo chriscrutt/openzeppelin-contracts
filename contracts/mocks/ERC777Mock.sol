@@ -8,7 +8,7 @@ import "../token/ERC777/ERC777.sol";
 contract ERC777Mock is Context, ERC777 {
     constructor(
         address initialHolder,
-        uint256 initialBalance,
+        uint initialBalance,
         string memory name,
         string memory symbol,
         address[] memory defaultOperators
@@ -18,14 +18,14 @@ contract ERC777Mock is Context, ERC777 {
 
     function mintInternal (
         address to,
-        uint256 amount,
+        uint amount,
         bytes memory userData,
         bytes memory operatorData
     ) public {
         _mint(to, amount, userData, operatorData);
     }
 
-    function approveInternal(address holder, address spender, uint256 value) public {
+    function approveInternal(address holder, address spender, uint value) public {
         _approve(holder, spender, value);
     }
 }

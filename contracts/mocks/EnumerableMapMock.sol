@@ -11,30 +11,30 @@ contract EnumerableMapMock {
 
     EnumerableMap.UintToAddressMap private _map;
 
-    function contains(uint256 key) public view returns (bool) {
+    function contains(uint key) public view returns (bool) {
         return _map.contains(key);
     }
 
-    function set(uint256 key, address value) public {
+    function set(uint key, address value) public {
         bool result = _map.set(key, value);
         emit OperationResult(result);
     }
 
-    function remove(uint256 key) public {
+    function remove(uint key) public {
         bool result = _map.remove(key);
         emit OperationResult(result);
     }
 
-    function length() public view returns (uint256) {
+    function length() public view returns (uint) {
         return _map.length();
     }
 
-    function at(uint256 index) public view returns (uint256 key, address value) {
+    function at(uint index) public view returns (uint key, address value) {
         return _map.at(index);
     }
 
 
-    function get(uint256 key) public view returns (address) {
+    function get(uint key) public view returns (address) {
         return _map.get(key);
     }
 }

@@ -6,7 +6,7 @@ import "../utils/Pausable.sol";
 
 contract PausableMock is Pausable {
     bool public drasticMeasureTaken;
-    uint256 public count;
+    uint public count;
 
     constructor () public {
         drasticMeasureTaken = false;

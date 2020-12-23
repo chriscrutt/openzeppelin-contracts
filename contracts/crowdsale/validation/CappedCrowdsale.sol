@@ -8,15 +8,15 @@ import "../Crowdsale.sol";
  * @dev Crowdsale with a limit for total contributions.
  */
 contract CappedCrowdsale is Crowdsale {
-    using SafeMath for uint256;
+    using SafeMath for uint;
 
-    uint256 private _cap;
+    uint private _cap;
 
     /**
      * @dev Constructor, takes maximum amount of wei accepted in the crowdsale.
      * @param cap Max amount of wei to be contributed
      */
-    constructor (uint256 cap) public {
+    constructor (uint cap) public {
         require(cap > 0, "CappedCrowdsale: cap is 0");
         _cap = cap;
     }
@@ -24,7 +24,7 @@ contract CappedCrowdsale is Crowdsale {
     /**
      * @return the cap of the crowdsale.
      */
-    function cap() public view returns (uint256) {
+    function cap() public view returns (uint) {
         return _cap;
     }
 
@@ -41,7 +41,7 @@ contract CappedCrowdsale is Crowdsale {
      * @param beneficiary Token purchaser
      * @param weiAmount Amount of wei contributed
      */
-    function _preValidatePurchase(address beneficiary, uint256 weiAmount) internal view {
+    function _preValidatePurchase(address beneficiary, uint weiAmount) internal view {
         super._preValidatePurchase(beneficiary, weiAmount);
         require(weiRaised().add(weiAmount) <= _cap, "CappedCrowdsale: cap exceeded");
     }

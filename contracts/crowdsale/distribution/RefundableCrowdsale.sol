@@ -16,10 +16,10 @@ import "../../payment/escrow/RefundEscrow.sol";
  * the crowdsale is finalized, and the users that purchased from them will be left with worthless tokens.
  */
 contract RefundableCrowdsale is Context, FinalizableCrowdsale {
-    using SafeMath for uint256;
+    using SafeMath for uint;
 
     // minimum amount of funds to be raised in weis
-    uint256 private _goal;
+    uint private _goal;
 
     // refund escrow used to hold funds while crowdsale is running
     RefundEscrow private _escrow;
@@ -28,7 +28,7 @@ contract RefundableCrowdsale is Context, FinalizableCrowdsale {
      * @dev Constructor, creates RefundEscrow.
      * @param goal Funding goal
      */
-    constructor (uint256 goal) public {
+    constructor (uint goal) public {
         require(goal > 0, "RefundableCrowdsale: goal is 0");
         _escrow = new RefundEscrow(wallet());
         _goal = goal;
@@ -37,7 +37,7 @@ contract RefundableCrowdsale is Context, FinalizableCrowdsale {
     /**
      * @return minimum amount of funds to be raised in wei.
      */
-    function goal() public view returns (uint256) {
+    function goal() public view returns (uint) {
         return _goal;
     }
 

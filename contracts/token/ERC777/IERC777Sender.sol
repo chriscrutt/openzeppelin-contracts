@@ -27,7 +27,7 @@ interface IERC777Sender {
         address operator,
         address from,
         address to,
-        uint256 amount,
+        uint amount,
         bytes calldata userData,
         bytes calldata operatorData
     ) external;

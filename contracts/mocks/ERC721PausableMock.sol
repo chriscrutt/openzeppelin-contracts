@@ -11,15 +11,15 @@ import "../token/ERC721/ERC721Pausable.sol";
 contract ERC721PausableMock is ERC721Pausable {
     constructor (string memory name, string memory symbol) public ERC721(name, symbol) { }
 
-    function mint(address to, uint256 tokenId) public {
+    function mint(address to, uint tokenId) public {
         super._mint(to, tokenId);
     }
 
-    function burn(uint256 tokenId) public {
+    function burn(uint tokenId) public {
         super._burn(tokenId);
     }
 
-    function exists(uint256 tokenId) public view returns (bool) {
+    function exists(uint tokenId) public view returns (bool) {
         return super._exists(tokenId);
     }
 

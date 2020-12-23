@@ -96,7 +96,7 @@ contract ERC721PresetMinterPauserAutoId is Context, AccessControl, ERC721Burnabl
         _unpause();
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 tokenId) internal virtual override(ERC721, ERC721Pausable) {
+    function _beforeTokenTransfer(address from, address to, uint tokenId) internal virtual override(ERC721, ERC721Pausable) {
         super._beforeTokenTransfer(from, to, tokenId);
     }
 }

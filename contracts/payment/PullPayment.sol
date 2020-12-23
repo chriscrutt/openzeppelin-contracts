@@ -51,7 +51,7 @@ abstract contract PullPayment {
      * @dev Returns the payments owed to an address.
      * @param dest The creditor's address.
      */
-    function payments(address dest) public view returns (uint256) {
+    function payments(address dest) public view returns (uint) {
         return _escrow.depositsOf(dest);
     }
 
@@ -63,7 +63,7 @@ abstract contract PullPayment {
      * @param dest The destination address of the funds.
      * @param amount The amount to transfer.
      */
-    function _asyncTransfer(address dest, uint256 amount) internal virtual {
+    function _asyncTransfer(address dest, uint amount) internal virtual {
         _escrow.deposit{ value: amount }(dest);
     }
 }

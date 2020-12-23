@@ -34,16 +34,16 @@ interface IRelayRecipient {
         address relay,
         address from,
         bytes calldata encodedFunction,
-        uint256 transactionFee,
-        uint256 gasPrice,
-        uint256 gasLimit,
-        uint256 nonce,
+        uint transactionFee,
+        uint gasPrice,
+        uint gasLimit,
+        uint nonce,
         bytes calldata approvalData,
-        uint256 maxPossibleCharge
+        uint maxPossibleCharge
     )
         external
         view
-        returns (uint256, bytes memory);
+        returns (uint, bytes memory);
 
     /**
      * @dev Called by {IRelayHub} on approved relay call requests, before the relayed call is executed. This allows to e.g.
@@ -72,5 +72,5 @@ interface IRelayRecipient {
      * and the call to {preRelayedCall} will be reverted retroactively, but the recipient will still be charged for the
      * transaction's cost.
      */
-    function postRelayedCall(bytes calldata context, bool success, uint256 actualCharge, bytes32 preRetVal) external;
+    function postRelayedCall(bytes calldata context, bool success, uint actualCharge, bytes32 preRetVal) external;
 }

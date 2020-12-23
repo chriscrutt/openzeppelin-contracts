@@ -17,7 +17,7 @@ contract ERC721GSNRecipientMock is ERC721, GSNRecipient, GSNRecipientSignature {
         GSNRecipientSignature(trustedSigner)
     { }
 
-    function mint(uint256 tokenId) public {
+    function mint(uint tokenId) public {
         _mint(_msgSender(), tokenId);
     }
 

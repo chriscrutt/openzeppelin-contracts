@@ -9,7 +9,7 @@ contract CountersImpl {
 
     Counters.Counter private _counter;
 
-    function current() public view returns (uint256) {
+    function current() public view returns (uint) {
         return _counter.current();
     }
 

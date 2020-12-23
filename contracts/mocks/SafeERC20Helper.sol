@@ -7,88 +7,88 @@ import "../token/ERC20/IERC20.sol";
 import "../token/ERC20/SafeERC20.sol";
 
 contract ERC20ReturnFalseMock is Context {
-    uint256 private _allowance;
+    uint private _allowance;
 
     // IERC20's functions are not pure, but these mock implementations are: to prevent Solidity from issuing warnings,
     // we write to a dummy state variable.
-    uint256 private _dummy;
+    uint private _dummy;
 
-    function transfer(address, uint256) public returns (bool) {
+    function transfer(address, uint) public returns (bool) {
         _dummy = 0;
         return false;
     }
 
-    function transferFrom(address, address, uint256) public returns (bool) {
+    function transferFrom(address, address, uint) public returns (bool) {
         _dummy = 0;
         return false;
     }
 
-    function approve(address, uint256) public returns (bool) {
+    function approve(address, uint) public returns (bool) {
         _dummy = 0;
         return false;
     }
 
-    function allowance(address, address) public view returns (uint256) {
+    function allowance(address, address) public view returns (uint) {
         require(_dummy == 0); // Duummy read from a state variable so that the function is view
         return 0;
     }
 }
 
 contract ERC20ReturnTrueMock is Context {
-    mapping (address => uint256) private _allowances;
+    mapping (address => uint) private _allowances;
 
     // IERC20's functions are not pure, but these mock implementations are: to prevent Solidity from issuing warnings,
     // we write to a dummy state variable.
-    uint256 private _dummy;
+    uint private _dummy;
 
-    function transfer(address, uint256) public returns (bool) {
+    function transfer(address, uint) public returns (bool) {
         _dummy = 0;
         return true;
     }
 
-    function transferFrom(address, address, uint256) public returns (bool) {
+    function transferFrom(address, address, uint) public returns (bool) {
         _dummy = 0;
         return true;
     }
 
-    function approve(address, uint256) public returns (bool) {
+    function approve(address, uint) public returns (bool) {
         _dummy = 0;
         return true;
     }
 
-    function setAllowance(uint256 allowance_) public {
+    function setAllowance(uint allowance_) public {
         _allowances[_msgSender()] = allowance_;
     }
 
-    function allowance(address owner, address) public view returns (uint256) {
+    function allowance(address owner, address) public view returns (uint) {
         return _allowances[owner];
     }
 }
 
 contract ERC20NoReturnMock is Context {
-    mapping (address => uint256) private _allowances;
+    mapping (address => uint) private _allowances;
 
     // IERC20's functions are not pure, but these mock implementations are: to prevent Solidity from issuing warnings,
     // we write to a dummy state variable.
-    uint256 private _dummy;
+    uint private _dummy;
 
-    function transfer(address, uint256) public {
+    function transfer(address, uint) public {
         _dummy = 0;
     }
 
-    function transferFrom(address, address, uint256) public {
+    function transferFrom(address, address, uint) public {
         _dummy = 0;
     }
 
-    function approve(address, uint256) public {
+    function approve(address, uint) public {
         _dummy = 0;
     }
 
-    function setAllowance(uint256 allowance_) public {
+    function setAllowance(uint allowance_) public {
         _allowances[_msgSender()] = allowance_;
     }
 
-    function allowance(address owner, address) public view returns (uint256) {
+    function allowance(address owner, address) public view returns (uint) {
         return _allowances[owner];
     }
 }
@@ -110,23 +110,23 @@ contract SafeERC20Wrapper is Context {
         _token.safeTransferFrom(address(0), address(0), 0);
     }
 
-    function approve(uint256 amount) public {
+    function approve(uint amount) public {
         _token.safeApprove(address(0), amount);
     }
 
-    function increaseAllowance(uint256 amount) public {
+    function increaseAllowance(uint amount) public {
         _token.safeIncreaseAllowance(address(0), amount);
     }
 
-    function decreaseAllowance(uint256 amount) public {
+    function decreaseAllowance(uint amount) public {
         _token.safeDecreaseAllowance(address(0), amount);
     }
 
-    function setAllowance(uint256 allowance_) public {
+    function setAllowance(uint allowance_) public {
         ERC20ReturnTrueMock(address(_token)).setAllowance(allowance_);
     }
 
-    function allowance() public view returns (uint256) {
+    function allowance() public view returns (uint) {
         return _token.allowance(address(0), address(0));
     }
 }

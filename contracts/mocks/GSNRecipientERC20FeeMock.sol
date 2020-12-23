@@ -8,11 +8,11 @@ import "../GSN/GSNRecipientERC20Fee.sol";
 contract GSNRecipientERC20FeeMock is GSNRecipient, GSNRecipientERC20Fee {
     constructor(string memory name, string memory symbol) public GSNRecipientERC20Fee(name, symbol) { }
 
-    function mint(address account, uint256 amount) public {
+    function mint(address account, uint amount) public {
         _mint(account, amount);
     }
 
-    event MockFunctionCalled(uint256 senderBalance);
+    event MockFunctionCalled(uint senderBalance);
 
     function mockFunction() public {
         emit MockFunctionCalled(token().balanceOf(_msgSender()));

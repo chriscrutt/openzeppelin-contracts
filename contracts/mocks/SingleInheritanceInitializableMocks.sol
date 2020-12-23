@@ -9,9 +9,9 @@ import "../proxy/Initializable.sol";
  * @dev This contract is a mock to test initializable functionality through migrations
  */
 contract MigratableMockV1 is Initializable {
-  uint256 public x;
+  uint public x;
 
-  function initialize(uint256 value) public payable initializer {
+  function initialize(uint value) public payable initializer {
     x = value;
   }
 }
@@ -22,9 +22,9 @@ contract MigratableMockV1 is Initializable {
  */
 contract MigratableMockV2 is MigratableMockV1 {
   bool internal _migratedV2;
-  uint256 public y;
+  uint public y;
 
-  function migrate(uint256 value, uint256 anotherValue) public payable {
+  function migrate(uint value, uint anotherValue) public payable {
     require(!_migratedV2);
     x = value;
     y = anotherValue;
@@ -41,7 +41,7 @@ contract MigratableMockV3 is MigratableMockV2 {
 
   function migrate() public payable {
     require(!_migratedV3);
-    uint256 oldX = x;
+    uint oldX = x;
     x = y;
     y = oldX;
     _migratedV3 = true;

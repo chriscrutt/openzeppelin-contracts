@@ -55,7 +55,7 @@ abstract contract Initializable {
         // yield zero, making it an effective way to detect if a contract is
         // under construction or not.
         address self = address(this);
-        uint256 cs;
+        uint cs;
         // solhint-disable-next-line no-inline-assembly
         assembly { cs := extcodesize(self) }
         return cs == 0;

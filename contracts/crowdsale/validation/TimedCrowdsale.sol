@@ -8,17 +8,17 @@ import "../Crowdsale.sol";
  * @dev Crowdsale accepting contributions only within a time frame.
  */
 contract TimedCrowdsale is Crowdsale {
-    using SafeMath for uint256;
+    using SafeMath for uint;
 
-    uint256 private _openingTime;
-    uint256 private _closingTime;
+    uint private _openingTime;
+    uint private _closingTime;
 
     /**
      * Event for crowdsale extending
      * @param newClosingTime new closing time
      * @param prevClosingTime old closing time
      */
-    event TimedCrowdsaleExtended(uint256 prevClosingTime, uint256 newClosingTime);
+    event TimedCrowdsaleExtended(uint prevClosingTime, uint newClosingTime);
 
     /**
      * @dev Reverts if not in crowdsale time range.
@@ -33,7 +33,7 @@ contract TimedCrowdsale is Crowdsale {
      * @param openingTime Crowdsale opening time
      * @param closingTime Crowdsale closing time
      */
-    constructor (uint256 openingTime, uint256 closingTime) public {
+    constructor (uint openingTime, uint closingTime) public {
         // solhint-disable-next-line not-rely-on-time
         require(openingTime >= block.timestamp, "TimedCrowdsale: opening time is before current time");
         // solhint-disable-next-line max-line-length
@@ -46,14 +46,14 @@ contract TimedCrowdsale is Crowdsale {
     /**
      * @return the crowdsale opening time.
      */
-    function openingTime() public view returns (uint256) {
+    function openingTime() public view returns (uint) {
         return _openingTime;
     }
 
     /**
      * @return the crowdsale closing time.
      */
-    function closingTime() public view returns (uint256) {
+    function closingTime() public view returns (uint) {
         return _closingTime;
     }
 
@@ -79,7 +79,7 @@ contract TimedCrowdsale is Crowdsale {
      * @param beneficiary Token purchaser
      * @param weiAmount Amount of wei contributed
      */
-    function _preValidatePurchase(address beneficiary, uint256 weiAmount) internal onlyWhileOpen view {
+    function _preValidatePurchase(address beneficiary, uint weiAmount) internal onlyWhileOpen view {
         super._preValidatePurchase(beneficiary, weiAmount);
     }
 
@@ -87,7 +87,7 @@ contract TimedCrowdsale is Crowdsale {
      * @dev Extend crowdsale.
      * @param newClosingTime Crowdsale closing time
      */
-    function _extendTime(uint256 newClosingTime) internal {
+    function _extendTime(uint newClosingTime) internal {
         require(!hasClosed(), "TimedCrowdsale: already closed");
         // solhint-disable-next-line max-line-length
         require(newClosingTime > _closingTime, "TimedCrowdsale: new closing time is before current closing time");

@@ -22,7 +22,7 @@ abstract contract ERC20Permit is ERC20, IERC20Permit, EIP712 {
     mapping (address => Counters.Counter) private _nonces;
 
     // solhint-disable-next-line var-name-mixedcase
-    bytes32 private immutable _PERMIT_TYPEHASH = keccak256("Permit(address owner,address spender,uint256 value,uint256 nonce,uint256 deadline)");
+    bytes32 private immutable _PERMIT_TYPEHASH = keccak256("Permit(address owner,address spender,uint value,uint nonce,uint deadline)");
 
     /**
      * @dev Initializes the {EIP712} domain separator using the `name` parameter, and setting `version` to `"1"`.
@@ -35,7 +35,7 @@ abstract contract ERC20Permit is ERC20, IERC20Permit, EIP712 {
     /**
      * @dev See {IERC20Permit-permit}.
      */
-    function permit(address owner, address spender, uint256 amount, uint256 deadline, uint8 v, bytes32 r, bytes32 s) public virtual override {
+    function permit(address owner, address spender, uint amount, uint deadline, uint8 v, bytes32 r, bytes32 s) public virtual override {
         // solhint-disable-next-line not-rely-on-time
         require(block.timestamp <= deadline, "ERC20Permit: expired deadline");
 
@@ -62,7 +62,7 @@ abstract contract ERC20Permit is ERC20, IERC20Permit, EIP712 {
     /**
      * @dev See {IERC20Permit-nonces}.
      */
-    function nonces(address owner) public view override returns (uint256) {
+    function nonces(address owner) public view override returns (uint) {
         return _nonces[owner].current();
     }
 

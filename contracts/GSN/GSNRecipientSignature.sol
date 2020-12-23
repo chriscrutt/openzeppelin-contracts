@@ -35,18 +35,18 @@ contract GSNRecipientSignature is GSNRecipient {
         address relay,
         address from,
         bytes memory encodedFunction,
-        uint256 transactionFee,
-        uint256 gasPrice,
-        uint256 gasLimit,
-        uint256 nonce,
+        uint transactionFee,
+        uint gasPrice,
+        uint gasLimit,
+        uint nonce,
         bytes memory approvalData,
-        uint256
+        uint
     )
         public
         view
         virtual
         override
-        returns (uint256, bytes memory)
+        returns (uint, bytes memory)
     {
         bytes memory blob = abi.encodePacked(
             relay,
@@ -62,11 +62,11 @@ contract GSNRecipientSignature is GSNRecipient {
         if (keccak256(blob).toEthSignedMessageHash().recover(approvalData) == _trustedSigner) {
             return _approveRelayedCall();
         } else {
-            return _rejectRelayedCall(uint256(GSNRecipientSignatureErrorCodes.INVALID_SIGNER));
+            return _rejectRelayedCall(uint(GSNRecipientSignatureErrorCodes.INVALID_SIGNER));
         }
     }
 
     function _preRelayedCall(bytes memory) internal virtual override returns (bytes32) { }
 
-    function _postRelayedCall(bytes memory, bool, uint256, bytes32) internal virtual override { }
+    function _postRelayedCall(bytes memory, bool, uint, bytes32) internal virtual override { }
 }

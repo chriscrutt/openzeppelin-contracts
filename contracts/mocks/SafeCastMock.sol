@@ -8,8 +8,8 @@ contract SafeCastMock {
     using SafeCast for uint;
     using SafeCast for int;
 
-    function toUint256(int a) public pure returns (uint256) {
-        return a.toUint256();
+    function touint(int a) public pure returns (uint) {
+        return a.touint();
     }
 
     function toInt256(uint a) public pure returns (int256) {
