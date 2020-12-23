@@ -62,3 +62,7 @@ contracts/bin/token/ERC20/ERC20.bin
 contracts/bin/token/ERC20/ERC20-solc-output.json
 contracts/bin/token/ERC20/ERC20.json
 contracts/bin/token/ERC20/myToken-solc-output.json
+contracts/bin/crowdsale/Crowdsale.json
+contracts/bin/crowdsale/Crowdsale.bin
+contracts/bin/crowdsale/Crowdsale.abi
+contracts/bin/crowdsale/Crowdsale-solc-output.json
