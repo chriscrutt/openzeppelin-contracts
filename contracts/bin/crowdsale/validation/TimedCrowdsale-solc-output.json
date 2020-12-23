@@ -9203,7 +9203,7 @@
                                                 "referencedDeclaration": 4294967268,
                                                 "src": "5518:4:1",
                                                 "typeDescriptions": {
-                                                    "typeIdentifier": "t_contract$_Crowdsale_$326",
+                                                    "typeIdentifier": "t_contract$Crowdsale_$326",
                                                     "typeString": "contract Crowdsale"
                                                 }
                                             },

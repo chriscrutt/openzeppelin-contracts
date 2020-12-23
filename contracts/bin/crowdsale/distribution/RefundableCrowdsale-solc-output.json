@@ -18007,7 +18007,7 @@
                                                 "referencedDeclaration": 4294967268,
                                                 "src": "5518:4:2",
                                                 "typeDescriptions": {
-                                                    "typeIdentifier": "t_contract$_Crowdsale_$435",
+                                                    "typeIdentifier": "t_contract$Crowdsale_$435",
                                                     "typeString": "contract Crowdsale"
                                                 }
                                             },

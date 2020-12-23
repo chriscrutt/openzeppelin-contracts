@@ -13,8 +13,8 @@ import "../token/ERC20/ERC20.sol";
  * @dev Very simple ERC20 Token that can be minted.
  * It is meant to be used in a crowdsale contract.
  */
-contract SampleCrowdsaleToken is ERC20Mintable {
-    constructor() ERC20("Sample Crowdsale Token", "SCT", 18) {
+contract SampleCrowdsaleToken is ERC20 {
+    constructor () ERC20("Sample Crowdsale Token", "SCT", 18) {
         // solhint-disable-previous-line no-empty-blocks
     }
 }
@@ -32,20 +32,17 @@ contract SampleCrowdsaleToken is ERC20Mintable {
  * After adding multiple features it's good practice to run integration tests
  * to ensure that subcontracts works together as intended.
  */
-contract SampleCrowdsale is
-    CappedCrowdsale,
-    RefundableCrowdsale,
-    MintedCrowdsale
-{
-    constructor(
+contract SampleCrowdsale is CappedCrowdsale, RefundableCrowdsale, MintedCrowdsale {
+    constructor (
         uint256 openingTime,
         uint256 closingTime,
         uint256 rate,
         address payable wallet,
         uint256 cap,
-        ERC20Mintable token,
+        ERC20 token,
         uint256 goal
     )
+        public
         Crowdsale(rate, wallet, token)
         CappedCrowdsale(cap)
         TimedCrowdsale(openingTime, closingTime)
