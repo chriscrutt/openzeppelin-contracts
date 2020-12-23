@@ -65,7 +65,7 @@ contract Crowdsale is Context, ReentrancyGuard {
         uint256 rate,
         address payable wallet,
         IERC20 token
-    ) public {
+    ) {
         require(rate > 0, "Crowdsale: rate is 0");
         require(wallet != address(0), "Crowdsale: wallet is the zero address");
         require(
