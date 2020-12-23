@@ -30,9 +30,9 @@ contract SampleHuman is Initializable {
  * Sample base intializable contract that defines a field mother
  */
 contract SampleMother is Initializable, SampleHuman {
-  uint public mother;
+  uint256 public mother;
 
-  function initialize(uint value) public initializer virtual {
+  function initialize(uint256 value) public initializer virtual {
     SampleHuman.initialize();
     mother = value;
   }
@@ -54,9 +54,9 @@ contract SampleGramps is Initializable, SampleHuman {
  * Sample base intializable contract that defines a field father and extends from gramps
  */
 contract SampleFather is Initializable, SampleGramps {
-  uint public father;
+  uint256 public father;
 
-  function initialize(string memory _gramps, uint _father) public initializer {
+  function initialize(string memory _gramps, uint256 _father) public initializer {
     SampleGramps.initialize(_gramps);
     father = _father;
   }
@@ -66,9 +66,9 @@ contract SampleFather is Initializable, SampleGramps {
  * Child extends from mother, father (gramps)
  */
 contract SampleChild is Initializable, SampleMother, SampleFather {
-  uint public child;
+  uint256 public child;
 
-  function initialize(uint _mother, string memory _gramps, uint _father, uint _child) public initializer {
+  function initialize(uint256 _mother, string memory _gramps, uint256 _father, uint256 _child) public initializer {
     SampleMother.initialize(_mother);
     SampleFather.initialize(_gramps, _father);
     child = _child;

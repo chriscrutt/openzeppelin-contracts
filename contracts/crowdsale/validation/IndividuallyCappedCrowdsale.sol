@@ -9,17 +9,17 @@ import "../../access/roles/CapperRole.sol";
  * @dev Crowdsale with per-beneficiary caps.
  */
 contract IndividuallyCappedCrowdsale is Crowdsale, CapperRole {
-    using SafeMath for uint;
+    using SafeMath for uint256;
 
-    mapping(address => uint) private _contributions;
-    mapping(address => uint) private _caps;
+    mapping(address => uint256) private _contributions;
+    mapping(address => uint256) private _caps;
 
     /**
      * @dev Sets a specific beneficiary's maximum contribution.
      * @param beneficiary Address to be capped
      * @param cap Wei limit for individual contribution
      */
-    function setCap(address beneficiary, uint cap) external onlyCapper {
+    function setCap(address beneficiary, uint256 cap) external onlyCapper {
         _caps[beneficiary] = cap;
     }
 
@@ -28,7 +28,7 @@ contract IndividuallyCappedCrowdsale is Crowdsale, CapperRole {
      * @param beneficiary Address whose cap is to be checked
      * @return Current cap for individual beneficiary
      */
-    function getCap(address beneficiary) public view returns (uint) {
+    function getCap(address beneficiary) public view returns (uint256) {
         return _caps[beneficiary];
     }
 
@@ -37,7 +37,7 @@ contract IndividuallyCappedCrowdsale is Crowdsale, CapperRole {
      * @param beneficiary Address of contributor
      * @return Beneficiary contribution so far
      */
-    function getContribution(address beneficiary) public view returns (uint) {
+    function getContribution(address beneficiary) public view returns (uint256) {
         return _contributions[beneficiary];
     }
 
@@ -46,7 +46,7 @@ contract IndividuallyCappedCrowdsale is Crowdsale, CapperRole {
      * @param beneficiary Token purchaser
      * @param weiAmount Amount of wei contributed
      */
-    function _preValidatePurchase(address beneficiary, uint weiAmount) internal view {
+    function _preValidatePurchase(address beneficiary, uint256 weiAmount) internal view {
         super._preValidatePurchase(beneficiary, weiAmount);
         // solhint-disable-next-line max-line-length
         require(_contributions[beneficiary].add(weiAmount) <= _caps[beneficiary], "IndividuallyCappedCrowdsale: beneficiary's cap exceeded");
@@ -57,7 +57,7 @@ contract IndividuallyCappedCrowdsale is Crowdsale, CapperRole {
      * @param beneficiary Token purchaser
      * @param weiAmount Amount of wei contributed
      */
-    function _updatePurchasingState(address beneficiary, uint weiAmount) internal {
+    function _updatePurchasingState(address beneficiary, uint256 weiAmount) internal {
         super._updatePurchasingState(beneficiary, weiAmount);
         _contributions[beneficiary] = _contributions[beneficiary].add(weiAmount);
     }

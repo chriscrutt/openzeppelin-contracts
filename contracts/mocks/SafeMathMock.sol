@@ -5,23 +5,23 @@ pragma solidity >=0.6.0 <0.9.0;
 import "../math/SafeMath.sol";
 
 contract SafeMathMock {
-    function mul(uint a, uint b) public pure returns (uint) {
+    function mul(uint256 a, uint256 b) public pure returns (uint256) {
         return SafeMath.mul(a, b);
     }
 
-    function div(uint a, uint b) public pure returns (uint) {
+    function div(uint256 a, uint256 b) public pure returns (uint256) {
         return SafeMath.div(a, b);
     }
 
-    function sub(uint a, uint b) public pure returns (uint) {
+    function sub(uint256 a, uint256 b) public pure returns (uint256) {
         return SafeMath.sub(a, b);
     }
 
-    function add(uint a, uint b) public pure returns (uint) {
+    function add(uint256 a, uint256 b) public pure returns (uint256) {
         return SafeMath.add(a, b);
     }
 
-    function mod(uint a, uint b) public pure returns (uint) {
+    function mod(uint256 a, uint256 b) public pure returns (uint256) {
         return SafeMath.mod(a, b);
     }
 }

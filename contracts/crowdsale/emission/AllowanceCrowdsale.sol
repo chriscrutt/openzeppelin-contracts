@@ -11,7 +11,7 @@ import "../../math/Math.sol";
  * @dev Extension of Crowdsale where tokens are held by a wallet, which approves an allowance to the crowdsale.
  */
 contract AllowanceCrowdsale is Crowdsale {
-    using SafeMath for uint;
+    using SafeMath for uint256;
     using SafeERC20 for IERC20;
 
     address private _tokenWallet;
@@ -36,7 +36,7 @@ contract AllowanceCrowdsale is Crowdsale {
      * @dev Checks the amount of tokens left in the allowance.
      * @return Amount of tokens left in the allowance
      */
-    function remainingTokens() public view returns (uint) {
+    function remainingTokens() public view returns (uint256) {
         return Math.min(token().balanceOf(_tokenWallet), token().allowance(_tokenWallet, address(this)));
     }
 
@@ -45,7 +45,7 @@ contract AllowanceCrowdsale is Crowdsale {
      * @param beneficiary Token purchaser
      * @param tokenAmount Amount of tokens purchased
      */
-    function _deliverTokens(address beneficiary, uint tokenAmount) internal {
+    function _deliverTokens(address beneficiary, uint256 tokenAmount) internal {
         token().safeTransferFrom(_tokenWallet, beneficiary, tokenAmount);
     }
 }

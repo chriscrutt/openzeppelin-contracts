@@ -19,7 +19,7 @@ import "../token/ERC20/ERC20.sol";
  */
 contract GSNRecipientERC20Fee is GSNRecipient {
     using SafeERC20 for __unstable__ERC20Owned;
-    using SafeMath for uint;
+    using SafeMath for uint256;
 
     enum GSNRecipientERC20FeeErrorCodes {
         INSUFFICIENT_BALANCE
@@ -44,7 +44,7 @@ contract GSNRecipientERC20Fee is GSNRecipient {
     /**
      * @dev Internal function that mints the gas payment token. Derived contracts should expose this function in their public API, with proper access control mechanisms.
      */
-    function _mint(address account, uint amount) internal virtual {
+    function _mint(address account, uint256 amount) internal virtual {
         _token.mint(account, amount);
     }
 
@@ -55,21 +55,21 @@ contract GSNRecipientERC20Fee is GSNRecipient {
         address,
         address from,
         bytes memory,
-        uint transactionFee,
-        uint gasPrice,
-        uint,
-        uint,
+        uint256 transactionFee,
+        uint256 gasPrice,
+        uint256,
+        uint256,
         bytes memory,
-        uint maxPossibleCharge
+        uint256 maxPossibleCharge
     )
         public
         view
         virtual
         override
-        returns (uint, bytes memory)
+        returns (uint256, bytes memory)
     {
         if (_token.balanceOf(from) < maxPossibleCharge) {
-            return _rejectRelayedCall(uint(GSNRecipientERC20FeeErrorCodes.INSUFFICIENT_BALANCE));
+            return _rejectRelayedCall(uint256(GSNRecipientERC20FeeErrorCodes.INSUFFICIENT_BALANCE));
         }
 
         return _approveRelayedCall(abi.encode(from, maxPossibleCharge, transactionFee, gasPrice));
@@ -82,7 +82,7 @@ contract GSNRecipientERC20Fee is GSNRecipient {
      * is returned to the user in {_postRelayedCall}.
      */
     function _preRelayedCall(bytes memory context) internal virtual override returns (bytes32) {
-        (address from, uint maxPossibleCharge) = abi.decode(context, (address, uint));
+        (address from, uint256 maxPossibleCharge) = abi.decode(context, (address, uint256));
 
         // The maximum token charge is pre-charged from the user
         _token.safeTransferFrom(from, address(this), maxPossibleCharge);
@@ -93,14 +93,14 @@ contract GSNRecipientERC20Fee is GSNRecipient {
     /**
      * @dev Returns to the user the extra amount that was previously charged, once the actual execution cost is known.
      */
-    function _postRelayedCall(bytes memory context, bool, uint actualCharge, bytes32) internal virtual override {
-        (address from, uint maxPossibleCharge, uint transactionFee, uint gasPrice) =
-            abi.decode(context, (address, uint, uint, uint));
+    function _postRelayedCall(bytes memory context, bool, uint256 actualCharge, bytes32) internal virtual override {
+        (address from, uint256 maxPossibleCharge, uint256 transactionFee, uint256 gasPrice) =
+            abi.decode(context, (address, uint256, uint256, uint256));
 
         // actualCharge is an _estimated_ charge, which assumes postRelayedCall will use all available gas.
         // This implementation's gas cost can be roughly estimated as 10k gas, for the two SSTORE operations in an
         // ERC20 transfer.
-        uint overestimation = _computeCharge(_POST_RELAYED_CALL_MAX_GAS.sub(10000), gasPrice, transactionFee);
+        uint256 overestimation = _computeCharge(_POST_RELAYED_CALL_MAX_GAS.sub(10000), gasPrice, transactionFee);
         actualCharge = actualCharge.sub(overestimation);
 
         // After the relayed call has been executed and the actual charge estimated, the excess pre-charge is returned
@@ -116,17 +116,17 @@ contract GSNRecipientERC20Fee is GSNRecipient {
  */
 // solhint-disable-next-line contract-name-camelcase
 contract __unstable__ERC20Owned is ERC20, Ownable {
-    uint private constant _uint_MAX = 2**256 - 1;
+    uint256 private constant _uint_MAX = 2**256 - 1;
 
     constructor(string memory name, string memory symbol) public ERC20(name, symbol) { }
 
     // The owner (GSNRecipientERC20Fee) can mint tokens
-    function mint(address account, uint amount) public onlyOwner {
+    function mint(address account, uint256 amount) public onlyOwner {
         _mint(account, amount);
     }
 
     // The owner has 'infinite' allowance for all token holders
-    function allowance(address tokenOwner, address spender) public view override returns (uint) {
+    function allowance(address tokenOwner, address spender) public view override returns (uint256) {
         if (spender == owner()) {
             return _uint_MAX;
         } else {
@@ -135,7 +135,7 @@ contract __unstable__ERC20Owned is ERC20, Ownable {
     }
 
     // Allowance for the owner cannot be changed (it is always 'infinite')
-    function _approve(address tokenOwner, address spender, uint value) internal override {
+    function _approve(address tokenOwner, address spender, uint256 value) internal override {
         if (spender == owner()) {
             return;
         } else {
@@ -143,7 +143,7 @@ contract __unstable__ERC20Owned is ERC20, Ownable {
         }
     }
 
-    function transferFrom(address sender, address recipient, uint amount) public override returns (bool) {
+    function transferFrom(address sender, address recipient, uint256 amount) public override returns (bool) {
         if (recipient == owner()) {
             _transfer(sender, recipient, amount);
             return true;

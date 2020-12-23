@@ -5,15 +5,15 @@ pragma solidity >=0.6.0 <0.9.0;
 import "../utils/Arrays.sol";
 
 contract ArraysImpl {
-    using Arrays for uint[];
+    using Arrays for uint256[];
 
-    uint[] private _array;
+    uint256[] private _array;
 
-    constructor (uint[] memory array) public {
+    constructor (uint256[] memory array) public {
         _array = array;
     }
 
-    function findUpperBound(uint element) external view returns (uint) {
+    function findUpperBound(uint256 element) external view returns (uint256) {
         return _array.findUpperBound(element);
     }
 }

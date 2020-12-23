@@ -9,7 +9,7 @@ import "../validation/TimedCrowdsale.sol";
  * can do extra work after finishing.
  */
 contract FinalizableCrowdsale is TimedCrowdsale {
-    using SafeMath for uint;
+    using SafeMath for uint256;
 
     bool private _finalized;
 

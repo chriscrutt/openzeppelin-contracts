@@ -10,7 +10,7 @@ contract ERC20SnapshotMock is ERC20Snapshot {
         string memory name,
         string memory symbol,
         address initialAccount,
-        uint initialBalance
+        uint256 initialBalance
     ) public ERC20(name, symbol) {
         _mint(initialAccount, initialBalance);
     }
@@ -19,11 +19,11 @@ contract ERC20SnapshotMock is ERC20Snapshot {
         _snapshot();
     }
 
-    function mint(address account, uint amount) public {
+    function mint(address account, uint256 amount) public {
         _mint(account, amount);
     }
 
-    function burn(address account, uint amount) public {
+    function burn(address account, uint256 amount) public {
         _burn(account, amount);
     }
 }

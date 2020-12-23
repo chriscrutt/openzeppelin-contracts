@@ -7,7 +7,7 @@ contract CallReceiverMock {
 
     event MockFunctionCalled();
 
-    uint[] private _array;
+    uint256[] private _array;
 
     function mockFunction() public payable returns (string memory) {
         emit MockFunctionCalled();
@@ -38,7 +38,7 @@ contract CallReceiverMock {
     }
 
     function mockFunctionOutOfGas() public payable {
-        for (uint i = 0; ; ++i) {
+        for (uint256 i = 0; ; ++i) {
             _array.push(i);
         }
     }

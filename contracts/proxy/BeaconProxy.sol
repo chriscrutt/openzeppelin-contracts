@@ -9,13 +9,13 @@ import "./IBeacon.sol";
 /**
  * @dev This contract implements a proxy that gets the implementation address for each call from a {UpgradeableBeacon}.
  *
- * The beacon address is stored in storage slot `uint(keccak256('eip1967.proxy.beacon')) - 1`, so that it doesn't
+ * The beacon address is stored in storage slot `uint256(keccak256('eip1967.proxy.beacon')) - 1`, so that it doesn't
  * conflict with the storage layout of the implementation behind the proxy.
  */
 contract BeaconProxy is Proxy {
     /**
      * @dev The storage slot of the UpgradeableBeacon contract which defines the implementation for this proxy.
-     * This is bytes32(uint(keccak256('eip1967.proxy.beacon')) - 1)) and is validated in the constructor.
+     * This is bytes32(uint256(keccak256('eip1967.proxy.beacon')) - 1)) and is validated in the constructor.
      */
     bytes32 private constant _BEACON_SLOT = 0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50;
 
@@ -31,7 +31,7 @@ contract BeaconProxy is Proxy {
      * - `beacon` must be a contract with the interface {IBeacon}.
      */
     constructor(address beacon, bytes memory data) public payable {
-        assert(_BEACON_SLOT == bytes32(uint(keccak256("eip1967.proxy.beacon")) - 1));
+        assert(_BEACON_SLOT == bytes32(uint256(keccak256("eip1967.proxy.beacon")) - 1));
         _setBeacon(beacon, data);
     }
 

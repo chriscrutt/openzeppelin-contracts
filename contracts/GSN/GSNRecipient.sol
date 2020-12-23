@@ -21,11 +21,11 @@ abstract contract GSNRecipient is IRelayRecipient, Context {
     // Default RelayHub address, deployed on mainnet and all testnets at the same address
     address private _relayHub = 0xD216153c06E857cD7f72665E0aF1d7D82172F494;
 
-    uint constant private _RELAYED_CALL_ACCEPTED = 0;
-    uint constant private _RELAYED_CALL_REJECTED = 11;
+    uint256 constant private _RELAYED_CALL_ACCEPTED = 0;
+    uint256 constant private _RELAYED_CALL_REJECTED = 11;
 
     // How much gas is forwarded to postRelayedCall
-    uint constant internal _POST_RELAYED_CALL_MAX_GAS = 100000;
+    uint256 constant internal _POST_RELAYED_CALL_MAX_GAS = 100000;
 
     /**
      * @dev Emitted when a contract changes its {IRelayHub} contract to a new one.
@@ -72,7 +72,7 @@ abstract contract GSNRecipient is IRelayRecipient, Context {
      *
      * Derived contracts should expose this in an external interface with proper access control.
      */
-    function _withdrawDeposits(uint amount, address payable payee) internal virtual {
+    function _withdrawDeposits(uint256 amount, address payable payee) internal virtual {
         IRelayHub(_relayHub).withdraw(amount, payee);
     }
 
@@ -144,7 +144,7 @@ abstract contract GSNRecipient is IRelayRecipient, Context {
      *
      * - the caller must be the `RelayHub` contract.
      */
-    function postRelayedCall(bytes memory context, bool success, uint actualCharge, bytes32 preRetVal) public virtual override {
+    function postRelayedCall(bytes memory context, bool success, uint256 actualCharge, bytes32 preRetVal) public virtual override {
         require(msg.sender == getHubAddr(), "GSNRecipient: caller is not RelayHub");
         _postRelayedCall(context, success, actualCharge, preRetVal);
     }
@@ -156,13 +156,13 @@ abstract contract GSNRecipient is IRelayRecipient, Context {
      * must implement this function with any relayed-call postprocessing they may wish to do.
      *
      */
-    function _postRelayedCall(bytes memory context, bool success, uint actualCharge, bytes32 preRetVal) internal virtual;
+    function _postRelayedCall(bytes memory context, bool success, uint256 actualCharge, bytes32 preRetVal) internal virtual;
 
     /**
      * @dev Return this in acceptRelayedCall to proceed with the execution of a relayed call. Note that this contract
      * will be charged a fee by RelayHub
      */
-    function _approveRelayedCall() internal pure returns (uint, bytes memory) {
+    function _approveRelayedCall() internal pure returns (uint256, bytes memory) {
         return _approveRelayedCall("");
     }
 
@@ -171,14 +171,14 @@ abstract contract GSNRecipient is IRelayRecipient, Context {
      *
      * This overload forwards `context` to _preRelayedCall and _postRelayedCall.
      */
-    function _approveRelayedCall(bytes memory context) internal pure returns (uint, bytes memory) {
+    function _approveRelayedCall(bytes memory context) internal pure returns (uint256, bytes memory) {
         return (_RELAYED_CALL_ACCEPTED, context);
     }
 
     /**
      * @dev Return this in acceptRelayedCall to impede execution of a relayed call. No fees will be charged.
      */
-    function _rejectRelayedCall(uint errorCode) internal pure returns (uint, bytes memory) {
+    function _rejectRelayedCall(uint256 errorCode) internal pure returns (uint256, bytes memory) {
         return (_RELAYED_CALL_REJECTED + errorCode, "");
     }
 
@@ -186,7 +186,7 @@ abstract contract GSNRecipient is IRelayRecipient, Context {
      * @dev Calculates how much RelayHub will charge a recipient for using `gas` at a `gasPrice`, given a relayer's
      * `serviceFee`.
      */
-    function _computeCharge(uint gas, uint gasPrice, uint serviceFee) internal pure returns (uint) {
+    function _computeCharge(uint256 gas, uint256 gasPrice, uint256 serviceFee) internal pure returns (uint256) {
         // The fee is expressed as a percentage. E.g. a value of 40 stands for a 40% fee, so the recipient will be
         // charged for 1.4 times the spent amount.
         return (gas * gasPrice * (100 + serviceFee)) / 100;
@@ -204,7 +204,7 @@ abstract contract GSNRecipient is IRelayRecipient, Context {
 
         // These fields are not accessible from assembly
         bytes memory array = msg.data;
-        uint index = msg.data.length;
+        uint256 index = msg.data.length;
 
         // solhint-disable-next-line no-inline-assembly
         assembly {
@@ -218,10 +218,10 @@ abstract contract GSNRecipient is IRelayRecipient, Context {
         // RelayHub appends the sender address at the end of the calldata, so in order to retrieve the actual msg.data,
         // we must strip the last 20 bytes (length of an address type) from it.
 
-        uint actualDataLength = msg.data.length - 20;
+        uint256 actualDataLength = msg.data.length - 20;
         bytes memory actualData = new bytes(actualDataLength);
 
-        for (uint i = 0; i < actualDataLength; ++i) {
+        for (uint256 i = 0; i < actualDataLength; ++i) {
             actualData[i] = msg.data[i];
         }
 

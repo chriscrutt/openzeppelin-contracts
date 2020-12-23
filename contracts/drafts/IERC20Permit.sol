@@ -32,7 +32,7 @@ interface IERC20Permit {
      * https://eips.ethereum.org/EIPS/eip-2612#specification[relevant EIP
      * section].
      */
-    function permit(address owner, address spender, uint amount, uint deadline, uint8 v, bytes32 r, bytes32 s) external;
+    function permit(address owner, address spender, uint256 amount, uint256 deadline, uint8 v, bytes32 r, bytes32 s) external;
 
     /**
      * @dev Returns the current nonce for `owner`. This value must be
@@ -41,7 +41,7 @@ interface IERC20Permit {
      * Every successful call to {permit} increases ``owner``'s nonce by one. This
      * prevents a signature from being used multiple times.
      */
-    function nonces(address owner) external view returns (uint);
+    function nonces(address owner) external view returns (uint256);
 
     /**
      * @dev Returns the domain separator used in the encoding of the signature for `permit`, as defined by {EIP712}.

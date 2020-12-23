@@ -32,13 +32,13 @@ contract SampleCrowdsaleToken is ERC20Mintable, ERC20Detailed {
  */
 contract SampleCrowdsale is CappedCrowdsale, RefundableCrowdsale, MintedCrowdsale {
     constructor (
-        uint openingTime,
-        uint closingTime,
-        uint rate,
+        uint256 openingTime,
+        uint256 closingTime,
+        uint256 rate,
         address payable wallet,
-        uint cap,
+        uint256 cap,
         ERC20Mintable token,
-        uint goal
+        uint256 goal
     )
         public
         Crowdsale(rate, wallet, token)

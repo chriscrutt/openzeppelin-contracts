@@ -26,8 +26,8 @@ abstract contract ERC1155Pausable is ERC1155, Pausable {
         address operator,
         address from,
         address to,
-        uint[] memory ids,
-        uint[] memory amounts,
+        uint256[] memory ids,
+        uint256[] memory amounts,
         bytes memory data
     )
         internal virtual override

@@ -9952,7 +9952,7 @@
                                                     },
                                                     "typeName": {
                                                         "id": 339,
-                                                        "name": "uint",
+                                                        "name": "uint256",
                                                         "nodeType": "ElementaryTypeName",
                                                         "src": "950:4:2",
                                                         "typeDescriptions": {
@@ -10167,7 +10167,7 @@
                                             },
                                             "typeName": {
                                                 "id": 331,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "895:4:2",
                                                 "typeDescriptions": {
@@ -10193,7 +10193,7 @@
                                             },
                                             "typeName": {
                                                 "id": 333,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "903:4:2",
                                                 "typeDescriptions": {
@@ -10226,7 +10226,7 @@
                                             },
                                             "typeName": {
                                                 "id": 336,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "934:4:2",
                                                 "typeDescriptions": {
@@ -10378,7 +10378,7 @@
                                             },
                                             "typeName": {
                                                 "id": 357,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "1330:4:2",
                                                 "typeDescriptions": {
@@ -10404,7 +10404,7 @@
                                             },
                                             "typeName": {
                                                 "id": 359,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "1338:4:2",
                                                 "typeDescriptions": {
@@ -10437,7 +10437,7 @@
                                             },
                                             "typeName": {
                                                 "id": 362,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "1369:4:2",
                                                 "typeDescriptions": {
@@ -10585,7 +10585,7 @@
                                                     },
                                                     "typeName": {
                                                         "id": 391,
-                                                        "name": "uint",
+                                                        "name": "uint256",
                                                         "nodeType": "ElementaryTypeName",
                                                         "src": "1868:4:2",
                                                         "typeDescriptions": {
@@ -10694,7 +10694,7 @@
                                             },
                                             "typeName": {
                                                 "id": 374,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "1746:4:2",
                                                 "typeDescriptions": {
@@ -10720,7 +10720,7 @@
                                             },
                                             "typeName": {
                                                 "id": 376,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "1754:4:2",
                                                 "typeDescriptions": {
@@ -10779,7 +10779,7 @@
                                             },
                                             "typeName": {
                                                 "id": 381,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "1813:4:2",
                                                 "typeDescriptions": {
@@ -10905,7 +10905,7 @@
                                                     },
                                                     "typeName": {
                                                         "id": 417,
-                                                        "name": "uint",
+                                                        "name": "uint256",
                                                         "nodeType": "ElementaryTypeName",
                                                         "src": "2496:4:2",
                                                         "typeDescriptions": {
@@ -11150,7 +11150,7 @@
                                             },
                                             "typeName": {
                                                 "id": 402,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "2168:4:2",
                                                 "typeDescriptions": {
@@ -11176,7 +11176,7 @@
                                             },
                                             "typeName": {
                                                 "id": 404,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "2176:4:2",
                                                 "typeDescriptions": {
@@ -11209,7 +11209,7 @@
                                             },
                                             "typeName": {
                                                 "id": 407,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "2207:4:2",
                                                 "typeDescriptions": {
@@ -11361,7 +11361,7 @@
                                             },
                                             "typeName": {
                                                 "id": 437,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "3077:4:2",
                                                 "typeDescriptions": {
@@ -11387,7 +11387,7 @@
                                             },
                                             "typeName": {
                                                 "id": 439,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "3085:4:2",
                                                 "typeDescriptions": {
@@ -11420,7 +11420,7 @@
                                             },
                                             "typeName": {
                                                 "id": 442,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "3116:4:2",
                                                 "typeDescriptions": {
@@ -11572,7 +11572,7 @@
                                                     },
                                                     "typeName": {
                                                         "id": 471,
-                                                        "name": "uint",
+                                                        "name": "uint256",
                                                         "nodeType": "ElementaryTypeName",
                                                         "src": "3801:4:2",
                                                         "typeDescriptions": {
@@ -11681,7 +11681,7 @@
                                             },
                                             "typeName": {
                                                 "id": 454,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "3680:4:2",
                                                 "typeDescriptions": {
@@ -11707,7 +11707,7 @@
                                             },
                                             "typeName": {
                                                 "id": 456,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "3688:4:2",
                                                 "typeDescriptions": {
@@ -11766,7 +11766,7 @@
                                             },
                                             "typeName": {
                                                 "id": 461,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "3747:4:2",
                                                 "typeDescriptions": {
@@ -11918,7 +11918,7 @@
                                             },
                                             "typeName": {
                                                 "id": 482,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "4391:4:2",
                                                 "typeDescriptions": {
@@ -11944,7 +11944,7 @@
                                             },
                                             "typeName": {
                                                 "id": 484,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "4399:4:2",
                                                 "typeDescriptions": {
@@ -11977,7 +11977,7 @@
                                             },
                                             "typeName": {
                                                 "id": 487,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "4430:4:2",
                                                 "typeDescriptions": {
@@ -12190,7 +12190,7 @@
                                             },
                                             "typeName": {
                                                 "id": 499,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "4981:4:2",
                                                 "typeDescriptions": {
@@ -12216,7 +12216,7 @@
                                             },
                                             "typeName": {
                                                 "id": 501,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "4989:4:2",
                                                 "typeDescriptions": {
@@ -12275,7 +12275,7 @@
                                             },
                                             "typeName": {
                                                 "id": 506,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "5048:4:2",
                                                 "typeDescriptions": {
@@ -12388,7 +12388,7 @@
                                             },
                                             "typeName": {
                                                 "id": 528,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "277:4:3",
                                                 "typeDescriptions": {
@@ -12475,7 +12475,7 @@
                                             },
                                             "typeName": {
                                                 "id": 536,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "425:4:3",
                                                 "typeDescriptions": {
@@ -12555,7 +12555,7 @@
                                             },
                                             "typeName": {
                                                 "id": 543,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "688:4:3",
                                                 "typeDescriptions": {
@@ -12702,7 +12702,7 @@
                                             },
                                             "typeName": {
                                                 "id": 556,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "1074:4:3",
                                                 "typeDescriptions": {
@@ -12782,7 +12782,7 @@
                                             },
                                             "typeName": {
                                                 "id": 563,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "1767:4:3",
                                                 "typeDescriptions": {
@@ -12922,7 +12922,7 @@
                                             },
                                             "typeName": {
                                                 "id": 575,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "2168:4:3",
                                                 "typeDescriptions": {
@@ -13062,7 +13062,7 @@
                                             },
                                             "typeName": {
                                                 "id": 587,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "2431:4:3",
                                                 "typeDescriptions": {
@@ -13165,7 +13165,7 @@
                                             },
                                             "typeName": {
                                                 "id": 596,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "2665:4:3",
                                                 "typeDescriptions": {
@@ -13289,7 +13289,7 @@
                                 "src": "640:24:4",
                                 "typeName": {
                                     "id": 608,
-                                    "name": "uint",
+                                    "name": "uint256",
                                     "nodeType": "ElementaryTypeName",
                                     "src": "659:4:4",
                                     "typeDescriptions": {
@@ -13595,7 +13595,7 @@
                                             },
                                             "typeName": {
                                                 "id": 618,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "749:4:4",
                                                 "typeDescriptions": {
@@ -13937,7 +13937,7 @@
                                             },
                                             "typeName": {
                                                 "id": 643,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "945:4:4",
                                                 "typeDescriptions": {
@@ -14559,7 +14559,7 @@
                                             },
                                             "typeName": {
                                                 "id": 668,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "1391:4:4",
                                                 "typeDescriptions": {
@@ -14611,7 +14611,7 @@
                                                     },
                                                     "typeName": {
                                                         "id": 715,
-                                                        "name": "uint",
+                                                        "name": "uint256",
                                                         "nodeType": "ElementaryTypeName",
                                                         "src": "2048:4:4",
                                                         "typeDescriptions": {
@@ -15068,7 +15068,7 @@
                                             },
                                             "typeName": {
                                                 "id": 711,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "2017:4:4",
                                                 "typeDescriptions": {
@@ -15120,7 +15120,7 @@
                                                     },
                                                     "typeName": {
                                                         "id": 752,
-                                                        "name": "uint",
+                                                        "name": "uint256",
                                                         "nodeType": "ElementaryTypeName",
                                                         "src": "2331:4:4",
                                                         "typeDescriptions": {
@@ -15597,7 +15597,7 @@
                                             },
                                             "typeName": {
                                                 "id": 748,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "2300:4:4",
                                                 "typeDescriptions": {
@@ -16202,7 +16202,7 @@
                                                     },
                                                     "typeName": {
                                                         "id": 830,
-                                                        "name": "uint",
+                                                        "name": "uint256",
                                                         "nodeType": "ElementaryTypeName",
                                                         "src": "989:4:5",
                                                         "typeDescriptions": {
@@ -16858,7 +16858,7 @@
                                             },
                                             "typeName": {
                                                 "id": 843,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "2099:4:5",
                                                 "typeDescriptions": {
@@ -17551,7 +17551,7 @@
                                             },
                                             "typeName": {
                                                 "id": 916,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "4196:4:5",
                                                 "typeDescriptions": {
@@ -18138,7 +18138,7 @@
                                     "id": 931,
                                     "nodeType": "StructuredDocumentation",
                                     "src": "4357:234:5",
-                                    "text": " @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint-}[`functionCallWithValue`], but\n with `errorMessage` as a fallback revert reason when `target` reverts.\n _Available since v3.1._"
+                                    "text": " @dev Same as {xref-Address-functionCallWithValue-address-bytes-uint256-}[`functionCallWithValue`], but\n with `errorMessage` as a fallback revert reason when `target` reverts.\n _Available since v3.1._"
                                 },
                                 "id": 980,
                                 "implemented": true,
@@ -18219,7 +18219,7 @@
                                             },
                                             "typeName": {
                                                 "id": 936,
-                                                "name": "uint",
+                                                "name": "uint256",
                                                 "nodeType": "ElementaryTypeName",
                                                 "src": "4662:4:5",
                                                 "typeDescriptions": {

@@ -14,7 +14,7 @@ contract MintedCrowdsale is Crowdsale {
      * @param beneficiary Token purchaser
      * @param tokenAmount Number of tokens to be minted
      */
-    function _deliverTokens(address beneficiary, uint tokenAmount) internal {
+    function _deliverTokens(address beneficiary, uint256 tokenAmount) internal {
         // Potentially dangerous assumption about the type of the token.
         require(
             ERC20Mintable(address(token())).mint(beneficiary, tokenAmount),

@@ -51,7 +51,7 @@ contract SupportsInterfaceWithLookupMock is IERC165 {
 
 contract ERC165InterfacesSupported is SupportsInterfaceWithLookupMock {
     constructor (bytes4[] memory interfaceIds) public {
-        for (uint i = 0; i < interfaceIds.length; i++) {
+        for (uint256 i = 0; i < interfaceIds.length; i++) {
             _registerInterface(interfaceIds[i]);
         }
     }

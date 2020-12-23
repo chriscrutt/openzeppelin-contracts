@@ -56,7 +56,7 @@ library ERC165Checker {
         }
 
         // query support of each interface in _interfaceIds
-        for (uint i = 0; i < interfaceIds.length; i++) {
+        for (uint256 i = 0; i < interfaceIds.length; i++) {
             if (!_supportsERC165Interface(account, interfaceIds[i])) {
                 return false;
             }

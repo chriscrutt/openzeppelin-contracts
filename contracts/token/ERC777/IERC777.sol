@@ -30,17 +30,17 @@ interface IERC777 {
      *
      * For most token contracts, this value will equal 1.
      */
-    function granularity() external view returns (uint);
+    function granularity() external view returns (uint256);
 
     /**
      * @dev Returns the amount of tokens in existence.
      */
-    function totalSupply() external view returns (uint);
+    function totalSupply() external view returns (uint256);
 
     /**
      * @dev Returns the amount of tokens owned by an account (`owner`).
      */
-    function balanceOf(address owner) external view returns (uint);
+    function balanceOf(address owner) external view returns (uint256);
 
     /**
      * @dev Moves `amount` tokens from the caller's account to `recipient`.
@@ -58,7 +58,7 @@ interface IERC777 {
      * - if `recipient` is a contract, it must implement the {IERC777Recipient}
      * interface.
      */
-    function send(address recipient, uint amount, bytes calldata data) external;
+    function send(address recipient, uint256 amount, bytes calldata data) external;
 
     /**
      * @dev Destroys `amount` tokens from the caller's account, reducing the
@@ -73,7 +73,7 @@ interface IERC777 {
      *
      * - the caller must have at least `amount` tokens.
      */
-    function burn(uint amount, bytes calldata data) external;
+    function burn(uint256 amount, bytes calldata data) external;
 
     /**
      * @dev Returns true if an account is an operator of `tokenHolder`.
@@ -142,7 +142,7 @@ interface IERC777 {
     function operatorSend(
         address sender,
         address recipient,
-        uint amount,
+        uint256 amount,
         bytes calldata data,
         bytes calldata operatorData
     ) external;
@@ -164,7 +164,7 @@ interface IERC777 {
      */
     function operatorBurn(
         address account,
-        uint amount,
+        uint256 amount,
         bytes calldata data,
         bytes calldata operatorData
     ) external;
@@ -173,14 +173,14 @@ interface IERC777 {
         address indexed operator,
         address indexed from,
         address indexed to,
-        uint amount,
+        uint256 amount,
         bytes data,
         bytes operatorData
     );
 
-    event Minted(address indexed operator, address indexed to, uint amount, bytes data, bytes operatorData);
+    event Minted(address indexed operator, address indexed to, uint256 amount, bytes data, bytes operatorData);
 
-    event Burned(address indexed operator, address indexed from, uint amount, bytes data, bytes operatorData);
+    event Burned(address indexed operator, address indexed from, uint256 amount, bytes data, bytes operatorData);
 
     event AuthorizedOperator(address indexed operator, address indexed tokenHolder);
 

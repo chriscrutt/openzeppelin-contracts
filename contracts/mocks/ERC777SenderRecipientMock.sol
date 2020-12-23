@@ -14,24 +14,24 @@ contract ERC777SenderRecipientMock is Context, IERC777Sender, IERC777Recipient, 
         address operator,
         address from,
         address to,
-        uint amount,
+        uint256 amount,
         bytes data,
         bytes operatorData,
         address token,
-        uint fromBalance,
-        uint toBalance
+        uint256 fromBalance,
+        uint256 toBalance
     );
 
     event TokensReceivedCalled(
         address operator,
         address from,
         address to,
-        uint amount,
+        uint256 amount,
         bytes data,
         bytes operatorData,
         address token,
-        uint fromBalance,
-        uint toBalance
+        uint256 fromBalance,
+        uint256 toBalance
     );
 
     bool private _shouldRevertSend;
@@ -46,7 +46,7 @@ contract ERC777SenderRecipientMock is Context, IERC777Sender, IERC777Recipient, 
         address operator,
         address from,
         address to,
-        uint amount,
+        uint256 amount,
         bytes calldata userData,
         bytes calldata operatorData
     ) external override {
@@ -56,9 +56,9 @@ contract ERC777SenderRecipientMock is Context, IERC777Sender, IERC777Recipient, 
 
         IERC777 token = IERC777(_msgSender());
 
-        uint fromBalance = token.balanceOf(from);
+        uint256 fromBalance = token.balanceOf(from);
         // when called due to burn, to will be the zero address, which will have a balance of 0
-        uint toBalance = token.balanceOf(to);
+        uint256 toBalance = token.balanceOf(to);
 
         emit TokensToSendCalled(
             operator,
@@ -77,7 +77,7 @@ contract ERC777SenderRecipientMock is Context, IERC777Sender, IERC777Recipient, 
         address operator,
         address from,
         address to,
-        uint amount,
+        uint256 amount,
         bytes calldata userData,
         bytes calldata operatorData
     ) external override {
@@ -87,9 +87,9 @@ contract ERC777SenderRecipientMock is Context, IERC777Sender, IERC777Recipient, 
 
         IERC777 token = IERC777(_msgSender());
 
-        uint fromBalance = token.balanceOf(from);
+        uint256 fromBalance = token.balanceOf(from);
         // when called due to burn, to will be the zero address, which will have a balance of 0
-        uint toBalance = token.balanceOf(to);
+        uint256 toBalance = token.balanceOf(to);
 
         emit TokensReceivedCalled(
             operator,
@@ -138,12 +138,12 @@ contract ERC777SenderRecipientMock is Context, IERC777Sender, IERC777Recipient, 
         _shouldRevertReceive = shouldRevert;
     }
 
-    function send(IERC777 token, address to, uint amount, bytes memory data) public {
+    function send(IERC777 token, address to, uint256 amount, bytes memory data) public {
         // This is 777's send function, not the Solidity send function
         token.send(to, amount, data); // solhint-disable-line check-send-result
     }
 
-    function burn(IERC777 token, uint amount, bytes memory data) public {
+    function burn(IERC777 token, uint256 amount, bytes memory data) public {
         token.burn(amount, data);
     }
 }

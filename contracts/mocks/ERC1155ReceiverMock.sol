@@ -11,8 +11,8 @@ contract ERC1155ReceiverMock is IERC1155Receiver, ERC165Mock {
     bytes4 private _batRetval;
     bool private _batReverts;
 
-    event Received(address operator, address from, uint id, uint value, bytes data, uint gas);
-    event BatchReceived(address operator, address from, uint[] ids, uint[] values, bytes data, uint gas);
+    event Received(address operator, address from, uint256 id, uint256 value, bytes data, uint256 gas);
+    event BatchReceived(address operator, address from, uint256[] ids, uint256[] values, bytes data, uint256 gas);
 
     constructor (
         bytes4 recRetval,
@@ -31,8 +31,8 @@ contract ERC1155ReceiverMock is IERC1155Receiver, ERC165Mock {
     function onERC1155Received(
         address operator,
         address from,
-        uint id,
-        uint value,
+        uint256 id,
+        uint256 value,
         bytes calldata data
     )
         external
@@ -47,8 +47,8 @@ contract ERC1155ReceiverMock is IERC1155Receiver, ERC165Mock {
     function onERC1155BatchReceived(
         address operator,
         address from,
-        uint[] calldata ids,
-        uint[] calldata values,
+        uint256[] calldata ids,
+        uint256[] calldata values,
         bytes calldata data
     )
         external

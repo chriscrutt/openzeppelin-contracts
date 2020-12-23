@@ -35,15 +35,15 @@ abstract contract ERC20Snapshot is ERC20 {
     // Inspired by Jordi Baylina's MiniMeToken to record historical balances:
     // https://github.com/Giveth/minimd/blob/ea04d950eea153a04c51fa510b068b9dded390cb/contracts/MiniMeToken.sol
 
-    using SafeMath for uint;
-    using Arrays for uint[];
+    using SafeMath for uint256;
+    using Arrays for uint256[];
     using Counters for Counters.Counter;
 
     // Snapshotted values have arrays of ids and the value corresponding to that id. These could be an array of a
     // Snapshot struct, but that would impede usage of functions that work on an array.
     struct Snapshots {
-        uint[] ids;
-        uint[] values;
+        uint256[] ids;
+        uint256[] values;
     }
 
     mapping (address => Snapshots) private _accountBalanceSnapshots;
@@ -55,7 +55,7 @@ abstract contract ERC20Snapshot is ERC20 {
     /**
      * @dev Emitted by {_snapshot} when a snapshot identified by `id` is created.
      */
-    event Snapshot(uint id);
+    event Snapshot(uint256 id);
 
     /**
      * @dev Creates a new snapshot and returns its snapshot id.
@@ -78,10 +78,10 @@ abstract contract ERC20Snapshot is ERC20 {
      * We haven't measured the actual numbers; if this is something you're interested in please reach out to us.
      * ====
      */
-    function _snapshot() internal virtual returns (uint) {
+    function _snapshot() internal virtual returns (uint256) {
         _currentSnapshotId.increment();
 
-        uint currentId = _currentSnapshotId.current();
+        uint256 currentId = _currentSnapshotId.current();
         emit Snapshot(currentId);
         return currentId;
     }
@@ -89,8 +89,8 @@ abstract contract ERC20Snapshot is ERC20 {
     /**
      * @dev Retrieves the balance of `account` at the time `snapshotId` was created.
      */
-    function balanceOfAt(address account, uint snapshotId) public view returns (uint) {
-        (bool snapshotted, uint value) = _valueAt(snapshotId, _accountBalanceSnapshots[account]);
+    function balanceOfAt(address account, uint256 snapshotId) public view returns (uint256) {
+        (bool snapshotted, uint256 value) = _valueAt(snapshotId, _accountBalanceSnapshots[account]);
 
         return snapshotted ? value : balanceOf(account);
     }
@@ -98,8 +98,8 @@ abstract contract ERC20Snapshot is ERC20 {
     /**
      * @dev Retrieves the total supply at the time `snapshotId` was created.
      */
-    function totalSupplyAt(uint snapshotId) public view returns(uint) {
-        (bool snapshotted, uint value) = _valueAt(snapshotId, _totalSupplySnapshots);
+    function totalSupplyAt(uint256 snapshotId) public view returns(uint256) {
+        (bool snapshotted, uint256 value) = _valueAt(snapshotId, _totalSupplySnapshots);
 
         return snapshotted ? value : totalSupply();
     }
@@ -107,7 +107,7 @@ abstract contract ERC20Snapshot is ERC20 {
 
     // Update balance and/or total supply snapshots before the values are modified. This is implemented
     // in the _beforeTokenTransfer hook, which is executed for _mint, _burn, and _transfer operations.
-    function _beforeTokenTransfer(address from, address to, uint amount) internal virtual override {
+    function _beforeTokenTransfer(address from, address to, uint256 amount) internal virtual override {
       super._beforeTokenTransfer(from, to, amount);
 
       if (from == address(0)) {
@@ -125,8 +125,8 @@ abstract contract ERC20Snapshot is ERC20 {
       }
     }
 
-    function _valueAt(uint snapshotId, Snapshots storage snapshots)
-        private view returns (bool, uint)
+    function _valueAt(uint256 snapshotId, Snapshots storage snapshots)
+        private view returns (bool, uint256)
     {
         require(snapshotId > 0, "ERC20Snapshot: id is 0");
         // solhint-disable-next-line max-line-length
@@ -146,7 +146,7 @@ abstract contract ERC20Snapshot is ERC20 {
         // it is not found, unless said value doesn't exist (e.g. when all values are smaller). Arrays.findUpperBound does
         // exactly this.
 
-        uint index = snapshots.ids.findUpperBound(snapshotId);
+        uint256 index = snapshots.ids.findUpperBound(snapshotId);
 
         if (index == snapshots.ids.length) {
             return (false, 0);
@@ -163,15 +163,15 @@ abstract contract ERC20Snapshot is ERC20 {
         _updateSnapshot(_totalSupplySnapshots, totalSupply());
     }
 
-    function _updateSnapshot(Snapshots storage snapshots, uint currentValue) private {
-        uint currentId = _currentSnapshotId.current();
+    function _updateSnapshot(Snapshots storage snapshots, uint256 currentValue) private {
+        uint256 currentId = _currentSnapshotId.current();
         if (_lastSnapshotId(snapshots.ids) < currentId) {
             snapshots.ids.push(currentId);
             snapshots.values.push(currentValue);
         }
     }
 
-    function _lastSnapshotId(uint[] storage ids) private view returns (uint) {
+    function _lastSnapshotId(uint256[] storage ids) private view returns (uint256) {
         if (ids.length == 0) {
             return 0;
         } else {

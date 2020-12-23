@@ -22,12 +22,12 @@ interface IRelayHub {
      *
      * Emits a {Staked} event.
      */
-    function stake(address relayaddr, uint unstakeDelay) external payable;
+    function stake(address relayaddr, uint256 unstakeDelay) external payable;
 
     /**
      * @dev Emitted when a relay's stake or unstakeDelay are increased
      */
-    event Staked(address indexed relay, uint stake, uint unstakeDelay);
+    event Staked(address indexed relay, uint256 stake, uint256 unstakeDelay);
 
     /**
      * @dev Registers the caller as a relay.
@@ -38,13 +38,13 @@ interface IRelayHub {
      *
      * Emits a {RelayAdded} event.
      */
-    function registerRelay(uint transactionFee, string calldata url) external;
+    function registerRelay(uint256 transactionFee, string calldata url) external;
 
     /**
      * @dev Emitted when a relay is registered or re-registered. Looking at these events (and filtering out
      * {RelayRemoved} events) lets a client discover the list of available relays.
      */
-    event RelayAdded(address indexed relay, address indexed owner, uint transactionFee, uint stake, uint unstakeDelay, string url);
+    event RelayAdded(address indexed relay, address indexed owner, uint256 transactionFee, uint256 stake, uint256 unstakeDelay, string url);
 
     /**
      * @dev Removes (deregisters) a relay. Unregistered (but staked for) relays can also be removed.
@@ -59,7 +59,7 @@ interface IRelayHub {
     /**
      * @dev Emitted when a relay is removed (deregistered). `unstakeTime` is the time when unstake will be callable.
      */
-    event RelayRemoved(address indexed relay, uint unstakeTime);
+    event RelayRemoved(address indexed relay, uint256 unstakeTime);
 
     /** Deletes the relay from the system, and gives back its stake to the owner.
      *
@@ -72,7 +72,7 @@ interface IRelayHub {
     /**
      * @dev Emitted when a relay is unstaked for, including the returned stake.
      */
-    event Unstaked(address indexed relay, uint stake);
+    event Unstaked(address indexed relay, uint256 stake);
 
     // States a relay can be in
     enum RelayState {
@@ -86,7 +86,7 @@ interface IRelayHub {
      * @dev Returns a relay's status. Note that relays can be deleted when unstaked or penalized, causing this function
      * to return an empty entry.
      */
-    function getRelay(address relay) external view returns (uint totalStake, uint unstakeDelay, uint unstakeTime, address payable owner, RelayState state);
+    function getRelay(address relay) external view returns (uint256 totalStake, uint256 unstakeDelay, uint256 unstakeTime, address payable owner, RelayState state);
 
     // Balance management
 
@@ -102,12 +102,12 @@ interface IRelayHub {
     /**
      * @dev Emitted when {depositFor} is called, including the amount and account that was funded.
      */
-    event Deposited(address indexed recipient, address indexed from, uint amount);
+    event Deposited(address indexed recipient, address indexed from, uint256 amount);
 
     /**
      * @dev Returns an account's deposits. These can be either a contract's funds, or a relay owner's revenue.
      */
-    function balanceOf(address target) external view returns (uint);
+    function balanceOf(address target) external view returns (uint256);
 
     /**
      * Withdraws from an account's balance, sending it back to it. Relay owners call this to retrieve their revenue, and
@@ -115,12 +115,12 @@ interface IRelayHub {
      *
      * Emits a {Withdrawn} event.
      */
-    function withdraw(uint amount, address payable dest) external;
+    function withdraw(uint256 amount, address payable dest) external;
 
     /**
      * @dev Emitted when an account withdraws funds from `RelayHub`.
      */
-    event Withdrawn(address indexed account, address indexed dest, uint amount);
+    event Withdrawn(address indexed account, address indexed dest, uint256 amount);
 
     // Relaying
 
@@ -139,13 +139,13 @@ interface IRelayHub {
         address from,
         address to,
         bytes calldata encodedFunction,
-        uint transactionFee,
-        uint gasPrice,
-        uint gasLimit,
-        uint nonce,
+        uint256 transactionFee,
+        uint256 gasPrice,
+        uint256 gasLimit,
+        uint256 nonce,
         bytes calldata signature,
         bytes calldata approvalData
-    ) external view returns (uint status, bytes memory recipientContext);
+    ) external view returns (uint256 status, bytes memory recipientContext);
 
     // Preconditions for relaying, checked by canRelay and returned as the corresponding numeric values.
     enum PreconditionCheck {
@@ -189,10 +189,10 @@ interface IRelayHub {
         address from,
         address to,
         bytes calldata encodedFunction,
-        uint transactionFee,
-        uint gasPrice,
-        uint gasLimit,
-        uint nonce,
+        uint256 transactionFee,
+        uint256 gasPrice,
+        uint256 gasLimit,
+        uint256 nonce,
         bytes calldata signature,
         bytes calldata approvalData
     ) external;
@@ -206,7 +206,7 @@ interface IRelayHub {
      * The `reason` parameter contains an error code: values 1-10 correspond to `PreconditionCheck` entries, and values
      * over 10 are custom recipient error codes returned from {acceptRelayedCall}.
      */
-    event CanRelayFailed(address indexed relay, address indexed from, address indexed to, bytes4 selector, uint reason);
+    event CanRelayFailed(address indexed relay, address indexed from, address indexed to, bytes4 selector, uint256 reason);
 
     /**
      * @dev Emitted when a transaction is relayed.
@@ -216,7 +216,7 @@ interface IRelayHub {
      *
      * `charge` is the Ether value deducted from the recipient's balance, paid to the relay's owner.
      */
-    event TransactionRelayed(address indexed relay, address indexed from, address indexed to, bytes4 selector, RelayCallStatus status, uint charge);
+    event TransactionRelayed(address indexed relay, address indexed from, address indexed to, bytes4 selector, RelayCallStatus status, uint256 charge);
 
     // Reason error codes for the TransactionRelayed event
     enum RelayCallStatus {
@@ -231,12 +231,12 @@ interface IRelayHub {
      * @dev Returns how much gas should be forwarded to a call to {relayCall}, in order to relay a transaction that will
      * spend up to `relayedCallStipend` gas.
      */
-    function requiredGas(uint relayedCallStipend) external view returns (uint);
+    function requiredGas(uint256 relayedCallStipend) external view returns (uint256);
 
     /**
      * @dev Returns the maximum recipient charge, given the amount of gas forwarded, gas price and relay fee.
      */
-    function maxPossibleCharge(uint relayedCallStipend, uint gasPrice, uint transactionFee) external view returns (uint);
+    function maxPossibleCharge(uint256 relayedCallStipend, uint256 gasPrice, uint256 transactionFee) external view returns (uint256);
 
      // Relay penalization.
      // Any account can penalize relays, removing them from the system immediately, and rewarding the
@@ -259,11 +259,11 @@ interface IRelayHub {
     /**
      * @dev Emitted when a relay is penalized.
      */
-    event Penalized(address indexed relay, address sender, uint amount);
+    event Penalized(address indexed relay, address sender, uint256 amount);
 
     /**
      * @dev Returns an account's nonce in `RelayHub`.
      */
-    function getNonce(address from) external view returns (uint);
+    function getNonce(address from) external view returns (uint256);
 }
 
