@@ -35,9 +35,6 @@ contract ERC20_1L is Context, IERC20_1L {
 
     mapping(address => uint256) private _balances;
 
-    // mapping(address => bool) private _trustees;
-    address private _manager;
-
     uint256 private _totalSupply;
 
     string private _name;
@@ -61,9 +58,6 @@ contract ERC20_1L is Context, IERC20_1L {
         _name = name_;
         _symbol = symbol_;
         _decimals = decimals_;
-
-        // _trustees[_msgSender()] = true;
-        _manager = _msgSender();
     }
 
     /**
@@ -112,14 +106,6 @@ contract ERC20_1L is Context, IERC20_1L {
         return _balances[account];
     }
 
-    // function isTrustee(address _trustee) public view virtual returns (bool) {
-    //     return _trustees[_trustee];
-    // }
-
-    function manager() public view returns (address) {
-        return _manager;
-    }
-
     /**
      * @dev See {IERC20-transfer}.
      *
@@ -135,23 +121,6 @@ contract ERC20_1L is Context, IERC20_1L {
         returns (bool)
     {
         _transfer(recipient, amount);
-        return true;
-    }
-
-    function _approve(uint8 _case) private view returns (bool) {
-        if (_case == 0) {
-            require(
-                _msgSender() == _manager,
-                "Only the manager can make this approval"
-            );
-        // } else if (_case == 1) {
-        //     require(
-        //         _trustees[_msgSender()] == true,
-        //         "Only trustees can make approvals"
-        //     );
-        } else {
-            return false;
-        }
         return true;
     }
 
@@ -193,7 +162,6 @@ contract ERC20_1L is Context, IERC20_1L {
      */
     function _mint(address account, uint256 amount) internal virtual {
         require(account != address(0), "ERC20: mint to the zero address");
-        _approve(1);
 
         _beforeTokenTransfer(address(0), account, amount);
 
@@ -214,8 +182,6 @@ contract ERC20_1L is Context, IERC20_1L {
      * - `account` must have at least `amount` tokens.
      */
     function _burn(uint256 amount) internal virtual {
-        _approve(1);
-
         _beforeTokenTransfer(_msgSender(), address(0), amount);
 
         _balances[_msgSender()] = _balances[_msgSender()].sub(
@@ -225,30 +191,6 @@ contract ERC20_1L is Context, IERC20_1L {
         _totalSupply = _totalSupply.sub(amount);
         emit Transfer(_msgSender(), address(0), amount);
     }
-
-    // function _addTrustee(address newTrustee) internal virtual {
-    //     require(newTrustee != address(0), "ERC20: approve to the zero address");
-    //     _approve(0);
-
-    //     _trustees[newTrustee] = true;
-
-    //     // emit Approval(trustee, spender, amount);
-    // }
-
-    // function _removeTrustee(address trustee) internal virtual {
-    //     require(_manager != trustee, "Manager cannot remove themself");
-    //     require(_trustees[trustee] == true, "Trustee already not on board");
-
-    //     require(
-    //         _manager == _msgSender(),
-    //         "Must be approved by the current manager"
-    //     );
-
-    //     _trustees[trustee] = false;
-
-    //     // emit Approval(trustee, spender, amount);
-    // }
-
 
     /**
      * @dev Hook that is called before any transfer of tokens. This includes
