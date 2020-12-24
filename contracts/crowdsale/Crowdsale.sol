@@ -3,9 +3,9 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 import "../GSN/Context.sol";
-import "../token/ERC777/IERC777.sol";
+import "../token/ERC20/IERC20.sol";
 import "../math/SafeMath.sol";
-import "../token/ERC777/SafeERC777.sol";
+import "../token/ERC20/SafeERC20.sol";
 import "../utils/ReentrancyGuard.sol";
 
 /**
@@ -22,17 +22,17 @@ import "../utils/ReentrancyGuard.sol";
  */
 contract Crowdsale is Context, ReentrancyGuard {
     using SafeMath for uint256;
-    using SafeERC777 for IERC777;
+    using SafeERC20 for IERC20;
 
     // The token being sold
-    IERC777 private _token;
+    IERC20 private _token;
 
     // Address where funds are collected
     address payable private _wallet;
 
     // How many token units a buyer gets per wei.
     // The rate is the conversion between wei and the smallest and indivisible token unit.
-    // So, if you are using a rate of 1 with a ERC777Detailed token with 3 decimals called TOK
+    // So, if you are using a rate of 1 with a ERC20Detailed token with 3 decimals called TOK
     // 1 wei will give you 1 unit, or 0.001 TOK.
     uint256 private _rate;
 
@@ -56,7 +56,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     /**
      * @param rate_ Number of token units a buyer gets per wei
      * @dev The rate is the conversion between wei and the smallest and indivisible
-     * token unit. So, if you are using a rate of 1 with a ERC777Detailed token
+     * token unit. So, if you are using a rate of 1 with a ERC20Detailed token
      * with 3 decimals called TOK, 1 wei will give you 1 unit, or 0.001 TOK.
      * @param wallet_ Address where collected funds will be forwarded to
      * @param token_ Address of the token being sold
@@ -64,7 +64,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     constructor(
         uint256 rate_,
         address payable wallet_,
-        IERC777 token_
+        IERC20 token_
     ) {
         require(rate_ > 0, "Crowdsale: rate is 0");
         require(wallet_ != address(0), "Crowdsale: wallet is the zero address");
@@ -91,7 +91,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     /**
      * @return the token being sold.
      */
-    function token() public view returns (IERC777) {
+    function token() public view returns (IERC20) {
         return _token;
     }
 
@@ -186,7 +186,7 @@ contract Crowdsale is Context, ReentrancyGuard {
         internal
         virtual
     {
-        _token.safeSend(beneficiary, tokenAmount);
+        _token.safeTransfer(beneficiary, tokenAmount);
     }
 
     /**
