@@ -35,7 +35,7 @@ contract ERC20_1L is Context, IERC20_1L {
 
     mapping(address => uint256) private _balances;
 
-    mapping(address => bool) private _trustees;
+    // mapping(address => bool) private _trustees;
     address private _manager;
 
     uint256 private _totalSupply;
@@ -62,7 +62,7 @@ contract ERC20_1L is Context, IERC20_1L {
         _symbol = symbol_;
         _decimals = decimals_;
 
-        _trustees[_msgSender()] = true;
+        // _trustees[_msgSender()] = true;
         _manager = _msgSender();
     }
 
@@ -112,9 +112,9 @@ contract ERC20_1L is Context, IERC20_1L {
         return _balances[account];
     }
 
-    function isTrustee(address _trustee) public view virtual returns (bool) {
-        return _trustees[_trustee];
-    }
+    // function isTrustee(address _trustee) public view virtual returns (bool) {
+    //     return _trustees[_trustee];
+    // }
 
     function manager() public view returns (address) {
         return _manager;
@@ -144,11 +144,11 @@ contract ERC20_1L is Context, IERC20_1L {
                 _msgSender() == _manager,
                 "Only the manager can make this approval"
             );
-        } else if (_case == 1) {
-            require(
-                _trustees[_msgSender()] == true,
-                "Only trustees can make approvals"
-            );
+        // } else if (_case == 1) {
+        //     require(
+        //         _trustees[_msgSender()] == true,
+        //         "Only trustees can make approvals"
+        //     );
         } else {
             return false;
         }
@@ -226,37 +226,29 @@ contract ERC20_1L is Context, IERC20_1L {
         emit Transfer(_msgSender(), address(0), amount);
     }
 
-    function _addTrustee(address newTrustee) internal virtual {
-        require(newTrustee != address(0), "ERC20: approve to the zero address");
-        _approve(0);
+    // function _addTrustee(address newTrustee) internal virtual {
+    //     require(newTrustee != address(0), "ERC20: approve to the zero address");
+    //     _approve(0);
 
-        _trustees[newTrustee] = true;
+    //     _trustees[newTrustee] = true;
 
-        // emit Approval(trustee, spender, amount);
-    }
+    //     // emit Approval(trustee, spender, amount);
+    // }
 
-    function _removeTrustee(address trustee) internal virtual {
-        require(_manager != trustee, "Manager cannot remove themself");
-        require(_trustees[trustee] == true, "Trustee already not on board");
+    // function _removeTrustee(address trustee) internal virtual {
+    //     require(_manager != trustee, "Manager cannot remove themself");
+    //     require(_trustees[trustee] == true, "Trustee already not on board");
 
-        require(
-            _manager == _msgSender(),
-            "Must be approved by the current manager"
-        );
+    //     require(
+    //         _manager == _msgSender(),
+    //         "Must be approved by the current manager"
+    //     );
 
-        _trustees[trustee] = false;
+    //     _trustees[trustee] = false;
 
-        // emit Approval(trustee, spender, amount);
-    }
+    //     // emit Approval(trustee, spender, amount);
+    // }
 
-    function _changeManager(address newManager) internal virtual {
-        require(newManager != address(0), "ERC20: approve to the zero address");
-        _approve(0);
-
-        _trustees[newManager] = true;
-        _manager = newManager;
-        // emit Approval(trustee, spender, amount);
-    }
 
     /**
      * @dev Hook that is called before any transfer of tokens. This includes

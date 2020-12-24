@@ -3,7 +3,7 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 import "./ERC20_1Legit.sol";
-import "../../access/roles/MinterRole.sol";
+import "../../access/roles/TrusteeRole.sol";
 
 /**
  * @dev Extension of {ERC20} that adds a set of accounts with the {MinterRole},
@@ -11,7 +11,7 @@ import "../../access/roles/MinterRole.sol";
  *
  * At construction, the deployer of the contract is the only minter.
  */
-abstract contract MintableERC20_1L is ERC20_1L, MinterRole {
+abstract contract MintableERC20_1L is ERC20_1L, TrusteeRole {
     /**
      * @dev See {ERC20-_mint}.
      *
@@ -21,7 +21,7 @@ abstract contract MintableERC20_1L is ERC20_1L, MinterRole {
      */
     function mint(address account, uint256 amount)
         public
-        onlyMinter
+        onlyTrustee
         returns (bool)
     {
         _mint(account, amount);

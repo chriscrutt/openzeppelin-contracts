@@ -12,11 +12,11 @@ import "../token/ERC20/MintableERC20_1Legit.sol";
  * Note they can later distribute these tokens as they wish using `transfer` and other
  * `ERC20` functions.
  */
-contract SimpleLegitToken is Context, ERC20_1Legit, MintableERC20_1L {
+contract SimpleToken is Context, ERC20_1L, MintableERC20_1L {
     /**
      * @dev Constructor that gives _msgSender() all of existing tokens.
      */
-    constructor(uint tokens) ERC20_1Legit("SimpleLegitToken", "SLG", 18) {
+    constructor(uint256 tokens) ERC20_1L("SimpleToken", "SIM", 18) {
         _mint(_msgSender(), tokens * (10**uint256(decimals())));
     }
 }

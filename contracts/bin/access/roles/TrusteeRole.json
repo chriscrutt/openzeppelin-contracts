@@ -1,0 +1,2228 @@
+{
+    "contractName": "TrusteeRole",
+    "abi": [
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": true,
+                    "internalType": "address",
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "TrusteeAdded",
+            "type": "event"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": true,
+                    "internalType": "address",
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "TrusteeRemoved",
+            "type": "event"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "addTrustee",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "changeManager",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "isTrustee",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
+            "name": "renounceTrustee",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeRemoved\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"changeManager\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isTrustee\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/roles/TrusteeRole.sol\":\"TrusteeRole\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0x9897c91255b49f4e3077ab5e41f8b25697b6506dc19138ad20c83be77ae021d6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b6eddc83e7767302017fed60794dac4ca76bad17dbba9d6bd8f58553171e6398\",\"dweb:/ipfs/QmP3uWNgBMKrVtPtt1zn4bbgBC4c1nRU1K8cU7rwKnvvrX\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/Roles.sol\":{\"keccak256\":\"0xb4df1b9a849d50ddfe7c882cb5815cb14cc713410a01eb54dd4146ee3efd6caf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://503bae893deeb22b9c496b7a91233adc0c0454006d546c0911c5d9b5499471c6\",\"dweb:/ipfs/QmbCiqUtvUP8Vgwu8CkqD6MLc49XcJGqApHmUcdQ3dC2CT\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/roles/TrusteeRole.sol\":{\"keccak256\":\"0xc3911f7196c73f5a86d3a11eb3117b9e61dbf2fc09c385137d95ea9d9a3ec72d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8bcd13a8564a53f2e5e696d8a77d5eec6375969b66a262f3474cc53305e17f1e\",\"dweb:/ipfs/QmSWQDoxEFeaSCBJ9CiyCLdGPtUKeJXiU8PZr4JeetDfrt\"]}},\"version\":1}",
+    "bytecode": "",
+    "deployedBytecode": "",
+    "sourceMap": "",
+    "deployedSourceMap": "",
+    "sourcePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/access/roles/TrusteeRole.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.0+commit.c7dfd78e"
+    },
+    "ast": {
+        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/access/roles/TrusteeRole.sol",
+        "exportedSymbols": {
+            "Context": [
+                25
+            ],
+            "Roles": [
+                114
+            ],
+            "TrusteeRole": [
+                287
+            ]
+        },
+        "id": 288,
+        "license": "MIT",
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 116,
+                "literals": [
+                    "solidity",
+                    ">=",
+                    "0.6",
+                    ".0",
+                    "<",
+                    "0.9",
+                    ".0"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "33:31:2"
+            },
+            {
+                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol",
+                "file": "../../GSN/Context.sol",
+                "id": 117,
+                "nodeType": "ImportDirective",
+                "scope": 288,
+                "sourceUnit": 26,
+                "src": "66:31:2",
+                "symbolAliases": [],
+                "unitAlias": ""
+            },
+            {
+                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/access/Roles.sol",
+                "file": "../Roles.sol",
+                "id": 118,
+                "nodeType": "ImportDirective",
+                "scope": 288,
+                "sourceUnit": 115,
+                "src": "98:22:2",
+                "symbolAliases": [],
+                "unitAlias": ""
+            },
+            {
+                "abstract": true,
+                "baseContracts": [
+                    {
+                        "baseName": {
+                            "id": 119,
+                            "name": "Context",
+                            "nodeType": "IdentifierPath",
+                            "referencedDeclaration": 25,
+                            "src": "155:7:2"
+                        },
+                        "id": 120,
+                        "nodeType": "InheritanceSpecifier",
+                        "src": "155:7:2"
+                    }
+                ],
+                "contractDependencies": [
+                    25
+                ],
+                "contractKind": "contract",
+                "fullyImplemented": true,
+                "id": 287,
+                "linearizedBaseContracts": [
+                    287,
+                    25
+                ],
+                "name": "TrusteeRole",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "id": 124,
+                        "libraryName": {
+                            "id": 121,
+                            "name": "Roles",
+                            "nodeType": "IdentifierPath",
+                            "referencedDeclaration": 114,
+                            "src": "175:5:2"
+                        },
+                        "nodeType": "UsingForDirective",
+                        "src": "169:27:2",
+                        "typeName": {
+                            "id": 123,
+                            "nodeType": "UserDefinedTypeName",
+                            "pathNode": {
+                                "id": 122,
+                                "name": "Roles.Role",
+                                "nodeType": "IdentifierPath",
+                                "referencedDeclaration": 33,
+                                "src": "185:10:2"
+                            },
+                            "referencedDeclaration": 33,
+                            "src": "185:10:2",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Role_$33_storage_ptr",
+                                "typeString": "struct Roles.Role"
+                            }
+                        }
+                    },
+                    {
+                        "anonymous": false,
+                        "id": 128,
+                        "name": "TrusteeAdded",
+                        "nodeType": "EventDefinition",
+                        "parameters": {
+                            "id": 127,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 126,
+                                    "indexed": true,
+                                    "mutability": "mutable",
+                                    "name": "account",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 128,
+                                    "src": "221:23:2",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 125,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "221:7:2",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "220:25:2"
+                        },
+                        "src": "202:44:2"
+                    },
+                    {
+                        "anonymous": false,
+                        "id": 132,
+                        "name": "TrusteeRemoved",
+                        "nodeType": "EventDefinition",
+                        "parameters": {
+                            "id": 131,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 130,
+                                    "indexed": true,
+                                    "mutability": "mutable",
+                                    "name": "account",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 132,
+                                    "src": "272:23:2",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 129,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "272:7:2",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "271:25:2"
+                        },
+                        "src": "251:46:2"
+                    },
+                    {
+                        "constant": false,
+                        "id": 135,
+                        "mutability": "mutable",
+                        "name": "_trustees",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 287,
+                        "src": "303:28:2",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_struct$_Role_$33_storage",
+                            "typeString": "struct Roles.Role"
+                        },
+                        "typeName": {
+                            "id": 134,
+                            "nodeType": "UserDefinedTypeName",
+                            "pathNode": {
+                                "id": 133,
+                                "name": "Roles.Role",
+                                "nodeType": "IdentifierPath",
+                                "referencedDeclaration": 33,
+                                "src": "303:10:2"
+                            },
+                            "referencedDeclaration": 33,
+                            "src": "303:10:2",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_struct$_Role_$33_storage_ptr",
+                                "typeString": "struct Roles.Role"
+                            }
+                        },
+                        "visibility": "private"
+                    },
+                    {
+                        "constant": false,
+                        "id": 137,
+                        "mutability": "mutable",
+                        "name": "_manager",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 287,
+                        "src": "338:24:2",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                        },
+                        "typeName": {
+                            "id": 136,
+                            "name": "address",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "338:7:2",
+                            "stateMutability": "nonpayable",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                            }
+                        },
+                        "visibility": "private"
+                    },
+                    {
+                        "body": {
+                            "id": 150,
+                            "nodeType": "Block",
+                            "src": "383:75:2",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "arguments": [],
+                                                "expression": {
+                                                    "argumentTypes": [],
+                                                    "id": 141,
+                                                    "name": "_msgSender",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 13,
+                                                    "src": "405:10:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_function_internal_view$__$returns$_t_address_payable_$",
+                                                        "typeString": "function () view returns (address payable)"
+                                                    }
+                                                },
+                                                "id": 142,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "kind": "functionCall",
+                                                "lValueRequested": false,
+                                                "names": [],
+                                                "nodeType": "FunctionCall",
+                                                "src": "405:12:2",
+                                                "tryCall": false,
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address_payable",
+                                                    "typeString": "address payable"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address_payable",
+                                                    "typeString": "address payable"
+                                                }
+                                            ],
+                                            "id": 140,
+                                            "name": "_addTrustee",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 214,
+                                            "src": "393:11:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                                                "typeString": "function (address)"
+                                            }
+                                        },
+                                        "id": 143,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "393:25:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 144,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "393:25:2"
+                                },
+                                {
+                                    "expression": {
+                                        "id": 148,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 145,
+                                            "name": "_manager",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 137,
+                                            "src": "428:8:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "arguments": [],
+                                            "expression": {
+                                                "argumentTypes": [],
+                                                "id": 146,
+                                                "name": "_msgSender",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 13,
+                                                "src": "439:10:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_function_internal_view$__$returns$_t_address_payable_$",
+                                                    "typeString": "function () view returns (address payable)"
+                                                }
+                                            },
+                                            "id": 147,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "kind": "functionCall",
+                                            "lValueRequested": false,
+                                            "names": [],
+                                            "nodeType": "FunctionCall",
+                                            "src": "439:12:2",
+                                            "tryCall": false,
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address_payable",
+                                                "typeString": "address payable"
+                                            }
+                                        },
+                                        "src": "428:23:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "id": 149,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "428:23:2"
+                                }
+                            ]
+                        },
+                        "id": 151,
+                        "implemented": true,
+                        "kind": "constructor",
+                        "modifiers": [],
+                        "name": "",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 138,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "380:2:2"
+                        },
+                        "returnParameters": {
+                            "id": 139,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "383:0:2"
+                        },
+                        "scope": 287,
+                        "src": "369:89:2",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "internal"
+                    },
+                    {
+                        "body": {
+                            "id": 162,
+                            "nodeType": "Block",
+                            "src": "487:148:2",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "arguments": [
+                                                    {
+                                                        "arguments": [],
+                                                        "expression": {
+                                                            "argumentTypes": [],
+                                                            "id": 155,
+                                                            "name": "_msgSender",
+                                                            "nodeType": "Identifier",
+                                                            "overloadedDeclarations": [],
+                                                            "referencedDeclaration": 13,
+                                                            "src": "528:10:2",
+                                                            "typeDescriptions": {
+                                                                "typeIdentifier": "t_function_internal_view$__$returns$_t_address_payable_$",
+                                                                "typeString": "function () view returns (address payable)"
+                                                            }
+                                                        },
+                                                        "id": 156,
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": false,
+                                                        "kind": "functionCall",
+                                                        "lValueRequested": false,
+                                                        "names": [],
+                                                        "nodeType": "FunctionCall",
+                                                        "src": "528:12:2",
+                                                        "tryCall": false,
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_address_payable",
+                                                            "typeString": "address payable"
+                                                        }
+                                                    }
+                                                ],
+                                                "expression": {
+                                                    "argumentTypes": [
+                                                        {
+                                                            "typeIdentifier": "t_address_payable",
+                                                            "typeString": "address payable"
+                                                        }
+                                                    ],
+                                                    "id": 154,
+                                                    "name": "isTrustee",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 176,
+                                                    "src": "518:9:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
+                                                        "typeString": "function (address) view returns (bool)"
+                                                    }
+                                                },
+                                                "id": 157,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "kind": "functionCall",
+                                                "lValueRequested": false,
+                                                "names": [],
+                                                "nodeType": "FunctionCall",
+                                                "src": "518:23:2",
+                                                "tryCall": false,
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                }
+                                            },
+                                            {
+                                                "hexValue": "54727573746565526f6c653a2063616c6c657220646f6573206e6f74206861766520746865205472757374656520726f6c65",
+                                                "id": 158,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": true,
+                                                "kind": "string",
+                                                "lValueRequested": false,
+                                                "nodeType": "Literal",
+                                                "src": "555:52:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_stringliteral_ff9cd10413148fb68446d4386094f4fc99bdc3b64a037aa72f099c83c1298c11",
+                                                    "typeString": "literal_string \"TrusteeRole: caller does not have the Trustee role\""
+                                                },
+                                                "value": "TrusteeRole: caller does not have the Trustee role"
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                },
+                                                {
+                                                    "typeIdentifier": "t_stringliteral_ff9cd10413148fb68446d4386094f4fc99bdc3b64a037aa72f099c83c1298c11",
+                                                    "typeString": "literal_string \"TrusteeRole: caller does not have the Trustee role\""
+                                                }
+                                            ],
+                                            "id": 153,
+                                            "name": "require",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [
+                                                4294967278,
+                                                4294967278
+                                            ],
+                                            "referencedDeclaration": 4294967278,
+                                            "src": "497:7:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                                "typeString": "function (bool,string memory) pure"
+                                            }
+                                        },
+                                        "id": 159,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "497:120:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 160,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "497:120:2"
+                                },
+                                {
+                                    "id": 161,
+                                    "nodeType": "PlaceholderStatement",
+                                    "src": "627:1:2"
+                                }
+                            ]
+                        },
+                        "id": 163,
+                        "name": "onlyTrustee",
+                        "nodeType": "ModifierDefinition",
+                        "parameters": {
+                            "id": 152,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "484:2:2"
+                        },
+                        "src": "464:171:2",
+                        "virtual": false,
+                        "visibility": "internal"
+                    },
+                    {
+                        "body": {
+                            "id": 175,
+                            "nodeType": "Block",
+                            "src": "704:46:2",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "id": 172,
+                                                "name": "account",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 165,
+                                                "src": "735:7:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            ],
+                                            "expression": {
+                                                "id": 170,
+                                                "name": "_trustees",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 135,
+                                                "src": "721:9:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_struct$_Role_$33_storage",
+                                                    "typeString": "struct Roles.Role storage ref"
+                                                }
+                                            },
+                                            "id": 171,
+                                            "isConstant": false,
+                                            "isLValue": true,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberName": "has",
+                                            "nodeType": "MemberAccess",
+                                            "referencedDeclaration": 113,
+                                            "src": "721:13:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_internal_view$_t_struct$_Role_$33_storage_ptr_$_t_address_$returns$_t_bool_$bound_to$_t_struct$_Role_$33_storage_ptr_$",
+                                                "typeString": "function (struct Roles.Role storage pointer,address) view returns (bool)"
+                                            }
+                                        },
+                                        "id": 173,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "721:22:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_bool",
+                                            "typeString": "bool"
+                                        }
+                                    },
+                                    "functionReturnParameters": 169,
+                                    "id": 174,
+                                    "nodeType": "Return",
+                                    "src": "714:29:2"
+                                }
+                            ]
+                        },
+                        "functionSelector": "c784cd17",
+                        "id": 176,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "isTrustee",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 166,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 165,
+                                    "mutability": "mutable",
+                                    "name": "account",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 176,
+                                    "src": "660:15:2",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 164,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "660:7:2",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "659:17:2"
+                        },
+                        "returnParameters": {
+                            "id": 169,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 168,
+                                    "mutability": "mutable",
+                                    "name": "",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 176,
+                                    "src": "698:4:2",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_bool",
+                                        "typeString": "bool"
+                                    },
+                                    "typeName": {
+                                        "id": 167,
+                                        "name": "bool",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "698:4:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_bool",
+                                            "typeString": "bool"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "697:6:2"
+                        },
+                        "scope": 287,
+                        "src": "641:109:2",
+                        "stateMutability": "view",
+                        "virtual": false,
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 187,
+                            "nodeType": "Block",
+                            "src": "812:37:2",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "id": 184,
+                                                "name": "account",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 178,
+                                                "src": "834:7:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            ],
+                                            "id": 183,
+                                            "name": "_addTrustee",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 214,
+                                            "src": "822:11:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                                                "typeString": "function (address)"
+                                            }
+                                        },
+                                        "id": 185,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "822:20:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 186,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "822:20:2"
+                                }
+                            ]
+                        },
+                        "functionSelector": "dc78ac1c",
+                        "id": 188,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [
+                            {
+                                "id": 181,
+                                "modifierName": {
+                                    "id": 180,
+                                    "name": "onlyTrustee",
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 163,
+                                    "src": "800:11:2"
+                                },
+                                "nodeType": "ModifierInvocation",
+                                "src": "800:11:2"
+                            }
+                        ],
+                        "name": "addTrustee",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 179,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 178,
+                                    "mutability": "mutable",
+                                    "name": "account",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 188,
+                                    "src": "776:15:2",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 177,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "776:7:2",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "775:17:2"
+                        },
+                        "returnParameters": {
+                            "id": 182,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "812:0:2"
+                        },
+                        "scope": 287,
+                        "src": "756:93:2",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 197,
+                            "nodeType": "Block",
+                            "src": "904:40:2",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "id": 194,
+                                                "name": "account",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 190,
+                                                "src": "929:7:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            ],
+                                            "id": 193,
+                                            "name": "_removeTrustee",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 249,
+                                            "src": "914:14:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                                                "typeString": "function (address)"
+                                            }
+                                        },
+                                        "id": 195,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "914:23:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 196,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "914:23:2"
+                                }
+                            ]
+                        },
+                        "functionSelector": "3723451c",
+                        "id": 198,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "renounceTrustee",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 191,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 190,
+                                    "mutability": "mutable",
+                                    "name": "account",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 198,
+                                    "src": "880:15:2",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 189,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "880:7:2",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "879:17:2"
+                        },
+                        "returnParameters": {
+                            "id": 192,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "904:0:2"
+                        },
+                        "scope": 287,
+                        "src": "855:89:2",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 213,
+                            "nodeType": "Block",
+                            "src": "997:75:2",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "id": 206,
+                                                "name": "account",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 200,
+                                                "src": "1021:7:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            ],
+                                            "expression": {
+                                                "id": 203,
+                                                "name": "_trustees",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 135,
+                                                "src": "1007:9:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_struct$_Role_$33_storage",
+                                                    "typeString": "struct Roles.Role storage ref"
+                                                }
+                                            },
+                                            "id": 205,
+                                            "isConstant": false,
+                                            "isLValue": true,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberName": "add",
+                                            "nodeType": "MemberAccess",
+                                            "referencedDeclaration": 60,
+                                            "src": "1007:13:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$33_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$33_storage_ptr_$",
+                                                "typeString": "function (struct Roles.Role storage pointer,address)"
+                                            }
+                                        },
+                                        "id": 207,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "1007:22:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 208,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "1007:22:2"
+                                },
+                                {
+                                    "eventCall": {
+                                        "arguments": [
+                                            {
+                                                "id": 210,
+                                                "name": "account",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 200,
+                                                "src": "1057:7:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            ],
+                                            "id": 209,
+                                            "name": "TrusteeAdded",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 128,
+                                            "src": "1044:12:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                                                "typeString": "function (address)"
+                                            }
+                                        },
+                                        "id": 211,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "1044:21:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 212,
+                                    "nodeType": "EmitStatement",
+                                    "src": "1039:26:2"
+                                }
+                            ]
+                        },
+                        "id": 214,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "_addTrustee",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 201,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 200,
+                                    "mutability": "mutable",
+                                    "name": "account",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 214,
+                                    "src": "971:15:2",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 199,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "971:7:2",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "970:17:2"
+                        },
+                        "returnParameters": {
+                            "id": 202,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "997:0:2"
+                        },
+                        "scope": 287,
+                        "src": "950:122:2",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "internal"
+                    },
+                    {
+                        "body": {
+                            "id": 248,
+                            "nodeType": "Block",
+                            "src": "1128:225:2",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "commonType": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                },
+                                                "id": 222,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "leftExpression": {
+                                                    "id": 220,
+                                                    "name": "account",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 216,
+                                                    "src": "1146:7:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                },
+                                                "nodeType": "BinaryOperation",
+                                                "operator": "!=",
+                                                "rightExpression": {
+                                                    "id": 221,
+                                                    "name": "_manager",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 137,
+                                                    "src": "1157:8:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                },
+                                                "src": "1146:19:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                }
+                                            },
+                                            {
+                                                "hexValue": "43616e6e6f742072656d6f7665206d616e616765722061732074727573746565",
+                                                "id": 223,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": true,
+                                                "kind": "string",
+                                                "lValueRequested": false,
+                                                "nodeType": "Literal",
+                                                "src": "1167:34:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_stringliteral_424596a2ae65d2f846632191cfc682ee0b530597414462f3cb0632e695c1a7ce",
+                                                    "typeString": "literal_string \"Cannot remove manager as trustee\""
+                                                },
+                                                "value": "Cannot remove manager as trustee"
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                },
+                                                {
+                                                    "typeIdentifier": "t_stringliteral_424596a2ae65d2f846632191cfc682ee0b530597414462f3cb0632e695c1a7ce",
+                                                    "typeString": "literal_string \"Cannot remove manager as trustee\""
+                                                }
+                                            ],
+                                            "id": 219,
+                                            "name": "require",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [
+                                                4294967278,
+                                                4294967278
+                                            ],
+                                            "referencedDeclaration": 4294967278,
+                                            "src": "1138:7:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                                "typeString": "function (bool,string memory) pure"
+                                            }
+                                        },
+                                        "id": 224,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "1138:64:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 225,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "1138:64:2"
+                                },
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "commonType": {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                },
+                                                "id": 235,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "leftExpression": {
+                                                    "commonType": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    },
+                                                    "id": 230,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "lValueRequested": false,
+                                                    "leftExpression": {
+                                                        "arguments": [],
+                                                        "expression": {
+                                                            "argumentTypes": [],
+                                                            "id": 227,
+                                                            "name": "_msgSender",
+                                                            "nodeType": "Identifier",
+                                                            "overloadedDeclarations": [],
+                                                            "referencedDeclaration": 13,
+                                                            "src": "1221:10:2",
+                                                            "typeDescriptions": {
+                                                                "typeIdentifier": "t_function_internal_view$__$returns$_t_address_payable_$",
+                                                                "typeString": "function () view returns (address payable)"
+                                                            }
+                                                        },
+                                                        "id": 228,
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": false,
+                                                        "kind": "functionCall",
+                                                        "lValueRequested": false,
+                                                        "names": [],
+                                                        "nodeType": "FunctionCall",
+                                                        "src": "1221:12:2",
+                                                        "tryCall": false,
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_address_payable",
+                                                            "typeString": "address payable"
+                                                        }
+                                                    },
+                                                    "nodeType": "BinaryOperation",
+                                                    "operator": "==",
+                                                    "rightExpression": {
+                                                        "id": 229,
+                                                        "name": "_manager",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 137,
+                                                        "src": "1237:8:2",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_address",
+                                                            "typeString": "address"
+                                                        }
+                                                    },
+                                                    "src": "1221:24:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_bool",
+                                                        "typeString": "bool"
+                                                    }
+                                                },
+                                                "nodeType": "BinaryOperation",
+                                                "operator": "||",
+                                                "rightExpression": {
+                                                    "commonType": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    },
+                                                    "id": 234,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "lValueRequested": false,
+                                                    "leftExpression": {
+                                                        "arguments": [],
+                                                        "expression": {
+                                                            "argumentTypes": [],
+                                                            "id": 231,
+                                                            "name": "_msgSender",
+                                                            "nodeType": "Identifier",
+                                                            "overloadedDeclarations": [],
+                                                            "referencedDeclaration": 13,
+                                                            "src": "1249:10:2",
+                                                            "typeDescriptions": {
+                                                                "typeIdentifier": "t_function_internal_view$__$returns$_t_address_payable_$",
+                                                                "typeString": "function () view returns (address payable)"
+                                                            }
+                                                        },
+                                                        "id": 232,
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": false,
+                                                        "kind": "functionCall",
+                                                        "lValueRequested": false,
+                                                        "names": [],
+                                                        "nodeType": "FunctionCall",
+                                                        "src": "1249:12:2",
+                                                        "tryCall": false,
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_address_payable",
+                                                            "typeString": "address payable"
+                                                        }
+                                                    },
+                                                    "nodeType": "BinaryOperation",
+                                                    "operator": "==",
+                                                    "rightExpression": {
+                                                        "id": 233,
+                                                        "name": "account",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 216,
+                                                        "src": "1265:7:2",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_address",
+                                                            "typeString": "address"
+                                                        }
+                                                    },
+                                                    "src": "1249:23:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_bool",
+                                                        "typeString": "bool"
+                                                    }
+                                                },
+                                                "src": "1221:51:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                }
+                                            ],
+                                            "id": 226,
+                                            "name": "require",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [
+                                                4294967278,
+                                                4294967278
+                                            ],
+                                            "referencedDeclaration": 4294967278,
+                                            "src": "1213:7:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                                                "typeString": "function (bool) pure"
+                                            }
+                                        },
+                                        "id": 236,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "1213:60:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 237,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "1213:60:2"
+                                },
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "id": 241,
+                                                "name": "account",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 216,
+                                                "src": "1300:7:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            ],
+                                            "expression": {
+                                                "id": 238,
+                                                "name": "_trustees",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 135,
+                                                "src": "1283:9:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_struct$_Role_$33_storage",
+                                                    "typeString": "struct Roles.Role storage ref"
+                                                }
+                                            },
+                                            "id": 240,
+                                            "isConstant": false,
+                                            "isLValue": true,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "memberName": "remove",
+                                            "nodeType": "MemberAccess",
+                                            "referencedDeclaration": 86,
+                                            "src": "1283:16:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_internal_nonpayable$_t_struct$_Role_$33_storage_ptr_$_t_address_$returns$__$bound_to$_t_struct$_Role_$33_storage_ptr_$",
+                                                "typeString": "function (struct Roles.Role storage pointer,address)"
+                                            }
+                                        },
+                                        "id": 242,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "1283:25:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 243,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "1283:25:2"
+                                },
+                                {
+                                    "eventCall": {
+                                        "arguments": [
+                                            {
+                                                "id": 245,
+                                                "name": "account",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 216,
+                                                "src": "1338:7:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            ],
+                                            "id": 244,
+                                            "name": "TrusteeRemoved",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 132,
+                                            "src": "1323:14:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_event_nonpayable$_t_address_$returns$__$",
+                                                "typeString": "function (address)"
+                                            }
+                                        },
+                                        "id": 246,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "1323:23:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 247,
+                                    "nodeType": "EmitStatement",
+                                    "src": "1318:28:2"
+                                }
+                            ]
+                        },
+                        "id": 249,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "_removeTrustee",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 217,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 216,
+                                    "mutability": "mutable",
+                                    "name": "account",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 249,
+                                    "src": "1102:15:2",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 215,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1102:7:2",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "1101:17:2"
+                        },
+                        "returnParameters": {
+                            "id": 218,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1128:0:2"
+                        },
+                        "scope": 287,
+                        "src": "1078:275:2",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "internal"
+                    },
+                    {
+                        "body": {
+                            "id": 285,
+                            "nodeType": "Block",
+                            "src": "1406:262:2",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "commonType": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                },
+                                                "id": 257,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "leftExpression": {
+                                                    "id": 255,
+                                                    "name": "account",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 251,
+                                                    "src": "1424:7:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                },
+                                                "nodeType": "BinaryOperation",
+                                                "operator": "!=",
+                                                "rightExpression": {
+                                                    "id": 256,
+                                                    "name": "_manager",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 137,
+                                                    "src": "1435:8:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                },
+                                                "src": "1424:19:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                }
+                                            },
+                                            {
+                                                "hexValue": "4163636f756e7420697320616c7265616479206d616e61676572",
+                                                "id": 258,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": true,
+                                                "kind": "string",
+                                                "lValueRequested": false,
+                                                "nodeType": "Literal",
+                                                "src": "1445:28:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_stringliteral_3bbce824ce341a7b3f5e6b6dcb2a911ebcc69d0d0910b518380d379cf71b03f1",
+                                                    "typeString": "literal_string \"Account is already manager\""
+                                                },
+                                                "value": "Account is already manager"
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                },
+                                                {
+                                                    "typeIdentifier": "t_stringliteral_3bbce824ce341a7b3f5e6b6dcb2a911ebcc69d0d0910b518380d379cf71b03f1",
+                                                    "typeString": "literal_string \"Account is already manager\""
+                                                }
+                                            ],
+                                            "id": 254,
+                                            "name": "require",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [
+                                                4294967278,
+                                                4294967278
+                                            ],
+                                            "referencedDeclaration": 4294967278,
+                                            "src": "1416:7:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                                "typeString": "function (bool,string memory) pure"
+                                            }
+                                        },
+                                        "id": 259,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "1416:58:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 260,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "1416:58:2"
+                                },
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "commonType": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                },
+                                                "id": 267,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "leftExpression": {
+                                                    "id": 262,
+                                                    "name": "account",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 251,
+                                                    "src": "1492:7:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                },
+                                                "nodeType": "BinaryOperation",
+                                                "operator": "!=",
+                                                "rightExpression": {
+                                                    "arguments": [
+                                                        {
+                                                            "hexValue": "30",
+                                                            "id": 265,
+                                                            "isConstant": false,
+                                                            "isLValue": false,
+                                                            "isPure": true,
+                                                            "kind": "number",
+                                                            "lValueRequested": false,
+                                                            "nodeType": "Literal",
+                                                            "src": "1511:1:2",
+                                                            "typeDescriptions": {
+                                                                "typeIdentifier": "t_rational_0_by_1",
+                                                                "typeString": "int_const 0"
+                                                            },
+                                                            "value": "0"
+                                                        }
+                                                    ],
+                                                    "expression": {
+                                                        "argumentTypes": [
+                                                            {
+                                                                "typeIdentifier": "t_rational_0_by_1",
+                                                                "typeString": "int_const 0"
+                                                            }
+                                                        ],
+                                                        "id": 264,
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": true,
+                                                        "lValueRequested": false,
+                                                        "nodeType": "ElementaryTypeNameExpression",
+                                                        "src": "1503:7:2",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_type$_t_address_$",
+                                                            "typeString": "type(address)"
+                                                        },
+                                                        "typeName": {
+                                                            "id": 263,
+                                                            "name": "address",
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "src": "1503:7:2",
+                                                            "typeDescriptions": {}
+                                                        }
+                                                    },
+                                                    "id": 266,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": true,
+                                                    "kind": "typeConversion",
+                                                    "lValueRequested": false,
+                                                    "names": [],
+                                                    "nodeType": "FunctionCall",
+                                                    "src": "1503:10:2",
+                                                    "tryCall": false,
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                },
+                                                "src": "1492:21:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                }
+                                            },
+                                            {
+                                                "hexValue": "43616e6e6f7420736574206d616e6167657220746f205a65726f2061646472657373",
+                                                "id": 268,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": true,
+                                                "kind": "string",
+                                                "lValueRequested": false,
+                                                "nodeType": "Literal",
+                                                "src": "1515:36:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_stringliteral_6eff8bc1995b7c764da8003bfac29261568db45d2fae145416f69e62980d1e2f",
+                                                    "typeString": "literal_string \"Cannot set manager to Zero address\""
+                                                },
+                                                "value": "Cannot set manager to Zero address"
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                },
+                                                {
+                                                    "typeIdentifier": "t_stringliteral_6eff8bc1995b7c764da8003bfac29261568db45d2fae145416f69e62980d1e2f",
+                                                    "typeString": "literal_string \"Cannot set manager to Zero address\""
+                                                }
+                                            ],
+                                            "id": 261,
+                                            "name": "require",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [
+                                                4294967278,
+                                                4294967278
+                                            ],
+                                            "referencedDeclaration": 4294967278,
+                                            "src": "1484:7:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
+                                                "typeString": "function (bool,string memory) pure"
+                                            }
+                                        },
+                                        "id": 269,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "1484:68:2",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 270,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "1484:68:2"
+                                },
+                                {
+                                    "condition": {
+                                        "id": 274,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "nodeType": "UnaryOperation",
+                                        "operator": "!",
+                                        "prefix": true,
+                                        "src": "1567:19:2",
+                                        "subExpression": {
+                                            "arguments": [
+                                                {
+                                                    "id": 272,
+                                                    "name": "account",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 251,
+                                                    "src": "1578:7:2",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                }
+                                            ],
+                                            "expression": {
+                                                "argumentTypes": [
+                                                    {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                ],
+                                                "id": 271,
+                                                "name": "isTrustee",
+                                                "nodeType": "Identifier",
+                                                "overloadedDeclarations": [],
+                                                "referencedDeclaration": 176,
+                                                "src": "1568:9:2",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_bool_$",
+                                                    "typeString": "function (address) view returns (bool)"
+                                                }
+                                            },
+                                            "id": 273,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "kind": "functionCall",
+                                            "lValueRequested": false,
+                                            "names": [],
+                                            "nodeType": "FunctionCall",
+                                            "src": "1568:18:2",
+                                            "tryCall": false,
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_bool",
+                                                "typeString": "bool"
+                                            }
+                                        },
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_bool",
+                                            "typeString": "bool"
+                                        }
+                                    },
+                                    "id": 280,
+                                    "nodeType": "IfStatement",
+                                    "src": "1563:70:2",
+                                    "trueBody": {
+                                        "id": 279,
+                                        "nodeType": "Block",
+                                        "src": "1588:45:2",
+                                        "statements": [
+                                            {
+                                                "expression": {
+                                                    "arguments": [
+                                                        {
+                                                            "id": 276,
+                                                            "name": "account",
+                                                            "nodeType": "Identifier",
+                                                            "overloadedDeclarations": [],
+                                                            "referencedDeclaration": 251,
+                                                            "src": "1614:7:2",
+                                                            "typeDescriptions": {
+                                                                "typeIdentifier": "t_address",
+                                                                "typeString": "address"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "expression": {
+                                                        "argumentTypes": [
+                                                            {
+                                                                "typeIdentifier": "t_address",
+                                                                "typeString": "address"
+                                                            }
+                                                        ],
+                                                        "id": 275,
+                                                        "name": "_addTrustee",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 214,
+                                                        "src": "1602:11:2",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
+                                                            "typeString": "function (address)"
+                                                        }
+                                                    },
+                                                    "id": 277,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "kind": "functionCall",
+                                                    "lValueRequested": false,
+                                                    "names": [],
+                                                    "nodeType": "FunctionCall",
+                                                    "src": "1602:20:2",
+                                                    "tryCall": false,
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_tuple$__$",
+                                                        "typeString": "tuple()"
+                                                    }
+                                                },
+                                                "id": 278,
+                                                "nodeType": "ExpressionStatement",
+                                                "src": "1602:20:2"
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "expression": {
+                                        "id": 283,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 281,
+                                            "name": "_manager",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 137,
+                                            "src": "1643:8:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "id": 282,
+                                            "name": "account",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 251,
+                                            "src": "1654:7:2",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            }
+                                        },
+                                        "src": "1643:18:2",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "id": 284,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "1643:18:2"
+                                }
+                            ]
+                        },
+                        "functionSelector": "a3fbbaae",
+                        "id": 286,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "changeManager",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 252,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 251,
+                                    "mutability": "mutable",
+                                    "name": "account",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 286,
+                                    "src": "1382:15:2",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 250,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "1382:7:2",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "1381:17:2"
+                        },
+                        "returnParameters": {
+                            "id": 253,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "1406:0:2"
+                        },
+                        "scope": 287,
+                        "src": "1359:309:2",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "public"
+                    }
+                ],
+                "scope": 288,
+                "src": "122:1548:2"
+            }
+        ],
+        "src": "33:1638:2"
+    },
+    "functionHashes": {
+        "addTrustee(address)": "dc78ac1c",
+        "changeManager(address)": "a3fbbaae",
+        "isTrustee(address)": "c784cd17",
+        "renounceTrustee(address)": "3723451c"
+    },
+    "gasEstimates": null
+}
