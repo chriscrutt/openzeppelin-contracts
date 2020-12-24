@@ -3,34 +3,16 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 import "../../GSN/Context.sol";
-import "./IERC20_1L.sol";
+import "./IERC201.sol";
 import "../../math/SafeMath.sol";
 
 /**
- * @dev Implementation of the {IERC20} interface.
- *
- * This implementation is agnostic to the way tokens are created. This means
- * that a supply mechanism has to be added in a derived contract using {_mint}.
- * For a generic mechanism see {ERC20PresetMinterPauser}.
- *
- * TIP: For a detailed writeup see our guide
- * https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How
- * to implement supply mechanisms].
- *
- * We have followed general OpenZeppelin guidelines: functions revert instead
- * of returning `false` on failure. This behavior is nonetheless conventional
- * and does not conflict with the expectations of ERC20 applications.
- *
- * Additionally, an {Approval} event is emitted on calls to {transferFrom}.
- * This allows applications to reconstruct the allowance for all accounts just
- * by listening to said events. Other implementations of the EIP may not emit
- * these events, as it isn't required by the specification.
- *
- * Finally, the non-standard {decreaseAllowance} and {increaseAllowance}
- * functions have been added to mitigate the well-known issues around setting
- * allowances. See {IERC20-approve}.
+ * @title A truly Decentralized Token
+ * @author Ivory B. Mendel
+ * @notice A no BS token based off of ERC20 that DEFAULTS owner to having no control over the tokens or others' accounts (unless otherwise specified)
+ * @dev there are mint, burn, & other functions only accessible through specification of other contracts. Example would be creating a ERC201 mintable token that can access the internal function _mint not accessible in the default contract
  */
-contract ERC20_1L is Context, IERC20_1L {
+contract ERC201 is Context, IERC201 {
     using SafeMath for uint256;
 
     mapping(address => uint256) private _balances;
@@ -44,8 +26,6 @@ contract ERC20_1L is Context, IERC20_1L {
     /**
      * @dev Sets the values for {name} and {symbol}, initializes {decimals} with
      * a default value of 18.
-     *
-     * To select a different value for {decimals}, use {_setupDecimals}.
      *
      * All three of these values are immutable: they can only be set once during
      * construction.
@@ -120,7 +100,7 @@ contract ERC20_1L is Context, IERC20_1L {
         override
         returns (bool)
     {
-        _transfer(recipient, amount);
+        _transfer(_msgSender(), recipient, amount);
         return true;
     }
 
@@ -138,17 +118,21 @@ contract ERC20_1L is Context, IERC20_1L {
      * - `recipient` cannot be the zero address.
      * - `sender` must have a balance of at least `amount`.
      */
-    function _transfer(address recipient, uint256 amount) internal virtual {
+    function _transfer(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) internal virtual {
         require(recipient != address(0), "ERC20: transfer to the zero address");
 
-        _beforeTokenTransfer(_msgSender(), recipient, amount);
+        _beforeTokenTransfer(sender, recipient, amount);
 
-        _balances[_msgSender()] = _balances[_msgSender()].sub(
+        _balances[sender] = _balances[sender].sub(
             amount,
             "ERC20: transfer amount exceeds balance"
         );
         _balances[recipient] = _balances[recipient].add(amount);
-        emit Transfer(_msgSender(), recipient, amount);
+        emit Transfer(sender, recipient, amount);
     }
 
     /** @dev Creates `amount` tokens and assigns them to `account`, increasing
@@ -190,6 +174,28 @@ contract ERC20_1L is Context, IERC20_1L {
         );
         _totalSupply = _totalSupply.sub(amount);
         emit Transfer(_msgSender(), address(0), amount);
+    }
+
+    /**
+     * @dev See {IERC20-transferFrom}.
+     *
+     * Emits an {Approval} event indicating the updated allowance. This is not
+     * required by the EIP. See the note at the beginning of {ERC20}.
+     *
+     * Requirements:
+     *
+     * - `sender` and `recipient` cannot be the zero address.
+     * - `sender` must have a balance of at least `amount`.
+     * - the caller must have allowance for ``sender``'s tokens of at least
+     * `amount`.
+     */
+    function _transferFrom(
+        address sender,
+        address recipient,
+        uint256 amount
+    ) internal virtual returns (bool) {
+        _transfer(sender, recipient, amount);
+        return true;
     }
 
     /**
