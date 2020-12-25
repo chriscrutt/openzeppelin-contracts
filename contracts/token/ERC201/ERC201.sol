@@ -89,7 +89,12 @@ contract ERC201 is Context, IERC201 {
     /**
      * @dev See {IERC20-balanceOf}.
      */
-    function balanceOf(address account) public view override returns (uint256) {
+    function balanceOf(address account)
+        public
+        view
+        override
+        returns (uint256)
+    {
         return _balances[account];
     }
 
@@ -114,8 +119,8 @@ contract ERC201 is Context, IERC201 {
     /**
      * @dev Moves tokens `amount` from `sender` to `recipient`.
      *
-     * This is internal function is equivalent to {transfer}, and can be used to
-     * e.g. implement automatic token fees, slashing mechanisms, etc.
+     * This is internal function is equivalent to {transfer}, and can be
+     * used to- e.g. implement automatic token fees, slashing mechanisms
      *
      * Emits a {Transfer} event.
      *
@@ -130,7 +135,10 @@ contract ERC201 is Context, IERC201 {
         address recipient,
         uint256 amount
     ) internal virtual {
-        require(recipient != address(0), "ERC20: transfer to the zero address");
+        require(
+            recipient != address(0),
+            "ERC20: transfer to the zero address"
+        );
 
         _beforeTokenTransfer(sender, recipient, amount);
 
@@ -142,8 +150,8 @@ contract ERC201 is Context, IERC201 {
         emit Transfer(sender, recipient, amount);
     }
 
-    /** @dev Creates `amount` tokens and assigns them to `account`, increasing
-     * the total supply.
+    /** @dev Creates `amount` tokens and assigns them to `account`,
+     * increasing the total supply.
      *
      * Emits a {Transfer} event with `from` set to the zero address.
      *
@@ -186,15 +194,16 @@ contract ERC201 is Context, IERC201 {
     /**
      * @dev See {IERC20-transferFrom}.
      *
-     * Emits an {Approval} event indicating the updated allowance. This is not
-     * required by the EIP. See the note at the beginning of {ERC20}.
+     * Emits an {Approval} event indicating the updated allowance. This
+     * is not required by the EIP. See the note at the beginning of
+     * {ERC20}.
      *
      * Requirements:
      *
      * - `sender` and `recipient` cannot be the zero address.
      * - `sender` must have a balance of at least `amount`.
-     * - the caller must have allowance for ``sender``'s tokens of at least
-     * `amount`.
+     * - the caller must have allowance for ``sender``'s tokens of at
+     * least `amount`.
      */
     function _transferFrom(
         address sender,
@@ -206,18 +215,19 @@ contract ERC201 is Context, IERC201 {
     }
 
     /**
-     * @dev Hook that is called before any transfer of tokens. This includes
-     * minting and burning.
+     * @dev Hook that is called before any transfer of tokens. This
+     * includes minting and burning.
      *
      * Calling conditions:
      *
-     * - when `from` and `to` are both non-zero, `amount` of ``from``'s tokens
-     * will be to transferred to `to`.
+     * - when `from` and `to` are both non-zero, `amount` of ``from``'s
+     * tokens will be to transferred to `to`.
      * - when `from` is zero, `amount` tokens will be minted for `to`.
-     * - when `to` is zero, `amount` of ``from``'s tokens will be burned.
+     * - when `to` is zero, `amount` of ``from``'s tokens will be burned
      * - `from` and `to` are never both zero.
      *
-     * To learn more about hooks, head to xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
+     * To learn more about hooks, head to
+     * xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
      */
     function _beforeTokenTransfer(
         address from,
