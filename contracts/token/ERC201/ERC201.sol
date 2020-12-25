@@ -8,9 +8,17 @@ import "../../math/SafeMath.sol";
 
 /**
  * @title A truly Decentralized Token
+ *
  * @author Ivory B. Mendel
- * @notice A no BS token based off of ERC20 that DEFAULTS owner to having no control over the tokens or others' accounts (unless otherwise specified)
- * @dev there are mint, burn, & other functions only accessible through specification of other contracts. Example would be creating a ERC201 mintable token that can access the internal function _mint not accessible in the default contract
+ *
+ * @notice A no BS token based off of ERC20 that DEFAULTS owner to
+ * having no control over the tokens or others' accounts (unless
+ * otherwise specified)
+ *
+ * @dev there are mint, burn, & other functions only accessible through
+ * specification of other contracts. Example would be creating a ERC201
+ * mintable token that can access the internal function _mint not
+ * accessible in the default contract
  */
 contract ERC201 is Context, IERC201 {
     using SafeMath for uint256;
@@ -24,11 +32,9 @@ contract ERC201 is Context, IERC201 {
     uint8 private _decimals;
 
     /**
-     * @dev Sets the values for {name} and {symbol}, initializes {decimals} with
-     * a default value of 18.
-     *
-     * All three of these values are immutable: they can only be set once during
-     * construction.
+     * @dev Sets the values for {name} and {symbol}, initializes
+     * {decimals} with a default value of 18. All three of these values
+     * are immutable: they can only be set once during construction.
      */
     constructor(
         string memory name_,
@@ -48,21 +54,22 @@ contract ERC201 is Context, IERC201 {
     }
 
     /**
-     * @dev Returns the symbol of the token, usually a shorter version of the
-     * name.
+     * @dev Returns the symbol of the token, usually a shorter version
+     * of the name.
      */
     function symbol() public view returns (string memory) {
         return _symbol;
     }
 
     /**
-     * @dev Returns the number of decimals used to get its user representation.
-     * For example, if `decimals` equals `2`, a balance of `505` tokens should
-     * be displayed to a user as `5,05` (`505 / 10 ** 2`).
+     * @dev Returns the number of decimals used to get its user
+     * representation. For example, if `decimals` equals `2`, a balance
+     * of `505` tokens should be displayed to a user as
+     * `5,05` (`505 / 10 ** 2`)
      *
-     * Tokens usually opt for a value of 18, imitating the relationship between
-     * Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is
-     * called.
+     * Tokens usually opt for a value of 18, imitating the relationship
+     * between Ether and Wei. This is the value {ERC20} uses, unless
+     * {_setupDecimals} is called.
      *
      * NOTE: This information is only used for _display_ purposes: it in
      * no way affects any of the arithmetic of the contract, including
