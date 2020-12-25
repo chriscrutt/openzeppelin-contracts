@@ -108,7 +108,6 @@ contract ERC201 is Context, IERC201 {
      */
     function transfer(address recipient, uint256 amount)
         public
-        virtual
         override
         returns (bool)
     {
@@ -134,7 +133,7 @@ contract ERC201 is Context, IERC201 {
         address sender,
         address recipient,
         uint256 amount
-    ) internal virtual {
+    ) internal {
         require(
             recipient != address(0),
             "ERC20: transfer to the zero address"
@@ -159,7 +158,7 @@ contract ERC201 is Context, IERC201 {
      *
      * - `to` cannot be the zero address.
      */
-    function _mint(address account, uint256 amount) internal virtual {
+    function _mint(address account, uint256 amount) internal {
         require(account != address(0), "ERC20: mint to the zero address");
 
         _beforeTokenTransfer(address(0), account, amount);
@@ -180,7 +179,7 @@ contract ERC201 is Context, IERC201 {
      * - `account` cannot be the zero address.
      * - `account` must have at least `amount` tokens.
      */
-    function _burn(uint256 amount) internal virtual {
+    function _burn(uint256 amount) internal {
         _beforeTokenTransfer(_msgSender(), address(0), amount);
 
         _balances[_msgSender()] = _balances[_msgSender()].sub(
@@ -209,7 +208,7 @@ contract ERC201 is Context, IERC201 {
         address sender,
         address recipient,
         uint256 amount
-    ) internal virtual returns (bool) {
+    ) internal returns (bool) {
         _transfer(sender, recipient, amount);
         return true;
     }
@@ -233,5 +232,5 @@ contract ERC201 is Context, IERC201 {
         address from,
         address to,
         uint256 amount
-    ) internal virtual {}
+    ) internal {}
 }
