@@ -5,7 +5,11 @@
     - [x] create base token
     - [x] allow mintable
     - [ ] allow burnable
-    - [ ] allow control over others' accounts
+        - [ ] burn other accounts
+        - [ ] burn your account
+    - [ ] make transfers on others' accounts
+        - [ ] for all accounts
+        - [ ] accounts can allow for "managers"
     - [ ] allow pausable
 
 - [ ] ERC721
