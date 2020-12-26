@@ -57,3 +57,4 @@ allFiredEvents
 # buidler
 cache
 artifacts
+contracts/bin
