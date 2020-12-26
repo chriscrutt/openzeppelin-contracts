@@ -9,7 +9,7 @@ import "../../math/SafeMath.sol";
 /**
  * @title A truly Decentralized Token
  *
- * @author Ivory B. Mendel
+ * @author Ivory B. Mendel from ERC20 token in openzeppelin-contracts
  *
  * @notice A no BS token based off of ERC20 that DEFAULTS owner to
  * having no control over the tokens or others' accounts (unless
@@ -32,9 +32,13 @@ contract ERC201 is Context, IERC201 {
     uint8 private _decimals;
 
     /**
-     * @dev Sets the values for {name} and {symbol}, initializes
-     * {decimals} with a default value of 18. All three of these values
-     * are immutable: they can only be set once during construction.
+     * @dev Sets the values for `name_`, `symbol_`, and `decimals_`. All
+     * three of these values are immutable: they can only be set once
+     * during construction.
+     *
+     * @param name_ to be the name of the token
+     * @param symbol_ to be the symbol of the token
+     * @param decimals_ to be the number of decimals for the token
      */
     constructor(
         string memory name_,
@@ -47,15 +51,15 @@ contract ERC201 is Context, IERC201 {
     }
 
     /**
-     * @dev Returns the name of the token.
+     * @return Returns the name of the token.
      */
     function name() public view returns (string memory) {
         return _name;
     }
 
     /**
-     * @dev Returns the symbol of the token, usually a shorter version
-     * of the name.
+     * @return Returns the symbol of the token, usually a shorter
+     * version of the name.
      */
     function symbol() public view returns (string memory) {
         return _symbol;
@@ -65,29 +69,27 @@ contract ERC201 is Context, IERC201 {
      * @dev Returns the number of decimals used to get its user
      * representation. For example, if `decimals` equals `2`, a balance
      * of `505` tokens should be displayed to a user as
-     * `5,05` (`505 / 10 ** 2`)
+     * `5.05` (`505 / 10 ** 2`)
      *
-     * Tokens usually opt for a value of 18, imitating the relationship
-     * between Ether and Wei. This is the value {ERC20} uses, unless
-     * {_setupDecimals} is called.
-     *
-     * NOTE: This information is only used for _display_ purposes: it in
-     * no way affects any of the arithmetic of the contract, including
-     * {IERC20-balanceOf} and {IERC20-transfer}.
+     * @return Returns the number of decimals of the token
      */
     function decimals() public view returns (uint8) {
         return _decimals;
     }
 
     /**
-     * @dev See {IERC20-totalSupply}.
+     * @dev See {IERC201-totalSupply}.
+     *
+     * @return Returns the total supply of the token
      */
     function totalSupply() public view override returns (uint256) {
         return _totalSupply;
     }
 
     /**
-     * @dev See {IERC20-balanceOf}.
+     * @dev See {IERC201-balanceOf}.
+     *
+     * @return Returns the balance of the token for a specific address
      */
     function balanceOf(address account)
         public
@@ -99,12 +101,17 @@ contract ERC201 is Context, IERC201 {
     }
 
     /**
-     * @dev See {IERC20-transfer}.
+     * @dev See {IERC201-transfer}.
      *
      * Requirements:
      *
      * - `recipient` cannot be the zero address.
      * - the caller must have a balance of at least `amount`.
+     *
+     * @param recipient address to receive token
+     * @param amount number of tokens to be transferred
+     *
+     * @return if transfer was successful
      */
     function transfer(address recipient, uint256 amount)
         public
@@ -116,10 +123,10 @@ contract ERC201 is Context, IERC201 {
     }
 
     /**
-     * @dev Moves tokens `amount` from `sender` to `recipient`.
+     * @notice Moves tokens `amount` from `sender` to `recipient`.
      *
-     * This is internal function is equivalent to {transfer}, and can be
-     * used to- e.g. implement automatic token fees, slashing mechanisms
+     * @dev This is internal function is equivalent to {transfer}, and
+     * can be used to - e.g. implement automatic token fees
      *
      * Emits a {Transfer} event.
      *
@@ -128,6 +135,10 @@ contract ERC201 is Context, IERC201 {
      * - `sender` cannot be the zero address.
      * - `recipient` cannot be the zero address.
      * - `sender` must have a balance of at least `amount`.
+     *
+     * @param sender address to transfer token
+     * @param recipient address to receive token
+     * @param amount number of tokens to be transferred
      */
     function _transfer(
         address sender,
@@ -149,14 +160,17 @@ contract ERC201 is Context, IERC201 {
         emit Transfer(sender, recipient, amount);
     }
 
-    /** @dev Creates `amount` tokens and assigns them to `account`,
+    /** @notice Creates `amount` tokens and assigns them to `account`,
      * increasing the total supply.
      *
-     * Emits a {Transfer} event with `from` set to the zero address.
+     * @dev Emits a {Transfer} event with `to` set to the zero address.
      *
      * Requirements:
+
+     * - `account` cannot be the zero address.
      *
-     * - `to` cannot be the zero address.
+     * @param account address to receive tokens
+     * @param amount number of tokens to be minted
      */
     function _mint(address account, uint256 amount) internal {
         require(account != address(0), "ERC20: mint to the zero address");
@@ -169,15 +183,17 @@ contract ERC201 is Context, IERC201 {
     }
 
     /**
-     * @dev Destroys `amount` tokens from `account`, reducing the
+     * @notice Destroys `amount` tokens from `account`, reducing the
      * total supply.
      *
-     * Emits a {Transfer} event with `to` set to the zero address.
+     * @dev Emits a {Transfer} event with `to` set to the zero address.
      *
      * Requirements:
      *
      * - `account` cannot be the zero address.
      * - `account` must have at least `amount` tokens.
+     *
+     * @param amount number of tokens to be burned
      */
     function _burn(uint256 amount) internal {
         _beforeTokenTransfer(_msgSender(), address(0), amount);
@@ -191,18 +207,16 @@ contract ERC201 is Context, IERC201 {
     }
 
     /**
-     * @dev See {IERC20-transferFrom}.
-     *
-     * Emits an {Approval} event indicating the updated allowance. This
-     * is not required by the EIP. See the note at the beginning of
-     * {ERC20}.
+     * @dev See {IERC201-transferFrom}.
      *
      * Requirements:
      *
      * - `sender` and `recipient` cannot be the zero address.
      * - `sender` must have a balance of at least `amount`.
-     * - the caller must have allowance for ``sender``'s tokens of at
-     * least `amount`.
+     *
+     * @param sender address to transfer token
+     * @param recipient address to receive token
+     * @param amount number of tokens to be transferred
      */
     function _transferFrom(
         address sender,
@@ -214,10 +228,10 @@ contract ERC201 is Context, IERC201 {
     }
 
     /**
-     * @dev Hook that is called before any transfer of tokens. This
+     * @notice Hook that is called before any transfer of tokens. This
      * includes minting and burning.
      *
-     * Calling conditions:
+     * @dev Calling conditions:
      *
      * - when `from` and `to` are both non-zero, `amount` of ``from``'s
      * tokens will be to transferred to `to`.
@@ -227,6 +241,10 @@ contract ERC201 is Context, IERC201 {
      *
      * To learn more about hooks, head to
      * xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
+     *
+     * @param from address to transfer token
+     * @param to address to receive token
+     * @param amount number of tokens to be transferred
      */
     function _beforeTokenTransfer(
         address from,

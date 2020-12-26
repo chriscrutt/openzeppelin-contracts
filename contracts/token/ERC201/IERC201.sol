@@ -7,17 +7,19 @@ pragma solidity >=0.6.0 <0.9.0;
  */
 interface IERC201 {
     /**
-     * @dev Emitted when `value` tokens are moved from one account (`from`) to
-     * another (`to`).
+     * @dev Emitted when `value` tokens are moved from one account
+     * (`from`) to another (`to`).
      *
      * Note that `value` may be zero.
      */
     event Transfer(address indexed from, address indexed to, uint256 value);
 
     /**
-     * @dev Moves `amount` tokens from the caller's account to `recipient`.
+     * @dev Moves `amount` tokens from the caller's account to
+     * `recipient`.
      *
-     * Returns a boolean value indicating whether the operation succeeded.
+     * Returns a boolean value indicating whether the operation
+     * succeeded.
      *
      * Emits a {Transfer} event.
      */

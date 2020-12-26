@@ -4,8 +4,10 @@
             "Context": {
                 "abi": [],
                 "devdoc": {
+                    "details": "Provides information about the current execution context, including the sender of the transaction and its data. While these are generally available via msg.sender and msg.data, they should not be accessed in such a direct manner, since when dealing with GSN meta-transactions the account sending and paying for execution may not be the actual sender (as far as an application is concerned). This contract is only required for intermediate library-like contract",
                     "kind": "dev",
                     "methods": {},
+                    "title": "gives... context for contract interations!",
                     "version": 1
                 },
                 "evm": {
@@ -27,10 +29,11 @@
                     "gasEstimates": null,
                     "methodIdentifiers": {}
                 },
-                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":\"Context\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0x9897c91255b49f4e3077ab5e41f8b25697b6506dc19138ad20c83be77ae021d6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b6eddc83e7767302017fed60794dac4ca76bad17dbba9d6bd8f58553171e6398\",\"dweb:/ipfs/QmP3uWNgBMKrVtPtt1zn4bbgBC4c1nRU1K8cU7rwKnvvrX\"]}},\"version\":1}",
+                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Provides information about the current execution context, including the sender of the transaction and its data. While these are generally available via msg.sender and msg.data, they should not be accessed in such a direct manner, since when dealing with GSN meta-transactions the account sending and paying for execution may not be the actual sender (as far as an application is concerned). This contract is only required for intermediate library-like contract\",\"kind\":\"dev\",\"methods\":{},\"title\":\"gives... context for contract interations!\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"simplifies looking up the address interacting with a contract as well as the information being transimtted\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":\"Context\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]}},\"version\":1}",
                 "userdoc": {
                     "kind": "user",
                     "methods": {},
+                    "notice": "simplifies looking up the address interacting with a contract as well as the information being transimtted",
                     "version": 1
                 }
             }
@@ -42,10 +45,10 @@
                 "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol",
                 "exportedSymbols": {
                     "Context": [
-                        25
+                        28
                     ]
                 },
-                "id": 26,
+                "id": 29,
                 "license": "MIT",
                 "nodeType": "SourceUnit",
                 "nodes": [
@@ -68,44 +71,50 @@
                         "baseContracts": [],
                         "contractDependencies": [],
                         "contractKind": "contract",
+                        "documentation": {
+                            "id": 2,
+                            "nodeType": "StructuredDocumentation",
+                            "src": "66:677:0",
+                            "text": " @title gives... context for contract interations!\n @notice simplifies looking up the address interacting with a contract\n as well as the information being transimtted\n @dev Provides information about the current execution context,\n including the sender of the transaction and its data. While these are\n generally available via msg.sender and msg.data, they should not be\n accessed in such a direct manner, since when dealing with GSN\n meta-transactions the account sending and paying for execution may\n not be the actual sender (as far as an application is concerned).\n This contract is only required for intermediate library-like contract"
+                        },
                         "fullyImplemented": true,
-                        "id": 25,
+                        "id": 28,
                         "linearizedBaseContracts": [
-                            25
+                            28
                         ],
                         "name": "Context",
                         "nodeType": "ContractDefinition",
                         "nodes": [
                             {
                                 "body": {
-                                    "id": 12,
+                                    "id": 14,
                                     "nodeType": "Block",
-                                    "src": "668:43:0",
+                                    "src": "951:43:0",
                                     "statements": [
                                         {
                                             "expression": {
                                                 "arguments": [
                                                     {
                                                         "expression": {
-                                                            "id": 8,
+                                                            "id": 10,
                                                             "name": "msg",
                                                             "nodeType": "Identifier",
                                                             "overloadedDeclarations": [],
                                                             "referencedDeclaration": 4294967281,
-                                                            "src": "693:3:0",
+                                                            "src": "976:3:0",
                                                             "typeDescriptions": {
                                                                 "typeIdentifier": "t_magic_message",
                                                                 "typeString": "msg"
                                                             }
                                                         },
-                                                        "id": 9,
+                                                        "id": 11,
                                                         "isConstant": false,
                                                         "isLValue": false,
                                                         "isPure": false,
                                                         "lValueRequested": false,
                                                         "memberName": "sender",
                                                         "nodeType": "MemberAccess",
-                                                        "src": "693:10:0",
+                                                        "src": "976:10:0",
                                                         "typeDescriptions": {
                                                             "typeIdentifier": "t_address",
                                                             "typeString": "address"
@@ -119,27 +128,27 @@
                                                             "typeString": "address"
                                                         }
                                                     ],
-                                                    "id": 7,
+                                                    "id": 9,
                                                     "isConstant": false,
                                                     "isLValue": false,
                                                     "isPure": true,
                                                     "lValueRequested": false,
                                                     "nodeType": "ElementaryTypeNameExpression",
-                                                    "src": "685:8:0",
+                                                    "src": "968:8:0",
                                                     "typeDescriptions": {
                                                         "typeIdentifier": "t_type$_t_address_payable_$",
                                                         "typeString": "type(address payable)"
                                                     },
                                                     "typeName": {
-                                                        "id": 6,
+                                                        "id": 8,
                                                         "name": "address",
                                                         "nodeType": "ElementaryTypeName",
-                                                        "src": "685:8:0",
+                                                        "src": "968:8:0",
                                                         "stateMutability": "payable",
                                                         "typeDescriptions": {}
                                                     }
                                                 },
-                                                "id": 10,
+                                                "id": 12,
                                                 "isConstant": false,
                                                 "isLValue": false,
                                                 "isPure": false,
@@ -147,44 +156,50 @@
                                                 "lValueRequested": false,
                                                 "names": [],
                                                 "nodeType": "FunctionCall",
-                                                "src": "685:19:0",
+                                                "src": "968:19:0",
                                                 "tryCall": false,
                                                 "typeDescriptions": {
                                                     "typeIdentifier": "t_address_payable",
                                                     "typeString": "address payable"
                                                 }
                                             },
-                                            "functionReturnParameters": 5,
-                                            "id": 11,
+                                            "functionReturnParameters": 7,
+                                            "id": 13,
                                             "nodeType": "Return",
-                                            "src": "678:26:0"
+                                            "src": "961:26:0"
                                         }
                                     ]
                                 },
-                                "id": 13,
+                                "documentation": {
+                                    "id": 3,
+                                    "nodeType": "StructuredDocumentation",
+                                    "src": "776:100:0",
+                                    "text": " @notice gets address interacting with contract\n @return that address"
+                                },
+                                "id": 15,
                                 "implemented": true,
                                 "kind": "function",
                                 "modifiers": [],
                                 "name": "_msgSender",
                                 "nodeType": "FunctionDefinition",
                                 "parameters": {
-                                    "id": 2,
+                                    "id": 4,
                                     "nodeType": "ParameterList",
                                     "parameters": [],
-                                    "src": "617:2:0"
+                                    "src": "900:2:0"
                                 },
                                 "returnParameters": {
-                                    "id": 5,
+                                    "id": 7,
                                     "nodeType": "ParameterList",
                                     "parameters": [
                                         {
                                             "constant": false,
-                                            "id": 4,
+                                            "id": 6,
                                             "mutability": "mutable",
                                             "name": "",
                                             "nodeType": "VariableDeclaration",
-                                            "scope": 13,
-                                            "src": "651:15:0",
+                                            "scope": 15,
+                                            "src": "934:15:0",
                                             "stateVariable": false,
                                             "storageLocation": "default",
                                             "typeDescriptions": {
@@ -192,10 +207,10 @@
                                                 "typeString": "address payable"
                                             },
                                             "typeName": {
-                                                "id": 3,
+                                                "id": 5,
                                                 "name": "address",
                                                 "nodeType": "ElementaryTypeName",
-                                                "src": "651:15:0",
+                                                "src": "934:15:0",
                                                 "stateMutability": "payable",
                                                 "typeDescriptions": {
                                                     "typeIdentifier": "t_address_payable",
@@ -205,95 +220,101 @@
                                             "visibility": "internal"
                                         }
                                     ],
-                                    "src": "650:17:0"
+                                    "src": "933:17:0"
                                 },
-                                "scope": 25,
-                                "src": "598:113:0",
+                                "scope": 28,
+                                "src": "881:113:0",
                                 "stateMutability": "view",
                                 "virtual": true,
                                 "visibility": "internal"
                             },
                             {
                                 "body": {
-                                    "id": 23,
+                                    "id": 26,
                                     "nodeType": "Block",
-                                    "src": "782:165:0",
+                                    "src": "1344:46:0",
                                     "statements": [
                                         {
                                             "expression": {
-                                                "id": 18,
+                                                "id": 21,
                                                 "name": "this",
                                                 "nodeType": "Identifier",
                                                 "overloadedDeclarations": [],
                                                 "referencedDeclaration": 4294967268,
-                                                "src": "792:4:0",
+                                                "src": "1354:4:0",
                                                 "typeDescriptions": {
-                                                    "typeIdentifier": "t_contract$_Context_$25",
+                                                    "typeIdentifier": "t_contract$_Context_$28",
                                                     "typeString": "contract Context"
                                                 }
                                             },
-                                            "id": 19,
+                                            "id": 22,
                                             "nodeType": "ExpressionStatement",
-                                            "src": "792:4:0"
+                                            "src": "1354:4:0"
                                         },
                                         {
                                             "expression": {
                                                 "expression": {
-                                                    "id": 20,
+                                                    "id": 23,
                                                     "name": "msg",
                                                     "nodeType": "Identifier",
                                                     "overloadedDeclarations": [],
                                                     "referencedDeclaration": 4294967281,
-                                                    "src": "932:3:0",
+                                                    "src": "1375:3:0",
                                                     "typeDescriptions": {
                                                         "typeIdentifier": "t_magic_message",
                                                         "typeString": "msg"
                                                     }
                                                 },
-                                                "id": 21,
+                                                "id": 24,
                                                 "isConstant": false,
                                                 "isLValue": false,
                                                 "isPure": false,
                                                 "lValueRequested": false,
                                                 "memberName": "data",
                                                 "nodeType": "MemberAccess",
-                                                "src": "932:8:0",
+                                                "src": "1375:8:0",
                                                 "typeDescriptions": {
                                                     "typeIdentifier": "t_bytes_calldata_ptr",
                                                     "typeString": "bytes calldata"
                                                 }
                                             },
-                                            "functionReturnParameters": 17,
-                                            "id": 22,
+                                            "functionReturnParameters": 20,
+                                            "id": 25,
                                             "nodeType": "Return",
-                                            "src": "925:15:0"
+                                            "src": "1368:15:0"
                                         }
                                     ]
                                 },
-                                "id": 24,
+                                "documentation": {
+                                    "id": 16,
+                                    "nodeType": "StructuredDocumentation",
+                                    "src": "1000:274:0",
+                                    "text": " @notice gets information being used to interact with the contract\n @dev silence state mutability warning without generating bytecode\n with `this;` - https://github.com/ethereum/solidity/issues/2691\n @return that information"
+                                },
+                                "id": 27,
                                 "implemented": true,
                                 "kind": "function",
                                 "modifiers": [],
                                 "name": "_msgData",
                                 "nodeType": "FunctionDefinition",
                                 "parameters": {
-                                    "id": 14,
+                                    "id": 17,
                                     "nodeType": "ParameterList",
                                     "parameters": [],
-                                    "src": "734:2:0"
+                                    "src": "1296:2:0"
                                 },
                                 "returnParameters": {
-                                    "id": 17,
+                                    "id": 20,
                                     "nodeType": "ParameterList",
                                     "parameters": [
                                         {
                                             "constant": false,
-                                            "id": 16,
+                                            "id": 19,
                                             "mutability": "mutable",
                                             "name": "",
                                             "nodeType": "VariableDeclaration",
-                                            "scope": 24,
-                                            "src": "768:12:0",
+                                            "scope": 27,
+                                            "src": "1330:12:0",
                                             "stateVariable": false,
                                             "storageLocation": "memory",
                                             "typeDescriptions": {
@@ -301,10 +322,10 @@
                                                 "typeString": "bytes"
                                             },
                                             "typeName": {
-                                                "id": 15,
+                                                "id": 18,
                                                 "name": "bytes",
                                                 "nodeType": "ElementaryTypeName",
-                                                "src": "768:5:0",
+                                                "src": "1330:5:0",
                                                 "typeDescriptions": {
                                                     "typeIdentifier": "t_bytes_storage_ptr",
                                                     "typeString": "bytes"
@@ -313,20 +334,20 @@
                                             "visibility": "internal"
                                         }
                                     ],
-                                    "src": "767:14:0"
+                                    "src": "1329:14:0"
                                 },
-                                "scope": 25,
-                                "src": "717:230:0",
+                                "scope": 28,
+                                "src": "1279:111:0",
                                 "stateMutability": "view",
                                 "virtual": true,
                                 "visibility": "internal"
                             }
                         ],
-                        "scope": 26,
-                        "src": "566:383:0"
+                        "scope": 29,
+                        "src": "744:648:0"
                     }
                 ],
-                "src": "33:917:0"
+                "src": "33:1360:0"
             },
             "id": 0
         }
