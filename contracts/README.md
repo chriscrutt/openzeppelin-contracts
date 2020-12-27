@@ -16,8 +16,8 @@
   - [x] make transfers on others' accounts
     - [x] for all accounts
     - [x] for trustee accounts
-  - [ ] accounts can allow for "managers"
-  - [ ] allow pausable
+  - [x] accounts can allow for "managers"
+  - [x] allow pausable
 
 - [ ] ERC721
 
