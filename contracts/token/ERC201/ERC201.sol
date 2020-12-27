@@ -3,7 +3,7 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 import "../../GSN/Context.sol";
-import "./IERC201.sol";
+import "../../token/ERC201/IERC201.sol";
 import "../../math/SafeMath.sol";
 
 /**
