@@ -1,9 +1,5 @@
-// ERC201 example
-
 // SPDX-License-Identifier: MIT
-
 pragma solidity >=0.6.0 <0.9.0;
-
 import "./token/ERC20/IERC20.sol";
 import "./token/ERC20/TokenTimelock.sol";
 import "./token/ERC20/ERC20.sol";
