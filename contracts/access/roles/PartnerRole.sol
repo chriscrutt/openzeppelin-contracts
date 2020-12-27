@@ -29,7 +29,7 @@ abstract contract PartnerRole is Context {
         return _authorized[account].has(partner);
     }
 
-    function addPartner(address account) public onlyPartner {
+    function addPartner(address account) public onlyPartner(account) {
         _addPartner(account);
     }
 

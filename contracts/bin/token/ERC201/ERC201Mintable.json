@@ -118,6 +118,25 @@
                     "type": "address"
                 }
             ],
+            "name": "isManager",
+            "outputs": [
+                {
+                    "internalType": "bool",
+                    "name": "",
+                    "type": "bool"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "account",
+                    "type": "address"
+                }
+            ],
             "name": "isTrustee",
             "outputs": [
                 {
@@ -225,7 +244,7 @@
             "type": "function"
         }
     ],
-    "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeRemoved\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"changeManager\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isTrustee\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Extension of {ERC201} that adds a set of accounts with the {TrusteeRole}, which have permission to mint (create) new tokens as they see fit to their own accounts. At construction, the deployer of the contract is the only trustee.\",\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"See {IERC201-balanceOf}.\",\"returns\":{\"_0\":\"Returns the balance of the token for a specific address\"}},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`)\",\"returns\":{\"_0\":\"Returns the number of decimals of the token\"}},\"mint(uint256)\":{\"details\":\"See {ERC201-_mint}. Requirements: - the caller must have the {TrusteeRole}.\",\"params\":{\"amount\":\"number of tokens to be minted to msg.sender\"},\"returns\":{\"_0\":\"true if the tokens were successfully minted\"}},\"name()\":{\"returns\":{\"_0\":\"Returns the name of the token.\"}},\"symbol()\":{\"returns\":{\"_0\":\"Returns the symbol of the token, usually a shorter version of the name.\"}},\"totalSupply()\":{\"details\":\"See {IERC201-totalSupply}.\",\"returns\":{\"_0\":\"Returns the total supply of the token\"}},\"transfer(address,uint256)\":{\"details\":\"See {IERC201-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.\",\"params\":{\"amount\":\"number of tokens to be transferred\",\"recipient\":\"address to receive token\"},\"returns\":{\"_0\":\"if transfer was successful\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201Mintable.sol\":\"ERC201Mintable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/Roles.sol\":{\"keccak256\":\"0xb4df1b9a849d50ddfe7c882cb5815cb14cc713410a01eb54dd4146ee3efd6caf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://503bae893deeb22b9c496b7a91233adc0c0454006d546c0911c5d9b5499471c6\",\"dweb:/ipfs/QmbCiqUtvUP8Vgwu8CkqD6MLc49XcJGqApHmUcdQ3dC2CT\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/roles/TrusteeRole.sol\":{\"keccak256\":\"0xc3911f7196c73f5a86d3a11eb3117b9e61dbf2fc09c385137d95ea9d9a3ec72d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8bcd13a8564a53f2e5e696d8a77d5eec6375969b66a262f3474cc53305e17f1e\",\"dweb:/ipfs/QmSWQDoxEFeaSCBJ9CiyCLdGPtUKeJXiU8PZr4JeetDfrt\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d49c8507b8799328decb5316b97367106f202ae6b36dd10764a477f960c0518\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://702fe8cf4064118c43201ceaa50b2905dca6a20c3a43528696a925ec16d7846d\",\"dweb:/ipfs/QmZzixPwGcGwQnmwFAQwjwLHjGVzmM9dc36jHWt3PPdfde\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol\":{\"keccak256\":\"0xf40567d92b9da3e58cb503d1375b627d3951e6abf6448ece189005a3634f8c01\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5a67433b0f1ca8d3254a65df254ab27c0baaf16f329f5238f199f2473661335e\",\"dweb:/ipfs/QmQ4TthdPC4GJq5JYDVxnBnWJFc4QyJ3ZrjNNAKNEbKx7w\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201Mintable.sol\":{\"keccak256\":\"0xc7c690e026061c3dff439f5f3fc1015d4f44a65f755384277935e4f9d29fbd31\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5933bcd397d86503b0fbe0f6d4756d61a0feac968ae6a580a893161907241dd2\",\"dweb:/ipfs/QmYkXa934SeMzcrQp434SWn29TipCPR1sqfzENJAYKmRC6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":{\"keccak256\":\"0x9972da702fb70e2a41b0f97bbaab4580e4cb61b5dd1d77bc556f9a523e5874c8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9f6d23038dcabbc5297dc48f0fdd5bb673ab53a26d4bb0c725c5c86e7d5774d\",\"dweb:/ipfs/Qmez8DGHpWVTJ65PbDtSKV1PjhuxcyU96noZcyquR5go6C\"]}},\"version\":1}",
+    "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeRemoved\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"changeManager\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isManager\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isTrustee\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Extension of {ERC201} that adds a set of accounts with the {TrusteeRole}, which have permission to mint (create) new tokens as they see fit to their own accounts. At construction, the deployer of the contract is the only trustee.\",\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"See {IERC201-balanceOf}.\",\"returns\":{\"_0\":\"Returns the balance of the token for a specific address\"}},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`)\",\"returns\":{\"_0\":\"Returns the number of decimals of the token\"}},\"mint(uint256)\":{\"details\":\"See {ERC201-_mint}. Requirements: - the caller must have the {TrusteeRole}.\",\"params\":{\"amount\":\"number of tokens to be minted to msg.sender\"},\"returns\":{\"_0\":\"true if the tokens were successfully minted\"}},\"name()\":{\"returns\":{\"_0\":\"Returns the name of the token.\"}},\"symbol()\":{\"returns\":{\"_0\":\"Returns the symbol of the token, usually a shorter version of the name.\"}},\"totalSupply()\":{\"details\":\"See {IERC201-totalSupply}.\",\"returns\":{\"_0\":\"Returns the total supply of the token\"}},\"transfer(address,uint256)\":{\"details\":\"See {IERC201-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.\",\"params\":{\"amount\":\"number of tokens to be transferred\",\"recipient\":\"address to receive token\"},\"returns\":{\"_0\":\"if transfer was successful\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201Mintable.sol\":\"ERC201Mintable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/Roles.sol\":{\"keccak256\":\"0xb4df1b9a849d50ddfe7c882cb5815cb14cc713410a01eb54dd4146ee3efd6caf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://503bae893deeb22b9c496b7a91233adc0c0454006d546c0911c5d9b5499471c6\",\"dweb:/ipfs/QmbCiqUtvUP8Vgwu8CkqD6MLc49XcJGqApHmUcdQ3dC2CT\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/roles/TrusteeRole.sol\":{\"keccak256\":\"0x1fee1df05821c776d59729f68953ce67d9a7814696a1853a505d5a400628bbe0\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://1496998708b695e9a7fa1552e44787477a4415efeb0bee93828a71f64bf170d6\",\"dweb:/ipfs/Qme7doY1DZL71r95MdojQiyRR1TxEY5dNrYmNTbUViXxVE\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d49c8507b8799328decb5316b97367106f202ae6b36dd10764a477f960c0518\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://702fe8cf4064118c43201ceaa50b2905dca6a20c3a43528696a925ec16d7846d\",\"dweb:/ipfs/QmZzixPwGcGwQnmwFAQwjwLHjGVzmM9dc36jHWt3PPdfde\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol\":{\"keccak256\":\"0x6d34b75dba2fd513b46f001c28a843b3c2fe7d8dc8857992f2c849622eca22b4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ac82ab0541262b794aec25b2fd212244ba9be6c9fdfd3af916ebcb762cb3021e\",\"dweb:/ipfs/QmX3nFnFZZTvpraCJ517TXbLqzKCxLci1NtX6KkFrynMo8\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201Mintable.sol\":{\"keccak256\":\"0x55b6df7c6fd12b7ab6ad9742c619a2a50c2c8cefb26ef3437eb70609d842a11a\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c69500af3fe423f6e9f8a9586f70a00c2d4a9a019fa9abcb28ad4e98cd6feeb8\",\"dweb:/ipfs/QmYAscN76Hb7uajCrDu91RxZBUhJ3xdYq9TjymW4b6AAba\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":{\"keccak256\":\"0x9972da702fb70e2a41b0f97bbaab4580e4cb61b5dd1d77bc556f9a523e5874c8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9f6d23038dcabbc5297dc48f0fdd5bb673ab53a26d4bb0c725c5c86e7d5774d\",\"dweb:/ipfs/Qmez8DGHpWVTJ65PbDtSKV1PjhuxcyU96noZcyquR5go6C\"]}},\"version\":1}",
     "bytecode": "",
     "deployedBytecode": "",
     "sourceMap": "",
@@ -242,30 +261,30 @@
                 28
             ],
             "ERC201": [
-                796
+                822
             ],
             "ERC201Mintable": [
-                825
+                851
             ],
             "IERC201": [
-                862
+                888
             ],
             "Roles": [
                 117
             ],
             "SafeMath": [
-                486
+                512
             ],
             "TrusteeRole": [
-                290
+                316
             ]
         },
-        "id": 826,
+        "id": 852,
         "license": "MIT",
         "nodeType": "SourceUnit",
         "nodes": [
             {
-                "id": 798,
+                "id": 824,
                 "literals": [
                     "solidity",
                     ">=",
@@ -280,23 +299,23 @@
             },
             {
                 "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol",
-                "file": "./ERC201.sol",
-                "id": 799,
+                "file": "../../token/ERC201/ERC201.sol",
+                "id": 825,
                 "nodeType": "ImportDirective",
-                "scope": 826,
-                "sourceUnit": 797,
-                "src": "66:22:5",
+                "scope": 852,
+                "sourceUnit": 823,
+                "src": "66:39:5",
                 "symbolAliases": [],
                 "unitAlias": ""
             },
             {
                 "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/access/roles/TrusteeRole.sol",
                 "file": "../../access/roles/TrusteeRole.sol",
-                "id": 800,
+                "id": 826,
                 "nodeType": "ImportDirective",
-                "scope": 826,
-                "sourceUnit": 291,
-                "src": "89:44:5",
+                "scope": 852,
+                "sourceUnit": 317,
+                "src": "106:44:5",
                 "symbolAliases": [],
                 "unitAlias": ""
             },
@@ -305,49 +324,49 @@
                 "baseContracts": [
                     {
                         "baseName": {
-                            "id": 802,
+                            "id": 828,
                             "name": "ERC201",
                             "nodeType": "IdentifierPath",
-                            "referencedDeclaration": 796,
-                            "src": "429:6:5"
+                            "referencedDeclaration": 822,
+                            "src": "446:6:5"
                         },
-                        "id": 803,
+                        "id": 829,
                         "nodeType": "InheritanceSpecifier",
-                        "src": "429:6:5"
+                        "src": "446:6:5"
                     },
                     {
                         "baseName": {
-                            "id": 804,
+                            "id": 830,
                             "name": "TrusteeRole",
                             "nodeType": "IdentifierPath",
-                            "referencedDeclaration": 290,
-                            "src": "437:11:5"
+                            "referencedDeclaration": 316,
+                            "src": "454:11:5"
                         },
-                        "id": 805,
+                        "id": 831,
                         "nodeType": "InheritanceSpecifier",
-                        "src": "437:11:5"
+                        "src": "454:11:5"
                     }
                 ],
                 "contractDependencies": [
                     28,
-                    290,
-                    796,
-                    862
+                    316,
+                    822,
+                    888
                 ],
                 "contractKind": "contract",
                 "documentation": {
-                    "id": 801,
+                    "id": 827,
                     "nodeType": "StructuredDocumentation",
-                    "src": "135:257:5",
+                    "src": "152:257:5",
                     "text": " @dev Extension of {ERC201} that adds a set of accounts with the\n {TrusteeRole}, which have permission to mint (create) new tokens as\n they see fit to their own accounts.\n At construction, the deployer of the contract is the only trustee."
                 },
                 "fullyImplemented": false,
-                "id": 825,
+                "id": 851,
                 "linearizedBaseContracts": [
-                    825,
-                    290,
-                    796,
-                    862,
+                    851,
+                    316,
+                    822,
+                    888,
                     28
                 ],
                 "name": "ERC201Mintable",
@@ -355,9 +374,9 @@
                 "nodes": [
                     {
                         "body": {
-                            "id": 823,
+                            "id": 849,
                             "nodeType": "Block",
-                            "src": "789:65:5",
+                            "src": "806:65:5",
                             "statements": [
                                 {
                                     "expression": {
@@ -366,18 +385,18 @@
                                                 "arguments": [],
                                                 "expression": {
                                                     "argumentTypes": [],
-                                                    "id": 816,
+                                                    "id": 842,
                                                     "name": "_msgSender",
                                                     "nodeType": "Identifier",
                                                     "overloadedDeclarations": [],
                                                     "referencedDeclaration": 15,
-                                                    "src": "805:10:5",
+                                                    "src": "822:10:5",
                                                     "typeDescriptions": {
                                                         "typeIdentifier": "t_function_internal_view$__$returns$_t_address_payable_$",
                                                         "typeString": "function () view returns (address payable)"
                                                     }
                                                 },
-                                                "id": 817,
+                                                "id": 843,
                                                 "isConstant": false,
                                                 "isLValue": false,
                                                 "isPure": false,
@@ -385,7 +404,7 @@
                                                 "lValueRequested": false,
                                                 "names": [],
                                                 "nodeType": "FunctionCall",
-                                                "src": "805:12:5",
+                                                "src": "822:12:5",
                                                 "tryCall": false,
                                                 "typeDescriptions": {
                                                     "typeIdentifier": "t_address_payable",
@@ -393,12 +412,12 @@
                                                 }
                                             },
                                             {
-                                                "id": 818,
+                                                "id": 844,
                                                 "name": "amount",
                                                 "nodeType": "Identifier",
                                                 "overloadedDeclarations": [],
-                                                "referencedDeclaration": 808,
-                                                "src": "819:6:5",
+                                                "referencedDeclaration": 834,
+                                                "src": "836:6:5",
                                                 "typeDescriptions": {
                                                     "typeIdentifier": "t_uint256",
                                                     "typeString": "uint256"
@@ -416,18 +435,18 @@
                                                     "typeString": "uint256"
                                                 }
                                             ],
-                                            "id": 815,
+                                            "id": 841,
                                             "name": "_mint",
                                             "nodeType": "Identifier",
                                             "overloadedDeclarations": [],
-                                            "referencedDeclaration": 717,
-                                            "src": "799:5:5",
+                                            "referencedDeclaration": 743,
+                                            "src": "816:5:5",
                                             "typeDescriptions": {
                                                 "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
                                                 "typeString": "function (address,uint256)"
                                             }
                                         },
-                                        "id": 819,
+                                        "id": 845,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": false,
@@ -435,79 +454,79 @@
                                         "lValueRequested": false,
                                         "names": [],
                                         "nodeType": "FunctionCall",
-                                        "src": "799:27:5",
+                                        "src": "816:27:5",
                                         "tryCall": false,
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_tuple$__$",
                                             "typeString": "tuple()"
                                         }
                                     },
-                                    "id": 820,
+                                    "id": 846,
                                     "nodeType": "ExpressionStatement",
-                                    "src": "799:27:5"
+                                    "src": "816:27:5"
                                 },
                                 {
                                     "expression": {
                                         "hexValue": "74727565",
-                                        "id": 821,
+                                        "id": 847,
                                         "isConstant": false,
                                         "isLValue": false,
                                         "isPure": true,
                                         "kind": "bool",
                                         "lValueRequested": false,
                                         "nodeType": "Literal",
-                                        "src": "843:4:5",
+                                        "src": "860:4:5",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bool",
                                             "typeString": "bool"
                                         },
                                         "value": "true"
                                     },
-                                    "functionReturnParameters": 814,
-                                    "id": 822,
+                                    "functionReturnParameters": 840,
+                                    "id": 848,
                                     "nodeType": "Return",
-                                    "src": "836:11:5"
+                                    "src": "853:11:5"
                                 }
                             ]
                         },
                         "documentation": {
-                            "id": 806,
+                            "id": 832,
                             "nodeType": "StructuredDocumentation",
-                            "src": "455:265:5",
+                            "src": "472:265:5",
                             "text": " @dev See {ERC201-_mint}.\n Requirements:\n - the caller must have the {TrusteeRole}.\n @param amount number of tokens to be minted to msg.sender\n @return true if the tokens were successfully minted"
                         },
                         "functionSelector": "a0712d68",
-                        "id": 824,
+                        "id": 850,
                         "implemented": true,
                         "kind": "function",
                         "modifiers": [
                             {
-                                "id": 811,
+                                "id": 837,
                                 "modifierName": {
-                                    "id": 810,
+                                    "id": 836,
                                     "name": "onlyTrustee",
                                     "nodeType": "IdentifierPath",
                                     "referencedDeclaration": 166,
-                                    "src": "762:11:5"
+                                    "src": "779:11:5"
                                 },
                                 "nodeType": "ModifierInvocation",
-                                "src": "762:11:5"
+                                "src": "779:11:5"
                             }
                         ],
                         "name": "mint",
                         "nodeType": "FunctionDefinition",
                         "parameters": {
-                            "id": 809,
+                            "id": 835,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 808,
+                                    "id": 834,
                                     "mutability": "mutable",
                                     "name": "amount",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 824,
-                                    "src": "739:14:5",
+                                    "scope": 850,
+                                    "src": "756:14:5",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -515,10 +534,10 @@
                                         "typeString": "uint256"
                                     },
                                     "typeName": {
-                                        "id": 807,
+                                        "id": 833,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "739:7:5",
+                                        "src": "756:7:5",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -527,20 +546,20 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "738:16:5"
+                            "src": "755:16:5"
                         },
                         "returnParameters": {
-                            "id": 814,
+                            "id": 840,
                             "nodeType": "ParameterList",
                             "parameters": [
                                 {
                                     "constant": false,
-                                    "id": 813,
+                                    "id": 839,
                                     "mutability": "mutable",
                                     "name": "",
                                     "nodeType": "VariableDeclaration",
-                                    "scope": 824,
-                                    "src": "783:4:5",
+                                    "scope": 850,
+                                    "src": "800:4:5",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -548,10 +567,10 @@
                                         "typeString": "bool"
                                     },
                                     "typeName": {
-                                        "id": 812,
+                                        "id": 838,
                                         "name": "bool",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "783:4:5",
+                                        "src": "800:4:5",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bool",
                                             "typeString": "bool"
@@ -560,26 +579,27 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "782:6:5"
+                            "src": "799:6:5"
                         },
-                        "scope": 825,
-                        "src": "725:129:5",
+                        "scope": 851,
+                        "src": "742:129:5",
                         "stateMutability": "nonpayable",
                         "virtual": false,
                         "visibility": "public"
                     }
                 ],
-                "scope": 826,
-                "src": "393:463:5"
+                "scope": 852,
+                "src": "410:463:5"
             }
         ],
-        "src": "33:824:5"
+        "src": "33:841:5"
     },
     "functionHashes": {
         "addTrustee(address)": "dc78ac1c",
         "balanceOf(address)": "70a08231",
         "changeManager(address)": "a3fbbaae",
         "decimals()": "313ce567",
+        "isManager(address)": "f3ae2415",
         "isTrustee(address)": "c784cd17",
         "mint(uint256)": "a0712d68",
         "name()": "06fdde03",

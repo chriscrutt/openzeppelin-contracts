@@ -62,3 +62,7 @@ package.json
 package-lock.json
 package-lock.json
 package.json
+contracts/bin/token/ERC201/ERC201Mintable-solc-output.json
+contracts/bin/token/ERC201/ERC201Mintable.abi
+contracts/bin/token/ERC201/ERC201Mintable.json
+

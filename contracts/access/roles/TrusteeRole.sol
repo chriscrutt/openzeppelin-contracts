@@ -54,7 +54,7 @@ abstract contract TrusteeRole is Context {
     }
 
     function _removeTrustee(address account) internal {
-        require(!isManager(), "Cannot remove manager");
+        require(!isManager(_msgSender()), "Cannot remove manager");
 
         require(_msgSender() == _manager || _msgSender() == account);
         _trustees.remove(account);

@@ -4,254 +4,174 @@
 
 pragma solidity >=0.6.0 <0.9.0;
 
-import "./GSN/Context.sol";
+import "./mocks/ERC777Mock.sol";
+import "./mocks/BadBeacon.sol";
+import "./mocks/RegressionImplementation.sol";
+import "./mocks/CallReceiverMock.sol";
+import "./mocks/InitializableMock.sol";
+import "./mocks/ERC20CappedMock.sol";
+import "./mocks/AddressImpl.sol";
+import "./mocks/SafeMathMock.sol";
+import "./mocks/DummyImplementation.sol";
+import "./mocks/GSNRecipientSignatureMock.sol";
+import "./mocks/ReentrancyAttack.sol";
+import "./mocks/EtherReceiverMock.sol";
+import "./mocks/Create2Impl.sol";
+import "./mocks/ERC20PausableMock.sol";
+import "./mocks/ArraysImpl.sol";
+import "./mocks/SignedSafeMathMock.sol";
+import "./mocks/ERC1155Mock.sol";
+import "./mocks/ERC165Mock.sol";
+import "./mocks/ECDSAMock.sol";
+import "./mocks/OwnableMock.sol";
+import "./mocks/ERC20SnapshotMock.sol";
+import "./mocks/CountersImpl.sol";
+import "./mocks/ReentrancyMock.sol";
+import "./mocks/ERC1155BurnableMock.sol";
+import "./mocks/EIP712External.sol";
+import "./mocks/ERC20Mock.sol";
+import "./mocks/MerkleProofWrapper.sol";
+import "./mocks/ERC721BurnableMock.sol";
+import "./mocks/ERC721Mock.sol";
+import "./mocks/ERC20DecimalsMock.sol";
+import "./mocks/StringsMock.sol";
+import "./mocks/PullPaymentMock.sol";
+import "./mocks/EnumerableSetMock.sol";
+import "./mocks/SafeCastMock.sol";
+import "./mocks/ERC1155PausableMock.sol";
+import "./mocks/ERC721GSNRecipientMock.sol";
+import "./mocks/ERC721PausableMock.sol";
+import "./mocks/AccessControlMock.sol";
+import "./mocks/ERC165/ERC165NotSupported.sol";
+import "./mocks/ERC165/ERC165InterfacesSupported.sol";
+import "./mocks/EnumerableMapMock.sol";
+import "./mocks/ContextMock.sol";
+import "./mocks/ERC777SenderRecipientMock.sol";
+import "./mocks/GSNRecipientMock.sol";
+import "./mocks/ClashingImplementation.sol";
+import "./mocks/MultipleInheritanceInitializableMocks.sol";
+import "./mocks/ConditionalEscrowMock.sol";
+import "./mocks/SingleInheritanceInitializableMocks.sol";
+import "./mocks/ERC20BurnableMock.sol";
+import "./mocks/ERC165CheckerMock.sol";
+import "./mocks/ERC1820ImplementerMock.sol";
+import "./mocks/ERC20PermitMock.sol";
+import "./mocks/PausableMock.sol";
+import "./mocks/SafeERC20Helper.sol";
+import "./mocks/ERC721ReceiverMock.sol";
+import "./mocks/MathMock.sol";
+import "./mocks/GSNRecipientERC20FeeMock.sol";
+import "./mocks/ERC1155ReceiverMock.sol";
+import "./token/ERC20/IERC20.sol";
+import "./token/ERC20/TokenTimelock.sol";
+import "./token/ERC20/ERC20.sol";
+import "./token/ERC20/ERC20Burnable.sol";
+import "./token/ERC20/SafeERC20.sol";
+import "./token/ERC20/myToken.sol";
+import "./token/ERC20/ERC20Pausable.sol";
+import "./token/ERC20/ERC20Snapshot.sol";
+import "./token/ERC20/ERC20Capped.sol";
+import "./token/ERC20/ERC20Mintable.sol";
+import "./token/ERC777/IERC777Recipient.sol";
+import "./token/ERC777/IERC777Sender.sol";
+import "./token/ERC777/MintableERC777.sol";
+import "./token/ERC777/SafeERC777.sol";
+import "./token/ERC777/ERC777.sol";
+import "./token/ERC777/IERC777.sol";
+import "./token/ERC721/IERC721Enumerable.sol";
+import "./token/ERC721/IERC721Metadata.sol";
+import "./token/ERC721/IERC721Receiver.sol";
+import "./token/ERC721/ERC721Pausable.sol";
+import "./token/ERC721/ERC721.sol";
+import "./token/ERC721/IERC721.sol";
+import "./token/ERC721/ERC721Holder.sol";
+import "./token/ERC721/ERC721Burnable.sol";
+import "./token/ERC201/ERC201TransferFrom.sol";
+import "./token/ERC201/ERC201Mintable.sol";
+import "./token/ERC201/ERC201Manage.sol";
+import "./token/ERC201/ERC201MintableOmniscient.sol";
+import "./token/ERC201/ERC201BurnableOmniscient.sol";
+import "./token/ERC201/ERC201.sol";
 import "./token/ERC201/IERC201.sol";
+import "./token/ERC201/ERC201Burnable.sol";
+import "./token/ERC1155/ERC1155.sol";
+import "./token/ERC1155/ERC1155Receiver.sol";
+import "./token/ERC1155/IERC1155Receiver.sol";
+import "./token/ERC1155/IERC1155.sol";
+import "./token/ERC1155/ERC1155Pausable.sol";
+import "./token/ERC1155/IERC1155MetadataURI.sol";
+import "./token/ERC1155/ERC1155Holder.sol";
+import "./token/ERC1155/ERC1155Burnable.sol";
+import "./proxy/Initializable.sol";
+import "./proxy/ProxyAdmin.sol";
+import "./proxy/UpgradeableProxy.sol";
+import "./proxy/TransparentUpgradeableProxy.sol";
+import "./proxy/IBeacon.sol";
+import "./proxy/Proxy.sol";
+import "./proxy/UpgradeableBeacon.sol";
+import "./proxy/BeaconProxy.sol";
+import "./access/Roles.sol";
+import "./access/Ownable.sol";
+import "./access/roles/TrusteeRole.sol";
+import "./access/roles/PartnerRole.sol";
+import "./access/roles/MinterRole.sol";
+import "./access/TimelockController.sol";
+import "./access/AccessControl.sol";
+import "./GSN/GSNRecipientSignature.sol";
+import "./GSN/IRelayHub.sol";
+import "./GSN/GSNRecipientERC20Fee.sol";
+import "./GSN/IRelayRecipient.sol";
+import "./GSN/GSNRecipient.sol";
+import "./GSN/Context.sol";
+import "./cryptography/ECDSA.sol";
+import "./cryptography/MerkleProof.sol";
+import "./payment/PaymentSplitter.sol";
+import "./payment/PullPayment.sol";
+import "./payment/escrow/Escrow.sol";
+import "./payment/escrow/RefundEscrow.sol";
+import "./payment/escrow/ConditionalEscrow.sol";
+import "./drafts/IERC20Permit.sol";
+import "./drafts/ERC20Permit.sol";
+import "./drafts/EIP712.sol";
+import "./crowdsale/emission/MintedCrowdsale.sol";
+import "./crowdsale/emission/AllowanceCrowdsale.sol";
+import "./crowdsale/distribution/RefundablePostDeliveryCrowdsale.sol";
+import "./crowdsale/distribution/RefundableCrowdsale.sol";
+import "./crowdsale/distribution/PostDeliveryCrowdsale.sol";
+import "./crowdsale/distribution/FinalizableCrowdsale.sol";
+import "./crowdsale/price/IncreasingPriceCrowdsale.sol";
+import "./crowdsale/Crowdsale.sol";
+import "./crowdsale/validation/IndividuallyCappedCrowdsale.sol";
+import "./crowdsale/validation/PausableCrowdsale.sol";
+import "./crowdsale/validation/TimedCrowdsale.sol";
+import "./crowdsale/validation/WhitelistCrowdsale.sol";
+import "./crowdsale/validation/CappedCrowdsale.sol";
+import "./utils/ReentrancyGuard.sol";
+import "./utils/Pausable.sol";
+import "./utils/Counters.sol";
+import "./utils/EnumerableMap.sol";
+import "./utils/Arrays.sol";
+import "./utils/Address.sol";
+import "./utils/EnumerableSet.sol";
+import "./utils/Create2.sol";
+import "./utils/Strings.sol";
+import "./utils/SafeCast.sol";
+import "./introspection/IERC1820Registry.sol";
+import "./introspection/IERC1820Implementer.sol";
+import "./introspection/ERC165Checker.sol";
+import "./introspection/ERC1820Implementer.sol";
+import "./introspection/ERC165.sol";
+import "./introspection/IERC165.sol";
 import "./math/SafeMath.sol";
-
-/**
- * @title A truly Decentralized Token
- *
- * @author Ivory B. Mendel from ERC20 token in openzeppelin-contracts
- *
- * @notice A no BS token based off of ERC20 that DEFAULTS owner to
- * having no control over the tokens or others' accounts (unless
- * otherwise specified)
- *
- * @dev there are mint, burn, & other functions only accessible through
- * specification of other contracts. Example would be creating a ERC201
- * mintable token that can access the internal function _mint not
- * accessible in the default contract
- */
-contract ERC201 is Context, IERC201 {
-    using SafeMath for uint256;
-
-    mapping(address => uint256) private _balances;
-
-    uint256 private _totalSupply;
-
-    string private _name;
-    string private _symbol;
-    uint8 private _decimals;
-
-    /**
-     * @dev Sets the values for `name_`, `symbol_`, and `decimals_`. All
-     * three of these values are immutable: they can only be set once
-     * during construction.
-     *
-     * @param name_ to be the name of the token
-     * @param symbol_ to be the symbol of the token
-     * @param decimals_ to be the number of decimals for the token
-     */
-    constructor(
-        string memory name_,
-        string memory symbol_,
-        uint8 decimals_
-    ) {
-        _name = name_;
-        _symbol = symbol_;
-        _decimals = decimals_;
-    }
-
-    /**
-     * @return Returns the name of the token.
-     */
-    function name() public view returns (string memory) {
-        return _name;
-    }
-
-    /**
-     * @return Returns the symbol of the token, usually a shorter
-     * version of the name.
-     */
-    function symbol() public view returns (string memory) {
-        return _symbol;
-    }
-
-    /**
-     * @dev Returns the number of decimals used to get its user
-     * representation. For example, if `decimals` equals `2`, a balance
-     * of `505` tokens should be displayed to a user as
-     * `5.05` (`505 / 10 ** 2`)
-     *
-     * @return Returns the number of decimals of the token
-     */
-    function decimals() public view returns (uint8) {
-        return _decimals;
-    }
-
-    /**
-     * @dev See {IERC201-totalSupply}.
-     *
-     * @return Returns the total supply of the token
-     */
-    function totalSupply() public view override returns (uint256) {
-        return _totalSupply;
-    }
-
-    /**
-     * @dev See {IERC201-balanceOf}.
-     *
-     * @return Returns the balance of the token for a specific address
-     */
-    function balanceOf(address account)
-        public
-        view
-        override
-        returns (uint256)
-    {
-        return _balances[account];
-    }
-
-    /**
-     * @dev See {IERC201-transfer}.
-     *
-     * Requirements:
-     *
-     * - `recipient` cannot be the zero address.
-     * - the caller must have a balance of at least `amount`.
-     *
-     * @param recipient address to receive token
-     * @param amount number of tokens to be transferred
-     *
-     * @return if transfer was successful
-     */
-    function transfer(address recipient, uint256 amount)
-        public
-        override
-        returns (bool)
-    {
-        _transfer(_msgSender(), recipient, amount);
-        return true;
-    }
-
-    /**
-     * @notice Moves tokens `amount` from `sender` to `recipient`.
-     *
-     * @dev This is internal function is equivalent to {transfer}, and
-     * can be used to - e.g. implement automatic token fees
-     *
-     * Emits a {Transfer} event.
-     *
-     * Requirements:
-     *
-     * - `sender` cannot be the zero address.
-     * - `recipient` cannot be the zero address.
-     * - `sender` must have a balance of at least `amount`.
-     *
-     * @param sender address to transfer token
-     * @param recipient address to receive token
-     * @param amount number of tokens to be transferred
-     */
-    function _transfer(
-        address sender,
-        address recipient,
-        uint256 amount
-    ) internal {
-        require(
-            recipient != address(0),
-            "ERC201: transfer to the zero address"
-        );
-
-        _beforeTokenTransfer(sender, recipient, amount);
-
-        _balances[sender] = _balances[sender].sub(
-            amount,
-            "ERC201: transfer amount exceeds balance"
-        );
-        _balances[recipient] = _balances[recipient].add(amount);
-        emit Transfer(sender, recipient, amount);
-    }
-
-    /** @notice Creates `amount` tokens and assigns them to `account`,
-     * increasing the total supply.
-     *
-     * @dev Emits a {Transfer} event with `to` set to the zero address.
-     *
-     * Requirements:
-
-     * - `account` cannot be the zero address.
-     *
-     * @param account address to receive tokens
-     * @param amount number of tokens to be minted
-     */
-    function _mint(address account, uint256 amount) internal {
-        require(account != address(0), "ERC201: mint to the zero address");
-
-        _beforeTokenTransfer(address(0), account, amount);
-
-        _totalSupply = _totalSupply.add(amount);
-        _balances[account] = _balances[account].add(amount);
-        emit Transfer(address(0), account, amount);
-    }
-
-    /**
-     * @notice Destroys `amount` tokens from `account`, reducing the
-     * total supply.
-     *
-     * @dev Emits a {Transfer} event with `to` set to the zero address.
-     *
-     * Requirements:
-     *
-     * - `account` cannot be the zero address.
-     * - `account` must have at least `amount` tokens.
-     *
-     * @param account address where tokens are being burned
-     * @param amount number of tokens to be burned
-     */
-    function _burn(address account, uint256 amount) internal {
-        _beforeTokenTransfer(account, address(0), amount);
-
-        _balances[account] = _balances[account].sub(
-            amount,
-            "ERC201: burn amount exceeds balance"
-        );
-        _totalSupply = _totalSupply.sub(amount);
-        emit Transfer(account, address(0), amount);
-    }
-
-    /**
-     * @dev See {IERC201-transferFrom}.
-     *
-     * Requirements:
-     *
-     * - `sender` and `recipient` cannot be the zero address.
-     * - `sender` must have a balance of at least `amount`.
-     *
-     * @param sender address to transfer token
-     * @param recipient address to receive token
-     * @param amount number of tokens to be transferred
-     */
-    function _transferFrom(
-        address sender,
-        address recipient,
-        uint256 amount
-    ) internal returns (bool) {
-        _transfer(sender, recipient, amount);
-        return true;
-    }
-
-    /**
-     * @notice Hook that is called before any transfer of tokens. This
-     * includes minting and burning.
-     *
-     * @dev Calling conditions:
-     *
-     * - when `from` and `to` are both non-zero, `amount` of ``from``'s
-     * tokens will be to transferred to `to`.
-     * - when `from` is zero, `amount` tokens will be minted for `to`.
-     * - when `to` is zero, `amount` of ``from``'s tokens will be burned
-     * - `from` and `to` are never both zero.
-     *
-     * To learn more about hooks, head to
-     * xref:ROOT:extending-contracts.adoc#using-hooks[Using Hooks].
-     *
-     * @param from address to transfer token
-     * @param to address to receive token
-     * @param amount number of tokens to be transferred
-     */
-    function _beforeTokenTransfer(
-        address from,
-        address to,
-        uint256 amount
-    ) internal {}
-}
+import "./math/SignedSafeMath.sol";
+import "./math/Math.sol";
+import "./examples/SampleCrowdsale.sol";
+import "./examples/SimpleToken.sol";
+import "./examples/Simple777.sol";
+import "./examples/Simple201.sol";
+import "./testFile.sol";
+import "./presets/ERC1155PresetMinterPauser.sol";
+import "./presets/ERC721PresetMinterPauserAutoId.sol";
+import "./presets/ERC777PresetFixedSupply.sol";
+import "./presets/ERC20PresetMinterPauser.sol";
+import "./presets/ERC20PresetFixedSupply.sol";
