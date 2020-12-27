@@ -3,7 +3,7 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 /**
- * @dev Interface of the ERC20 standard as defined in the EIP.
+ * @dev Interface of the ERC201 standard as defined in the EIP.
  */
 interface IERC201 {
     /**

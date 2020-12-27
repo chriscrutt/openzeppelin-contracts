@@ -7,11 +7,11 @@ import "../token/ERC201/ERC201Mintable.sol";
 
 /**
  * @title A pre-written token
- * @dev Very simple ERC20 Token example, where all tokens are pre-
+ * @dev Very simple ERC201 Token example, where all tokens are pre-
  * assigned to the creator.
- * 
+ *
  * Note they can later distribute these tokens as they wish using
- * `transfer` and other `ERC20` functions.
+ * `transfer` and other `ERC201` functions.
  */
 contract SimpleToken is Context, ERC201, ERC201Mintable {
     /**

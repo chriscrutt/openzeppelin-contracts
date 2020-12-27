@@ -147,14 +147,14 @@ contract ERC201 is Context, IERC201 {
     ) internal {
         require(
             recipient != address(0),
-            "ERC20: transfer to the zero address"
+            "ERC201: transfer to the zero address"
         );
 
         _beforeTokenTransfer(sender, recipient, amount);
 
         _balances[sender] = _balances[sender].sub(
             amount,
-            "ERC20: transfer amount exceeds balance"
+            "ERC201: transfer amount exceeds balance"
         );
         _balances[recipient] = _balances[recipient].add(amount);
         emit Transfer(sender, recipient, amount);
@@ -173,7 +173,7 @@ contract ERC201 is Context, IERC201 {
      * @param amount number of tokens to be minted
      */
     function _mint(address account, uint256 amount) internal {
-        require(account != address(0), "ERC20: mint to the zero address");
+        require(account != address(0), "ERC201: mint to the zero address");
 
         _beforeTokenTransfer(address(0), account, amount);
 
@@ -193,17 +193,18 @@ contract ERC201 is Context, IERC201 {
      * - `account` cannot be the zero address.
      * - `account` must have at least `amount` tokens.
      *
+     * @param account address where tokens are being burned
      * @param amount number of tokens to be burned
      */
-    function _burn(uint256 amount) internal {
-        _beforeTokenTransfer(_msgSender(), address(0), amount);
+    function _burn(address account, uint256 amount) internal {
+        _beforeTokenTransfer(account, address(0), amount);
 
-        _balances[_msgSender()] = _balances[_msgSender()].sub(
+        _balances[account] = _balances[account].sub(
             amount,
-            "ERC20: burn amount exceeds balance"
+            "ERC201: burn amount exceeds balance"
         );
         _totalSupply = _totalSupply.sub(amount);
-        emit Transfer(_msgSender(), address(0), amount);
+        emit Transfer(account, address(0), amount);
     }
 
     /**

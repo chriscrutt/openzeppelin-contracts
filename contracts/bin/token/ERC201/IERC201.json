@@ -83,7 +83,7 @@
             "type": "function"
         }
     ],
-    "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC20 standard as defined in the EIP.\",\"events\":{\"Transfer(address,address,uint256)\":{\"details\":\"Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero.\"}},\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by `account`.\"},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"},\"transfer(address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":\"IERC201\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":{\"keccak256\":\"0x769874e613147fef0319dcbbcb0f257c8c13445e051b06cc5d843b95e384d716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aa8769dadb2ffb9d12983dfd0d0f138c3c67f6411c6ec6ad42edf1ced79e32d3\",\"dweb:/ipfs/QmWamY9rkcTb8E4jGvbqWB3YakP3bdf6EpZjjBTymWKCYu\"]}},\"version\":1}",
+    "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC201 standard as defined in the EIP.\",\"events\":{\"Transfer(address,address,uint256)\":{\"details\":\"Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero.\"}},\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by `account`.\"},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"},\"transfer(address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":\"IERC201\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":{\"keccak256\":\"0x9972da702fb70e2a41b0f97bbaab4580e4cb61b5dd1d77bc556f9a523e5874c8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9f6d23038dcabbc5297dc48f0fdd5bb673ab53a26d4bb0c725c5c86e7d5774d\",\"dweb:/ipfs/Qmez8DGHpWVTJ65PbDtSKV1PjhuxcyU96noZcyquR5go6C\"]}},\"version\":1}",
     "bytecode": "",
     "deployedBytecode": "",
     "sourceMap": "",
@@ -126,8 +126,8 @@
                 "documentation": {
                     "id": 2,
                     "nodeType": "StructuredDocumentation",
-                    "src": "66:70:0",
-                    "text": " @dev Interface of the ERC20 standard as defined in the EIP."
+                    "src": "66:71:0",
+                    "text": " @dev Interface of the ERC201 standard as defined in the EIP."
                 },
                 "fullyImplemented": false,
                 "id": 36,
@@ -142,7 +142,7 @@
                         "documentation": {
                             "id": 3,
                             "nodeType": "StructuredDocumentation",
-                            "src": "161:158:0",
+                            "src": "162:158:0",
                             "text": " @dev Emitted when `value` tokens are moved from one account\n (`from`) to another (`to`).\n Note that `value` may be zero."
                         },
                         "id": 11,
@@ -160,7 +160,7 @@
                                     "name": "from",
                                     "nodeType": "VariableDeclaration",
                                     "scope": 11,
-                                    "src": "339:20:0",
+                                    "src": "340:20:0",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -171,7 +171,7 @@
                                         "id": 4,
                                         "name": "address",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "339:7:0",
+                                        "src": "340:7:0",
                                         "stateMutability": "nonpayable",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -188,7 +188,7 @@
                                     "name": "to",
                                     "nodeType": "VariableDeclaration",
                                     "scope": 11,
-                                    "src": "361:18:0",
+                                    "src": "362:18:0",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -199,7 +199,7 @@
                                         "id": 6,
                                         "name": "address",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "361:7:0",
+                                        "src": "362:7:0",
                                         "stateMutability": "nonpayable",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -216,7 +216,7 @@
                                     "name": "value",
                                     "nodeType": "VariableDeclaration",
                                     "scope": 11,
-                                    "src": "381:13:0",
+                                    "src": "382:13:0",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -227,7 +227,7 @@
                                         "id": 8,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "381:7:0",
+                                        "src": "382:7:0",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -236,15 +236,15 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "338:57:0"
+                            "src": "339:57:0"
                         },
-                        "src": "324:72:0"
+                        "src": "325:72:0"
                     },
                     {
                         "documentation": {
                             "id": 12,
                             "nodeType": "StructuredDocumentation",
-                            "src": "402:223:0",
+                            "src": "403:223:0",
                             "text": " @dev Moves `amount` tokens from the caller's account to\n `recipient`.\n Returns a boolean value indicating whether the operation\n succeeded.\n Emits a {Transfer} event."
                         },
                         "functionSelector": "a9059cbb",
@@ -265,7 +265,7 @@
                                     "name": "recipient",
                                     "nodeType": "VariableDeclaration",
                                     "scope": 21,
-                                    "src": "648:17:0",
+                                    "src": "649:17:0",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -276,7 +276,7 @@
                                         "id": 13,
                                         "name": "address",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "648:7:0",
+                                        "src": "649:7:0",
                                         "stateMutability": "nonpayable",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -292,7 +292,7 @@
                                     "name": "amount",
                                     "nodeType": "VariableDeclaration",
                                     "scope": 21,
-                                    "src": "667:14:0",
+                                    "src": "668:14:0",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -303,7 +303,7 @@
                                         "id": 15,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "667:7:0",
+                                        "src": "668:7:0",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -312,7 +312,7 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "647:35:0"
+                            "src": "648:35:0"
                         },
                         "returnParameters": {
                             "id": 20,
@@ -325,7 +325,7 @@
                                     "name": "",
                                     "nodeType": "VariableDeclaration",
                                     "scope": 21,
-                                    "src": "717:4:0",
+                                    "src": "718:4:0",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -336,7 +336,7 @@
                                         "id": 18,
                                         "name": "bool",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "717:4:0",
+                                        "src": "718:4:0",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_bool",
                                             "typeString": "bool"
@@ -345,10 +345,10 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "716:6:0"
+                            "src": "717:6:0"
                         },
                         "scope": 36,
-                        "src": "630:93:0",
+                        "src": "631:93:0",
                         "stateMutability": "nonpayable",
                         "virtual": false,
                         "visibility": "external"
@@ -357,7 +357,7 @@
                         "documentation": {
                             "id": 22,
                             "nodeType": "StructuredDocumentation",
-                            "src": "729:66:0",
+                            "src": "730:66:0",
                             "text": " @dev Returns the amount of tokens in existence."
                         },
                         "functionSelector": "18160ddd",
@@ -371,7 +371,7 @@
                             "id": 23,
                             "nodeType": "ParameterList",
                             "parameters": [],
-                            "src": "820:2:0"
+                            "src": "821:2:0"
                         },
                         "returnParameters": {
                             "id": 26,
@@ -384,7 +384,7 @@
                                     "name": "",
                                     "nodeType": "VariableDeclaration",
                                     "scope": 27,
-                                    "src": "846:7:0",
+                                    "src": "847:7:0",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -395,7 +395,7 @@
                                         "id": 24,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "846:7:0",
+                                        "src": "847:7:0",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -404,10 +404,10 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "845:9:0"
+                            "src": "846:9:0"
                         },
                         "scope": 36,
-                        "src": "800:55:0",
+                        "src": "801:55:0",
                         "stateMutability": "view",
                         "virtual": false,
                         "visibility": "external"
@@ -416,7 +416,7 @@
                         "documentation": {
                             "id": 28,
                             "nodeType": "StructuredDocumentation",
-                            "src": "861:72:0",
+                            "src": "862:72:0",
                             "text": " @dev Returns the amount of tokens owned by `account`."
                         },
                         "functionSelector": "70a08231",
@@ -437,7 +437,7 @@
                                     "name": "account",
                                     "nodeType": "VariableDeclaration",
                                     "scope": 35,
-                                    "src": "957:15:0",
+                                    "src": "958:15:0",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -448,7 +448,7 @@
                                         "id": 29,
                                         "name": "address",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "957:7:0",
+                                        "src": "958:7:0",
                                         "stateMutability": "nonpayable",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_address",
@@ -458,7 +458,7 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "956:17:0"
+                            "src": "957:17:0"
                         },
                         "returnParameters": {
                             "id": 34,
@@ -471,7 +471,7 @@
                                     "name": "",
                                     "nodeType": "VariableDeclaration",
                                     "scope": 35,
-                                    "src": "997:7:0",
+                                    "src": "998:7:0",
                                     "stateVariable": false,
                                     "storageLocation": "default",
                                     "typeDescriptions": {
@@ -482,7 +482,7 @@
                                         "id": 32,
                                         "name": "uint256",
                                         "nodeType": "ElementaryTypeName",
-                                        "src": "997:7:0",
+                                        "src": "998:7:0",
                                         "typeDescriptions": {
                                             "typeIdentifier": "t_uint256",
                                             "typeString": "uint256"
@@ -491,20 +491,20 @@
                                     "visibility": "internal"
                                 }
                             ],
-                            "src": "996:9:0"
+                            "src": "997:9:0"
                         },
                         "scope": 36,
-                        "src": "938:68:0",
+                        "src": "939:68:0",
                         "stateMutability": "view",
                         "virtual": false,
                         "visibility": "external"
                     }
                 ],
                 "scope": 37,
-                "src": "137:871:0"
+                "src": "138:871:0"
             }
         ],
-        "src": "33:976:0"
+        "src": "33:977:0"
     },
     "functionHashes": {
         "balanceOf(address)": "70a08231",

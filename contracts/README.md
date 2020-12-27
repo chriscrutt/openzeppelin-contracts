@@ -1,17 +1,19 @@
 # TODO:
 
-## Keep up to date with main branch
+### Keep up to date with main branch
 
 - [ ] ERC201
-
   - [x] create base token
   - [x] allow mintable
-  - [ ] allow burnable
-    - [ ] burn other accounts
-    - [ ] burn your account
-  - [ ] make transfers on others' accounts
-    - [ ] for all accounts
-    - [ ] accounts can allow for "managers"
+    - [x] burn other accounts
+    - [x] burn your account
+  - [x] allow burnable
+    - [x] burn other accounts
+    - [x] burn your account
+  - [x] make transfers on others' accounts
+    - [x] for all accounts
+    - [x] for trustee accounts
+  - [ ] accounts can allow for "managers"
   - [ ] allow pausable
 
 - [ ] ERC721

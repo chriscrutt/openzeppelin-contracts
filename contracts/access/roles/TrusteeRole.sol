@@ -28,6 +28,14 @@ abstract contract TrusteeRole is Context {
         _;
     }
 
+    modifier onlyManager() {
+        require(
+            isManager(_msgSender()),
+            "TrusteeRole: caller does not have the Manager role"
+        );
+        _;
+    }
+
     function isTrustee(address account) public view returns (bool) {
         return _trustees.has(account);
     }
@@ -46,11 +54,15 @@ abstract contract TrusteeRole is Context {
     }
 
     function _removeTrustee(address account) internal {
-        require(account != _manager, "Cannot remove manager as trustee");
+        require(!isManager(), "Cannot remove manager");
 
         require(_msgSender() == _manager || _msgSender() == account);
         _trustees.remove(account);
         emit TrusteeRemoved(account);
+    }
+
+    function isManager(address account) public view returns (bool) {
+        return _manager == account;
     }
 
     function changeManager(address account) public {
