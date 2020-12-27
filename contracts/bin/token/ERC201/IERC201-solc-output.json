@@ -1,7 +1,7 @@
 {
     "contracts": {
-        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol": {
-            "IERC201": {
+        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol": {
+            "IERC1618": {
                 "abi": [
                     {
                         "anonymous": false,
@@ -86,7 +86,7 @@
                     }
                 ],
                 "devdoc": {
-                    "details": "Interface of the ERC201 standard as defined in the EIP.",
+                    "details": "Interface of the ERC1618 standard as defined in the EIP.",
                     "events": {
                         "Transfer(address,address,uint256)": {
                             "details": "Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero."
@@ -129,7 +129,7 @@
                         "transfer(address,uint256)": "a9059cbb"
                     }
                 },
-                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC201 standard as defined in the EIP.\",\"events\":{\"Transfer(address,address,uint256)\":{\"details\":\"Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero.\"}},\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by `account`.\"},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"},\"transfer(address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":\"IERC201\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":{\"keccak256\":\"0x9972da702fb70e2a41b0f97bbaab4580e4cb61b5dd1d77bc556f9a523e5874c8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9f6d23038dcabbc5297dc48f0fdd5bb673ab53a26d4bb0c725c5c86e7d5774d\",\"dweb:/ipfs/Qmez8DGHpWVTJ65PbDtSKV1PjhuxcyU96noZcyquR5go6C\"]}},\"version\":1}",
+                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC1618 standard as defined in the EIP.\",\"events\":{\"Transfer(address,address,uint256)\":{\"details\":\"Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero.\"}},\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by `account`.\"},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"},\"transfer(address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol\":\"IERC1618\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol\":{\"keccak256\":\"0x9972da702fb70e2a41b0f97bbaab4580e4cb61b5dd1d77bc556f9a523e5874c8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9f6d23038dcabbc5297dc48f0fdd5bb673ab53a26d4bb0c725c5c86e7d5774d\",\"dweb:/ipfs/Qmez8DGHpWVTJ65PbDtSKV1PjhuxcyU96noZcyquR5go6C\"]}},\"version\":1}",
                 "userdoc": {
                     "kind": "user",
                     "methods": {},
@@ -139,11 +139,11 @@
         }
     },
     "sources": {
-        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol": {
+        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol": {
             "ast": {
-                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol",
+                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol",
                 "exportedSymbols": {
-                    "IERC201": [
+                    "IERC1618": [
                         36
                     ]
                 },
@@ -174,14 +174,14 @@
                             "id": 2,
                             "nodeType": "StructuredDocumentation",
                             "src": "66:71:0",
-                            "text": " @dev Interface of the ERC201 standard as defined in the EIP."
+                            "text": " @dev Interface of the ERC1618 standard as defined in the EIP."
                         },
                         "fullyImplemented": false,
                         "id": 36,
                         "linearizedBaseContracts": [
                             36
                         ],
-                        "name": "IERC201",
+                        "name": "IERC1618",
                         "nodeType": "ContractDefinition",
                         "nodes": [
                             {

@@ -2,19 +2,19 @@
 
 pragma solidity >=0.6.0 <0.9.0;
 
-import "../../token/ERC201/ERC201.sol";
+import "../../token/ERC1618/ERC1618.sol";
 import "../../access/roles/TrusteeRole.sol";
 
 /**
- * @dev Extension of {ERC201} that adds a set of accounts with the
+ * @dev Extension of {ERC1618} that adds a set of accounts with the
  * {TrusteeRole}, which have permission to mint (create) new tokens as
  * they see fit to their own accounts.
  *
  * At construction, the deployer of the contract is the only trustee.
  */
-abstract contract ERC201Mintable is ERC201, TrusteeRole {
+abstract contract ERC1618Mintable is ERC1618, TrusteeRole {
     /**
-     * @dev See {ERC201-_mint}.
+     * @dev See {ERC1618-_mint}.
      *
      * Requirements:
      *

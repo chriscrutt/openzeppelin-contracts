@@ -1,5 +1,5 @@
 {
-    "contractName": "ERC201",
+    "contractName": "ERC1618",
     "abi": [
         {
             "inputs": [
@@ -143,26 +143,26 @@
             "type": "function"
         }
     ],
-    "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol_\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"decimals_\",\"type\":\"uint8\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Ivory B. Mendel from ERC20 token in openzeppelin-contracts\",\"details\":\"there are mint, burn, & other functions only accessible through specification of other contracts. Example would be creating a ERC201 mintable token that can access the internal function _mint not accessible in the default contract\",\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"See {IERC201-balanceOf}.\",\"returns\":{\"_0\":\"Returns the balance of the token for a specific address\"}},\"constructor\":{\"details\":\"Sets the values for `name_`, `symbol_`, and `decimals_`. All three of these values are immutable: they can only be set once during construction.\",\"params\":{\"decimals_\":\"to be the number of decimals for the token\",\"name_\":\"to be the name of the token\",\"symbol_\":\"to be the symbol of the token\"}},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`)\",\"returns\":{\"_0\":\"Returns the number of decimals of the token\"}},\"name()\":{\"returns\":{\"_0\":\"Returns the name of the token.\"}},\"symbol()\":{\"returns\":{\"_0\":\"Returns the symbol of the token, usually a shorter version of the name.\"}},\"totalSupply()\":{\"details\":\"See {IERC201-totalSupply}.\",\"returns\":{\"_0\":\"Returns the total supply of the token\"}},\"transfer(address,uint256)\":{\"details\":\"See {IERC201-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.\",\"params\":{\"amount\":\"number of tokens to be transferred\",\"recipient\":\"address to receive token\"},\"returns\":{\"_0\":\"if transfer was successful\"}}},\"title\":\"A truly Decentralized Token\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"A no BS token based off of ERC20 that DEFAULTS owner to having no control over the tokens or others' accounts (unless otherwise specified)\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol\":\"ERC201\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d49c8507b8799328decb5316b97367106f202ae6b36dd10764a477f960c0518\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://702fe8cf4064118c43201ceaa50b2905dca6a20c3a43528696a925ec16d7846d\",\"dweb:/ipfs/QmZzixPwGcGwQnmwFAQwjwLHjGVzmM9dc36jHWt3PPdfde\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol\":{\"keccak256\":\"0x6d34b75dba2fd513b46f001c28a843b3c2fe7d8dc8857992f2c849622eca22b4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ac82ab0541262b794aec25b2fd212244ba9be6c9fdfd3af916ebcb762cb3021e\",\"dweb:/ipfs/QmX3nFnFZZTvpraCJ517TXbLqzKCxLci1NtX6KkFrynMo8\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":{\"keccak256\":\"0x9972da702fb70e2a41b0f97bbaab4580e4cb61b5dd1d77bc556f9a523e5874c8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9f6d23038dcabbc5297dc48f0fdd5bb673ab53a26d4bb0c725c5c86e7d5774d\",\"dweb:/ipfs/Qmez8DGHpWVTJ65PbDtSKV1PjhuxcyU96noZcyquR5go6C\"]}},\"version\":1}",
+    "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol_\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"decimals_\",\"type\":\"uint8\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Ivory B. Mendel from ERC20 token in openzeppelin-contracts\",\"details\":\"there are mint, burn, & other functions only accessible through specification of other contracts. Example would be creating a ERC1618 mintable token that can access the internal function _mint not accessible in the default contract\",\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"See {IERC1618-balanceOf}.\",\"returns\":{\"_0\":\"Returns the balance of the token for a specific address\"}},\"constructor\":{\"details\":\"Sets the values for `name_`, `symbol_`, and `decimals_`. All three of these values are immutable: they can only be set once during construction.\",\"params\":{\"decimals_\":\"to be the number of decimals for the token\",\"name_\":\"to be the name of the token\",\"symbol_\":\"to be the symbol of the token\"}},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`)\",\"returns\":{\"_0\":\"Returns the number of decimals of the token\"}},\"name()\":{\"returns\":{\"_0\":\"Returns the name of the token.\"}},\"symbol()\":{\"returns\":{\"_0\":\"Returns the symbol of the token, usually a shorter version of the name.\"}},\"totalSupply()\":{\"details\":\"See {IERC1618-totalSupply}.\",\"returns\":{\"_0\":\"Returns the total supply of the token\"}},\"transfer(address,uint256)\":{\"details\":\"See {IERC1618-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.\",\"params\":{\"amount\":\"number of tokens to be transferred\",\"recipient\":\"address to receive token\"},\"returns\":{\"_0\":\"if transfer was successful\"}}},\"title\":\"A truly Decentralized Token\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"A no BS token based off of ERC20 that DEFAULTS owner to having no control over the tokens or others' accounts (unless otherwise specified)\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol\":\"ERC1618\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d49c8507b8799328decb5316b97367106f202ae6b36dd10764a477f960c0518\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://702fe8cf4064118c43201ceaa50b2905dca6a20c3a43528696a925ec16d7846d\",\"dweb:/ipfs/QmZzixPwGcGwQnmwFAQwjwLHjGVzmM9dc36jHWt3PPdfde\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol\":{\"keccak256\":\"0x6d34b75dba2fd513b46f001c28a843b3c2fe7d8dc8857992f2c849622eca22b4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ac82ab0541262b794aec25b2fd212244ba9be6c9fdfd3af916ebcb762cb3021e\",\"dweb:/ipfs/QmX3nFnFZZTvpraCJ517TXbLqzKCxLci1NtX6KkFrynMo8\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol\":{\"keccak256\":\"0x9972da702fb70e2a41b0f97bbaab4580e4cb61b5dd1d77bc556f9a523e5874c8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9f6d23038dcabbc5297dc48f0fdd5bb673ab53a26d4bb0c725c5c86e7d5774d\",\"dweb:/ipfs/Qmez8DGHpWVTJ65PbDtSKV1PjhuxcyU96noZcyquR5go6C\"]}},\"version\":1}",
     "bytecode": "608060405234801561001057600080fd5b5060405161080038038061080083398101604081905261002f916101ac565b8251610042906002906020860190610073565b508151610056906003906020850190610073565b506004805460ff191660ff92909216919091179055506102769050565b82805461007f90610225565b90600052602060002090601f0160209004810192826100a157600085556100e7565b82601f106100ba57805160ff19168380011785556100e7565b828001600101855582156100e7579182015b828111156100e75782518255916020019190600101906100cc565b506100f39291506100f7565b5090565b5b808211156100f357600081556001016100f8565b600082601f83011261011c578081fd5b81516001600160401b038082111561013657610136610260565b6040516020601f8401601f191682018101838111838210171561015b5761015b610260565b6040528382528584018101871015610171578485fd5b8492505b838310156101925785830181015182840182015291820191610175565b838311156101a257848185840101525b5095945050505050565b6000806000606084860312156101c0578283fd5b83516001600160401b03808211156101d6578485fd5b6101e28783880161010c565b945060208601519150808211156101f7578384fd5b506102048682870161010c565b925050604084015160ff8116811461021a578182fd5b809150509250925092565b60028104600182168061023957607f821691505b6020821081141561025a57634e487b7160e01b600052602260045260246000fd5b50919050565b634e487b7160e01b600052604160045260246000fd5b61057b806102856000396000f3fe608060405234801561001057600080fd5b50600436106100625760003560e01c806306fdde031461006757806318160ddd14610085578063313ce5671461009a57806370a08231146100af57806395d89b41146100c2578063a9059cbb146100ca575b600080fd5b61006f6100ea565b60405161007c91906103b9565b60405180910390f35b61008d61017c565b60405161007c9190610487565b6100a2610182565b60405161007c9190610490565b61008d6100bd36600461036b565b61018b565b61006f6101aa565b6100dd6100d8366004610385565b6101b9565b60405161007c91906103ae565b6060600280546100f9906104cd565b80601f0160208091040260200160405190810160405280929190818152602001828054610125906104cd565b80156101725780601f1061014757610100808354040283529160200191610172565b820191906000526020600020905b81548152906001019060200180831161015557829003601f168201915b5050505050905090565b60015490565b60045460ff1690565b6001600160a01b0381166000908152602081905260409020545b919050565b6060600380546100f9906104cd565b60006101cd6101c66101d6565b84846101da565b50600192915050565b3390565b6001600160a01b0382166102095760405162461bcd60e51b815260040161020090610443565b60405180910390fd5b6102148383836102df565b6102518160405180606001604052806027815260200161051f602791396001600160a01b03861660009081526020819052604090205491906102e4565b6001600160a01b038085166000908152602081905260408082209390935590841681522054610280908261031e565b6001600160a01b0380841660008181526020819052604090819020939093559151908516907fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef906102d2908590610487565b60405180910390a3505050565b505050565b600081848411156103085760405162461bcd60e51b815260040161020091906103b9565b50600061031584866104b6565b95945050505050565b60008061032b838561049e565b90508381101561034d5760405162461bcd60e51b81526004016102009061040c565b9392505050565b80356001600160a01b03811681146101a557600080fd5b60006020828403121561037c578081fd5b61034d82610354565b60008060408385031215610397578081fd5b6103a083610354565b946020939093013593505050565b901515815260200190565b6000602080835283518082850152825b818110156103e5578581018301518582016040015282016103c9565b818111156103f65783604083870101525b50601f01601f1916929092016040019392505050565b6020808252601b908201527f536166654d6174683a206164646974696f6e206f766572666c6f770000000000604082015260600190565b60208082526024908201527f4552433230313a207472616e7366657220746f20746865207a65726f206164646040820152637265737360e01b606082015260800190565b90815260200190565b60ff91909116815260200190565b600082198211156104b1576104b1610508565b500190565b6000828210156104c8576104c8610508565b500390565b6002810460018216806104e157607f821691505b6020821081141561050257634e487b7160e01b600052602260045260246000fd5b50919050565b634e487b7160e01b600052601160045260246000fdfe4552433230313a207472616e7366657220616d6f756e7420657863656564732062616c616e6365a2646970667358221220c865175d2f47c4899ce8385cf1faacd6a9b9bd11e6477f0cde462123c45fd38964736f6c63430008000033",
     "deployedBytecode": "608060405234801561001057600080fd5b50600436106100625760003560e01c806306fdde031461006757806318160ddd14610085578063313ce5671461009a57806370a08231146100af57806395d89b41146100c2578063a9059cbb146100ca575b600080fd5b61006f6100ea565b60405161007c91906103b9565b60405180910390f35b61008d61017c565b60405161007c9190610487565b6100a2610182565b60405161007c9190610490565b61008d6100bd36600461036b565b61018b565b61006f6101aa565b6100dd6100d8366004610385565b6101b9565b60405161007c91906103ae565b6060600280546100f9906104cd565b80601f0160208091040260200160405190810160405280929190818152602001828054610125906104cd565b80156101725780601f1061014757610100808354040283529160200191610172565b820191906000526020600020905b81548152906001019060200180831161015557829003601f168201915b5050505050905090565b60015490565b60045460ff1690565b6001600160a01b0381166000908152602081905260409020545b919050565b6060600380546100f9906104cd565b60006101cd6101c66101d6565b84846101da565b50600192915050565b3390565b6001600160a01b0382166102095760405162461bcd60e51b815260040161020090610443565b60405180910390fd5b6102148383836102df565b6102518160405180606001604052806027815260200161051f602791396001600160a01b03861660009081526020819052604090205491906102e4565b6001600160a01b038085166000908152602081905260408082209390935590841681522054610280908261031e565b6001600160a01b0380841660008181526020819052604090819020939093559151908516907fddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef906102d2908590610487565b60405180910390a3505050565b505050565b600081848411156103085760405162461bcd60e51b815260040161020091906103b9565b50600061031584866104b6565b95945050505050565b60008061032b838561049e565b90508381101561034d5760405162461bcd60e51b81526004016102009061040c565b9392505050565b80356001600160a01b03811681146101a557600080fd5b60006020828403121561037c578081fd5b61034d82610354565b60008060408385031215610397578081fd5b6103a083610354565b946020939093013593505050565b901515815260200190565b6000602080835283518082850152825b818110156103e5578581018301518582016040015282016103c9565b818111156103f65783604083870101525b50601f01601f1916929092016040019392505050565b6020808252601b908201527f536166654d6174683a206164646974696f6e206f766572666c6f770000000000604082015260600190565b60208082526024908201527f4552433230313a207472616e7366657220746f20746865207a65726f206164646040820152637265737360e01b606082015260800190565b90815260200190565b60ff91909116815260200190565b600082198211156104b1576104b1610508565b500190565b6000828210156104c8576104c8610508565b500390565b6002810460018216806104e157607f821691505b6020821081141561050257634e487b7160e01b600052602260045260246000fd5b50919050565b634e487b7160e01b600052601160045260246000fdfe4552433230313a207472616e7366657220616d6f756e7420657863656564732062616c616e6365a2646970667358221220c865175d2f47c4899ce8385cf1faacd6a9b9bd11e6477f0cde462123c45fd38964736f6c63430008000033",
     "sourceMap": "703:6761:2:-:0;;;1310:191;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;1423:13;;;;:5;;:13;;;;;:::i;:::-;-1:-1:-1;1446:17:2;;;;:7;;:17;;;;;:::i;:::-;-1:-1:-1;1473:9:2;:21;;-1:-1:-1;;1473:21:2;;;;;;;;;;;;-1:-1:-1;703:6761:2;;-1:-1:-1;703:6761:2;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;703:6761:2;;;-1:-1:-1;703:6761:2;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;14:881:4;;123:3;116:4;108:6;104:17;100:27;90:2;;145:5;138;131:20;90:2;172:13;;-1:-1:-1;;;;;234:10:4;;;231:2;;;247:18;;:::i;:::-;296:2;290:9;318:4;388:2;369:13;;-1:-1:-1;;365:27:4;353:40;;349:49;;413:18;;;433:22;;;410:46;407:2;;;459:18;;:::i;:::-;495:2;488:22;519:18;;;556:15;;;552:24;;549:33;-1:-1:-1;546:2:4;;;599:5;592;585:20;546:2;625:5;616:14;;639:133;653:2;650:1;647:9;639:133;;;741:14;;;737:23;;731:30;710:14;;;706:23;;699:63;664:10;;;;639:133;;;790:2;787:1;784:9;781:2;;;849:5;844:2;839;831:6;827:15;823:24;816:39;781:2;-1:-1:-1;883:6:4;80:815;-1:-1:-1;;;;;80:815:4:o;900:756::-;;;;1075:2;1063:9;1054:7;1050:23;1046:32;1043:2;;;1096:6;1088;1081:22;1043:2;1128:16;;-1:-1:-1;;;;;1193:14:4;;;1190:2;;;1225:6;1217;1210:22;1190:2;1253:63;1308:7;1299:6;1288:9;1284:22;1253:63;:::i;:::-;1243:73;;1362:2;1351:9;1347:18;1341:25;1325:41;;1391:2;1381:8;1378:16;1375:2;;;1412:6;1404;1397:22;1375:2;;1440:65;1497:7;1486:8;1475:9;1471:24;1440:65;:::i;:::-;1430:75;;;1548:2;1537:9;1533:18;1527:25;1592:4;1585:5;1581:16;1574:5;1571:27;1561:2;;1617:6;1609;1602:22;1561:2;1645:5;1635:15;;;1033:623;;;;;:::o;1661:380::-;1746:1;1736:12;;1793:1;1783:12;;;1804:2;;1858:4;1850:6;1846:17;1836:27;;1804:2;1911;1903:6;1900:14;1880:18;1877:38;1874:2;;;1957:10;1952:3;1948:20;1945:1;1938:31;1992:4;1989:1;1982:15;2020:4;2017:1;2010:15;1874:2;;1716:325;;;:::o;2046:127::-;2107:10;2102:3;2098:20;2095:1;2088:31;2138:4;2135:1;2128:15;2162:4;2159:1;2152:15;2078:95;703:6761:2;;;;;;",
     "deployedSourceMap": "703:6761:2:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1569:81;;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;2365:98;;;:::i;:::-;;;;;;;:::i;2163:81::-;;;:::i;:::-;;;;;;;:::i;2600:153::-;;;;;;:::i;:::-;;:::i;1766:85::-;;;:::i;3118:192::-;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;1569:81::-;1606:13;1638:5;1631:12;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1569:81;:::o;2365:98::-;2444:12;;2365:98;:::o;2163:81::-;2228:9;;;;2163:81;:::o;2600:153::-;-1:-1:-1;;;;;2728:18:2;;2698:7;2728:18;;;;;;;;;;;2600:153;;;;:::o;1766:85::-;1805:13;1837:7;1830:14;;;;;:::i;3118:192::-;3220:4;3240:42;3250:12;:10;:12::i;:::-;3264:9;3275:6;3240:9;:42::i;:::-;-1:-1:-1;3299:4:2;3118:192;;;;:::o;881:113:0:-;976:10;881:113;:::o;3926:542:2:-;-1:-1:-1;;;;;4066:23:2;;4045:106;;;;-1:-1:-1;;;4045:106:2;;;;;;;:::i;:::-;;;;;;;;;4162:47;4183:6;4191:9;4202:6;4162:20;:47::i;:::-;4240:106;4275:6;4240:106;;;;;;;;;;;;;;;;;-1:-1:-1;;;;;4240:17:2;;:9;:17;;;;;;;;;;;;:106;:21;:106::i;:::-;-1:-1:-1;;;;;4220:17:2;;;:9;:17;;;;;;;;;;;:126;;;;4379:20;;;;;;;:32;;4404:6;4379:24;:32::i;:::-;-1:-1:-1;;;;;4356:20:2;;;:9;:20;;;;;;;;;;;;:55;;;;4426:35;;;;;;;;;;4454:6;;4426:35;:::i;:::-;;;;;;;;3926:542;;;:::o;7349:113::-;;;;:::o;2125:217:1:-;2241:7;2276:12;2268:6;;;;2260:29;;;;-1:-1:-1;;;2260:29:1;;;;;;;;:::i;:::-;-1:-1:-1;2299:9:1;2311:5;2315:1;2311;:5;:::i;:::-;2299:17;2125:217;-1:-1:-1;;;;;2125:217:1:o;1045:176::-;1103:7;;1134:5;1138:1;1134;:5;:::i;:::-;1122:17;;1162:1;1157;:6;;1149:46;;;;-1:-1:-1;;;1149:46:1;;;;;;;:::i;:::-;1213:1;1045:176;-1:-1:-1;;;1045:176:1:o;14:175:4:-;84:20;;-1:-1:-1;;;;;133:31:4;;123:42;;113:2;;179:1;176;169:12;194:198;;306:2;294:9;285:7;281:23;277:32;274:2;;;327:6;319;312:22;274:2;355:31;376:9;355:31;:::i;397:266::-;;;526:2;514:9;505:7;501:23;497:32;494:2;;;547:6;539;532:22;494:2;575:31;596:9;575:31;:::i;:::-;565:41;653:2;638:18;;;;625:32;;-1:-1:-1;;;484:179:4:o;668:187::-;833:14;;826:22;808:41;;796:2;781:18;;763:92::o;860:603::-;;1001:2;1030;1019:9;1012:21;1062:6;1056:13;1105:6;1100:2;1089:9;1085:18;1078:34;1130:4;1143:140;1157:6;1154:1;1151:13;1143:140;;;1252:14;;;1248:23;;1242:30;1218:17;;;1237:2;1214:26;1207:66;1172:10;;1143:140;;;1301:6;1298:1;1295:13;1292:2;;;1371:4;1366:2;1357:6;1346:9;1342:22;1338:31;1331:45;1292:2;-1:-1:-1;1447:2:4;1426:15;-1:-1:-1;;1422:29:4;1407:45;;;;1454:2;1403:54;;981:482;-1:-1:-1;;;981:482:4:o;1468:351::-;1670:2;1652:21;;;1709:2;1689:18;;;1682:30;1748:29;1743:2;1728:18;;1721:57;1810:2;1795:18;;1642:177::o;1824:400::-;2026:2;2008:21;;;2065:2;2045:18;;;2038:30;2104:34;2099:2;2084:18;;2077:62;-1:-1:-1;;;2170:2:4;2155:18;;2148:34;2214:3;2199:19;;1998:226::o;2229:177::-;2375:25;;;2363:2;2348:18;;2330:76::o;2411:184::-;2583:4;2571:17;;;;2553:36;;2541:2;2526:18;;2508:87::o;2600:128::-;;2671:1;2667:6;2664:1;2661:13;2658:2;;;2677:18;;:::i;:::-;-1:-1:-1;2713:9:4;;2648:80::o;2733:125::-;;2801:1;2798;2795:8;2792:2;;;2806:18;;:::i;:::-;-1:-1:-1;2843:9:4;;2782:76::o;2863:380::-;2948:1;2938:12;;2995:1;2985:12;;;3006:2;;3060:4;3052:6;3048:17;3038:27;;3006:2;3113;3105:6;3102:14;3082:18;3079:38;3076:2;;;3159:10;3154:3;3150:20;3147:1;3140:31;3194:4;3191:1;3184:15;3222:4;3219:1;3212:15;3076:2;;2918:325;;;:::o;3248:127::-;3309:10;3304:3;3300:20;3297:1;3290:31;3340:4;3337:1;3330:15;3364:4;3361:1;3354:15",
-    "sourcePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol",
+    "sourcePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol",
     "compiler": {
         "name": "solc",
         "version": "0.8.0+commit.c7dfd78e"
     },
     "ast": {
-        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol",
+        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol",
         "exportedSymbols": {
             "Context": [
                 28
             ],
-            "ERC201": [
+            "ERC1618": [
                 534
             ],
-            "IERC201": [
+            "IERC1618": [
                 571
             ],
             "SafeMath": [
@@ -199,8 +199,8 @@
                 "unitAlias": ""
             },
             {
-                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol",
-                "file": "../../token/ERC201/IERC201.sol",
+                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol",
+                "file": "../../token/ERC1618/IERC1618.sol",
                 "id": 228,
                 "nodeType": "ImportDirective",
                 "scope": 535,
@@ -238,7 +238,7 @@
                     {
                         "baseName": {
                             "id": 233,
-                            "name": "IERC201",
+                            "name": "IERC1618",
                             "nodeType": "IdentifierPath",
                             "referencedDeclaration": 571,
                             "src": "731:7:2"
@@ -257,7 +257,7 @@
                     "id": 230,
                     "nodeType": "StructuredDocumentation",
                     "src": "174:528:2",
-                    "text": " @title A truly Decentralized Token\n @author Ivory B. Mendel from ERC20 token in openzeppelin-contracts\n @notice A no BS token based off of ERC20 that DEFAULTS owner to\n having no control over the tokens or others' accounts (unless\n otherwise specified)\n @dev there are mint, burn, & other functions only accessible through\n specification of other contracts. Example would be creating a ERC201\n mintable token that can access the internal function _mint not\n accessible in the default contract"
+                    "text": " @title A truly Decentralized Token\n @author Ivory B. Mendel from ERC20 token in openzeppelin-contracts\n @notice A no BS token based off of ERC20 that DEFAULTS owner to\n having no control over the tokens or others' accounts (unless\n otherwise specified)\n @dev there are mint, burn, & other functions only accessible through\n specification of other contracts. Example would be creating a ERC1618\n mintable token that can access the internal function _mint not\n accessible in the default contract"
                 },
                 "fullyImplemented": true,
                 "id": 534,
@@ -266,7 +266,7 @@
                     571,
                     28
                 ],
-                "name": "ERC201",
+                "name": "ERC1618",
                 "nodeType": "ContractDefinition",
                 "nodes": [
                     {
@@ -971,7 +971,7 @@
                             "id": 300,
                             "nodeType": "StructuredDocumentation",
                             "src": "2250:110:2",
-                            "text": " @dev See {IERC201-totalSupply}.\n @return Returns the total supply of the token"
+                            "text": " @dev See {IERC1618-totalSupply}.\n @return Returns the total supply of the token"
                         },
                         "functionSelector": "18160ddd",
                         "id": 309,
@@ -1089,7 +1089,7 @@
                             "id": 310,
                             "nodeType": "StructuredDocumentation",
                             "src": "2469:126:2",
-                            "text": " @dev See {IERC201-balanceOf}.\n @return Returns the balance of the token for a specific address"
+                            "text": " @dev See {IERC1618-balanceOf}.\n @return Returns the balance of the token for a specific address"
                         },
                         "functionSelector": "70a08231",
                         "id": 323,
@@ -1317,7 +1317,7 @@
                             "id": 324,
                             "nodeType": "StructuredDocumentation",
                             "src": "2759:354:2",
-                            "text": " @dev See {IERC201-transfer}.\n Requirements:\n - `recipient` cannot be the zero address.\n - the caller must have a balance of at least `amount`.\n @param recipient address to receive token\n @param amount number of tokens to be transferred\n @return if transfer was successful"
+                            "text": " @dev See {IERC1618-transfer}.\n Requirements:\n - `recipient` cannot be the zero address.\n - the caller must have a balance of at least `amount`.\n @param recipient address to receive token\n @param amount number of tokens to be transferred\n @return if transfer was successful"
                         },
                         "functionSelector": "a9059cbb",
                         "id": 344,
@@ -1542,9 +1542,9 @@
                                                 "src": "4103:38:2",
                                                 "typeDescriptions": {
                                                     "typeIdentifier": "t_stringliteral_ea6436ea78ec399fa44e96edb497a7e033d33116e5e045f81e06c2bda0b2807c",
-                                                    "typeString": "literal_string \"ERC201: transfer to the zero address\""
+                                                    "typeString": "literal_string \"ERC1618: transfer to the zero address\""
                                                 },
-                                                "value": "ERC201: transfer to the zero address"
+                                                "value": "ERC1618: transfer to the zero address"
                                             }
                                         ],
                                         "expression": {
@@ -1555,7 +1555,7 @@
                                                 },
                                                 {
                                                     "typeIdentifier": "t_stringliteral_ea6436ea78ec399fa44e96edb497a7e033d33116e5e045f81e06c2bda0b2807c",
-                                                    "typeString": "literal_string \"ERC201: transfer to the zero address\""
+                                                    "typeString": "literal_string \"ERC1618: transfer to the zero address\""
                                                 }
                                             ],
                                             "id": 354,
@@ -1748,9 +1748,9 @@
                                                     "src": "4295:41:2",
                                                     "typeDescriptions": {
                                                         "typeIdentifier": "t_stringliteral_8e9b26066162b6553369a50caa699239f61434d644919d3e101bfb2bd20c3643",
-                                                        "typeString": "literal_string \"ERC201: transfer amount exceeds balance\""
+                                                        "typeString": "literal_string \"ERC1618: transfer amount exceeds balance\""
                                                     },
-                                                    "value": "ERC201: transfer amount exceeds balance"
+                                                    "value": "ERC1618: transfer amount exceeds balance"
                                                 }
                                             ],
                                             "expression": {
@@ -1761,7 +1761,7 @@
                                                     },
                                                     {
                                                         "typeIdentifier": "t_stringliteral_8e9b26066162b6553369a50caa699239f61434d644919d3e101bfb2bd20c3643",
-                                                        "typeString": "literal_string \"ERC201: transfer amount exceeds balance\""
+                                                        "typeString": "literal_string \"ERC1618: transfer amount exceeds balance\""
                                                     }
                                                 ],
                                                 "expression": {
@@ -2293,9 +2293,9 @@
                                                 "src": "4948:34:2",
                                                 "typeDescriptions": {
                                                     "typeIdentifier": "t_stringliteral_9574fa21dcb37d7c2432c8349c2f2dc6734e5dd0a3535e5dd964c3062878450d",
-                                                    "typeString": "literal_string \"ERC201: mint to the zero address\""
+                                                    "typeString": "literal_string \"ERC1618: mint to the zero address\""
                                                 },
-                                                "value": "ERC201: mint to the zero address"
+                                                "value": "ERC1618: mint to the zero address"
                                             }
                                         ],
                                         "expression": {
@@ -2306,7 +2306,7 @@
                                                 },
                                                 {
                                                     "typeIdentifier": "t_stringliteral_9574fa21dcb37d7c2432c8349c2f2dc6734e5dd0a3535e5dd964c3062878450d",
-                                                    "typeString": "literal_string \"ERC201: mint to the zero address\""
+                                                    "typeString": "literal_string \"ERC1618: mint to the zero address\""
                                                 }
                                             ],
                                             "id": 408,
@@ -3143,9 +3143,9 @@
                                                     "src": "5863:37:2",
                                                     "typeDescriptions": {
                                                         "typeIdentifier": "t_stringliteral_efaec0709e5fe8d0cb848403c3267a80ce5a6f343f82593ee8fae1a53b49e8ab",
-                                                        "typeString": "literal_string \"ERC201: burn amount exceeds balance\""
+                                                        "typeString": "literal_string \"ERC1618: burn amount exceeds balance\""
                                                     },
-                                                    "value": "ERC201: burn amount exceeds balance"
+                                                    "value": "ERC1618: burn amount exceeds balance"
                                                 }
                                             ],
                                             "expression": {
@@ -3156,7 +3156,7 @@
                                                     },
                                                     {
                                                         "typeIdentifier": "t_stringliteral_efaec0709e5fe8d0cb848403c3267a80ce5a6f343f82593ee8fae1a53b49e8ab",
-                                                        "typeString": "literal_string \"ERC201: burn amount exceeds balance\""
+                                                        "typeString": "literal_string \"ERC1618: burn amount exceeds balance\""
                                                     }
                                                 ],
                                                 "expression": {
@@ -3667,7 +3667,7 @@
                             "id": 502,
                             "nodeType": "StructuredDocumentation",
                             "src": "6024:367:2",
-                            "text": " @dev See {IERC201-transferFrom}.\n Requirements:\n - `sender` and `recipient` cannot be the zero address.\n - `sender` must have a balance of at least `amount`.\n @param sender address to transfer token\n @param recipient address to receive token\n @param amount number of tokens to be transferred"
+                            "text": " @dev See {IERC1618-transferFrom}.\n Requirements:\n - `sender` and `recipient` cannot be the zero address.\n - `sender` must have a balance of at least `amount`.\n @param sender address to transfer token\n @param recipient address to receive token\n @param amount number of tokens to be transferred"
                         },
                         "id": 522,
                         "implemented": true,

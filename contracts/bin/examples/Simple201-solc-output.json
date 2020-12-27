@@ -459,7 +459,7 @@
                     "kind": "dev",
                     "methods": {
                         "balanceOf(address)": {
-                            "details": "See {IERC201-balanceOf}.",
+                            "details": "See {IERC1618-balanceOf}.",
                             "returns": {
                                 "_0": "Returns the balance of the token for a specific address"
                             }
@@ -487,13 +487,13 @@
                             }
                         },
                         "totalSupply()": {
-                            "details": "See {IERC201-totalSupply}.",
+                            "details": "See {IERC1618-totalSupply}.",
                             "returns": {
                                 "_0": "Returns the total supply of the token"
                             }
                         },
                         "transfer(address,uint256)": {
-                            "details": "See {IERC201-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.",
+                            "details": "See {IERC1618-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.",
                             "params": {
                                 "amount": "number of tokens to be transferred",
                                 "recipient": "address to receive token"
@@ -7439,7 +7439,7 @@
                         "transfer(address,uint256)": "a9059cbb"
                     }
                 },
-                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokens\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeRemoved\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"changeManager\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isTrustee\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Very simple ERC20 Token example, where all tokens are pre- assigned to the creator.  Note they can later distribute these tokens as they wish using `transfer` and other `ERC20` functions.\",\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"See {IERC201-balanceOf}.\",\"returns\":{\"_0\":\"Returns the balance of the token for a specific address\"}},\"constructor\":{\"details\":\"Constructor that gives _msgSender() all of existing tokens.\"},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`)\",\"returns\":{\"_0\":\"Returns the number of decimals of the token\"}},\"mint(address,uint256)\":{\"details\":\"See {ERC20-_mint}. Requirements: - the caller must have the {MinterRole}.\"},\"name()\":{\"returns\":{\"_0\":\"Returns the name of the token.\"}},\"symbol()\":{\"returns\":{\"_0\":\"Returns the symbol of the token, usually a shorter version of the name.\"}},\"totalSupply()\":{\"details\":\"See {IERC201-totalSupply}.\",\"returns\":{\"_0\":\"Returns the total supply of the token\"}},\"transfer(address,uint256)\":{\"details\":\"See {IERC201-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.\",\"params\":{\"amount\":\"number of tokens to be transferred\",\"recipient\":\"address to receive token\"},\"returns\":{\"_0\":\"if transfer was successful\"}}},\"title\":\"A pre-written token\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/examples/Simple201.sol\":\"SimpleToken\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/Roles.sol\":{\"keccak256\":\"0xb4df1b9a849d50ddfe7c882cb5815cb14cc713410a01eb54dd4146ee3efd6caf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://503bae893deeb22b9c496b7a91233adc0c0454006d546c0911c5d9b5499471c6\",\"dweb:/ipfs/QmbCiqUtvUP8Vgwu8CkqD6MLc49XcJGqApHmUcdQ3dC2CT\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/roles/TrusteeRole.sol\":{\"keccak256\":\"0xc3911f7196c73f5a86d3a11eb3117b9e61dbf2fc09c385137d95ea9d9a3ec72d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8bcd13a8564a53f2e5e696d8a77d5eec6375969b66a262f3474cc53305e17f1e\",\"dweb:/ipfs/QmSWQDoxEFeaSCBJ9CiyCLdGPtUKeJXiU8PZr4JeetDfrt\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/examples/Simple201.sol\":{\"keccak256\":\"0x1318bdebfaedf7887d5918ac4e3ba5c25ac67217925be3568e545c6d2701ff51\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://91ffc7763de6d39b936a7fd2e804a91aa7e7761c349586c2134691856fe14cf8\",\"dweb:/ipfs/Qma3FyZQceggFYhDq2s3YVpRPhkmKvJy5kyVPL5iPwQptY\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d49c8507b8799328decb5316b97367106f202ae6b36dd10764a477f960c0518\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://702fe8cf4064118c43201ceaa50b2905dca6a20c3a43528696a925ec16d7846d\",\"dweb:/ipfs/QmZzixPwGcGwQnmwFAQwjwLHjGVzmM9dc36jHWt3PPdfde\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol\":{\"keccak256\":\"0xb7ee965690dd50af001dbef284d6ca285276fc2f4bce4194d79659a7a4262504\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3f7e3c7212edc3af76a82ae9f155b847ef230852f5473daafbc719e756e174c9\",\"dweb:/ipfs/QmQ2vW532kLChTE9sVmp6aLnYJfGvKnxbNA6HgP1YxTpVD\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201Mintable.sol\":{\"keccak256\":\"0xe03c8398b4c1cd7db4ac040cdf05613487577cc6139f6ddad5d61a7f265d113e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://eafbdec5ac3e1193f47c518ec9914a2d943dea6724cdce8bbc1a91d4778e767f\",\"dweb:/ipfs/QmXLrrj3E2AsyNjKJdTfRrgAzeaTFTyFZHadPHw5cGR2BF\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":{\"keccak256\":\"0x769874e613147fef0319dcbbcb0f257c8c13445e051b06cc5d843b95e384d716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aa8769dadb2ffb9d12983dfd0d0f138c3c67f6411c6ec6ad42edf1ced79e32d3\",\"dweb:/ipfs/QmWamY9rkcTb8E4jGvbqWB3YakP3bdf6EpZjjBTymWKCYu\"]}},\"version\":1}",
+                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokens\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeRemoved\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"changeManager\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isTrustee\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Very simple ERC20 Token example, where all tokens are pre- assigned to the creator.  Note they can later distribute these tokens as they wish using `transfer` and other `ERC20` functions.\",\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"See {IERC1618-balanceOf}.\",\"returns\":{\"_0\":\"Returns the balance of the token for a specific address\"}},\"constructor\":{\"details\":\"Constructor that gives _msgSender() all of existing tokens.\"},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`)\",\"returns\":{\"_0\":\"Returns the number of decimals of the token\"}},\"mint(address,uint256)\":{\"details\":\"See {ERC20-_mint}. Requirements: - the caller must have the {MinterRole}.\"},\"name()\":{\"returns\":{\"_0\":\"Returns the name of the token.\"}},\"symbol()\":{\"returns\":{\"_0\":\"Returns the symbol of the token, usually a shorter version of the name.\"}},\"totalSupply()\":{\"details\":\"See {IERC1618-totalSupply}.\",\"returns\":{\"_0\":\"Returns the total supply of the token\"}},\"transfer(address,uint256)\":{\"details\":\"See {IERC1618-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.\",\"params\":{\"amount\":\"number of tokens to be transferred\",\"recipient\":\"address to receive token\"},\"returns\":{\"_0\":\"if transfer was successful\"}}},\"title\":\"A pre-written token\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/examples/Simple201.sol\":\"SimpleToken\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/Roles.sol\":{\"keccak256\":\"0xb4df1b9a849d50ddfe7c882cb5815cb14cc713410a01eb54dd4146ee3efd6caf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://503bae893deeb22b9c496b7a91233adc0c0454006d546c0911c5d9b5499471c6\",\"dweb:/ipfs/QmbCiqUtvUP8Vgwu8CkqD6MLc49XcJGqApHmUcdQ3dC2CT\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/roles/TrusteeRole.sol\":{\"keccak256\":\"0xc3911f7196c73f5a86d3a11eb3117b9e61dbf2fc09c385137d95ea9d9a3ec72d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8bcd13a8564a53f2e5e696d8a77d5eec6375969b66a262f3474cc53305e17f1e\",\"dweb:/ipfs/QmSWQDoxEFeaSCBJ9CiyCLdGPtUKeJXiU8PZr4JeetDfrt\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/examples/Simple201.sol\":{\"keccak256\":\"0x1318bdebfaedf7887d5918ac4e3ba5c25ac67217925be3568e545c6d2701ff51\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://91ffc7763de6d39b936a7fd2e804a91aa7e7761c349586c2134691856fe14cf8\",\"dweb:/ipfs/Qma3FyZQceggFYhDq2s3YVpRPhkmKvJy5kyVPL5iPwQptY\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d49c8507b8799328decb5316b97367106f202ae6b36dd10764a477f960c0518\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://702fe8cf4064118c43201ceaa50b2905dca6a20c3a43528696a925ec16d7846d\",\"dweb:/ipfs/QmZzixPwGcGwQnmwFAQwjwLHjGVzmM9dc36jHWt3PPdfde\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol\":{\"keccak256\":\"0xb7ee965690dd50af001dbef284d6ca285276fc2f4bce4194d79659a7a4262504\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3f7e3c7212edc3af76a82ae9f155b847ef230852f5473daafbc719e756e174c9\",\"dweb:/ipfs/QmQ2vW532kLChTE9sVmp6aLnYJfGvKnxbNA6HgP1YxTpVD\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618Mintable.sol\":{\"keccak256\":\"0xe03c8398b4c1cd7db4ac040cdf05613487577cc6139f6ddad5d61a7f265d113e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://eafbdec5ac3e1193f47c518ec9914a2d943dea6724cdce8bbc1a91d4778e767f\",\"dweb:/ipfs/QmXLrrj3E2AsyNjKJdTfRrgAzeaTFTyFZHadPHw5cGR2BF\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol\":{\"keccak256\":\"0x769874e613147fef0319dcbbcb0f257c8c13445e051b06cc5d843b95e384d716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aa8769dadb2ffb9d12983dfd0d0f138c3c67f6411c6ec6ad42edf1ced79e32d3\",\"dweb:/ipfs/QmWamY9rkcTb8E4jGvbqWB3YakP3bdf6EpZjjBTymWKCYu\"]}},\"version\":1}",
                 "userdoc": {
                     "kind": "user",
                     "methods": {},
@@ -7500,8 +7500,8 @@
                 }
             }
         },
-        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol": {
-            "ERC201": {
+        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol": {
+            "ERC1618": {
                 "abi": [
                     {
                         "inputs": [
@@ -7647,11 +7647,11 @@
                 ],
                 "devdoc": {
                     "author": "Ivory B. Mendel from ERC20 token in openzeppelin-contracts",
-                    "details": "there are mint, burn, & other functions only accessible through specification of other contracts. Example would be creating a ERC201 mintable token that can access the internal function _mint not accessible in the default contract",
+                    "details": "there are mint, burn, & other functions only accessible through specification of other contracts. Example would be creating a ERC1618 mintable token that can access the internal function _mint not accessible in the default contract",
                     "kind": "dev",
                     "methods": {
                         "balanceOf(address)": {
-                            "details": "See {IERC201-balanceOf}.",
+                            "details": "See {IERC1618-balanceOf}.",
                             "returns": {
                                 "_0": "Returns the balance of the token for a specific address"
                             }
@@ -7681,13 +7681,13 @@
                             }
                         },
                         "totalSupply()": {
-                            "details": "See {IERC201-totalSupply}.",
+                            "details": "See {IERC1618-totalSupply}.",
                             "returns": {
                                 "_0": "Returns the total supply of the token"
                             }
                         },
                         "transfer(address,uint256)": {
-                            "details": "See {IERC201-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.",
+                            "details": "See {IERC1618-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.",
                             "params": {
                                 "amount": "number of tokens to be transferred",
                                 "recipient": "address to receive token"
@@ -12113,7 +12113,7 @@
                         "transfer(address,uint256)": "a9059cbb"
                     }
                 },
-                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol_\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"decimals_\",\"type\":\"uint8\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Ivory B. Mendel from ERC20 token in openzeppelin-contracts\",\"details\":\"there are mint, burn, & other functions only accessible through specification of other contracts. Example would be creating a ERC201 mintable token that can access the internal function _mint not accessible in the default contract\",\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"See {IERC201-balanceOf}.\",\"returns\":{\"_0\":\"Returns the balance of the token for a specific address\"}},\"constructor\":{\"details\":\"Sets the values for `name_`, `symbol_`, and `decimals_`. All three of these values are immutable: they can only be set once during construction.\",\"params\":{\"decimals_\":\"to be the number of decimals for the token\",\"name_\":\"to be the name of the token\",\"symbol_\":\"to be the symbol of the token\"}},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`)\",\"returns\":{\"_0\":\"Returns the number of decimals of the token\"}},\"name()\":{\"returns\":{\"_0\":\"Returns the name of the token.\"}},\"symbol()\":{\"returns\":{\"_0\":\"Returns the symbol of the token, usually a shorter version of the name.\"}},\"totalSupply()\":{\"details\":\"See {IERC201-totalSupply}.\",\"returns\":{\"_0\":\"Returns the total supply of the token\"}},\"transfer(address,uint256)\":{\"details\":\"See {IERC201-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.\",\"params\":{\"amount\":\"number of tokens to be transferred\",\"recipient\":\"address to receive token\"},\"returns\":{\"_0\":\"if transfer was successful\"}}},\"title\":\"A truly Decentralized Token\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"A no BS token based off of ERC20 that DEFAULTS owner to having no control over the tokens or others' accounts (unless otherwise specified)\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol\":\"ERC201\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d49c8507b8799328decb5316b97367106f202ae6b36dd10764a477f960c0518\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://702fe8cf4064118c43201ceaa50b2905dca6a20c3a43528696a925ec16d7846d\",\"dweb:/ipfs/QmZzixPwGcGwQnmwFAQwjwLHjGVzmM9dc36jHWt3PPdfde\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol\":{\"keccak256\":\"0xb7ee965690dd50af001dbef284d6ca285276fc2f4bce4194d79659a7a4262504\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3f7e3c7212edc3af76a82ae9f155b847ef230852f5473daafbc719e756e174c9\",\"dweb:/ipfs/QmQ2vW532kLChTE9sVmp6aLnYJfGvKnxbNA6HgP1YxTpVD\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":{\"keccak256\":\"0x769874e613147fef0319dcbbcb0f257c8c13445e051b06cc5d843b95e384d716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aa8769dadb2ffb9d12983dfd0d0f138c3c67f6411c6ec6ad42edf1ced79e32d3\",\"dweb:/ipfs/QmWamY9rkcTb8E4jGvbqWB3YakP3bdf6EpZjjBTymWKCYu\"]}},\"version\":1}",
+                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol_\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"decimals_\",\"type\":\"uint8\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Ivory B. Mendel from ERC20 token in openzeppelin-contracts\",\"details\":\"there are mint, burn, & other functions only accessible through specification of other contracts. Example would be creating a ERC1618 mintable token that can access the internal function _mint not accessible in the default contract\",\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"See {IERC1618-balanceOf}.\",\"returns\":{\"_0\":\"Returns the balance of the token for a specific address\"}},\"constructor\":{\"details\":\"Sets the values for `name_`, `symbol_`, and `decimals_`. All three of these values are immutable: they can only be set once during construction.\",\"params\":{\"decimals_\":\"to be the number of decimals for the token\",\"name_\":\"to be the name of the token\",\"symbol_\":\"to be the symbol of the token\"}},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`)\",\"returns\":{\"_0\":\"Returns the number of decimals of the token\"}},\"name()\":{\"returns\":{\"_0\":\"Returns the name of the token.\"}},\"symbol()\":{\"returns\":{\"_0\":\"Returns the symbol of the token, usually a shorter version of the name.\"}},\"totalSupply()\":{\"details\":\"See {IERC1618-totalSupply}.\",\"returns\":{\"_0\":\"Returns the total supply of the token\"}},\"transfer(address,uint256)\":{\"details\":\"See {IERC1618-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.\",\"params\":{\"amount\":\"number of tokens to be transferred\",\"recipient\":\"address to receive token\"},\"returns\":{\"_0\":\"if transfer was successful\"}}},\"title\":\"A truly Decentralized Token\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"A no BS token based off of ERC20 that DEFAULTS owner to having no control over the tokens or others' accounts (unless otherwise specified)\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol\":\"ERC1618\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d49c8507b8799328decb5316b97367106f202ae6b36dd10764a477f960c0518\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://702fe8cf4064118c43201ceaa50b2905dca6a20c3a43528696a925ec16d7846d\",\"dweb:/ipfs/QmZzixPwGcGwQnmwFAQwjwLHjGVzmM9dc36jHWt3PPdfde\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol\":{\"keccak256\":\"0xb7ee965690dd50af001dbef284d6ca285276fc2f4bce4194d79659a7a4262504\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3f7e3c7212edc3af76a82ae9f155b847ef230852f5473daafbc719e756e174c9\",\"dweb:/ipfs/QmQ2vW532kLChTE9sVmp6aLnYJfGvKnxbNA6HgP1YxTpVD\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol\":{\"keccak256\":\"0x769874e613147fef0319dcbbcb0f257c8c13445e051b06cc5d843b95e384d716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aa8769dadb2ffb9d12983dfd0d0f138c3c67f6411c6ec6ad42edf1ced79e32d3\",\"dweb:/ipfs/QmWamY9rkcTb8E4jGvbqWB3YakP3bdf6EpZjjBTymWKCYu\"]}},\"version\":1}",
                 "userdoc": {
                     "kind": "user",
                     "methods": {},
@@ -12122,8 +12122,8 @@
                 }
             }
         },
-        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201Mintable.sol": {
-            "ERC201Mintable": {
+        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618Mintable.sol": {
+            "ERC1618Mintable": {
                 "abi": [
                     {
                         "anonymous": false,
@@ -12359,7 +12359,7 @@
                     "kind": "dev",
                     "methods": {
                         "balanceOf(address)": {
-                            "details": "See {IERC201-balanceOf}.",
+                            "details": "See {IERC1618-balanceOf}.",
                             "returns": {
                                 "_0": "Returns the balance of the token for a specific address"
                             }
@@ -12384,13 +12384,13 @@
                             }
                         },
                         "totalSupply()": {
-                            "details": "See {IERC201-totalSupply}.",
+                            "details": "See {IERC1618-totalSupply}.",
                             "returns": {
                                 "_0": "Returns the total supply of the token"
                             }
                         },
                         "transfer(address,uint256)": {
-                            "details": "See {IERC201-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.",
+                            "details": "See {IERC1618-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.",
                             "params": {
                                 "amount": "number of tokens to be transferred",
                                 "recipient": "address to receive token"
@@ -12433,7 +12433,7 @@
                         "transfer(address,uint256)": "a9059cbb"
                     }
                 },
-                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeRemoved\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"changeManager\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isTrustee\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Extension of {ERC20} that adds a set of accounts with the {MinterRole}, which have permission to mint (create) new tokens as they see fit. At construction, the deployer of the contract is the only minter.\",\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"See {IERC201-balanceOf}.\",\"returns\":{\"_0\":\"Returns the balance of the token for a specific address\"}},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`)\",\"returns\":{\"_0\":\"Returns the number of decimals of the token\"}},\"mint(address,uint256)\":{\"details\":\"See {ERC20-_mint}. Requirements: - the caller must have the {MinterRole}.\"},\"name()\":{\"returns\":{\"_0\":\"Returns the name of the token.\"}},\"symbol()\":{\"returns\":{\"_0\":\"Returns the symbol of the token, usually a shorter version of the name.\"}},\"totalSupply()\":{\"details\":\"See {IERC201-totalSupply}.\",\"returns\":{\"_0\":\"Returns the total supply of the token\"}},\"transfer(address,uint256)\":{\"details\":\"See {IERC201-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.\",\"params\":{\"amount\":\"number of tokens to be transferred\",\"recipient\":\"address to receive token\"},\"returns\":{\"_0\":\"if transfer was successful\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201Mintable.sol\":\"ERC201Mintable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/Roles.sol\":{\"keccak256\":\"0xb4df1b9a849d50ddfe7c882cb5815cb14cc713410a01eb54dd4146ee3efd6caf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://503bae893deeb22b9c496b7a91233adc0c0454006d546c0911c5d9b5499471c6\",\"dweb:/ipfs/QmbCiqUtvUP8Vgwu8CkqD6MLc49XcJGqApHmUcdQ3dC2CT\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/roles/TrusteeRole.sol\":{\"keccak256\":\"0xc3911f7196c73f5a86d3a11eb3117b9e61dbf2fc09c385137d95ea9d9a3ec72d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8bcd13a8564a53f2e5e696d8a77d5eec6375969b66a262f3474cc53305e17f1e\",\"dweb:/ipfs/QmSWQDoxEFeaSCBJ9CiyCLdGPtUKeJXiU8PZr4JeetDfrt\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d49c8507b8799328decb5316b97367106f202ae6b36dd10764a477f960c0518\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://702fe8cf4064118c43201ceaa50b2905dca6a20c3a43528696a925ec16d7846d\",\"dweb:/ipfs/QmZzixPwGcGwQnmwFAQwjwLHjGVzmM9dc36jHWt3PPdfde\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol\":{\"keccak256\":\"0xb7ee965690dd50af001dbef284d6ca285276fc2f4bce4194d79659a7a4262504\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3f7e3c7212edc3af76a82ae9f155b847ef230852f5473daafbc719e756e174c9\",\"dweb:/ipfs/QmQ2vW532kLChTE9sVmp6aLnYJfGvKnxbNA6HgP1YxTpVD\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201Mintable.sol\":{\"keccak256\":\"0xe03c8398b4c1cd7db4ac040cdf05613487577cc6139f6ddad5d61a7f265d113e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://eafbdec5ac3e1193f47c518ec9914a2d943dea6724cdce8bbc1a91d4778e767f\",\"dweb:/ipfs/QmXLrrj3E2AsyNjKJdTfRrgAzeaTFTyFZHadPHw5cGR2BF\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":{\"keccak256\":\"0x769874e613147fef0319dcbbcb0f257c8c13445e051b06cc5d843b95e384d716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aa8769dadb2ffb9d12983dfd0d0f138c3c67f6411c6ec6ad42edf1ced79e32d3\",\"dweb:/ipfs/QmWamY9rkcTb8E4jGvbqWB3YakP3bdf6EpZjjBTymWKCYu\"]}},\"version\":1}",
+                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"TrusteeRemoved\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"addTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"changeManager\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"isTrustee\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"renounceTrustee\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Extension of {ERC20} that adds a set of accounts with the {MinterRole}, which have permission to mint (create) new tokens as they see fit. At construction, the deployer of the contract is the only minter.\",\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"See {IERC1618-balanceOf}.\",\"returns\":{\"_0\":\"Returns the balance of the token for a specific address\"}},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`)\",\"returns\":{\"_0\":\"Returns the number of decimals of the token\"}},\"mint(address,uint256)\":{\"details\":\"See {ERC20-_mint}. Requirements: - the caller must have the {MinterRole}.\"},\"name()\":{\"returns\":{\"_0\":\"Returns the name of the token.\"}},\"symbol()\":{\"returns\":{\"_0\":\"Returns the symbol of the token, usually a shorter version of the name.\"}},\"totalSupply()\":{\"details\":\"See {IERC1618-totalSupply}.\",\"returns\":{\"_0\":\"Returns the total supply of the token\"}},\"transfer(address,uint256)\":{\"details\":\"See {IERC1618-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.\",\"params\":{\"amount\":\"number of tokens to be transferred\",\"recipient\":\"address to receive token\"},\"returns\":{\"_0\":\"if transfer was successful\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618Mintable.sol\":\"ERC1618Mintable\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/Roles.sol\":{\"keccak256\":\"0xb4df1b9a849d50ddfe7c882cb5815cb14cc713410a01eb54dd4146ee3efd6caf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://503bae893deeb22b9c496b7a91233adc0c0454006d546c0911c5d9b5499471c6\",\"dweb:/ipfs/QmbCiqUtvUP8Vgwu8CkqD6MLc49XcJGqApHmUcdQ3dC2CT\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/access/roles/TrusteeRole.sol\":{\"keccak256\":\"0xc3911f7196c73f5a86d3a11eb3117b9e61dbf2fc09c385137d95ea9d9a3ec72d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8bcd13a8564a53f2e5e696d8a77d5eec6375969b66a262f3474cc53305e17f1e\",\"dweb:/ipfs/QmSWQDoxEFeaSCBJ9CiyCLdGPtUKeJXiU8PZr4JeetDfrt\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d49c8507b8799328decb5316b97367106f202ae6b36dd10764a477f960c0518\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://702fe8cf4064118c43201ceaa50b2905dca6a20c3a43528696a925ec16d7846d\",\"dweb:/ipfs/QmZzixPwGcGwQnmwFAQwjwLHjGVzmM9dc36jHWt3PPdfde\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol\":{\"keccak256\":\"0xb7ee965690dd50af001dbef284d6ca285276fc2f4bce4194d79659a7a4262504\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://3f7e3c7212edc3af76a82ae9f155b847ef230852f5473daafbc719e756e174c9\",\"dweb:/ipfs/QmQ2vW532kLChTE9sVmp6aLnYJfGvKnxbNA6HgP1YxTpVD\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618Mintable.sol\":{\"keccak256\":\"0xe03c8398b4c1cd7db4ac040cdf05613487577cc6139f6ddad5d61a7f265d113e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://eafbdec5ac3e1193f47c518ec9914a2d943dea6724cdce8bbc1a91d4778e767f\",\"dweb:/ipfs/QmXLrrj3E2AsyNjKJdTfRrgAzeaTFTyFZHadPHw5cGR2BF\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol\":{\"keccak256\":\"0x769874e613147fef0319dcbbcb0f257c8c13445e051b06cc5d843b95e384d716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aa8769dadb2ffb9d12983dfd0d0f138c3c67f6411c6ec6ad42edf1ced79e32d3\",\"dweb:/ipfs/QmWamY9rkcTb8E4jGvbqWB3YakP3bdf6EpZjjBTymWKCYu\"]}},\"version\":1}",
                 "userdoc": {
                     "kind": "user",
                     "methods": {},
@@ -12441,8 +12441,8 @@
                 }
             }
         },
-        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol": {
-            "IERC201": {
+        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol": {
+            "IERC1618": {
                 "abi": [
                     {
                         "anonymous": false,
@@ -12570,7 +12570,7 @@
                         "transfer(address,uint256)": "a9059cbb"
                     }
                 },
-                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC20 standard as defined in the EIP.\",\"events\":{\"Transfer(address,address,uint256)\":{\"details\":\"Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero.\"}},\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by `account`.\"},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"},\"transfer(address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":\"IERC201\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":{\"keccak256\":\"0x769874e613147fef0319dcbbcb0f257c8c13445e051b06cc5d843b95e384d716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aa8769dadb2ffb9d12983dfd0d0f138c3c67f6411c6ec6ad42edf1ced79e32d3\",\"dweb:/ipfs/QmWamY9rkcTb8E4jGvbqWB3YakP3bdf6EpZjjBTymWKCYu\"]}},\"version\":1}",
+                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC20 standard as defined in the EIP.\",\"events\":{\"Transfer(address,address,uint256)\":{\"details\":\"Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero.\"}},\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by `account`.\"},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"},\"transfer(address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol\":\"IERC1618\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol\":{\"keccak256\":\"0x769874e613147fef0319dcbbcb0f257c8c13445e051b06cc5d843b95e384d716\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aa8769dadb2ffb9d12983dfd0d0f138c3c67f6411c6ec6ad42edf1ced79e32d3\",\"dweb:/ipfs/QmWamY9rkcTb8E4jGvbqWB3YakP3bdf6EpZjjBTymWKCYu\"]}},\"version\":1}",
                 "userdoc": {
                     "kind": "user",
                     "methods": {},
@@ -16114,13 +16114,13 @@
                     "Context": [
                         28
                     ],
-                    "ERC201": [
+                    "ERC1618": [
                         838
                     ],
-                    "ERC201Mintable": [
+                    "ERC1618Mintable": [
                         868
                     ],
-                    "IERC201": [
+                    "IERC1618": [
                         905
                     ],
                     "Roles": [
@@ -16166,8 +16166,8 @@
                         "unitAlias": ""
                     },
                     {
-                        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol",
-                        "file": "../token/ERC201/ERC201.sol",
+                        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol",
+                        "file": "../token/ERC1618/ERC1618.sol",
                         "id": 294,
                         "nodeType": "ImportDirective",
                         "scope": 331,
@@ -16177,8 +16177,8 @@
                         "unitAlias": ""
                     },
                     {
-                        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201Mintable.sol",
-                        "file": "../token/ERC201/ERC201Mintable.sol",
+                        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618Mintable.sol",
+                        "file": "../token/ERC1618/ERC1618Mintable.sol",
                         "id": 295,
                         "nodeType": "ImportDirective",
                         "scope": 331,
@@ -16205,7 +16205,7 @@
                             {
                                 "baseName": {
                                     "id": 299,
-                                    "name": "ERC201",
+                                    "name": "ERC1618",
                                     "nodeType": "IdentifierPath",
                                     "referencedDeclaration": 838,
                                     "src": "456:6:3"
@@ -16217,7 +16217,7 @@
                             {
                                 "baseName": {
                                     "id": 301,
-                                    "name": "ERC201Mintable",
+                                    "name": "ERC1618Mintable",
                                     "nodeType": "IdentifierPath",
                                     "referencedDeclaration": 868,
                                     "src": "464:14:3"
@@ -16555,7 +16555,7 @@
                                         "id": 311,
                                         "modifierName": {
                                             "id": 307,
-                                            "name": "ERC201",
+                                            "name": "ERC1618",
                                             "nodeType": "IdentifierPath",
                                             "referencedDeclaration": 838,
                                             "src": "601:6:3"
@@ -19043,17 +19043,17 @@
             },
             "id": 4
         },
-        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol": {
+        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol": {
             "ast": {
-                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol",
+                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol",
                 "exportedSymbols": {
                     "Context": [
                         28
                     ],
-                    "ERC201": [
+                    "ERC1618": [
                         838
                     ],
-                    "IERC201": [
+                    "IERC1618": [
                         905
                     ],
                     "SafeMath": [
@@ -19090,8 +19090,8 @@
                         "unitAlias": ""
                     },
                     {
-                        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol",
-                        "file": "./IERC201.sol",
+                        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol",
+                        "file": "./IERC1618.sol",
                         "id": 530,
                         "nodeType": "ImportDirective",
                         "scope": 839,
@@ -19129,7 +19129,7 @@
                             {
                                 "baseName": {
                                     "id": 535,
-                                    "name": "IERC201",
+                                    "name": "IERC1618",
                                     "nodeType": "IdentifierPath",
                                     "referencedDeclaration": 905,
                                     "src": "714:7:5"
@@ -19148,7 +19148,7 @@
                             "id": 532,
                             "nodeType": "StructuredDocumentation",
                             "src": "157:528:5",
-                            "text": " @title A truly Decentralized Token\n @author Ivory B. Mendel from ERC20 token in openzeppelin-contracts\n @notice A no BS token based off of ERC20 that DEFAULTS owner to\n having no control over the tokens or others' accounts (unless\n otherwise specified)\n @dev there are mint, burn, & other functions only accessible through\n specification of other contracts. Example would be creating a ERC201\n mintable token that can access the internal function _mint not\n accessible in the default contract"
+                            "text": " @title A truly Decentralized Token\n @author Ivory B. Mendel from ERC20 token in openzeppelin-contracts\n @notice A no BS token based off of ERC20 that DEFAULTS owner to\n having no control over the tokens or others' accounts (unless\n otherwise specified)\n @dev there are mint, burn, & other functions only accessible through\n specification of other contracts. Example would be creating a ERC1618\n mintable token that can access the internal function _mint not\n accessible in the default contract"
                         },
                         "fullyImplemented": true,
                         "id": 838,
@@ -19157,7 +19157,7 @@
                             905,
                             28
                         ],
-                        "name": "ERC201",
+                        "name": "ERC1618",
                         "nodeType": "ContractDefinition",
                         "nodes": [
                             {
@@ -19862,7 +19862,7 @@
                                     "id": 602,
                                     "nodeType": "StructuredDocumentation",
                                     "src": "2233:110:5",
-                                    "text": " @dev See {IERC201-totalSupply}.\n @return Returns the total supply of the token"
+                                    "text": " @dev See {IERC1618-totalSupply}.\n @return Returns the total supply of the token"
                                 },
                                 "functionSelector": "18160ddd",
                                 "id": 611,
@@ -19980,7 +19980,7 @@
                                     "id": 612,
                                     "nodeType": "StructuredDocumentation",
                                     "src": "2452:126:5",
-                                    "text": " @dev See {IERC201-balanceOf}.\n @return Returns the balance of the token for a specific address"
+                                    "text": " @dev See {IERC1618-balanceOf}.\n @return Returns the balance of the token for a specific address"
                                 },
                                 "functionSelector": "70a08231",
                                 "id": 625,
@@ -20208,7 +20208,7 @@
                                     "id": 626,
                                     "nodeType": "StructuredDocumentation",
                                     "src": "2742:354:5",
-                                    "text": " @dev See {IERC201-transfer}.\n Requirements:\n - `recipient` cannot be the zero address.\n - the caller must have a balance of at least `amount`.\n @param recipient address to receive token\n @param amount number of tokens to be transferred\n @return if transfer was successful"
+                                    "text": " @dev See {IERC1618-transfer}.\n Requirements:\n - `recipient` cannot be the zero address.\n - the caller must have a balance of at least `amount`.\n @param recipient address to receive token\n @param amount number of tokens to be transferred\n @return if transfer was successful"
                                 },
                                 "functionSelector": "a9059cbb",
                                 "id": 646,
@@ -22603,7 +22603,7 @@
                                     "id": 806,
                                     "nodeType": "StructuredDocumentation",
                                     "src": "5946:367:5",
-                                    "text": " @dev See {IERC201-transferFrom}.\n Requirements:\n - `sender` and `recipient` cannot be the zero address.\n - `sender` must have a balance of at least `amount`.\n @param sender address to transfer token\n @param recipient address to receive token\n @param amount number of tokens to be transferred"
+                                    "text": " @dev See {IERC1618-transferFrom}.\n Requirements:\n - `sender` and `recipient` cannot be the zero address.\n - `sender` must have a balance of at least `amount`.\n @param sender address to transfer token\n @param recipient address to receive token\n @param amount number of tokens to be transferred"
                                 },
                                 "id": 826,
                                 "implemented": true,
@@ -22864,20 +22864,20 @@
             },
             "id": 5
         },
-        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201Mintable.sol": {
+        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618Mintable.sol": {
             "ast": {
-                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201Mintable.sol",
+                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618Mintable.sol",
                 "exportedSymbols": {
                     "Context": [
                         28
                     ],
-                    "ERC201": [
+                    "ERC1618": [
                         838
                     ],
-                    "ERC201Mintable": [
+                    "ERC1618Mintable": [
                         868
                     ],
-                    "IERC201": [
+                    "IERC1618": [
                         905
                     ],
                     "Roles": [
@@ -22909,8 +22909,8 @@
                         "src": "33:31:6"
                     },
                     {
-                        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol",
-                        "file": "./ERC201.sol",
+                        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol",
+                        "file": "./ERC1618.sol",
                         "id": 841,
                         "nodeType": "ImportDirective",
                         "scope": 869,
@@ -22936,7 +22936,7 @@
                             {
                                 "baseName": {
                                     "id": 844,
-                                    "name": "ERC201",
+                                    "name": "ERC1618",
                                     "nodeType": "IdentifierPath",
                                     "referencedDeclaration": 838,
                                     "src": "401:6:6"
@@ -22980,7 +22980,7 @@
                             905,
                             28
                         ],
-                        "name": "ERC201Mintable",
+                        "name": "ERC1618Mintable",
                         "nodeType": "ContractDefinition",
                         "nodes": [
                             {
@@ -23216,11 +23216,11 @@
             },
             "id": 6
         },
-        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol": {
+        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol": {
             "ast": {
-                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol",
+                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol",
                 "exportedSymbols": {
-                    "IERC201": [
+                    "IERC1618": [
                         905
                     ]
                 },
@@ -23258,7 +23258,7 @@
                         "linearizedBaseContracts": [
                             905
                         ],
-                        "name": "IERC201",
+                        "name": "IERC1618",
                         "nodeType": "ContractDefinition",
                         "nodes": [
                             {

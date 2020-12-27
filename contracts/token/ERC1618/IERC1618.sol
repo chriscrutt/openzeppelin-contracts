@@ -3,9 +3,9 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 /**
- * @dev Interface of the ERC201 standard as defined in the EIP.
+ * @dev Interface of the ERC1618 standard as defined in the EIP.
  */
-interface IERC201 {
+interface IERC1618 {
     /**
      * @dev Emitted when `value` tokens are moved from one account
      * (`from`) to another (`to`).

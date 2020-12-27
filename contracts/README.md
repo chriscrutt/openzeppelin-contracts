@@ -4,7 +4,7 @@
 
 ### Keep up to date with main branch
 
-- [ ] ERC201
+- [ ] ERC1618
 
   - [x] create base token
   - [x] allow mintable

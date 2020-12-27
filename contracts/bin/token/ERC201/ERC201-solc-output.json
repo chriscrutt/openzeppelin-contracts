@@ -91,8 +91,8 @@
                 }
             }
         },
-        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol": {
-            "ERC201": {
+        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol": {
+            "ERC1618": {
                 "abi": [
                     {
                         "inputs": [
@@ -238,11 +238,11 @@
                 ],
                 "devdoc": {
                     "author": "Ivory B. Mendel from ERC20 token in openzeppelin-contracts",
-                    "details": "there are mint, burn, & other functions only accessible through specification of other contracts. Example would be creating a ERC201 mintable token that can access the internal function _mint not accessible in the default contract",
+                    "details": "there are mint, burn, & other functions only accessible through specification of other contracts. Example would be creating a ERC1618 mintable token that can access the internal function _mint not accessible in the default contract",
                     "kind": "dev",
                     "methods": {
                         "balanceOf(address)": {
-                            "details": "See {IERC201-balanceOf}.",
+                            "details": "See {IERC1618-balanceOf}.",
                             "returns": {
                                 "_0": "Returns the balance of the token for a specific address"
                             }
@@ -272,13 +272,13 @@
                             }
                         },
                         "totalSupply()": {
-                            "details": "See {IERC201-totalSupply}.",
+                            "details": "See {IERC1618-totalSupply}.",
                             "returns": {
                                 "_0": "Returns the total supply of the token"
                             }
                         },
                         "transfer(address,uint256)": {
-                            "details": "See {IERC201-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.",
+                            "details": "See {IERC1618-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.",
                             "params": {
                                 "amount": "number of tokens to be transferred",
                                 "recipient": "address to receive token"
@@ -3685,7 +3685,7 @@
                                                                     "nodeType": "YulLiteral",
                                                                     "src": "2104:34:4",
                                                                     "type": "",
-                                                                    "value": "ERC201: transfer to the zero add"
+                                                                    "value": "ERC1618: transfer to the zero add"
                                                                 }
                                                             ],
                                                             "functionName": {
@@ -4661,7 +4661,7 @@
                                         }
                                     ]
                                 },
-                                "contents": "{\n    { }\n    function abi_decode_t_address(offset) -> value\n    {\n        value := calldataload(offset)\n        if iszero(eq(value, and(value, sub(shl(160, 1), 1)))) { revert(0, 0) }\n    }\n    function abi_decode_tuple_t_address(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(value0, value0) }\n        value0 := abi_decode_t_address(headStart)\n    }\n    function abi_decode_tuple_t_addresst_uint256(headStart, dataEnd) -> value0, value1\n    {\n        if slt(sub(dataEnd, headStart), 64) { revert(value1, value1) }\n        value0 := abi_decode_t_address(headStart)\n        value1 := calldataload(add(headStart, 32))\n    }\n    function abi_encode_tuple_t_bool__to_t_bool__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, iszero(iszero(value0)))\n    }\n    function abi_encode_tuple_t_string_memory_ptr__to_t_string_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        let _1 := 32\n        mstore(headStart, _1)\n        let length := mload(value0)\n        mstore(add(headStart, _1), length)\n        let i := tail\n        for { } lt(i, length) { i := add(i, _1) }\n        {\n            mstore(add(add(headStart, i), 64), mload(add(add(value0, i), _1)))\n        }\n        if gt(i, length)\n        {\n            mstore(add(add(headStart, length), 64), tail)\n        }\n        tail := add(add(headStart, and(add(length, 31), not(31))), 64)\n    }\n    function abi_encode_tuple_t_stringliteral_30cc447bcc13b3e22b45cef0dd9b0b514842d836dd9b6eb384e20dedfb47723a__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 27)\n        mstore(add(headStart, 64), \"SafeMath: addition overflow\")\n        tail := add(headStart, 96)\n    }\n    function abi_encode_tuple_t_stringliteral_ea6436ea78ec399fa44e96edb497a7e033d33116e5e045f81e06c2bda0b2807c__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 36)\n        mstore(add(headStart, 64), \"ERC201: transfer to the zero add\")\n        mstore(add(headStart, 96), \"ress\")\n        tail := add(headStart, 128)\n    }\n    function abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, value0)\n    }\n    function abi_encode_tuple_t_uint8__to_t_uint8__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, 0xff))\n    }\n    function checked_add_t_uint256(x, y) -> sum\n    {\n        if gt(x, not(y)) { panic_error_0x11() }\n        sum := add(x, y)\n    }\n    function checked_sub_t_uint256(x, y) -> diff\n    {\n        if lt(x, y) { panic_error_0x11() }\n        diff := sub(x, y)\n    }\n    function extract_byte_array_length(data) -> length\n    {\n        length := div(data, 2)\n        let outOfPlaceEncoding := and(data, 1)\n        if iszero(outOfPlaceEncoding) { length := and(length, 0x7f) }\n        if eq(outOfPlaceEncoding, lt(length, 32))\n        {\n            mstore(0, shl(224, 0x4e487b71))\n            mstore(4, 0x22)\n            revert(0, 0x24)\n        }\n    }\n    function panic_error_0x11()\n    {\n        mstore(0, shl(224, 0x4e487b71))\n        mstore(4, 0x11)\n        revert(0, 0x24)\n    }\n}",
+                                "contents": "{\n    { }\n    function abi_decode_t_address(offset) -> value\n    {\n        value := calldataload(offset)\n        if iszero(eq(value, and(value, sub(shl(160, 1), 1)))) { revert(0, 0) }\n    }\n    function abi_decode_tuple_t_address(headStart, dataEnd) -> value0\n    {\n        if slt(sub(dataEnd, headStart), 32) { revert(value0, value0) }\n        value0 := abi_decode_t_address(headStart)\n    }\n    function abi_decode_tuple_t_addresst_uint256(headStart, dataEnd) -> value0, value1\n    {\n        if slt(sub(dataEnd, headStart), 64) { revert(value1, value1) }\n        value0 := abi_decode_t_address(headStart)\n        value1 := calldataload(add(headStart, 32))\n    }\n    function abi_encode_tuple_t_bool__to_t_bool__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, iszero(iszero(value0)))\n    }\n    function abi_encode_tuple_t_string_memory_ptr__to_t_string_memory_ptr__fromStack_reversed(headStart, value0) -> tail\n    {\n        let _1 := 32\n        mstore(headStart, _1)\n        let length := mload(value0)\n        mstore(add(headStart, _1), length)\n        let i := tail\n        for { } lt(i, length) { i := add(i, _1) }\n        {\n            mstore(add(add(headStart, i), 64), mload(add(add(value0, i), _1)))\n        }\n        if gt(i, length)\n        {\n            mstore(add(add(headStart, length), 64), tail)\n        }\n        tail := add(add(headStart, and(add(length, 31), not(31))), 64)\n    }\n    function abi_encode_tuple_t_stringliteral_30cc447bcc13b3e22b45cef0dd9b0b514842d836dd9b6eb384e20dedfb47723a__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 27)\n        mstore(add(headStart, 64), \"SafeMath: addition overflow\")\n        tail := add(headStart, 96)\n    }\n    function abi_encode_tuple_t_stringliteral_ea6436ea78ec399fa44e96edb497a7e033d33116e5e045f81e06c2bda0b2807c__to_t_string_memory_ptr__fromStack_reversed(headStart) -> tail\n    {\n        mstore(headStart, 32)\n        mstore(add(headStart, 32), 36)\n        mstore(add(headStart, 64), \"ERC1618: transfer to the zero add\")\n        mstore(add(headStart, 96), \"ress\")\n        tail := add(headStart, 128)\n    }\n    function abi_encode_tuple_t_uint256__to_t_uint256__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, value0)\n    }\n    function abi_encode_tuple_t_uint8__to_t_uint8__fromStack_reversed(headStart, value0) -> tail\n    {\n        tail := add(headStart, 32)\n        mstore(headStart, and(value0, 0xff))\n    }\n    function checked_add_t_uint256(x, y) -> sum\n    {\n        if gt(x, not(y)) { panic_error_0x11() }\n        sum := add(x, y)\n    }\n    function checked_sub_t_uint256(x, y) -> diff\n    {\n        if lt(x, y) { panic_error_0x11() }\n        diff := sub(x, y)\n    }\n    function extract_byte_array_length(data) -> length\n    {\n        length := div(data, 2)\n        let outOfPlaceEncoding := and(data, 1)\n        if iszero(outOfPlaceEncoding) { length := and(length, 0x7f) }\n        if eq(outOfPlaceEncoding, lt(length, 32))\n        {\n            mstore(0, shl(224, 0x4e487b71))\n            mstore(4, 0x22)\n            revert(0, 0x24)\n        }\n    }\n    function panic_error_0x11()\n    {\n        mstore(0, shl(224, 0x4e487b71))\n        mstore(4, 0x11)\n        revert(0, 0x24)\n    }\n}",
                                 "id": 4,
                                 "language": "Yul",
                                 "name": "#utility.yul"
@@ -4704,7 +4704,7 @@
                         "transfer(address,uint256)": "a9059cbb"
                     }
                 },
-                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol_\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"decimals_\",\"type\":\"uint8\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Ivory B. Mendel from ERC20 token in openzeppelin-contracts\",\"details\":\"there are mint, burn, & other functions only accessible through specification of other contracts. Example would be creating a ERC201 mintable token that can access the internal function _mint not accessible in the default contract\",\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"See {IERC201-balanceOf}.\",\"returns\":{\"_0\":\"Returns the balance of the token for a specific address\"}},\"constructor\":{\"details\":\"Sets the values for `name_`, `symbol_`, and `decimals_`. All three of these values are immutable: they can only be set once during construction.\",\"params\":{\"decimals_\":\"to be the number of decimals for the token\",\"name_\":\"to be the name of the token\",\"symbol_\":\"to be the symbol of the token\"}},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`)\",\"returns\":{\"_0\":\"Returns the number of decimals of the token\"}},\"name()\":{\"returns\":{\"_0\":\"Returns the name of the token.\"}},\"symbol()\":{\"returns\":{\"_0\":\"Returns the symbol of the token, usually a shorter version of the name.\"}},\"totalSupply()\":{\"details\":\"See {IERC201-totalSupply}.\",\"returns\":{\"_0\":\"Returns the total supply of the token\"}},\"transfer(address,uint256)\":{\"details\":\"See {IERC201-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.\",\"params\":{\"amount\":\"number of tokens to be transferred\",\"recipient\":\"address to receive token\"},\"returns\":{\"_0\":\"if transfer was successful\"}}},\"title\":\"A truly Decentralized Token\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"A no BS token based off of ERC20 that DEFAULTS owner to having no control over the tokens or others' accounts (unless otherwise specified)\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol\":\"ERC201\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d49c8507b8799328decb5316b97367106f202ae6b36dd10764a477f960c0518\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://702fe8cf4064118c43201ceaa50b2905dca6a20c3a43528696a925ec16d7846d\",\"dweb:/ipfs/QmZzixPwGcGwQnmwFAQwjwLHjGVzmM9dc36jHWt3PPdfde\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol\":{\"keccak256\":\"0x6d34b75dba2fd513b46f001c28a843b3c2fe7d8dc8857992f2c849622eca22b4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ac82ab0541262b794aec25b2fd212244ba9be6c9fdfd3af916ebcb762cb3021e\",\"dweb:/ipfs/QmX3nFnFZZTvpraCJ517TXbLqzKCxLci1NtX6KkFrynMo8\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":{\"keccak256\":\"0x9972da702fb70e2a41b0f97bbaab4580e4cb61b5dd1d77bc556f9a523e5874c8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9f6d23038dcabbc5297dc48f0fdd5bb673ab53a26d4bb0c725c5c86e7d5774d\",\"dweb:/ipfs/Qmez8DGHpWVTJ65PbDtSKV1PjhuxcyU96noZcyquR5go6C\"]}},\"version\":1}",
+                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name_\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol_\",\"type\":\"string\"},{\"internalType\":\"uint8\",\"name\":\"decimals_\",\"type\":\"uint8\"}],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"decimals\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"\",\"type\":\"uint8\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Ivory B. Mendel from ERC20 token in openzeppelin-contracts\",\"details\":\"there are mint, burn, & other functions only accessible through specification of other contracts. Example would be creating a ERC1618 mintable token that can access the internal function _mint not accessible in the default contract\",\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"See {IERC1618-balanceOf}.\",\"returns\":{\"_0\":\"Returns the balance of the token for a specific address\"}},\"constructor\":{\"details\":\"Sets the values for `name_`, `symbol_`, and `decimals_`. All three of these values are immutable: they can only be set once during construction.\",\"params\":{\"decimals_\":\"to be the number of decimals for the token\",\"name_\":\"to be the name of the token\",\"symbol_\":\"to be the symbol of the token\"}},\"decimals()\":{\"details\":\"Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`)\",\"returns\":{\"_0\":\"Returns the number of decimals of the token\"}},\"name()\":{\"returns\":{\"_0\":\"Returns the name of the token.\"}},\"symbol()\":{\"returns\":{\"_0\":\"Returns the symbol of the token, usually a shorter version of the name.\"}},\"totalSupply()\":{\"details\":\"See {IERC1618-totalSupply}.\",\"returns\":{\"_0\":\"Returns the total supply of the token\"}},\"transfer(address,uint256)\":{\"details\":\"See {IERC1618-transfer}. Requirements: - `recipient` cannot be the zero address. - the caller must have a balance of at least `amount`.\",\"params\":{\"amount\":\"number of tokens to be transferred\",\"recipient\":\"address to receive token\"},\"returns\":{\"_0\":\"if transfer was successful\"}}},\"title\":\"A truly Decentralized Token\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"A no BS token based off of ERC20 that DEFAULTS owner to having no control over the tokens or others' accounts (unless otherwise specified)\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol\":\"ERC1618\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0xe80348b8db95720ba03c9d44bbba03b921280ac1d2eb1aa1c770504c5885ba28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://29f86048c223e01b7a14f879a730f3aae083f3d71d55823172fe04593ee94093\",\"dweb:/ipfs/QmWA1FFpxWzGBwUmJw1Mu9RjhhdTUgQmgiQdEqF2JQwWA6\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d49c8507b8799328decb5316b97367106f202ae6b36dd10764a477f960c0518\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://702fe8cf4064118c43201ceaa50b2905dca6a20c3a43528696a925ec16d7846d\",\"dweb:/ipfs/QmZzixPwGcGwQnmwFAQwjwLHjGVzmM9dc36jHWt3PPdfde\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol\":{\"keccak256\":\"0x6d34b75dba2fd513b46f001c28a843b3c2fe7d8dc8857992f2c849622eca22b4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ac82ab0541262b794aec25b2fd212244ba9be6c9fdfd3af916ebcb762cb3021e\",\"dweb:/ipfs/QmX3nFnFZZTvpraCJ517TXbLqzKCxLci1NtX6KkFrynMo8\"]},\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol\":{\"keccak256\":\"0x9972da702fb70e2a41b0f97bbaab4580e4cb61b5dd1d77bc556f9a523e5874c8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9f6d23038dcabbc5297dc48f0fdd5bb673ab53a26d4bb0c725c5c86e7d5774d\",\"dweb:/ipfs/Qmez8DGHpWVTJ65PbDtSKV1PjhuxcyU96noZcyquR5go6C\"]}},\"version\":1}",
                 "userdoc": {
                     "kind": "user",
                     "methods": {},
@@ -4713,8 +4713,8 @@
                 }
             }
         },
-        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol": {
-            "IERC201": {
+        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol": {
+            "IERC1618": {
                 "abi": [
                     {
                         "anonymous": false,
@@ -4799,7 +4799,7 @@
                     }
                 ],
                 "devdoc": {
-                    "details": "Interface of the ERC201 standard as defined in the EIP.",
+                    "details": "Interface of the ERC1618 standard as defined in the EIP.",
                     "events": {
                         "Transfer(address,address,uint256)": {
                             "details": "Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero."
@@ -4842,7 +4842,7 @@
                         "transfer(address,uint256)": "a9059cbb"
                     }
                 },
-                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC201 standard as defined in the EIP.\",\"events\":{\"Transfer(address,address,uint256)\":{\"details\":\"Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero.\"}},\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by `account`.\"},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"},\"transfer(address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":\"IERC201\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol\":{\"keccak256\":\"0x9972da702fb70e2a41b0f97bbaab4580e4cb61b5dd1d77bc556f9a523e5874c8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9f6d23038dcabbc5297dc48f0fdd5bb673ab53a26d4bb0c725c5c86e7d5774d\",\"dweb:/ipfs/Qmez8DGHpWVTJ65PbDtSKV1PjhuxcyU96noZcyquR5go6C\"]}},\"version\":1}",
+                "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"transfer\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC1618 standard as defined in the EIP.\",\"events\":{\"Transfer(address,address,uint256)\":{\"details\":\"Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero.\"}},\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by `account`.\"},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"},\"transfer(address,uint256)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`. Returns a boolean value indicating whether the operation succeeded. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol\":\"IERC1618\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol\":{\"keccak256\":\"0x9972da702fb70e2a41b0f97bbaab4580e4cb61b5dd1d77bc556f9a523e5874c8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c9f6d23038dcabbc5297dc48f0fdd5bb673ab53a26d4bb0c725c5c86e7d5774d\",\"dweb:/ipfs/Qmez8DGHpWVTJ65PbDtSKV1PjhuxcyU96noZcyquR5go6C\"]}},\"version\":1}",
                 "userdoc": {
                     "kind": "user",
                     "methods": {},
@@ -7586,17 +7586,17 @@
             },
             "id": 1
         },
-        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol": {
+        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol": {
             "ast": {
-                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/ERC201.sol",
+                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/ERC1618.sol",
                 "exportedSymbols": {
                     "Context": [
                         28
                     ],
-                    "ERC201": [
+                    "ERC1618": [
                         534
                     ],
-                    "IERC201": [
+                    "IERC1618": [
                         571
                     ],
                     "SafeMath": [
@@ -7633,8 +7633,8 @@
                         "unitAlias": ""
                     },
                     {
-                        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol",
-                        "file": "../../token/ERC201/IERC201.sol",
+                        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol",
+                        "file": "../../token/ERC1618/IERC1618.sol",
                         "id": 228,
                         "nodeType": "ImportDirective",
                         "scope": 535,
@@ -7672,7 +7672,7 @@
                             {
                                 "baseName": {
                                     "id": 233,
-                                    "name": "IERC201",
+                                    "name": "IERC1618",
                                     "nodeType": "IdentifierPath",
                                     "referencedDeclaration": 571,
                                     "src": "731:7:2"
@@ -7691,7 +7691,7 @@
                             "id": 230,
                             "nodeType": "StructuredDocumentation",
                             "src": "174:528:2",
-                            "text": " @title A truly Decentralized Token\n @author Ivory B. Mendel from ERC20 token in openzeppelin-contracts\n @notice A no BS token based off of ERC20 that DEFAULTS owner to\n having no control over the tokens or others' accounts (unless\n otherwise specified)\n @dev there are mint, burn, & other functions only accessible through\n specification of other contracts. Example would be creating a ERC201\n mintable token that can access the internal function _mint not\n accessible in the default contract"
+                            "text": " @title A truly Decentralized Token\n @author Ivory B. Mendel from ERC20 token in openzeppelin-contracts\n @notice A no BS token based off of ERC20 that DEFAULTS owner to\n having no control over the tokens or others' accounts (unless\n otherwise specified)\n @dev there are mint, burn, & other functions only accessible through\n specification of other contracts. Example would be creating a ERC1618\n mintable token that can access the internal function _mint not\n accessible in the default contract"
                         },
                         "fullyImplemented": true,
                         "id": 534,
@@ -7700,7 +7700,7 @@
                             571,
                             28
                         ],
-                        "name": "ERC201",
+                        "name": "ERC1618",
                         "nodeType": "ContractDefinition",
                         "nodes": [
                             {
@@ -8405,7 +8405,7 @@
                                     "id": 300,
                                     "nodeType": "StructuredDocumentation",
                                     "src": "2250:110:2",
-                                    "text": " @dev See {IERC201-totalSupply}.\n @return Returns the total supply of the token"
+                                    "text": " @dev See {IERC1618-totalSupply}.\n @return Returns the total supply of the token"
                                 },
                                 "functionSelector": "18160ddd",
                                 "id": 309,
@@ -8523,7 +8523,7 @@
                                     "id": 310,
                                     "nodeType": "StructuredDocumentation",
                                     "src": "2469:126:2",
-                                    "text": " @dev See {IERC201-balanceOf}.\n @return Returns the balance of the token for a specific address"
+                                    "text": " @dev See {IERC1618-balanceOf}.\n @return Returns the balance of the token for a specific address"
                                 },
                                 "functionSelector": "70a08231",
                                 "id": 323,
@@ -8751,7 +8751,7 @@
                                     "id": 324,
                                     "nodeType": "StructuredDocumentation",
                                     "src": "2759:354:2",
-                                    "text": " @dev See {IERC201-transfer}.\n Requirements:\n - `recipient` cannot be the zero address.\n - the caller must have a balance of at least `amount`.\n @param recipient address to receive token\n @param amount number of tokens to be transferred\n @return if transfer was successful"
+                                    "text": " @dev See {IERC1618-transfer}.\n Requirements:\n - `recipient` cannot be the zero address.\n - the caller must have a balance of at least `amount`.\n @param recipient address to receive token\n @param amount number of tokens to be transferred\n @return if transfer was successful"
                                 },
                                 "functionSelector": "a9059cbb",
                                 "id": 344,
@@ -8976,9 +8976,9 @@
                                                         "src": "4103:38:2",
                                                         "typeDescriptions": {
                                                             "typeIdentifier": "t_stringliteral_ea6436ea78ec399fa44e96edb497a7e033d33116e5e045f81e06c2bda0b2807c",
-                                                            "typeString": "literal_string \"ERC201: transfer to the zero address\""
+                                                            "typeString": "literal_string \"ERC1618: transfer to the zero address\""
                                                         },
-                                                        "value": "ERC201: transfer to the zero address"
+                                                        "value": "ERC1618: transfer to the zero address"
                                                     }
                                                 ],
                                                 "expression": {
@@ -8989,7 +8989,7 @@
                                                         },
                                                         {
                                                             "typeIdentifier": "t_stringliteral_ea6436ea78ec399fa44e96edb497a7e033d33116e5e045f81e06c2bda0b2807c",
-                                                            "typeString": "literal_string \"ERC201: transfer to the zero address\""
+                                                            "typeString": "literal_string \"ERC1618: transfer to the zero address\""
                                                         }
                                                     ],
                                                     "id": 354,
@@ -9182,9 +9182,9 @@
                                                             "src": "4295:41:2",
                                                             "typeDescriptions": {
                                                                 "typeIdentifier": "t_stringliteral_8e9b26066162b6553369a50caa699239f61434d644919d3e101bfb2bd20c3643",
-                                                                "typeString": "literal_string \"ERC201: transfer amount exceeds balance\""
+                                                                "typeString": "literal_string \"ERC1618: transfer amount exceeds balance\""
                                                             },
-                                                            "value": "ERC201: transfer amount exceeds balance"
+                                                            "value": "ERC1618: transfer amount exceeds balance"
                                                         }
                                                     ],
                                                     "expression": {
@@ -9195,7 +9195,7 @@
                                                             },
                                                             {
                                                                 "typeIdentifier": "t_stringliteral_8e9b26066162b6553369a50caa699239f61434d644919d3e101bfb2bd20c3643",
-                                                                "typeString": "literal_string \"ERC201: transfer amount exceeds balance\""
+                                                                "typeString": "literal_string \"ERC1618: transfer amount exceeds balance\""
                                                             }
                                                         ],
                                                         "expression": {
@@ -9727,9 +9727,9 @@
                                                         "src": "4948:34:2",
                                                         "typeDescriptions": {
                                                             "typeIdentifier": "t_stringliteral_9574fa21dcb37d7c2432c8349c2f2dc6734e5dd0a3535e5dd964c3062878450d",
-                                                            "typeString": "literal_string \"ERC201: mint to the zero address\""
+                                                            "typeString": "literal_string \"ERC1618: mint to the zero address\""
                                                         },
-                                                        "value": "ERC201: mint to the zero address"
+                                                        "value": "ERC1618: mint to the zero address"
                                                     }
                                                 ],
                                                 "expression": {
@@ -9740,7 +9740,7 @@
                                                         },
                                                         {
                                                             "typeIdentifier": "t_stringliteral_9574fa21dcb37d7c2432c8349c2f2dc6734e5dd0a3535e5dd964c3062878450d",
-                                                            "typeString": "literal_string \"ERC201: mint to the zero address\""
+                                                            "typeString": "literal_string \"ERC1618: mint to the zero address\""
                                                         }
                                                     ],
                                                     "id": 408,
@@ -10577,9 +10577,9 @@
                                                             "src": "5863:37:2",
                                                             "typeDescriptions": {
                                                                 "typeIdentifier": "t_stringliteral_efaec0709e5fe8d0cb848403c3267a80ce5a6f343f82593ee8fae1a53b49e8ab",
-                                                                "typeString": "literal_string \"ERC201: burn amount exceeds balance\""
+                                                                "typeString": "literal_string \"ERC1618: burn amount exceeds balance\""
                                                             },
-                                                            "value": "ERC201: burn amount exceeds balance"
+                                                            "value": "ERC1618: burn amount exceeds balance"
                                                         }
                                                     ],
                                                     "expression": {
@@ -10590,7 +10590,7 @@
                                                             },
                                                             {
                                                                 "typeIdentifier": "t_stringliteral_efaec0709e5fe8d0cb848403c3267a80ce5a6f343f82593ee8fae1a53b49e8ab",
-                                                                "typeString": "literal_string \"ERC201: burn amount exceeds balance\""
+                                                                "typeString": "literal_string \"ERC1618: burn amount exceeds balance\""
                                                             }
                                                         ],
                                                         "expression": {
@@ -11101,7 +11101,7 @@
                                     "id": 502,
                                     "nodeType": "StructuredDocumentation",
                                     "src": "6024:367:2",
-                                    "text": " @dev See {IERC201-transferFrom}.\n Requirements:\n - `sender` and `recipient` cannot be the zero address.\n - `sender` must have a balance of at least `amount`.\n @param sender address to transfer token\n @param recipient address to receive token\n @param amount number of tokens to be transferred"
+                                    "text": " @dev See {IERC1618-transferFrom}.\n Requirements:\n - `sender` and `recipient` cannot be the zero address.\n - `sender` must have a balance of at least `amount`.\n @param sender address to transfer token\n @param recipient address to receive token\n @param amount number of tokens to be transferred"
                                 },
                                 "id": 522,
                                 "implemented": true,
@@ -11362,11 +11362,11 @@
             },
             "id": 2
         },
-        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol": {
+        "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol": {
             "ast": {
-                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC201/IERC201.sol",
+                "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/token/ERC1618/IERC1618.sol",
                 "exportedSymbols": {
-                    "IERC201": [
+                    "IERC1618": [
                         571
                     ]
                 },
@@ -11397,14 +11397,14 @@
                             "id": 537,
                             "nodeType": "StructuredDocumentation",
                             "src": "66:71:3",
-                            "text": " @dev Interface of the ERC201 standard as defined in the EIP."
+                            "text": " @dev Interface of the ERC1618 standard as defined in the EIP."
                         },
                         "fullyImplemented": false,
                         "id": 571,
                         "linearizedBaseContracts": [
                             571
                         ],
-                        "name": "IERC201",
+                        "name": "IERC1618",
                         "nodeType": "ContractDefinition",
                         "nodes": [
                             {

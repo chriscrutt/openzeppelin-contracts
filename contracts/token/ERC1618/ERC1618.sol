@@ -3,7 +3,7 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 import "../../GSN/Context.sol";
-import "../../token/ERC201/IERC201.sol";
+import "../../token/ERC1618/IERC1618.sol";
 import "../../math/SafeMath.sol";
 
 /**
@@ -16,11 +16,11 @@ import "../../math/SafeMath.sol";
  * otherwise specified)
  *
  * @dev there are mint, burn, & other functions only accessible through
- * specification of other contracts. Example would be creating a ERC201
+ * specification of other contracts. Example would be creating a ERC1618
  * mintable token that can access the internal function _mint not
  * accessible in the default contract
  */
-contract ERC201 is Context, IERC201 {
+contract ERC1618 is Context, IERC1618 {
     using SafeMath for uint256;
 
     mapping(address => uint256) private _balances;
@@ -78,7 +78,7 @@ contract ERC201 is Context, IERC201 {
     }
 
     /**
-     * @dev See {IERC201-totalSupply}.
+     * @dev See {IERC1618-totalSupply}.
      *
      * @return Returns the total supply of the token
      */
@@ -87,7 +87,7 @@ contract ERC201 is Context, IERC201 {
     }
 
     /**
-     * @dev See {IERC201-balanceOf}.
+     * @dev See {IERC1618-balanceOf}.
      *
      * @return Returns the balance of the token for a specific address
      */
@@ -101,7 +101,7 @@ contract ERC201 is Context, IERC201 {
     }
 
     /**
-     * @dev See {IERC201-transfer}.
+     * @dev See {IERC1618-transfer}.
      *
      * Requirements:
      *
@@ -147,14 +147,14 @@ contract ERC201 is Context, IERC201 {
     ) internal {
         require(
             recipient != address(0),
-            "ERC201: transfer to the zero address"
+            "ERC1618: transfer to the zero address"
         );
 
         _beforeTokenTransfer(sender, recipient, amount);
 
         _balances[sender] = _balances[sender].sub(
             amount,
-            "ERC201: transfer amount exceeds balance"
+            "ERC1618: transfer amount exceeds balance"
         );
         _balances[recipient] = _balances[recipient].add(amount);
         emit Transfer(sender, recipient, amount);
@@ -173,7 +173,7 @@ contract ERC201 is Context, IERC201 {
      * @param amount number of tokens to be minted
      */
     function _mint(address account, uint256 amount) internal {
-        require(account != address(0), "ERC201: mint to the zero address");
+        require(account != address(0), "ERC1618: mint to the zero address");
 
         _beforeTokenTransfer(address(0), account, amount);
 
@@ -201,14 +201,14 @@ contract ERC201 is Context, IERC201 {
 
         _balances[account] = _balances[account].sub(
             amount,
-            "ERC201: burn amount exceeds balance"
+            "ERC1618: burn amount exceeds balance"
         );
         _totalSupply = _totalSupply.sub(amount);
         emit Transfer(account, address(0), amount);
     }
 
     /**
-     * @dev See {IERC201-transferFrom}.
+     * @dev See {IERC1618-transferFrom}.
      *
      * Requirements:
      *
