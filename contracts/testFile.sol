@@ -4,9 +4,9 @@
 
 pragma solidity >=0.6.0 <0.9.0;
 
-import "../../GSN/Context.sol";
-import "../../token/ERC201/IERC201.sol";
-import "../../math/SafeMath.sol";
+import "./GSN/Context.sol";
+import "./token/ERC201/IERC201.sol";
+import "./math/SafeMath.sol";
 
 /**
  * @title A truly Decentralized Token
