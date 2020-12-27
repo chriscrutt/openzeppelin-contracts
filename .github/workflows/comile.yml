@@ -7,5 +7,10 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - run: npm install -g solc
-      - run: solcjs --version
-      - run: solcjs --base-path /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts --bin /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts/testFile.sol
+      - run: find
+        continue-on-error: true
+      - run: awk --version
+        continue-on-error: true
+      - run: printf --version
+#       - run: solcjs --version
+#       - run: solcjs --base-path /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts --bin /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts/testFile.sol
