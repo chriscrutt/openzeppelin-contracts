@@ -3,7 +3,6 @@ on: [push]
 jobs:
   can-contract-compile:
     runs-on: ubuntu-latest
-    continue-on-error: true
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
@@ -11,5 +10,5 @@ jobs:
       - run: solcjs --version
       - run: cd contracts/token/ERC201/
       - run: pwd
-      - run: solcjs --base-path /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts --bin /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts/testFile.sol
       - run: head -1 /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts/testFile.sol
+      - run: solcjs --base-path /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts --bin /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts/testFile.sol
