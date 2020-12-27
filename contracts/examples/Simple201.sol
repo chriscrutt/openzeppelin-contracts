@@ -13,7 +13,7 @@ import "../token/ERC201/ERC201Mintable.sol";
  * Note they can later distribute these tokens as they wish using
  * `transfer` and other `ERC201` functions.
  */
-contract SimpleToken is Context, ERC201, ERC201Mintable {
+contract Simple201 is Context, ERC201, ERC201Mintable {
     /**
      * @dev Constructor that gives _msgSender() all of existing tokens.
      */
