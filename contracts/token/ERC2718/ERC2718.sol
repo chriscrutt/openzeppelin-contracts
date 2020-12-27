@@ -9,7 +9,7 @@ contract ERC2718 is Context {
 
     struct Bundle {
         uint256 shares;
-        uint256 votesLeft;
+        uint256 votes;
     }
 
     mapping(address => Bundle) private _balances;
@@ -21,6 +21,8 @@ contract ERC2718 is Context {
 
     event Invested(address account, uint256 shares);
     event Voted(address account, uint256 votes);
+
+    event Transfer(address from, address to, uint256 value);
 
     constructor(string memory name_, string memory symbol_) {
         _name = name_;
@@ -44,9 +46,9 @@ contract ERC2718 is Context {
         return b.shares;
     }
 
-    function votesLeft(address account) public view returns (uint256) {
+    function votes(address account) public view returns (uint256) {
         Bundle storage b = _balances[account];
-        return b.votesLeft;
+        return b.votes;
     }
 
     function invest(uint256 shares) public returns (bool) {
@@ -54,8 +56,8 @@ contract ERC2718 is Context {
         return true;
     }
 
-    function vote(uint256 votes) public returns (bool) {
-        _vote(_msgSender(), votes);
+    function vote(uint256 votes_) public returns (bool) {
+        _vote(_msgSender(), votes_);
         return true;
     }
 
@@ -66,7 +68,7 @@ contract ERC2718 is Context {
 
         _totalSupply = _totalSupply.add(_shares);
         b.shares = b.shares.add(_shares);
-        b.votesLeft = b.votesLeft.add(_shares);
+        b.votes = b.votes.add(_shares);
 
         emit Invested(_owner, _shares);
     }
@@ -76,8 +78,87 @@ contract ERC2718 is Context {
         require(_votes > 0, "must use more than 0 votes lol");
         Bundle storage b = _balances[_owner];
 
-        b.votesLeft = b.votesLeft.sub(_votes, "vote amount exceeds balance");
+        b.votes = b.votes.sub(_votes, "vote amount exceeds balance");
 
         emit Voted(_owner, _votes);
+    }
+
+    function transferShares(address _to, uint256 _amount)
+        public
+        returns (bool)
+    {
+        _transferShares(_msgSender(), _to, _amount, false);
+        return true;
+    }
+
+    function transferSharesWithVotes(address _to, uint256 _amount)
+        public
+        returns (bool)
+    {
+        _transferShares(_msgSender(), _to, _amount, true);
+        return true;
+    }
+
+    function transferVotes(address _to, uint256 _amount)
+        public
+        returns (bool)
+    {
+        _transferVotes(_msgSender(), _to, _amount);
+        return true;
+    }
+
+    function _transferShares(
+        address _sender,
+        address _recipient,
+        uint256 _amount,
+        bool _withVotes
+    ) internal {
+        require(
+            _recipient != address(0),
+            "ERC1618: transfer to the zero address"
+        );
+        require(_amount > 0, "probably want to give more than 0 shares lol");
+
+        Bundle storage _s = _balances[_sender];
+        _s.shares = _s.shares.sub(_amount, "transfer amount exceeds balance");
+
+        Bundle storage _r = _balances[_recipient];
+
+        if (_withVotes) {
+            if (_s.votes < _amount) {
+                uint256 _tempVotes = _s.votes;
+                _s.votes = 0;
+                _r.votes = _tempVotes;
+            } else {
+                _s.votes = _s.votes.sub(
+                    _amount,
+                    "transfer amount exceeds balance"
+                );
+                _r.votes = _r.votes.add(_amount);
+            }
+        }
+
+        _r.shares = _r.shares.add(_amount);
+        emit Transfer(_sender, _recipient, _amount);
+    }
+
+    function _transferVotes(
+        address _sender,
+        address _recipient,
+        uint256 _amount
+    ) internal {
+        require(
+            _recipient != address(0),
+            "ERC1618: transfer to the zero address"
+        );
+        require(_amount > 0, "probably want to give more than 0 votes lol");
+
+        Bundle storage _s = _balances[_sender];
+        _s.votes = _s.votes.sub(_amount, "transfer amount exceeds balance");
+
+        Bundle storage _r = _balances[_recipient];
+        _r.votes = _r.votes.add(_amount);
+
+        _r.shares = _r.shares.add(_amount);
     }
 }

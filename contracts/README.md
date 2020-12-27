@@ -24,8 +24,9 @@
 - [ ] ERC2718
     - [ ] create base token
     - [ ] details
-      - [ ] shares of bundle
-      - [ ] amount voted
+      - [x] shares of bundle
+      - [x] amount voted
         - [ ] reset vote amount after a time
       - [ ] [RoboHash? lol](https://robohash.org/)
     - [ ] transferable
+    - [ ] voting campaigns
