@@ -107,7 +107,7 @@ abstract contract GSNRecipient is IRelayRecipient, Context {
         returns (address payable)
     {
         if (msg.sender != _relayHub) {
-            return msg.sender;
+            return payable(msg.sender);
         } else {
             return _getRelayedCallSender();
         }

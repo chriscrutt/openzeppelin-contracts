@@ -74,7 +74,7 @@ contract TimelockController is AccessControl {
         uint256 minDelay,
         address[] memory proposers,
         address[] memory executors
-    ) public {
+    ) {
         _setRoleAdmin(TIMELOCK_ADMIN_ROLE, TIMELOCK_ADMIN_ROLE);
         _setRoleAdmin(PROPOSER_ROLE, TIMELOCK_ADMIN_ROLE);
         _setRoleAdmin(EXECUTOR_ROLE, TIMELOCK_ADMIN_ROLE);

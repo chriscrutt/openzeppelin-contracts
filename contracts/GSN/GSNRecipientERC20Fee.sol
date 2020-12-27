@@ -28,7 +28,7 @@ contract GSNRecipientERC20Fee is GSNRecipient {
     /**
      * @dev The arguments to the constructor are the details that the gas payment token will have: `name` and `symbol`. `decimals` is hard-coded to 18.
      */
-    constructor(string memory name, string memory symbol) public {
+    constructor(string memory name, string memory symbol) {
         _token = new __unstable__ERC20Owned(name, symbol);
     }
 
@@ -139,7 +139,6 @@ contract __unstable__ERC20Owned is ERC20, Ownable {
     uint256 private constant _uint_MAX = 2**256 - 1;
 
     constructor(string memory name, string memory symbol)
-        public
         ERC20(name, symbol)
     {}
 
