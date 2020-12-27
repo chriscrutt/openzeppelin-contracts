@@ -4,15 +4,16 @@ pragma solidity >=0.6.0 <0.9.0;
 import "../../GSN/Context.sol";
 import "../../math/SafeMath.sol";
 
+struct Voter {
+    uint shares;
+    uint votes
+}
+
 contract ERC2718 is Context {
     using SafeMath for uint256;
 
-    struct Bundle {
-        uint256 shares;
-        uint256 votes;
-    }
-
     mapping(address => Bundle) private _balances;
+    mapping (string => Campaign) _scampaigns;
 
     uint256 private _totalSupply;
 
@@ -23,6 +24,14 @@ contract ERC2718 is Context {
     event Voted(address account, uint256 votes);
 
     event Transfer(address from, address to, uint256 value);
+
+    struct Campaign {
+        address creator;
+        uint votingGoal;
+        uint numVoters;
+        uint votes;
+        mapping (address => Voter) voters;
+    }
 
     constructor(string memory name_, string memory symbol_) {
         _name = name_;
@@ -161,4 +170,26 @@ contract ERC2718 is Context {
 
         _r.shares = _r.shares.add(_amount);
     }
+    
+
+    function _newCampaign(address _creator, uint _goal), string memory _campaignName) private {
+        require(_goal > 0, "goal must be larger than 0");
+        Campaign storage c = campaigns[_campaignName];
+        c.creator = _creator;
+        c.votingGoal = _goal;
+    }
+
+    function newCampaign(uint goal), string memory campaignName) public returns (string campaignName) {
+        _newCampaign(_msgSender(), goal, campaignName);
+    }
+
+    function contribute(uint campaignID) public payable {
+        Campaign storage c = campaigns[campaignID];
+        // Creates a new temporary memory struct, initialised with the given values
+        // and copies it over to storage.
+        // Note that you can also use Funder(msg.sender, msg.value) to initialise.
+        c.funders[c.numFunders++] = Funder({addr: msg.sender, amount: msg.value});
+        c.amount += msg.value;
+    }
+
 }
