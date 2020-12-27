@@ -29,4 +29,6 @@
         - [ ] reset vote amount after a time
       - [ ] [RoboHash? lol](https://robohash.org/)
     - [ ] transferable
+        - [ ] with or without votes by defaults (to incorperate with metamask)
     - [ ] voting campaigns
+    - [ ] add random info/misc section
