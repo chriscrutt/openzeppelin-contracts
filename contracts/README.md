@@ -19,9 +19,10 @@
   - [x] accounts can allow for "managers"
   - [x] allow pausable
 
-- [ ] ERC721
+- [ ] ~~ERC721~~
 
-  - [ ] create base token
+- [ ] ERC2718
+    - [ ] create base token
     - [ ] details
       - [ ] shares of bundle
       - [ ] amount voted
