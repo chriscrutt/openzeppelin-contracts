@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: npm install -g solc
-      - run: find
+#       - uses: actions/setup-node@v1
+#       - run: npm install -g solc
+      - run: find -E ../ -regex ".*\.(sol|jpeg)"
         continue-on-error: true
       - run: awk --version
         continue-on-error: true
