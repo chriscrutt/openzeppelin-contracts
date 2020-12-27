@@ -11,7 +11,6 @@ jobs:
       - run: pwd
       - run: head -1 /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts/testFile.sol
       - run: solcjs --base-path /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts --bin /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts/testFile.sol
-
       - run: find -E ./ -regex ".*\.(sol|jpeg)" > log
       - run: awk '{sub(".//contracts/","import \"./")}1' log > output.sol
       - run: awk '{sub("sol", "sol\";")}1' output.sol > log && mv log output.sol
