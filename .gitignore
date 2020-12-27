@@ -58,3 +58,7 @@ allFiredEvents
 cache
 artifacts
 contracts/bin/
+package.json
+package-lock.json
+package-lock.json
+package.json
