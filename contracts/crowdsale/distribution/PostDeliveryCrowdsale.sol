@@ -11,13 +11,13 @@ import "../../token/ERC20/IERC20.sol";
  * @title PostDeliveryCrowdsale
  * @dev Crowdsale that locks tokens from withdrawal until it ends.
  */
-contract PostDeliveryCrowdsale is TimedCrowdsale {
+abstract contract PostDeliveryCrowdsale is TimedCrowdsale {
     using SafeMath for uint256;
 
     mapping(address => uint256) private _balances;
     __unstable__TokenVault private _vault;
 
-    constructor() public {
+    constructor() {
         _vault = new __unstable__TokenVault();
     }
 
@@ -28,7 +28,10 @@ contract PostDeliveryCrowdsale is TimedCrowdsale {
     function withdrawTokens(address beneficiary) public {
         require(hasClosed(), "PostDeliveryCrowdsale: not closed");
         uint256 amount = _balances[beneficiary];
-        require(amount > 0, "PostDeliveryCrowdsale: beneficiary is not due any tokens");
+        require(
+            amount > 0,
+            "PostDeliveryCrowdsale: beneficiary is not due any tokens"
+        );
 
         _balances[beneficiary] = 0;
         _vault.transfer(token(), beneficiary, amount);
@@ -48,7 +51,10 @@ contract PostDeliveryCrowdsale is TimedCrowdsale {
      * @param beneficiary Token purchaser
      * @param tokenAmount Amount of tokens purchased
      */
-    function _processPurchase(address beneficiary, uint256 tokenAmount) internal {
+    function _processPurchase(address beneficiary, uint256 tokenAmount)
+        internal
+        override
+    {
         _balances[beneficiary] = _balances[beneficiary].add(tokenAmount);
         _deliverTokens(address(_vault), tokenAmount);
     }
@@ -61,7 +67,11 @@ contract PostDeliveryCrowdsale is TimedCrowdsale {
  */
 // solhint-disable-next-line contract-name-camelcase
 contract __unstable__TokenVault is Secondary {
-    function transfer(IERC20 token, address to, uint256 amount) public onlyPrimary {
+    function transfer(
+        IERC20 token,
+        address to,
+        uint256 amount
+    ) public onlyPrimary {
         token.transfer(to, amount);
     }
 }

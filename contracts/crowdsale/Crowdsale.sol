@@ -67,7 +67,10 @@ contract Crowdsale is Context, ReentrancyGuard {
         IERC20 token_
     ) {
         require(rate_ > 0, "Crowdsale: rate is 0");
-        require(wallet_ != address(0), "Crowdsale: wallet is the zero address");
+        require(
+            wallet_ != address(0),
+            "Crowdsale: wallet is the zero address"
+        );
         require(
             address(token_) != address(0),
             "Crowdsale: token is the zero address"
@@ -197,6 +200,7 @@ contract Crowdsale is Context, ReentrancyGuard {
      */
     function _processPurchase(address beneficiary, uint256 tokenAmount)
         internal
+        virtual
     {
         _deliverTokens(beneficiary, tokenAmount);
     }
@@ -209,6 +213,7 @@ contract Crowdsale is Context, ReentrancyGuard {
      */
     function _updatePurchasingState(address beneficiary, uint256 weiAmount)
         internal
+        virtual
     {
         // solhint-disable-previous-line no-empty-blocks
     }
