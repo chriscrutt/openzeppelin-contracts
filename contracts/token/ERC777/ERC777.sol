@@ -349,7 +349,10 @@ contract ERC777 is Context, IERC777, IERC20 {
             recipient != address(0),
             "ERC777: transfer to the zero address"
         );
-        require(holder != address(0), "ERC777: transfer from the zero address");
+        require(
+            holder != address(0),
+            "ERC777: transfer from the zero address"
+        );
 
         address spender = _msgSender();
 

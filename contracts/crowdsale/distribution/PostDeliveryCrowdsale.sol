@@ -25,7 +25,7 @@ abstract contract PostDeliveryCrowdsale is TimedCrowdsale {
      * @dev Withdraw tokens only after crowdsale ends.
      * @param beneficiary Whose tokens will be withdrawn.
      */
-    function withdrawTokens(address beneficiary) public {
+    function withdrawTokens(address beneficiary) public virtual {
         require(hasClosed(), "PostDeliveryCrowdsale: not closed");
         uint256 amount = _balances[beneficiary];
         require(

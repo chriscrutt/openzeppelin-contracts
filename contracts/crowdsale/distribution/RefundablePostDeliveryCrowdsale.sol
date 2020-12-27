@@ -12,8 +12,8 @@ import "./PostDeliveryCrowdsale.sol";
  * once the crowdsale has closed and the goal met, preventing refunds to be issued
  * to token holders.
  */
-contract RefundablePostDeliveryCrowdsale is RefundableCrowdsale, PostDeliveryCrowdsale {
-    function withdrawTokens(address beneficiary) public {
+abstract contract RefundablePostDeliveryCrowdsale is RefundableCrowdsale, PostDeliveryCrowdsale {
+    function withdrawTokens(address beneficiary) public override {
         require(finalized(), "RefundablePostDeliveryCrowdsale: not finalized");
         require(goalReached(), "RefundablePostDeliveryCrowdsale: goal not reached");
 

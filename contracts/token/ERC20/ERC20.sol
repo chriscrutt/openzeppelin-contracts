@@ -100,7 +100,12 @@ contract ERC20 is Context, IERC20 {
     /**
      * @dev See {IERC20-balanceOf}.
      */
-    function balanceOf(address account) public view override returns (uint256) {
+    function balanceOf(address account)
+        public
+        view
+        override
+        returns (uint256)
+    {
         return _balances[account];
     }
 
@@ -257,7 +262,10 @@ contract ERC20 is Context, IERC20 {
         uint256 amount
     ) internal virtual {
         require(sender != address(0), "ERC20: transfer from the zero address");
-        require(recipient != address(0), "ERC20: transfer to the zero address");
+        require(
+            recipient != address(0),
+            "ERC20: transfer to the zero address"
+        );
 
         _beforeTokenTransfer(sender, recipient, amount);
 

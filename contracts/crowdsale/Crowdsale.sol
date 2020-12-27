@@ -108,7 +108,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     /**
      * @return the number of token units a buyer gets per wei.
      */
-    function rate() public view returns (uint256) {
+    function rate() public view virtual returns (uint256) {
         return _rate;
     }
 
@@ -226,6 +226,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     function _getTokenAmount(uint256 weiAmount)
         internal
         view
+        virtual
         returns (uint256)
     {
         return weiAmount.mul(_rate);

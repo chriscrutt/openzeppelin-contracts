@@ -38,7 +38,12 @@ library SafeERC777 {
     ) internal {
         _callOptionalReturn(
             token,
-            abi.encodeWithSelector(token.operatorSend.selector, from, to, value)
+            abi.encodeWithSelector(
+                token.operatorSend.selector,
+                from,
+                to,
+                value
+            )
         );
     }
 

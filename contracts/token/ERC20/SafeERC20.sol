@@ -38,7 +38,12 @@ library SafeERC20 {
     ) internal {
         _callOptionalReturn(
             token,
-            abi.encodeWithSelector(token.transferFrom.selector, from, to, value)
+            abi.encodeWithSelector(
+                token.transferFrom.selector,
+                from,
+                to,
+                value
+            )
         );
     }
 
