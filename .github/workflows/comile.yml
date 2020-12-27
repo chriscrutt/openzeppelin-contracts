@@ -7,12 +7,10 @@ jobs:
       - uses: actions/checkout@v2
 #       - uses: actions/setup-node@v1
 #       - run: npm install -g solc
-      - run: find -E ../ -regex ".*\.(sol|jpeg)"
-      - run: awk --version
-      -run: find -E ../ -regex ".*\.(sol|jpeg)" > log
-      -run: awk '{sub("..//contracts/","import \"./")}1' log > testFile.sol
-      -run: awk '{sub("sol", "sol\";")}1' testFile.sol > log && mv log testFile.sol
-      -run: awk '{sub("..//", "//")}1' testFile.sol > log && mv log testFile.sol
+      - run: find -E ../ -regex ".*\.(sol|jpeg)" > log
+      - run: awk '{sub("..//contracts/","import \"./")}1' log > testFile.sol
+      - run: awk '{sub("sol", "sol\";")}1' testFile.sol > log && mv log testFile.sol
+      - run: awk '{sub("..//", "//")}1' testFile.sol > log && mv log testFile.sol
       - run: printf --version
 #       - run: solcjs --version
 #       - run: solcjs --base-path /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts --bin /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts/testFile.sol
