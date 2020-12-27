@@ -15,7 +15,7 @@ import "./ConditionalEscrow.sol";
  * with `RefundEscrow` will be made through the owner contract.
  */
 contract RefundEscrow is ConditionalEscrow {
-    enum State {Active, Refunding, Closed}
+    enum State { Active, Refunding, Closed }
 
     event RefundsClosed();
     event RefundsEnabled();
