@@ -15,4 +15,4 @@ jobs:
       - run: awk '{sub(".//contracts/","import \"./")}1' log > output.sol
       - run: awk '{sub("sol", "sol\";")}1' output.sol > log && mv log output.sol
       - run: awk '{sub(".//", "//")}1' output.sol > log && mv log output.sol
-      - run: printf '%s\n' "// SPDX-License-Identifier: MIT" 'pragma solidity >=0.6.0 <0.9.0;' | cat - output.sol > log && mv log output.sol
+      - run: printf '%s\n' "// SPDX-License-Identifier:" " MIT" 'pragma solidity >=0.6.0 <0.9.0;' | cat - output.sol > log && mv log output.sol
