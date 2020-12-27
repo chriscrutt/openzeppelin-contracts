@@ -17,7 +17,8 @@ contract BeaconProxy is Proxy {
      * @dev The storage slot of the UpgradeableBeacon contract which defines the implementation for this proxy.
      * This is bytes32(uint256(keccak256('eip1967.proxy.beacon')) - 1)) and is validated in the constructor.
      */
-    bytes32 private constant _BEACON_SLOT = 0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50;
+    bytes32 private constant _BEACON_SLOT =
+        0xa3f0ad74e5423aebfd80d3ef4346578335a9a72aeaee59ff6cb3582b35133d50;
 
     /**
      * @dev Initializes the proxy with `beacon`.
@@ -30,8 +31,11 @@ contract BeaconProxy is Proxy {
      *
      * - `beacon` must be a contract with the interface {IBeacon}.
      */
-    constructor(address beacon, bytes memory data) public payable {
-        assert(_BEACON_SLOT == bytes32(uint256(keccak256("eip1967.proxy.beacon")) - 1));
+    constructor(address beacon, bytes memory data) payable {
+        assert(
+            _BEACON_SLOT ==
+                bytes32(uint256(keccak256("eip1967.proxy.beacon")) - 1)
+        );
         _setBeacon(beacon, data);
     }
 
@@ -56,7 +60,7 @@ contract BeaconProxy is Proxy {
     /**
      * @dev Changes the proxy to use a new beacon.
      *
-     * If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon. 
+     * If `data` is nonempty, it's used as data in a delegate call to the implementation returned by the beacon.
      *
      * Requirements:
      *
@@ -80,7 +84,11 @@ contract BeaconProxy is Proxy {
         }
 
         if (data.length > 0) {
-            Address.functionDelegateCall(_implementation(), data, "BeaconProxy: function call failed");
+            Address.functionDelegateCall(
+                _implementation(),
+                data,
+                "BeaconProxy: function call failed"
+            );
         }
     }
 }
