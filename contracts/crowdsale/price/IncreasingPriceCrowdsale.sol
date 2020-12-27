@@ -19,25 +19,25 @@ abstract contract IncreasingPriceCrowdsale is TimedCrowdsale {
 
     /**
      * @dev Constructor, takes initial and final rates of tokens received per wei contributed.
-     * @param initialRate Number of tokens a buyer gets per wei at the start of the crowdsale
-     * @param finalRate Number of tokens a buyer gets per wei at the end of the crowdsale
+     * @param initialRate_ Number of tokens a buyer gets per wei at the start of the crowdsale
+     * @param finalRate_ Number of tokens a buyer gets per wei at the end of the crowdsale
      */
-    constructor(uint256 initialRate, uint256 finalRate) {
-        require(finalRate > 0, "IncreasingPriceCrowdsale: final rate is 0");
+    constructor(uint256 initialRate_, uint256 finalRate_) {
+        require(finalRate_ > 0, "IncreasingPriceCrowdsale: final rate is 0");
         // solhint-disable-next-line max-line-length
         require(
-            initialRate > finalRate,
+            initialRate_ > finalRate_,
             "IncreasingPriceCrowdsale: initial rate is not greater than final rate"
         );
-        _initialRate = initialRate;
-        _finalRate = finalRate;
+        _initialRate = initialRate_;
+        _finalRate = finalRate_;
     }
 
     /**
      * The base rate function is overridden to revert, since this crowdsale doesn't use it, and
      * all calls to it are a mistake.
      */
-    function rate() public view override returns (uint256) {
+    function rate() public pure override returns (uint256) {
         revert("IncreasingPriceCrowdsale: rate() called");
     }
 

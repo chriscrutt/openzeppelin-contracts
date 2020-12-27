@@ -20,14 +20,14 @@ abstract contract AllowanceCrowdsale is Crowdsale {
 
     /**
      * @dev Constructor, takes token wallet address.
-     * @param tokenWallet Address holding the tokens, which has approved allowance to the crowdsale.
+     * @param tokenWallet_ Address holding the tokens, which has approved allowance to the crowdsale.
      */
-    constructor(address tokenWallet) {
+    constructor(address tokenWallet_) {
         require(
-            tokenWallet != address(0),
+            tokenWallet_ != address(0),
             "AllowanceCrowdsale: token wallet is the zero address"
         );
-        _tokenWallet = tokenWallet;
+        _tokenWallet = tokenWallet_;
     }
 
     /**

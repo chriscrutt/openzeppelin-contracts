@@ -73,7 +73,6 @@
 .//contracts/drafts/EIP712.sol
 .//contracts/crowdsale/emission/MintedCrowdsale.sol
 .//contracts/crowdsale/emission/AllowanceCrowdsale.sol
-.//contracts/crowdsale/distribution/RefundablePostDeliveryCrowdsale.sol
 .//contracts/crowdsale/distribution/RefundableCrowdsale.sol
 .//contracts/crowdsale/distribution/PostDeliveryCrowdsale.sol
 .//contracts/crowdsale/distribution/FinalizableCrowdsale.sol
@@ -103,9 +102,7 @@
 .//contracts/math/SafeMath.sol
 .//contracts/math/SignedSafeMath.sol
 .//contracts/math/Math.sol
-.//contracts/ownership/Ownable.sol
 .//contracts/ownership/Secondary.sol
-.//contracts/examples/SampleCrowdsale.sol
 .//contracts/examples/Simple201.sol
 .//contracts/testFile.sol
 .//contracts/presets/ERC1155PresetMinterPauser.sol
