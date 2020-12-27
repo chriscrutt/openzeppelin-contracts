@@ -22,6 +22,7 @@ import "./token/ERC777/IERC777Sender.sol";
 import "./token/ERC777/SafeERC777.sol";
 import "./token/ERC777/ERC777.sol";
 import "./token/ERC777/IERC777.sol";
+import "./token/ERC2718/ERC2718.sol";
 import "./token/ERC721/IERC721Enumerable.sol";
 import "./token/ERC721/IERC721Metadata.sol";
 import "./token/ERC721/IERC721Receiver.sol";
@@ -112,3 +113,9 @@ import "./presets/ERC721PresetMinterPauserAutoId.sol";
 import "./presets/ERC777PresetFixedSupply.sol";
 import "./presets/ERC20PresetMinterPauser.sol";
 import "./presets/ERC20PresetFixedSupply.sol";
+//node_modules/sol";idity-coverage/node_modules/@solidity-parser/parser/antlr/test.sol
+//node_modules/sol";hint/node_modules/@solidity-parser/parser/antlr/test.sol
+//node_modules/@sol";idity-parser/parser/antlr/test.sol
+//node_modules/@nomiclabs/buidler/sample-project/contracts/Greeter.sol";
+//node_modules/@nomiclabs/buidler/consol";e.sol
+//node_modules/ethereum-ens/test/ens.sol";
