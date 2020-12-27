@@ -2,7 +2,7 @@ name: compile solcjs
 on: [push]
 jobs:
   can-contract-compile:
-    runs-on: ubuntu-latest
+    runs-on: [macos-latest]
     steps:
       - uses: actions/checkout@v2
 #       - uses: actions/setup-node@v1
