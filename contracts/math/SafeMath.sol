@@ -200,4 +200,17 @@ library SafeMath {
         require(b != 0, errorMessage);
         return a % b;
     }
+
+    /**
+     * @dev Division, round to nearest integer (AKA round-half-up)
+     * @param a What to divide
+     * @param b Divide by this number
+     */
+    function roundedDiv(int256 a, int256 b) internal pure returns (int256) {
+        // Solidity automatically throws, but please emit reason
+        require(b > 0, "div by 0");
+
+        int256 halfB = (b % 2 == 0) ? (b / 2) : (b / 2 + 1);
+        return (a % b >= halfB) ? (a / b + 1) : (a / b);
+    }
 }
