@@ -2,10 +2,17 @@ name: compile solcjs
 on: [push]
 jobs:
   can-contract-compile:
-    runs-on: ubuntu-latest
+    runs-on: [macos-latest]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
       - run: npm install -g solc
       - run: solcjs --version
-      - run: solcjs --base-path /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts --bin /home/runner/work/openzeppelin-contracts/openzeppelin-contracts/contracts/testFile.sol
+      - run: find -E ../ -regex ".*\.(sol|jpeg)" > log
+      - run: pwd
+      - run: ls
+      - run: awk '{sub("..//contracts/","import \"./")}1' log > ./contracts/testFile.sol
+      - run: awk '{sub("sol", "sol\";")}1' ./contracts/testFile.sol > log && mv log ./contracts/testFile.sol
+      - run: awk '{sub("..//", "//")}1' ./contracts/testFile.sol > log && mv log ./contracts/testFile.sol
+      - run: printf '%s\n' "// SPDX-License-Identifier:MIT" 'pragma solidity >=0.6.0 <0.9.0;' | cat - ./contracts/testFile.sol > log && mv log ./contracts/testFile.sol
+      - run: solcjs --base-path ./contracts --bin ./contracts/testFile.sol
