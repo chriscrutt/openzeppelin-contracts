@@ -12,7 +12,7 @@ import "../token/ERC1618/ERC1618.sol";
  * Note they can later distribute these tokens as they wish using
  * `transfer` and other `ERC1618` functions.
  */
-contract Simple1618 is Context, ERC1618 {
+contract Simple1618 is Context, Crowdsale {
     /**
      * @dev Constructor that gives _msgSender() all of existing tokens.
      */
