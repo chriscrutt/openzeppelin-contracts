@@ -208,27 +208,6 @@ contract ERC1618 is Context, IERC1618 {
     }
 
     /**
-     * @dev See {IERC1618-transferFrom}.
-     *
-     * Requirements:
-     *
-     * - `sender` and `recipient` cannot be the zero address.
-     * - `sender` must have a balance of at least `amount`.
-     *
-     * @param sender address to transfer token
-     * @param recipient address to receive token
-     * @param amount number of tokens to be transferred
-     */
-    function _transferFrom(
-        address sender,
-        address recipient,
-        uint256 amount
-    ) internal returns (bool) {
-        _transfer(sender, recipient, amount);
-        return true;
-    }
-
-    /**
      * @notice Hook that is called before any transfer of tokens. This
      * includes minting and burning.
      *
