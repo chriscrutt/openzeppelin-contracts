@@ -25,12 +25,10 @@ library SafeMath {
      * @dev Counterpart to Solidity's `+` operator.
      *
      * Requirements:
-     *
      * - Addition cannot overflow.
      *
      * @param a first uint
      * @param b second uint
-     *
      * @return add `a` with `b`
      */
     function add(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -47,12 +45,10 @@ library SafeMath {
      * @dev Counterpart to Solidity's `-` operator.
      *
      * Requirements:
-     *
      * - Subtraction cannot overflow.
      *
      * @param a first uint
      * @param b second uint
-     *
      * @return subtract 'a' with `b`
      */
     function sub(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -66,12 +62,10 @@ library SafeMath {
      * @dev Counterpart to Solidity's `-` operator.
      *
      * Requirements:
-     *
      * - Subtraction cannot overflow.
      *
      * @param a first uint
      * @param b second uint
-     *
      * @return subtract `a` with `b`
      */
     function sub(
@@ -96,12 +90,10 @@ library SafeMath {
      * https://github.com/OpenZeppelin/openzeppelin-contracts/pull/522
      *
      * Requirements:
-     *
      * - Multiplication cannot overflow.
      *
      * @param a first uint
      * @param b second uint
-     *
      * @return multiple `a` with `b`
      */
     function mul(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -125,12 +117,10 @@ library SafeMath {
      * remaining gas).
      *
      * Requirements:
-     *
      * - The divisor cannot be zero.
      *
      * @param a first uint
      * @param b second uint
-     *
      * @return divide `a` with `b`
      */
     function div(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -148,12 +138,10 @@ library SafeMath {
      * remaining gas).
      *
      * Requirements:
-     *
      * - The divisor cannot be zero.
      *
      * @param a first uint
      * @param b second uint
-     *
      * @return divide `a` with `b`
      */
     function div(
@@ -177,12 +165,10 @@ library SafeMath {
      * remaining gas).
      *
      * Requirements:
-     *
      * - The divisor cannot be zero.
      *
      * @param a first uint
      * @param b second uint
-     *
      * @return modular of `a` / `b`
      */
     function mod(uint256 a, uint256 b) internal pure returns (uint256) {
@@ -200,12 +186,10 @@ library SafeMath {
      * remaining gas).
      *
      * Requirements:
-     *
      * - The divisor cannot be zero.
      *
      * @param a first uint
      * @param b second uint
-     *
      * @return modular of `a` / `b`
      */
     function mod(

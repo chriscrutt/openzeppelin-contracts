@@ -17,12 +17,10 @@ abstract contract ERC1618MintableOmniscient is ERC1618, TrusteeRole {
      * @dev See {ERC1618-_mint}.
      *
      * Requirements:
-     *
      * - the caller must have the {TrusteeRole}.
      *
      * @param account address to have their tokens minted
-     * @param amount number of tokens to be minted to msg.sender
-     *
+     * @param amount number of tokens to be minted
      * @return true if the tokens were successfully minted
      */
     function mint(address account, uint256 amount)

@@ -25,26 +25,17 @@ contract Crowdsale is Context, ReentrancyGuard {
     using SafeMath for uint256;
     using SafeERC1618 for IERC1618;
 
-    // The token being sold
     IERC1618 private _token;
 
-    // Address where funds are collected
     address payable private _wallet;
 
-    /**
-     * @dev How many token units a buyer gets per wei. The rate is the
-     * conversion between wei and the smallest and indivisible token
-     * unit. So, if you are using a rate of 1 with a ERC1618Detailed
-     * token with 3 decimals called TOK 1 wei will give you 1 unit, or
-     * 0.001 TOK.
-     */
     uint256 private _rate;
 
     // Amount of wei raised
     uint256 private _weiRaised;
 
     /**
-     * Event for token purchase logging
+     * @dev Event for token purchase logging
      * @param purchaser who paid for the tokens
      * @param beneficiary who got the tokens
      * @param value weis paid for purchase
@@ -88,7 +79,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     }
 
     /**
-     * @dev fallback function ***DO NOT OVERRIDE***
+     * @dev fallback/receive function ***DO NOT OVERRIDE***
      * Note that other contracts will transfer funds with a base gas
      * stipend of 2300, which is not enough to call buyTokens. Consider
      * calling buyTokens directly when purchasing tokens from a contract
@@ -129,6 +120,7 @@ contract Crowdsale is Context, ReentrancyGuard {
      * @dev low level token purchase ***DO NOT OVERRIDE***
      * This function has a non-reentrancy guard, so it shouldn't be
      * called by another `nonReentrant` function.
+     *
      * @param beneficiary Recipient of the token purchase
      */
     function buyTokens(address beneficiary) public payable nonReentrant {

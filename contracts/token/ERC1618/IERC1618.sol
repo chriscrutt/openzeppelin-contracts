@@ -11,6 +11,10 @@ interface IERC1618 {
      * (`from`) to another (`to`).
      *
      * Note that `value` may be zero.
+     *
+     * @param from who transferred tokens
+     * @param to who got the tokens
+     * @param value number of tokens trasnferred
      */
     event Transfer(address indexed from, address indexed to, uint256 value);
 
@@ -22,6 +26,9 @@ interface IERC1618 {
      * succeeded.
      *
      * Emits a {Transfer} event.
+     *
+     * @param recipient account to receive tokens
+     * @param amount number of tokens to transfer
      */
     function transfer(address recipient, uint256 amount)
         external
@@ -34,6 +41,7 @@ interface IERC1618 {
 
     /**
      * @dev Returns the amount of tokens owned by `account`.
+     * @param account to get balance for
      */
     function balanceOf(address account) external view returns (uint256);
 }

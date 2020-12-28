@@ -8,9 +8,7 @@ import "../../math/SafeMath.sol";
 
 /**
  * @title A truly Decentralized Token
- *
  * @author Ivory B. Mendel from ERC20 token in openzeppelin-contracts
- *
  * @notice A no BS token based off of ERC20 that DEFAULTS owner to
  * having no control over the tokens or others' accounts (unless
  * otherwise specified)
@@ -79,7 +77,6 @@ contract ERC1618 is Context, IERC1618 {
 
     /**
      * @dev See {IERC1618-totalSupply}.
-     *
      * @return Returns the total supply of the token
      */
     function totalSupply() public view override returns (uint256) {
@@ -88,7 +85,6 @@ contract ERC1618 is Context, IERC1618 {
 
     /**
      * @dev See {IERC1618-balanceOf}.
-     *
      * @return Returns the balance of the token for a specific address
      */
     function balanceOf(address account)
@@ -104,13 +100,11 @@ contract ERC1618 is Context, IERC1618 {
      * @dev See {IERC1618-transfer}.
      *
      * Requirements:
-     *
      * - `recipient` cannot be the zero address.
      * - the caller must have a balance of at least `amount`.
      *
      * @param recipient address to receive token
      * @param amount number of tokens to be transferred
-     *
      * @return if transfer was successful
      */
     function transfer(address recipient, uint256 amount)
@@ -124,14 +118,12 @@ contract ERC1618 is Context, IERC1618 {
 
     /**
      * @notice Moves tokens `amount` from `sender` to `recipient`.
-     *
      * @dev This is internal function is equivalent to {transfer}, and
      * can be used to - e.g. implement automatic token fees
      *
      * Emits a {Transfer} event.
      *
      * Requirements:
-     *
      * - `sender` cannot be the zero address.
      * - `recipient` cannot be the zero address.
      * - `sender` must have a balance of at least `amount`.
@@ -162,11 +154,9 @@ contract ERC1618 is Context, IERC1618 {
 
     /** @notice Creates `amount` tokens and assigns them to `account`,
      * increasing the total supply.
-     *
      * @dev Emits a {Transfer} event with `to` set to the zero address.
      *
      * Requirements:
-
      * - `account` cannot be the zero address.
      *
      * @param account address to receive tokens
@@ -185,11 +175,9 @@ contract ERC1618 is Context, IERC1618 {
     /**
      * @notice Destroys `amount` tokens from `account`, reducing the
      * total supply.
-     *
      * @dev Emits a {Transfer} event with `to` set to the zero address.
      *
      * Requirements:
-     *
      * - `account` cannot be the zero address.
      * - `account` must have at least `amount` tokens.
      *
@@ -210,11 +198,10 @@ contract ERC1618 is Context, IERC1618 {
     /**
      * @notice Hook that is called before any transfer of tokens. This
      * includes minting and burning.
-     *
      * @dev Calling conditions:
      *
      * - when `from` and `to` are both non-zero, `amount` of ``from``'s
-     * tokens will be to transferred to `to`.
+     *   tokens will be to transferred to `to`.
      * - when `from` is zero, `amount` tokens will be minted for `to`.
      * - when `to` is zero, `amount` of ``from``'s tokens will be burned
      * - `from` and `to` are never both zero.

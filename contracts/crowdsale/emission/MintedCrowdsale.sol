@@ -7,8 +7,10 @@ import "../../token/ERC1618/ERC1618MintableOmniscient.sol";
 
 /**
  * @title MintedCrowdsale
- * @dev Extension of Crowdsale contract whose tokens are minted in each purchase.
- * Token ownership should be transferred to MintedCrowdsale for minting.
+ * @notice tokens are minted upon ether reception instead of transferred
+ * @dev Extension of Crowdsale contract whose tokens are minted in each
+ * purchase. Token ownership should be transferred to MintedCrowdsale
+ * for minting.
  */
 abstract contract MintedCrowdsale is Crowdsale {
     /**
@@ -23,7 +25,10 @@ abstract contract MintedCrowdsale is Crowdsale {
     {
         // Potentially dangerous assumption about the type of the token.
         require(
-            ERC1618MintableOmniscient(address(token())).mint(beneficiary, tokenAmount),
+            ERC1618MintableOmniscient(address(token())).mint(
+                beneficiary,
+                tokenAmount
+            ),
             "MintedCrowdsale: minting failed"
         );
     }

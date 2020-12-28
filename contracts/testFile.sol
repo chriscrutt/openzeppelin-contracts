@@ -9,7 +9,6 @@ import "./token/ERC20/ERC20Pausable.sol";
 import "./token/ERC20/ERC20Snapshot.sol";
 import "./token/ERC20/ERC20Capped.sol";
 import "./token/ERC20/ERC20Mintable.sol";
-import "./token/ERC1618/IERC1618Omniscient.sol";
 import "./token/ERC1618/ERC1618.sol";
 import "./token/ERC1618/ERC1618Manage.sol";
 import "./token/ERC1618/ERC1618Mintable.sol";
