@@ -10,7 +10,7 @@ import "../token/ERC1618/ERC1618MintableOmniscient.sol";
  * @dev Very simple ERC1618 Token that can be minted.
  * It is meant to be used in a crowdsale contract.
  */
-abstract contract SimpleCrowdsaleToken is ERC1618MintableOmniscient {
+contract SimpleCrowdsaleToken is ERC1618MintableOmniscient {
     constructor() ERC1618("Sample Crowdsale Token", "SCT", 18) {
         // solhint-disable-previous-line no-empty-blocks
     }
