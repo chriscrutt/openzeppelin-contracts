@@ -34,7 +34,7 @@ abstract contract Data {
         _prices[sDEFI] = 0x0630521aC362bc7A19a4eE44b57cE72Ea34AD01c;
     }
 
-    function prices(string memory symbol) public return (address) {
+    function prices(string memory symbol) public returns (address) {
         return _prices[symbol];
     }
 
