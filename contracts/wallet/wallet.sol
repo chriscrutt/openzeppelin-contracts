@@ -5,33 +5,44 @@ pragma solidity >=0.6.0 <0.9.0;
 import "../access/roles/HolderRole.sol";
 import "../GSN/Context.sol";
 import "../token/ERC20/IERC20.sol";
+import "../math/SafeMath.sol";
 
 contract MultiSig is Context, HolderRole {
-    struct Sig {
+    using SafeMath for uint256;
+
+    struct Transaction {
         uint256 amount;
-        uint256 timeStamp;
-        address coinAddress;
+        uint256 coinAddress;
         address sendTo;
+        address goodTillTime;
     }
+
+    struct Holder {
+        address holder;
+        bool signed;
+    }
+
+    Holder private _holder;
+
+    Holder[] private _holders;
 
     IERC20 private _coin;
 
-    address[] private _holderArray;
+    Transaction private _transaction;
 
-    mapping(address => Sig) private _holderMap;
+    uint256 private _signatureNum;
 
     event Received(address, uint256);
 
     constructor(address[] memory holders) {
-        for (uint256 i = 0; i < holders.length; i++) {
-            _holderMap[holders[i]].amount = 0;
-            _holderMap[holders[i]].timeStamp = 0;
-            _holderMap[holders[i]]
-                .coinAddress = 0x8b1A1aF63bb9b3730f62c56bDa272BCC69dF4CC7;
-            _holderMap[holders[i]].sendTo = address(0);
+        for (uint256 i = 0; i < holders.length; i.add(1)) {
+            require(holders[i] != address(0));
+            Holder storage h = _holder;
+            h.holder = holders[i];
+            h.signed = false;
+            _holders.push(h);
             _addHolder(holders[i]);
         }
-        _holderArray = holders;
     }
 
     receive() external payable {
@@ -39,72 +50,87 @@ contract MultiSig is Context, HolderRole {
     }
 
     function initiateTransfer(
-        uint256 baseAmount,
+        uint256 amount,
         address coinAddress,
         address sendTo
     ) public onlyHolder {
-        _initiateTransfer(baseAmount, coinAddress, block.timestamp, sendTo);
+        require(_amount > 0);
+        require(_isCoin(_coinAddress));
+        require(_sendTo != address(0));
+        _initiateTransfer(
+            amount,
+            coinAddress,
+            sendTo,
+            block.timestamp.add(10 minutes)
+        );
+    }
+
+    function proposedTransaction() public view {
+        return _transaction;
+    }
+
+    function timeLeftSeconds() public view returns (uint256) {
+        return _timeLeftSeconds();
+    }
+
+    function _timeLeftSeconds() private returns (uint256) {
+        Transaction storage t = _transaction;
+        return t.timestamp.sub(block.timestamp, "over time limit");
     }
 
     function completeTransfer(
-        uint256 baseAmount,
+        uint256 amount,
         address coinAddress,
         address sendTo
     ) public onlyHolder returns (bool) {
-        uint256 timeStamp = block.timestamp;
+        require(
+            _signatureNum > _holders.length.div(2) + 1,
+            "over half must sign"
+        );
+        require(amount == _transaction.amount);
+        require(coinAddress == _transaction.coinAddress);
+        require(sendTo == _transaction.sendTo);
+        require(_timeLeftSeconds() > 0);
+    }
 
-        _initiateTransfer(baseAmount, coinAddress, timeStamp, sendTo);
+    function sign() public onlyHolder returns (bool) {
+        return _sign(_msgSender());
+    }
 
-        uint256 j = 0;
-        for (uint256 i = 0; i < _holderArray.length; i++) {
-            if (
-                _seeTime(timeStamp, _holderMap[_holderArray[i]].timeStamp) <
-                600
-            ) {
-                if (baseAmount == _holderMap[_holderArray[i]].amount) {
-                    if (
-                        coinAddress == _holderMap[_holderArray[i]].coinAddress
-                    ) {
-                        if (sendTo == _holderMap[_holderArray[i]].sendTo) {
-                            j++;
-                            if (j > _holderArray.length) {
-                                _doIt(baseAmount, coinAddress, sendTo);
-                                return true;
-                            }
-                        }
-                    }
-                }
+    function _sign(address _account) private returns (bool) {
+        for (uint256 i = 0; i < _holders.length; i.add(1)) {
+            if (_holders[i].holder == _account) {
+                require(!_hasSigned(_holders[i]), "already signed");
+                _holders[i].signed = true;
+                _signatureNum.add(1);
+                return true;
             }
         }
-        return false;
+        revert("holder not found");
+    }
+
+    function numSigned() public view returns (uint256) {
+        return _signatureNum;
+    }
+
+    function hasSigned(Holder account) public view returns (bool) {
+        return _hasSigned(account);
+    }
+
+    function _hasSigned(Holder _account) private returns (bool) {
+        return _account.signed;
     }
 
     function _initiateTransfer(
-        uint256 _baseAmount,
+        uint256 _amount,
         address _coinAddress,
-        uint256 _timeStamp,
-        address _sendTo
+        uint256 _sendTo,
+        address _goodTillTime
     ) private {
-        require(_baseAmount > 0);
-        require(_isCoin(_coinAddress));
-        require(_sendTo != address(0));
-        _holderMap[_msgSender()].amount = _baseAmount;
-        _holderMap[_msgSender()].coinAddress = _coinAddress;
-        _holderMap[_msgSender()].timeStamp = _timeStamp;
-        _holderMap[_msgSender()].sendTo = _sendTo;
-    }
-
-    function _doIt(
-        uint256 _baseAmount,
-        address _coinAddress,
-        address _sendTo
-    ) private {
-        if (_coinAddress == address(0)) {
-            payable(_sendTo).transfer(_baseAmount);
-        } else {
-            _coin = IERC20(_coinAddress);
-            _coin.transfer(_sendTo, _baseAmount);
-        }
+        _transaction.amount = _amount;
+        _transaction.coinAddress = _coinAddress;
+        _transaction.sendTo = _sendTo;
+        _transaction.goodTillTime = _goodTillTime;
     }
 
     function _isCoin(address addr) private view returns (bool) {
@@ -117,13 +143,5 @@ contract MultiSig is Context, HolderRole {
             }
         }
         return (size > 0);
-    }
-
-    function _seeTime(uint256 _now, uint256 _then)
-        private
-        pure
-        returns (uint256)
-    {
-        return _now - _then;
     }
 }
