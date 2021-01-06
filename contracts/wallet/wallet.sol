@@ -35,7 +35,7 @@ contract MultiSig is Context, HolderRole {
     event Received(address, uint256);
 
     constructor(address[] memory holders) {
-        for (uint256 i = 0; i < holders.length; i.add(1)) {
+        for (uint256 i = 0; i < holders.length; i++) {
             require(holders[i] != address(0));
             Holder storage h = _holder;
             h.holder = holders[i];
@@ -89,7 +89,7 @@ contract MultiSig is Context, HolderRole {
         require(sendTo == transaction.sendTo);
         require(_timeLeftSeconds() > 0);
 
-        for (uint256 i = 0; i < _holders.length; i.add(1)) {
+        for (uint256 i = 0; i < _holders.length; i++) {
             _holders[i].signed = false;
         }
         payable(sendTo).transfer(amount);
@@ -101,11 +101,11 @@ contract MultiSig is Context, HolderRole {
     }
 
     function _sign(address _account) private returns (bool) {
-        for (uint256 i = 0; i < _holders.length; i.add(1)) {
+        for (uint256 i = 0; i < _holders.length; i++) {
             if (_holders[i].holder == _account) {
                 require(!_hasSigned(_holders[i]), "already signed");
                 _holders[i].signed = true;
-                _signatureNum.add(1);
+                _signatureNum++;
                 return true;
             }
         }
