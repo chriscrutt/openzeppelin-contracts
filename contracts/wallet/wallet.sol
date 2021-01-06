@@ -12,9 +12,9 @@ contract MultiSig is Context, HolderRole {
 
     struct Transaction {
         uint256 amount;
-        uint256 coinAddress;
+        address coinAddress;
         address sendTo;
-        address goodTillTime;
+        uint256 goodTillTime;
     }
 
     struct Holder {
@@ -28,7 +28,7 @@ contract MultiSig is Context, HolderRole {
 
     IERC20 private _coin;
 
-    Transaction private _transaction;
+    Transaction public transaction;
 
     uint256 private _signatureNum;
 
@@ -54,9 +54,9 @@ contract MultiSig is Context, HolderRole {
         address coinAddress,
         address sendTo
     ) public onlyHolder {
-        require(_amount > 0);
-        require(_isCoin(_coinAddress));
-        require(_sendTo != address(0));
+        require(amount > 0);
+        require(_isCoin(coinAddress));
+        require(sendTo != address(0));
         _initiateTransfer(
             amount,
             coinAddress,
@@ -65,17 +65,14 @@ contract MultiSig is Context, HolderRole {
         );
     }
 
-    function proposedTransaction() public view {
-        return _transaction;
-    }
-
     function timeLeftSeconds() public view returns (uint256) {
         return _timeLeftSeconds();
     }
 
-    function _timeLeftSeconds() private returns (uint256) {
-        Transaction storage t = _transaction;
-        return t.timestamp.sub(block.timestamp, "over time limit");
+    function _timeLeftSeconds() private view returns (uint256) {
+        Transaction storage t = transaction;
+        uint256 time = t.goodTillTime;
+        return time.sub(block.timestamp, "over time limit");
     }
 
     function completeTransfer(
@@ -87,10 +84,16 @@ contract MultiSig is Context, HolderRole {
             _signatureNum > _holders.length.div(2) + 1,
             "over half must sign"
         );
-        require(amount == _transaction.amount);
-        require(coinAddress == _transaction.coinAddress);
-        require(sendTo == _transaction.sendTo);
+        require(amount == transaction.amount);
+        require(coinAddress == transaction.coinAddress);
+        require(sendTo == transaction.sendTo);
         require(_timeLeftSeconds() > 0);
+
+        for (uint256 i = 0; i < _holders.length; i.add(1)) {
+            _holders[i].signed = false;
+        }
+        payable(sendTo).transfer(amount);
+        return true;
     }
 
     function sign() public onlyHolder returns (bool) {
@@ -113,24 +116,24 @@ contract MultiSig is Context, HolderRole {
         return _signatureNum;
     }
 
-    function hasSigned(Holder account) public view returns (bool) {
+    function hasSigned(Holder memory account) public pure returns (bool) {
         return _hasSigned(account);
     }
 
-    function _hasSigned(Holder _account) private returns (bool) {
+    function _hasSigned(Holder memory _account) private pure returns (bool) {
         return _account.signed;
     }
 
     function _initiateTransfer(
         uint256 _amount,
         address _coinAddress,
-        uint256 _sendTo,
-        address _goodTillTime
+        address _sendTo,
+        uint256 _goodTillTime
     ) private {
-        _transaction.amount = _amount;
-        _transaction.coinAddress = _coinAddress;
-        _transaction.sendTo = _sendTo;
-        _transaction.goodTillTime = _goodTillTime;
+        transaction.amount = _amount;
+        transaction.coinAddress = _coinAddress;
+        transaction.sendTo = _sendTo;
+        transaction.goodTillTime = _goodTillTime;
     }
 
     function _isCoin(address addr) private view returns (bool) {
