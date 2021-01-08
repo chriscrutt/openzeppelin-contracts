@@ -139,7 +139,7 @@ contract ERC1618 is Context, IERC1618 {
     ) internal {
         require(
             recipient != address(0),
-            "ERC1618: transfer to the zero address"
+            "ERC1618: send to the 0 address"
         );
 
         _beforeTokenTransfer(sender, recipient, amount);
@@ -163,7 +163,7 @@ contract ERC1618 is Context, IERC1618 {
      * @param amount number of tokens to be minted
      */
     function _mint(address account, uint256 amount) internal {
-        require(account != address(0), "ERC1618: mint to the zero address");
+        require(account != address(0), "ERC1618: mint to the 0 address");
 
         _beforeTokenTransfer(address(0), account, amount);
 
