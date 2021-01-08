@@ -7,24 +7,21 @@ import "../GSN/Context.sol";
 import "../token/ERC20/IERC20.sol";
 import "../math/SafeMath.sol";
 
+struct Holder {
+    address holder;
+    bool signed;
+}
+
 contract MultiSig is Context, HolderRole {
     using SafeMath for uint256;
 
     struct Transaction {
         uint256 amount;
-        address coinAddress;
+        bool isEtherTransfer;
+        IERC20 coinAddress;
         address sendTo;
         uint256 goodTillTime;
     }
-
-    struct Holder {
-        address holder;
-        bool signed;
-    }
-
-    Holder private _holder;
-
-    Holder[] private _holders;
 
     IERC20 private _coin;
 
@@ -32,7 +29,12 @@ contract MultiSig is Context, HolderRole {
 
     uint256 private _signatureNum;
 
-    event Received(address, uint256);
+    Holder private _holder;
+
+    Holder[] private _holders;
+
+    event Signed(address);
+    event Completed(address, Transaction);
 
     constructor(address[] memory holders) {
         for (uint256 i = 0; i < holders.length; i++) {
@@ -55,11 +57,10 @@ contract MultiSig is Context, HolderRole {
         address sendTo
     ) public onlyHolder {
         require(amount > 0);
-        require(_isCoin(coinAddress));
         require(sendTo != address(0));
         _initiateTransfer(
             amount,
-            coinAddress,
+            IERC20(coinAddress),
             sendTo,
             block.timestamp.add(10 minutes)
         );
@@ -79,72 +80,82 @@ contract MultiSig is Context, HolderRole {
         uint256 amount,
         address coinAddress,
         address sendTo
-    ) public onlyHolder returns (bool) {
-        require(
-            _signatureNum > _holders.length.div(2) + 1,
-            "over half must sign"
-        );
+    ) public onlyHolder {
+        require(_signatureNum > _holders.length.div(2), "over half must sign");
         require(amount == transaction.amount);
-        require(coinAddress == transaction.coinAddress);
+        require(coinAddress == address(transaction.coinAddress));
         require(sendTo == transaction.sendTo);
         require(_timeLeftSeconds() > 0);
+        _completeTransfer(amount, IERC20(coinAddress), sendTo);
+    }
 
+    event Received(address, uint256);
+
+    function _completeTransfer(
+        uint256 _amount,
+        IERC20 _coinAddress,
+        address _sendTo
+    ) private {
         for (uint256 i = 0; i < _holders.length; i++) {
             _holders[i].signed = false;
         }
-        payable(sendTo).transfer(amount);
-        return true;
+
+        if (address(_coinAddress) == address(0)) {
+            payable(_sendTo).transfer(_amount);
+        } else {
+            _coin = _coinAddress;
+            _coin.transfer(_sendTo, _amount);
+        }
+        emit Completed(_msgSender(), transaction);
     }
 
-    function sign() public onlyHolder returns (bool) {
-        return _sign(_msgSender());
+    function sign() public onlyHolder {
+        require(!_hasSigned(_msgSender()), "already signed");
+        _sign(_msgSender());
     }
 
-    function _sign(address _account) private returns (bool) {
-        for (uint256 i = 0; i < _holders.length; i++) {
+    function _getAccountNum(address _account) private view returns (uint8 i) {
+        for (i = 0; i < _holders.length; i++) {
             if (_holders[i].holder == _account) {
-                require(!_hasSigned(_holders[i]), "already signed");
-                _holders[i].signed = true;
-                _signatureNum++;
-                return true;
+                return i;
             }
         }
-        revert("holder not found");
+    }
+
+    event Initialized(address, Transaction);
+
+
+    function _sign(address _account) private {
+        uint8 i = _getAccountNum(_account);
+        _holders[i].signed = true;
+        _signatureNum++;
+        emit Signed(_account);
     }
 
     function numSigned() public view returns (uint256) {
         return _signatureNum;
     }
 
-    function hasSigned(Holder memory account) public pure returns (bool) {
+    function hasSigned(address account) public view returns (bool) {
         return _hasSigned(account);
     }
 
-    function _hasSigned(Holder memory _account) private pure returns (bool) {
-        return _account.signed;
+    function _hasSigned(address _account) private view returns (bool) {
+        uint8 i = _getAccountNum(_account);
+        return _holders[i].signed;
     }
 
     function _initiateTransfer(
         uint256 _amount,
-        address _coinAddress,
+        IERC20 _coinAddress,
         address _sendTo,
         uint256 _goodTillTime
     ) private {
-        transaction.amount = _amount;
-        transaction.coinAddress = _coinAddress;
-        transaction.sendTo = _sendTo;
-        transaction.goodTillTime = _goodTillTime;
-    }
-
-    function _isCoin(address addr) private view returns (bool) {
-        uint32 size;
-        if (addr == address(0)) {
-            size = 1;
-        } else {
-            assembly {
-                size := extcodesize(addr)
-            }
-        }
-        return (size > 0);
+        Transaction memory t = transaction;
+        t.amount = _amount;
+        t.coinAddress = _coinAddress;
+        t.sendTo = _sendTo;
+        t.goodTillTime = _goodTillTime;
+        emit Initialized(_msgSender(), t);
     }
 }
