@@ -125,6 +125,8 @@ contract MultiSigCopy is Context {
         IERC20 _coinAddress,
         address _sendTo
     ) private {
+        _transaction.goodTillTime = 0;
+
         if (address(_coinAddress) == address(0)) {
             payable(_sendTo).transfer(_amount);
         } else {

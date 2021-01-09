@@ -38,7 +38,7 @@ contract MultiSigCopy is Context, HolderRole {
     event Received(address, uint256);
 
     constructor(address[] memory holders) {
-        Holder memory h = _holder;
+        Holder storage h = _holder;
         for (uint256 i = 0; i < holders.length; i++) {
             require(holders[i] != address(0), "0 address can't be a holder");
             h.holder = holders[i];
@@ -123,7 +123,7 @@ contract MultiSigCopy is Context, HolderRole {
         address _sendTo,
         uint256 _goodTillTime
     ) private {
-        Transaction memory t = _transaction;
+        Transaction storage t = _transaction;
         t.amount = _amount;
         if (_coinAddress != address(0)) {
             t.coinAddress = IERC20(_coinAddress);
@@ -147,7 +147,7 @@ contract MultiSigCopy is Context, HolderRole {
         address _sendTo
     ) private {
         _transaction.goodTillTime = 0;
-        Holder[] memory _h = _holders;
+        Holder[] storage _h = _holders;
 
         if (address(_coinAddress) == address(0)) {
             payable(_sendTo).transfer(_amount);
