@@ -17,7 +17,8 @@ contract MultiSig is Context, HolderRole {
 
     struct Transaction {
         uint256 amount;
-        address coinAddress;
+        bool isEtherTransfer;
+        IERC20 coinAddress;
         address sendTo;
         uint256 goodTillTime;
     }
@@ -25,7 +26,7 @@ contract MultiSig is Context, HolderRole {
     Holder private _holder;
     Holder[] private _holders;
 
-    Transaction private _transaction;
+    Transaction public transaction;
 
     IERC20 private _coin;
 
@@ -37,9 +38,9 @@ contract MultiSig is Context, HolderRole {
     event Received(address, uint256);
 
     constructor(address[] memory holders) {
-        Holder memory h = _holder;
         for (uint256 i = 0; i < holders.length; i++) {
             require(holders[i] != address(0), "0 address can't be a holder");
+            Holder storage h = _holder;
             h.holder = holders[i];
             h.signed = false;
             _holders.push(h);
@@ -58,15 +59,6 @@ contract MultiSig is Context, HolderRole {
     ) public onlyHolder {
         require(amount > 0, "transfer amount can't be zero");
         require(sendTo != address(0), "can't send to 0 address");
-        // if (coinAddress == address(0)) {
-        //     _initiateTransfer(
-        //         amount,
-        //         coinAddress,
-        //         sendTo,
-        //         block.timestamp.add(10 minutes)
-        //     );
-        // }
-
         _initiateTransfer(
             amount,
             IERC20(coinAddress),
@@ -75,17 +67,12 @@ contract MultiSig is Context, HolderRole {
         );
     }
 
-    function sign() public onlyHolder {
-        require(!_hasSigned(_msgSender()), "already signed");
-        _sign(_msgSender());
-    }
-
     function completeTransfer(
         uint256 amount,
         address coinAddress,
         address sendTo
     ) public onlyHolder {
-        Transaction memory t = _transaction;
+        Transaction memory t = transaction;
         require(_signatureNum > _holders.length.div(2), "over half must sign");
         require(amount == t.amount, "amounts not equal");
         require(
@@ -97,8 +84,9 @@ contract MultiSig is Context, HolderRole {
         _completeTransfer(amount, IERC20(coinAddress), sendTo);
     }
 
-    function currentTransaction() public view returns (Transaction memory) {
-        return _transaction;
+    function sign() public onlyHolder {
+        require(!_hasSigned(_msgSender()), "already signed");
+        _sign(_msgSender());
     }
 
     function hasSigned(address account) public view returns (bool) {
@@ -119,12 +107,11 @@ contract MultiSig is Context, HolderRole {
         address _sendTo,
         uint256 _goodTillTime
     ) private {
-        Transaction memory t = _transaction;
+        Transaction memory t = transaction;
         t.amount = _amount;
-        t.coinAddress = address(_coinAddress);
+        t.coinAddress = _coinAddress;
         t.sendTo = _sendTo;
         t.goodTillTime = _goodTillTime;
-        _transaction = t;
         emit Initialized(_msgSender(), t);
     }
 
@@ -140,9 +127,8 @@ contract MultiSig is Context, HolderRole {
         IERC20 _coinAddress,
         address _sendTo
     ) private {
-        Holder[] memory _h = _holders;
-        for (uint256 i = 0; i < _h.length; i++) {
-            _h[i].signed = false;
+        for (uint256 i = 0; i < _holders.length; i++) {
+            _holders[i].signed = false;
         }
 
         if (address(_coinAddress) == address(0)) {
@@ -151,13 +137,12 @@ contract MultiSig is Context, HolderRole {
             _coin = _coinAddress;
             _coin.transfer(_sendTo, _amount);
         }
-        emit Completed(_msgSender(), _transaction);
+        emit Completed(_msgSender(), transaction);
     }
 
     function _getAccountNum(address _account) private view returns (uint8 i) {
-        Holder[] memory _h = _holders;
-        for (i = 0; i < _h.length; i++) {
-            if (_h[i].holder == _account) {
+        for (i = 0; i < _holders.length; i++) {
+            if (_holders[i].holder == _account) {
                 return i;
             }
         }
@@ -169,7 +154,7 @@ contract MultiSig is Context, HolderRole {
     }
 
     function _timeLeftSeconds() private view returns (uint256) {
-        Transaction storage t = _transaction;
+        Transaction storage t = transaction;
         uint256 time = t.goodTillTime;
         return time.sub(block.timestamp, "over time limit");
     }

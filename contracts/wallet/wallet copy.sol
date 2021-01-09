@@ -7,7 +7,7 @@ import "../GSN/Context.sol";
 import "../token/ERC20/IERC20.sol";
 import "../math/SafeMath.sol";
 
-contract MultiSig is Context, HolderRole {
+contract MultiSigCopy is Context, HolderRole {
     using SafeMath for uint256;
 
     struct Holder {
@@ -17,7 +17,7 @@ contract MultiSig is Context, HolderRole {
 
     struct Transaction {
         uint256 amount;
-        address coinAddress;
+        IERC20 coinAddress;
         address sendTo;
         uint256 goodTillTime;
     }
@@ -51,25 +51,32 @@ contract MultiSig is Context, HolderRole {
         emit Received(_msgSender(), msg.value);
     }
 
-    function initiateTransfer(
-        uint256 amount,
-        address coinAddress,
-        address sendTo
-    ) public onlyHolder {
+    function initiateTransfer(uint256 amount, address sendTo)
+        public
+        onlyHolder
+    {
         require(amount > 0, "transfer amount can't be zero");
         require(sendTo != address(0), "can't send to 0 address");
-        // if (coinAddress == address(0)) {
-        //     _initiateTransfer(
-        //         amount,
-        //         coinAddress,
-        //         sendTo,
-        //         block.timestamp.add(10 minutes)
-        //     );
-        // }
 
         _initiateTransfer(
             amount,
-            IERC20(coinAddress),
+            address(0),
+            sendTo,
+            block.timestamp.add(10 minutes)
+        );
+    }
+
+    function initiateTransfer(
+        uint256 amount,
+        address sendTo,
+        address coinAddressIfApplicable
+    ) public onlyHolder {
+        require(amount > 0, "transfer amount can't be zero");
+        require(sendTo != address(0), "can't send to 0 address");
+
+        _initiateTransfer(
+            amount,
+            coinAddressIfApplicable,
             sendTo,
             block.timestamp.add(10 minutes)
         );
@@ -115,13 +122,15 @@ contract MultiSig is Context, HolderRole {
 
     function _initiateTransfer(
         uint256 _amount,
-        IERC20 _coinAddress,
+        address _coinAddress,
         address _sendTo,
         uint256 _goodTillTime
     ) private {
         Transaction memory t = _transaction;
         t.amount = _amount;
-        t.coinAddress = address(_coinAddress);
+        if (_coinAddress != address(0)) {
+            t.coinAddress = IERC20(_coinAddress);
+        }
         t.sendTo = _sendTo;
         t.goodTillTime = _goodTillTime;
         _transaction = t;
