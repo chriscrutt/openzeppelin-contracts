@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.6.0 <0.9.0;
 
-import "../GSN/Context.sol";
+import "../utils/Context.sol";
 import "../crowdsale/emission/MintedCrowdsale.sol";
 import "../token/ERC1618/ERC1618MintableOmniscient.sol";
 

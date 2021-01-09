@@ -2,8 +2,9 @@
 
 pragma solidity >=0.6.0 <0.9.0;
 
-import "../GSN/Context.sol";
+import "../utils/Context.sol";
 import "../math/SafeMath.sol";
+import "../utils/Address.sol";
 
 /**
  * @title PaymentSplitter
@@ -121,7 +122,7 @@ contract PaymentSplitter is Context {
         _released[account] = _released[account].add(payment);
         _totalReleased = _totalReleased.add(payment);
 
-        account.transfer(payment);
+        Address.sendValue(account, payment);
         emit PaymentReleased(account, payment);
     }
 
