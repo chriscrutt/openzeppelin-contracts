@@ -1,18 +1,18 @@
 {
     "contractName": "Context",
     "abi": [],
-    "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Provides information about the current execution context, including the sender of the transaction and its data. While these are generally available via msg.sender and msg.data, they should not be accessed in such a direct manner, since when dealing with GSN meta-transactions the account sending and paying for execution may not be the actual sender (as far as an application is concerned). This contract is only required for intermediate library-like contract\",\"kind\":\"dev\",\"methods\":{},\"title\":\"gives... context for contract interations!\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"simplifies looking up the address interacting with a contract as well as the information being transimtted\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":\"Context\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol\":{\"keccak256\":\"0x7fca69b63a25bc3f6789a285cd99c824c9af683156dc5bf82de1e1d645045737\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b28532cec44ee9de8884f13edbc4eacd61d6c3ff3daad723696b3eb1f1835323\",\"dweb:/ipfs/QmbWz1B4eNjDhCmFoo7rgCBAp1jzsTxe1TWu4J7UHsZHS8\"]}},\"version\":1}",
+    "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"details\":\"Provides information about the current execution context, including the sender of the transaction and its data. While these are generally available via msg.sender and msg.data, they should not be accessed in such a direct manner, since when dealing with GSN meta-transactions the account sending and paying for execution may not be the actual sender (as far as an application is concerned). This contract is only required for intermediate library-like contract\",\"kind\":\"dev\",\"methods\":{},\"title\":\"gives... context for contract interations!\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"simplifies looking up the address interacting with a contract as well as the information being transimtted\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/utils/Context.sol\":\"Context\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/christophercruttenden/openzeppelin-contracts/contracts/utils/Context.sol\":{\"keccak256\":\"0x7fca69b63a25bc3f6789a285cd99c824c9af683156dc5bf82de1e1d645045737\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://b28532cec44ee9de8884f13edbc4eacd61d6c3ff3daad723696b3eb1f1835323\",\"dweb:/ipfs/QmbWz1B4eNjDhCmFoo7rgCBAp1jzsTxe1TWu4J7UHsZHS8\"]}},\"version\":1}",
     "bytecode": "",
     "deployedBytecode": "",
     "sourceMap": "",
     "deployedSourceMap": "",
-    "sourcePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol",
+    "sourcePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/utils/Context.sol",
     "compiler": {
         "name": "solc",
         "version": "0.8.0+commit.c7dfd78e"
     },
     "ast": {
-        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/GSN/Context.sol",
+        "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/utils/Context.sol",
         "exportedSymbols": {
             "Context": [
                 28

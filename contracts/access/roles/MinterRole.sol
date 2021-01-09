@@ -2,7 +2,7 @@
 
 pragma solidity >=0.6.0 <0.9.0;
 
-import "../../GSN/Context.sol";
+import "../../utils/Context.sol";
 import "../Roles.sol";
 
 abstract contract MinterRole is Context {
