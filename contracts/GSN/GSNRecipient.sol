@@ -4,7 +4,7 @@ pragma solidity >=0.6.0 <0.9.0;
 
 import "./IRelayRecipient.sol";
 import "./IRelayHub.sol";
-import "./Context.sol";
+import "../utils/Context.sol";
 
 /**
  * @dev Base GSN recipient contract: includes the {IRelayRecipient} interface
