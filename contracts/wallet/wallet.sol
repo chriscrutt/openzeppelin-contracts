@@ -122,10 +122,7 @@ contract MultiSig is Context {
 
     function completeTransfer(uint256 amount, address sendTo) public {
         require(isHolder(_msgSender()), "not a holder, jerk");
-        require(
-            _signatureNum > _numberHolders / 2,
-            "over half must sign"
-        );
+        require(_signatureNum > _numberHolders / 2, "over half must sign");
 
         Transaction memory t = _transaction;
 
@@ -146,6 +143,10 @@ contract MultiSig is Context {
 
     function numSigned() public view returns (uint8) {
         return _signatureNum;
+    }
+
+    function numHolders() public view returns (uint8) {
+        return _numberHolders;
     }
 
     function timeLeftSeconds() public view returns (uint256) {
