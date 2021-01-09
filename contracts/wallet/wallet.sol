@@ -192,6 +192,7 @@ contract MultiSig is Context {
         IERC20 _coinAddress,
         address _sendTo
     ) private {
+        delete _signatureNum;
         Transaction memory t = _transaction;
         delete _transaction;
 
