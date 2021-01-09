@@ -123,7 +123,7 @@ contract MultiSig is Context {
     function completeTransfer(uint256 amount, address sendTo) public {
         require(isHolder(_msgSender()), "not a holder, jerk");
         require(
-            _signatureNum > uint256(_numberHolders).div(2),
+            _signatureNum > _numberHolders / 2,
             "over half must sign"
         );
 
@@ -153,11 +153,13 @@ contract MultiSig is Context {
     }
 
     function _addHolder(address _account) private {
+        _numberHolders++;
         _holderSignTime[_account] = block.timestamp;
     }
 
     function _removeHolder(address _account) private {
         delete _holderSignTime[_account];
+        _numberHolders--;
     }
 
     function _initiateTransfer(
