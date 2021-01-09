@@ -41,7 +41,7 @@ contract MultiSig is Context {
         emit Received(_msgSender(), msg.value);
     }
 
-    function owner() public view returns (address) {
+    function isOwner() public view returns (address) {
         return _owner;
     }
 
@@ -51,25 +51,29 @@ contract MultiSig is Context {
         _owner = newOwner;
     }
 
+    function isHolder(address holder) public view returns (bool) {
+        return _holderSignTime[holder] > 0;
+    }
+
     function addHolder(address account) public {
+        require(!isHolder(account), "account already holder");
         require(_msgSender() == _owner, "not owner");
         require(account != address(0), "0 address can't be a holder");
 
         _addHolder(account);
     }
 
-    function replaceHolder(address currentAccount, address newAccount) public {
+    function removeHolder(address account) public {
         require(_msgSender() == _owner, "not owner");
-        require(newAccount != address(0), "0 address can't be a holder");
+        require(isHolder(account), "account already isn't holder");
 
-        _holderSignTime[currentAccount] = 0;
-        _addHolder(newAccount);
+        _removeHolder(account);
     }
 
     function initiateTransfer(uint256 amount, address sendTo) public {
         require(amount > 0, "transfer amount can't be zero");
         require(sendTo != address(0), "can't send to 0 address");
-        require(_holderSignTime[_msgSender()] > 0, "not a holder, jerk");
+        require(isHolder(_msgSender()), "not a holder, jerk");
         require(
             block.timestamp > _transaction.goodTillTime,
             "wait for old transaction"
@@ -91,7 +95,7 @@ contract MultiSig is Context {
     ) public {
         require(amount > 0, "transfer amount can't be zero");
         require(sendTo != address(0), "can't send to 0 address");
-        require(_holderSignTime[_msgSender()] > 0, "not a holder, jerk");
+        require(isHolder(_msgSender()), "not a holder, jerk");
         require(
             block.timestamp > _transaction.goodTillTime,
             "wait for old transaction"
@@ -110,14 +114,14 @@ contract MultiSig is Context {
     }
 
     function sign() public {
-        require(_holderSignTime[_msgSender()] > 0, "not a holder, jerk");
+        require(isHolder(_msgSender()), "not a holder, jerk");
         require(!_hasSigned(_msgSender()), "already signed");
 
         _sign(_msgSender());
     }
 
     function completeTransfer(uint256 amount, address sendTo) public {
-        require(_holderSignTime[_msgSender()] > 0, "not a holder, jerk");
+        require(isHolder(_msgSender()), "not a holder, jerk");
         require(
             _signatureNum > uint256(_numberHolders).div(2),
             "over half must sign"
@@ -150,6 +154,10 @@ contract MultiSig is Context {
 
     function _addHolder(address _account) private {
         _holderSignTime[_account] = block.timestamp;
+    }
+
+    function _removeHolder(address _account) private {
+        delete _holderSignTime[_account];
     }
 
     function _initiateTransfer(
