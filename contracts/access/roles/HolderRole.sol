@@ -9,6 +9,7 @@ abstract contract HolderRole is Context {
     using Roles for Roles.Role;
 
     event HolderAdded(address indexed account);
+    event HolderRemoved(address indexed account);
 
     Roles.Role private _holders;
 
@@ -21,8 +22,17 @@ abstract contract HolderRole is Context {
         return _holders.has(account);
     }
 
+    function addHolder(address account) public virtual onlyHolder {
+        _addHolder(account);
+    }
+
     function _addHolder(address account) internal {
         _holders.add(account);
         emit HolderAdded(account);
+    }
+
+    function _removeHolder(address account) internal {
+        _holders.remove(account);
+        emit HolderRemoved(account);
     }
 }

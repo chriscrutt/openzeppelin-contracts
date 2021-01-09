@@ -22,6 +22,8 @@ contract MultiSigCopy is Context, HolderRole {
         uint256 goodTillTime;
     }
 
+    address private _owner;
+
     Holder private _holder;
 
     Transaction private _transaction;
@@ -30,16 +32,16 @@ contract MultiSigCopy is Context, HolderRole {
 
     Holder[] private _holders;
 
-    uint256 private _signatureNum;
+    uint8 private _signatureNum;
 
-    event Initialized(address, Transaction);
-    event Signed(address);
-    event Completed(address, Transaction);
-    event Received(address, uint256);
+    event Initialized(address indexed, Transaction);
+    event Signed(address indexed);
+    event Completed(address indexed, Transaction);
+    event Received(address indexed, uint256);
 
     constructor(address[] memory holders) {
-        Holder storage h = _holder;
-        for (uint256 i = 0; i < holders.length; i++) {
+        Holder memory h = _holder;
+        for (uint8 i = 0; i < holders.length; i++) {
             require(holders[i] != address(0), "0 address can't be a holder");
             h.holder = holders[i];
             h.signed = false;
@@ -50,6 +52,31 @@ contract MultiSigCopy is Context, HolderRole {
 
     receive() external payable {
         emit Received(_msgSender(), msg.value);
+    }
+
+    function owner() public view returns (address) {
+        return _owner;
+    }
+
+    function addHolder(address account) public override onlyHolder {
+        require(account != address(0), "0 address can't be a holder");
+        Holder memory h = _holder;
+        h.holder = account;
+        h.signed = false;
+        _holders.push(h);
+
+        _addHolder(account);
+    }
+
+    function replaceHolder(address currentAccount, address newAccount) public {
+        require(_msgSender() == _owner, "not owner");
+        require(newAccount != address(0), "0 address can't be a holder");
+        Holder memory h = _holder;
+        h.holder = newAccount;
+        h.signed = false;
+        _removeHolder(currentAccount);
+        _holders[_getAccountNum(currentAccount)] = h;
+        _addHolder(newAccount);
     }
 
     function initiateTransfer(uint256 amount, address sendTo)
@@ -109,7 +136,7 @@ contract MultiSigCopy is Context, HolderRole {
         return _hasSigned(account);
     }
 
-    function numSigned() public view returns (uint256) {
+    function numSigned() public view returns (uint8) {
         return _signatureNum;
     }
 
@@ -130,13 +157,11 @@ contract MultiSigCopy is Context, HolderRole {
         }
         t.sendTo = _sendTo;
         t.goodTillTime = _goodTillTime;
-        // _transaction = t;
         emit Initialized(_msgSender(), t);
     }
 
     function _sign(address _account) private {
-        uint8 i = _getAccountNum(_account);
-        _holders[i].signed = true;
+        _holders[_getAccountNum(_account)].signed = true;
         _signatureNum++;
         emit Signed(_account);
     }
@@ -147,6 +172,8 @@ contract MultiSigCopy is Context, HolderRole {
         address _sendTo
     ) private {
         _transaction.goodTillTime = 0;
+        _signatureNum = 0;
+
         Holder[] storage _h = _holders;
 
         if (address(_coinAddress) == address(0)) {
@@ -156,7 +183,7 @@ contract MultiSigCopy is Context, HolderRole {
             _coin.transfer(_sendTo, _amount);
         }
 
-        for (uint256 i = 0; i < _h.length; i++) {
+        for (uint8 i = 0; i < _h.length; i++) {
             _h[i].signed = false;
         }
 
@@ -170,11 +197,11 @@ contract MultiSigCopy is Context, HolderRole {
                 return i;
             }
         }
+        revert("account not found");
     }
 
     function _hasSigned(address _account) private view returns (bool) {
-        uint8 i = _getAccountNum(_account);
-        return _holders[i].signed;
+        return _holders[_getAccountNum(_account)].signed;
     }
 
     function _timeLeftSeconds() private view returns (uint256) {
