@@ -23,11 +23,12 @@ contract MultiSigCopy is Context, HolderRole {
     }
 
     Holder private _holder;
-    Holder[] private _holders;
 
     Transaction private _transaction;
 
     IERC20 private _coin;
+
+    Holder[] private _holders;
 
     uint256 private _signatureNum;
 
@@ -87,21 +88,17 @@ contract MultiSigCopy is Context, HolderRole {
         _sign(_msgSender());
     }
 
-    function completeTransfer(
-        uint256 amount,
-        address coinAddress,
-        address sendTo
-    ) public onlyHolder {
-        Transaction memory t = _transaction;
+    function completeTransfer(uint256 amount, address sendTo)
+        public
+        onlyHolder
+    {
         require(_signatureNum > _holders.length.div(2), "over half must sign");
+        Transaction memory t = _transaction;
         require(amount == t.amount, "amounts not equal");
-        require(
-            coinAddress == address(t.coinAddress),
-            "coin addresses not equal"
-        );
+
         require(sendTo == t.sendTo, "recipient address not equal");
         require(_timeLeftSeconds() > 0, "time is up! restart sorry");
-        _completeTransfer(amount, IERC20(coinAddress), sendTo);
+        _completeTransfer(amount, t.coinAddress, sendTo);
     }
 
     function currentTransaction() public view returns (Transaction memory) {
@@ -133,7 +130,7 @@ contract MultiSigCopy is Context, HolderRole {
         }
         t.sendTo = _sendTo;
         t.goodTillTime = _goodTillTime;
-        _transaction = t;
+        // _transaction = t;
         emit Initialized(_msgSender(), t);
     }
 
@@ -149,10 +146,8 @@ contract MultiSigCopy is Context, HolderRole {
         IERC20 _coinAddress,
         address _sendTo
     ) private {
+        _transaction.goodTillTime = 0;
         Holder[] memory _h = _holders;
-        for (uint256 i = 0; i < _h.length; i++) {
-            _h[i].signed = false;
-        }
 
         if (address(_coinAddress) == address(0)) {
             payable(_sendTo).transfer(_amount);
@@ -160,6 +155,11 @@ contract MultiSigCopy is Context, HolderRole {
             _coin = _coinAddress;
             _coin.transfer(_sendTo, _amount);
         }
+
+        for (uint256 i = 0; i < _h.length; i++) {
+            _h[i].signed = false;
+        }
+
         emit Completed(_msgSender(), _transaction);
     }
 
