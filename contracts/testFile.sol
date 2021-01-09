@@ -102,6 +102,8 @@ import "./math/Math.sol";
 import "./ownership/Secondary.sol";
 import "./examples/Simple1618.sol";
 import "./examples/SimpleCrowdsale.sol";
+import "./wallet/wallet copy.sol";
+import "./wallet/walletOneAddress.sol";
 import "./wallet/wallet.sol";
 import "./wallet/delMath.sol";
 import "./testFile.sol";

@@ -7,7 +7,7 @@ import "../GSN/Context.sol";
 import "../token/ERC20/IERC20.sol";
 import "../math/SafeMath.sol";
 
-contract MultiSig is Context, HolderRole {
+contract MultiSigOne is Context, HolderRole {
     using SafeMath for uint256;
 
     struct Holder {
