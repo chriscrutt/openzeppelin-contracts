@@ -6,7 +6,7 @@ import "../utils/Context.sol";
 import "../token/ERC20/IERC20.sol";
 import "../math/SafeMath.sol";
 
-contract MultiSigCopy is Context {
+contract MultiSig is Context {
     using SafeMath for uint256;
 
     struct Transaction {
@@ -32,14 +32,9 @@ contract MultiSigCopy is Context {
     event Completed(address indexed, Transaction);
     event Received(address indexed, uint256);
 
-    constructor(address[] memory holders) {
+    constructor() {
         _owner = _msgSender();
-        uint256 time = block.timestamp;
-        for (uint8 i = 0; i < holders.length; i++) {
-            require(holders[i] != address(0), "0 address can't be a holder");
-
-            _holderSignTime[holders[i]] = time;
-        }
+        _addHolder(_msgSender());
     }
 
     receive() external payable {
@@ -48,6 +43,12 @@ contract MultiSigCopy is Context {
 
     function owner() public view returns (address) {
         return _owner;
+    }
+
+    function replaceOwner(address newOwner) public {
+        require(_msgSender() == _owner, "not current owner");
+
+        _owner = newOwner;
     }
 
     function addHolder(address account) public {
