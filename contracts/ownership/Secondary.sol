@@ -51,6 +51,10 @@ abstract contract Secondary is Context {
             recipient != address(0),
             "Secondary: new primary is the zero address"
         );
+        require(
+            recipient != _primary,
+            "Secondary: new primary is the current primnary"
+        );
         _primary = recipient;
         emit PrimaryTransferred(recipient);
     }

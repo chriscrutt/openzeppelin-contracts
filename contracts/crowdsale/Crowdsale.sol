@@ -238,22 +238,11 @@ contract Crowdsale is Context, ReentrancyGuard {
     /**
      * @dev Determines how ETH is stored/forwarded on purchases.
      */
-    function _forwardFunds(uint256 _amount) internal virtual {
-        require(_wallet.balance >= _amount);
-        _wallet.transfer(_amount);
+    function _forwardFunds() internal virtual {
+        _wallet.transfer(msg.value);
     }
 
-    /**
-     * @dev Selfdestruct contract & send funds to `_wallet`
-     */
-    function cashOutAndDestroy() public {
-        selfdestruct(_wallet);
-    }
-
-    /**
-     * @dev withdraw specificied `amount` of ether to `_wallet`
-     */
-    function forwardFunds(uint256 amount) public {
-        _forwardFunds(amount);
+    function _withdrawFunds(uint256 amount) internal {
+        _wallet.transfer(amount);
     }
 }
