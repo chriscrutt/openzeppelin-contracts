@@ -3,7 +3,7 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 import "../Crowdsale.sol";
-import "../../token/ERC1618/ERC1618MintableOmniscient.sol";
+import "../../token/ERC20/ERC20Mintable.sol";
 
 /**
  * @title MintedCrowdsale
@@ -25,10 +25,7 @@ abstract contract MintedCrowdsale is Crowdsale {
     {
         // Potentially dangerous assumption about the type of the token.
         require(
-            ERC1618MintableOmniscient(address(token())).mint(
-                beneficiary,
-                tokenAmount
-            ),
+            ERC20Mintable(address(token())).mint(beneficiary, tokenAmount),
             "MintedCrowdsale: minting failed"
         );
     }
