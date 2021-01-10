@@ -39,7 +39,11 @@ abstract contract IndividuallyCappedCrowdsale is Crowdsale, CapperRole {
      * @param beneficiary Address of contributor
      * @return Beneficiary contribution so far
      */
-    function getContribution(address beneficiary) public view returns (uint256) {
+    function getContribution(address beneficiary)
+        public
+        view
+        returns (uint256)
+    {
         return _contributions[beneficiary];
     }
 
@@ -48,10 +52,17 @@ abstract contract IndividuallyCappedCrowdsale is Crowdsale, CapperRole {
      * @param beneficiary Token purchaser
      * @param weiAmount Amount of wei contributed
      */
-    function _preValidatePurchase(address beneficiary, uint256 weiAmount) internal view override {
+    function _preValidatePurchase(address beneficiary, uint256 weiAmount)
+        internal
+        view
+        override
+    {
         super._preValidatePurchase(beneficiary, weiAmount);
         // solhint-disable-next-line max-line-length
-        require(_contributions[beneficiary].add(weiAmount) <= _caps[beneficiary], "IndividuallyCappedCrowdsale: beneficiary's cap exceeded");
+        require(
+            _contributions[beneficiary].add(weiAmount) <= _caps[beneficiary],
+            "IndividuallyCappedCrowdsale: beneficiary's cap exceeded"
+        );
     }
 
     /**
@@ -59,8 +70,13 @@ abstract contract IndividuallyCappedCrowdsale is Crowdsale, CapperRole {
      * @param beneficiary Token purchaser
      * @param weiAmount Amount of wei contributed
      */
-    function _updatePurchasingState(address beneficiary, uint256 weiAmount) internal override {
+    function _updatePurchasingState(address beneficiary, uint256 weiAmount)
+        internal
+        override
+    {
         super._updatePurchasingState(beneficiary, weiAmount);
-        _contributions[beneficiary] = _contributions[beneficiary].add(weiAmount);
+        _contributions[beneficiary] = _contributions[beneficiary].add(
+            weiAmount
+        );
     }
 }
