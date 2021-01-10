@@ -78,7 +78,7 @@ abstract contract TimedCrowdsale is Crowdsale {
     }
 
     /**
-     * @dev Checks whether the period in which the crowdsale is open has already elapsed.
+     * @dev Checks whether the period in which the crowdsale is open has already elapsed
      * @return Whether crowdsale period has elapsed
      */
     function hasClosed() public view returns (bool) {

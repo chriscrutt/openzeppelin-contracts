@@ -3,13 +3,13 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 import "../utils/Context.sol";
-import "../token/ERC1618/IERC1618.sol";
+import "../token/ERC20/IERC20.sol";
 import "../math/SafeMath.sol";
-import "../token/ERC1618/SafeERC1618.sol";
+import "../token/ERC20/SafeERC20.sol";
 import "../utils/ReentrancyGuard.sol";
 
 /**
- * @title Crowdsale for ERC1618
+ * @title Crowdsale for ERC20
  * @dev Crowdsale is a base contract for managing a token crowdsale,
  * allowing investors to purchase tokens with ether. This contract
  * implements such functionality in its most fundamental form and can be
@@ -23,9 +23,9 @@ import "../utils/ReentrancyGuard.sol";
  */
 contract Crowdsale is Context, ReentrancyGuard {
     using SafeMath for uint256;
-    using SafeERC1618 for IERC1618;
+    using SafeERC20 for IERC20;
 
-    IERC1618 private _token;
+    IERC20 private _token;
 
     address payable private _wallet;
 
@@ -51,7 +51,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     /**
      * @dev The rate is the conversion between wei and the smallest and
      * indivisible token unit. So, if you are using a rate of 1 with a
-     * ERC1618Detailed token with 3 decimals called TOK, 1 wei will give
+     * ERC20Detailed token with 3 decimals called TOK, 1 wei will give
      * you 1 unit, or 0.001 TOK.
      *
      * @param rate_ Number of token units a buyer gets per wei
@@ -61,7 +61,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     constructor(
         uint256 rate_,
         address payable wallet_,
-        IERC1618 token_
+        IERC20 token_
     ) {
         require(rate_ > 0, "Crowdsale: rate is 0");
         require(
@@ -91,7 +91,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     /**
      * @return the token being sold.
      */
-    function token() public view returns (IERC1618) {
+    function token() public view returns (IERC20) {
         return _token;
     }
 
@@ -178,9 +178,7 @@ contract Crowdsale is Context, ReentrancyGuard {
     function _postValidatePurchase(address beneficiary, uint256 weiAmount)
         internal
         view
-    {
-        // solhint-disable-previous-line no-empty-blocks
-    }
+    {}
 
     /**
      * @dev Source of tokens. Override this method to modify the way in
@@ -246,10 +244,10 @@ contract Crowdsale is Context, ReentrancyGuard {
     }
 
     /**
-     * @dev withdraw all ether to `_wallet`
+     * @dev Selfdestruct contract & send funds to `_wallet`
      */
-    function cashOut() public {
-        _forwardFunds(_wallet.balance);
+    function cashOutAndDestroy() public {
+        selfdestruct(_wallet);
     }
 
     /**

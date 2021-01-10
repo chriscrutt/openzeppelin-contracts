@@ -65,7 +65,6 @@ abstract contract IncreasingPriceCrowdsale is TimedCrowdsale {
             return 0;
         }
 
-        // solhint-disable-next-line not-rely-on-time
         uint256 elapsedTime = block.timestamp.sub(openingTime());
         uint256 timeRange = closingTime().sub(openingTime());
         uint256 rateRange = _initialRate.sub(_finalRate);
