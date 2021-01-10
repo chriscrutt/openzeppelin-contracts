@@ -5,7 +5,6 @@ pragma solidity >=0.6.0 <0.9.0;
 import "../Crowdsale.sol";
 import "../../access/roles/WhitelistedRole.sol";
 
-
 /**
  * @title WhitelistCrowdsale
  * @dev Crowdsale in which only whitelisted users can contribute.
@@ -17,8 +16,12 @@ abstract contract WhitelistCrowdsale is WhitelistedRole, Crowdsale {
      * @param _beneficiary Token beneficiary
      * @param _weiAmount Amount of wei contributed
      */
-    function _preValidatePurchase(address _beneficiary, uint256 _weiAmount) internal view override {
-        require(isWhitelisted(_beneficiary), "WhitelistCrowdsale: beneficiary doesn't have the Whitelisted role");
+    function _preValidatePurchase(address _beneficiary, uint256 _weiAmount)
+        internal
+        view
+        override
+        onlyWhitelisted
+    {
         super._preValidatePurchase(_beneficiary, _weiAmount);
     }
 }
