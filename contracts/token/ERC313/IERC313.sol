@@ -3,9 +3,9 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 /**
- * @dev Interface of the ERC20 standard as defined in the EIP.
+ * @dev Interface of the ERC313 standard as defined in the EIP.
  */
-interface IERC20 {
+interface IERC313 {
     /**
      * @dev Returns the amount of tokens in existence.
      */
@@ -49,7 +49,7 @@ interface IERC20 {
      * transaction ordering. One possible solution to mitigate this race
      * condition is to first reduce the spender's allowance to 0 and set the
      * desired value afterwards:
-     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     * https://github.com/ethereum/EIPs/issues/313#issuecomment-263524729
      *
      * Emits an {Approval} event.
      */

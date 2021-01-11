@@ -3,23 +3,23 @@
 pragma solidity >=0.6.0 <0.9.0;
 
 import "../../utils/Context.sol";
-import "./IERC20.sol";
+import "./IERC313.sol";
 import "../../math/SafeMath.sol";
 
 /**
- * @dev Implementation of the {IERC20} interface.
+ * @dev Implementation of the {IERC313} interface.
  *
  * This implementation is agnostic to the way tokens are created. This means
  * that a supply mechanism has to be added in a derived contract using {_mint}.
- * For a generic mechanism see {ERC20PresetMinterPauser}.
+ * For a generic mechanism see {ERC313PresetMinterPauser}.
  *
  * TIP: For a detailed writeup see our guide
- * https://forum.zeppelin.solutions/t/how-to-implement-erc20-supply-mechanisms/226[How
+ * https://forum.zeppelin.solutions/t/how-to-implement-erc313-supply-mechanisms/226[How
  * to implement supply mechanisms].
  *
  * We have followed general OpenZeppelin guidelines: functions revert instead
  * of returning `false` on failure. This behavior is nonetheless conventional
- * and does not conflict with the expectations of ERC20 applications.
+ * and does not conflict with the expectations of ERC313 applications.
  *
  * Additionally, an {Approval} event is emitted on calls to {transferFrom}.
  * This allows applications to reconstruct the allowance for all accounts just
@@ -28,9 +28,9 @@ import "../../math/SafeMath.sol";
  *
  * Finally, the non-standard {decreaseAllowance} and {increaseAllowance}
  * functions have been added to mitigate the well-known issues around setting
- * allowances. See {IERC20-approve}.
+ * allowances. See {IERC313-approve}.
  */
-contract ERC20 is Context, IERC20 {
+contract ERC313 is Context, IERC313 {
     using SafeMath for uint256;
 
     mapping(address => uint256) private _balances;
@@ -79,26 +79,26 @@ contract ERC20 is Context, IERC20 {
      * be displayed to a user as `5,05` (`505 / 10 ** 2`).
      *
      * Tokens usually opt for a value of 18, imitating the relationship between
-     * Ether and Wei. This is the value {ERC20} uses, unless {_setupDecimals} is
+     * Ether and Wei. This is the value {ERC313} uses, unless {_setupDecimals} is
      * called.
      *
      * NOTE: This information is only used for _display_ purposes: it in
      * no way affects any of the arithmetic of the contract, including
-     * {IERC20-balanceOf} and {IERC20-transfer}.
+     * {IERC313-balanceOf} and {IERC313-transfer}.
      */
     function decimals() public view returns (uint8) {
         return _decimals;
     }
 
     /**
-     * @dev See {IERC20-totalSupply}.
+     * @dev See {IERC313-totalSupply}.
      */
     function totalSupply() public view override returns (uint256) {
         return _totalSupply;
     }
 
     /**
-     * @dev See {IERC20-balanceOf}.
+     * @dev See {IERC313-balanceOf}.
      */
     function balanceOf(address account)
         public
@@ -110,7 +110,7 @@ contract ERC20 is Context, IERC20 {
     }
 
     /**
-     * @dev See {IERC20-transfer}.
+     * @dev See {IERC313-transfer}.
      *
      * Requirements:
      *
@@ -128,7 +128,7 @@ contract ERC20 is Context, IERC20 {
     }
 
     /**
-     * @dev See {IERC20-allowance}.
+     * @dev See {IERC313-allowance}.
      */
     function allowance(address owner, address spender)
         public
@@ -141,7 +141,7 @@ contract ERC20 is Context, IERC20 {
     }
 
     /**
-     * @dev See {IERC20-approve}.
+     * @dev See {IERC313-approve}.
      *
      * Requirements:
      *
@@ -158,10 +158,10 @@ contract ERC20 is Context, IERC20 {
     }
 
     /**
-     * @dev See {IERC20-transferFrom}.
+     * @dev See {IERC313-transferFrom}.
      *
      * Emits an {Approval} event indicating the updated allowance. This is not
-     * required by the EIP. See the note at the beginning of {ERC20}.
+     * required by the EIP. See the note at the beginning of {ERC313}.
      *
      * Requirements:
      *
@@ -181,7 +181,7 @@ contract ERC20 is Context, IERC20 {
             _msgSender(),
             _allowances[sender][_msgSender()].sub(
                 amount,
-                "ERC20: transfer amount exceeds allowance"
+                "ERC313: transfer amount exceeds allowance"
             )
         );
         return true;
@@ -191,7 +191,7 @@ contract ERC20 is Context, IERC20 {
      * @dev Atomically increases the allowance granted to `spender` by the caller.
      *
      * This is an alternative to {approve} that can be used as a mitigation for
-     * problems described in {IERC20-approve}.
+     * problems described in {IERC313-approve}.
      *
      * Emits an {Approval} event indicating the updated allowance.
      *
@@ -216,7 +216,7 @@ contract ERC20 is Context, IERC20 {
      * @dev Atomically decreases the allowance granted to `spender` by the caller.
      *
      * This is an alternative to {approve} that can be used as a mitigation for
-     * problems described in {IERC20-approve}.
+     * problems described in {IERC313-approve}.
      *
      * Emits an {Approval} event indicating the updated allowance.
      *
@@ -236,7 +236,7 @@ contract ERC20 is Context, IERC20 {
             spender,
             _allowances[_msgSender()][spender].sub(
                 subtractedValue,
-                "ERC20: decreased allowance below zero"
+                "ERC313: decreased allowance below zero"
             )
         );
         return true;
@@ -261,17 +261,20 @@ contract ERC20 is Context, IERC20 {
         address recipient,
         uint256 amount
     ) internal virtual {
-        require(sender != address(0), "ERC20: transfer from the zero address");
+        require(
+            sender != address(0),
+            "ERC313: transfer from the zero address"
+        );
         require(
             recipient != address(0),
-            "ERC20: transfer to the zero address"
+            "ERC313: transfer to the zero address"
         );
 
         _beforeTokenTransfer(sender, recipient, amount);
 
         _balances[sender] = _balances[sender].sub(
             amount,
-            "ERC20: transfer amount exceeds balance"
+            "ERC313: transfer amount exceeds balance"
         );
         _balances[recipient] = _balances[recipient].add(amount);
         emit Transfer(sender, recipient, amount);
@@ -287,7 +290,7 @@ contract ERC20 is Context, IERC20 {
      * - `to` cannot be the zero address.
      */
     function _mint(address account, uint256 amount) internal virtual {
-        require(account != address(0), "ERC20: mint to the zero address");
+        require(account != address(0), "ERC313: mint to the zero address");
 
         _beforeTokenTransfer(address(0), account, amount);
 
@@ -308,13 +311,13 @@ contract ERC20 is Context, IERC20 {
      * - `account` must have at least `amount` tokens.
      */
     function _burn(address account, uint256 amount) internal virtual {
-        require(account != address(0), "ERC20: burn from the zero address");
+        require(account != address(0), "ERC313: burn from the zero address");
 
         _beforeTokenTransfer(account, address(0), amount);
 
         _balances[account] = _balances[account].sub(
             amount,
-            "ERC20: burn amount exceeds balance"
+            "ERC313: burn amount exceeds balance"
         );
         _totalSupply = _totalSupply.sub(amount);
         emit Transfer(account, address(0), amount);
@@ -338,8 +341,8 @@ contract ERC20 is Context, IERC20 {
         address spender,
         uint256 amount
     ) internal virtual {
-        require(owner != address(0), "ERC20: approve from the zero address");
-        require(spender != address(0), "ERC20: approve to the zero address");
+        require(owner != address(0), "ERC313: approve from the zero address");
+        require(spender != address(0), "ERC313: approve to the zero address");
 
         _allowances[owner][spender] = amount;
         emit Approval(owner, spender, amount);
