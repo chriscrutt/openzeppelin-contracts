@@ -53,6 +53,7 @@ abstract contract PostDeliveryCrowdsale is TimedCrowdsale {
      */
     function _processPurchase(address beneficiary, uint256 tokenAmount)
         internal
+        virtual
         override
     {
         _balances[beneficiary] = _balances[beneficiary].add(tokenAmount);
