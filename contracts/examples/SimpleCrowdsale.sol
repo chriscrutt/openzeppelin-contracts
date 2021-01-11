@@ -3,16 +3,15 @@ pragma solidity >=0.6.0 <0.9.0;
 
 import "../utils/Context.sol";
 import "../crowdsale/emission/MintedCrowdsale.sol";
-import "../token/ERC1618/ERC1618MintableOmniscient.sol";
+import "../token/ERC20/ERC20Mintable.sol";
 
 /**
  * @title SampleCrowdsaleToken
- * @dev Very simple ERC1618 Token that can be minted.
+ * @dev Very simple ERC20 Token that can be minted.
  * It is meant to be used in a crowdsale contract.
  */
-contract SimpleCrowdsaleToken is ERC1618MintableOmniscient {
-    constructor() ERC1618("Sample Crowdsale Token", "SCT", 18) {
-        // solhint-disable-previous-line no-empty-blocks
+contract SimpleCrowdsaleToken is ERC20Mintable {
+    constructor() ERC20("Sample Crowdsale Token", "SCT") {
     }
 }
 
@@ -37,7 +36,7 @@ contract SimpleCrowdsale is MintedCrowdsale {
      * during construction.
      *
      * Requirements:
-     * - `token` must be a `ERC1618MintableOmniscient` token
+     * - `token` must be a `ERC20Mintable` token
      *
      * @param rate Number of token units a buyer gets per wei
      * @param wallet Address where collected funds will be forwarded to
@@ -46,6 +45,6 @@ contract SimpleCrowdsale is MintedCrowdsale {
     constructor(
         uint256 rate,
         address payable wallet,
-        ERC1618MintableOmniscient token
+        ERC20Mintable token
     ) Crowdsale(rate, wallet, token) {}
 }
