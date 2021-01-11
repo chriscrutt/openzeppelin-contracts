@@ -67,3 +67,4 @@ contracts/bin/token/ERC201/ERC201Mintable.abi
 contracts/bin/token/ERC201/ERC201Mintable.json
 
 contracts/testFile.sol
+contracts/wallet/delete.py
