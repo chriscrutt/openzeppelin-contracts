@@ -6,7 +6,7 @@ import "../math/SafeMath.sol";
 
 // for Koven chain
 contract EthToBtc {
-    using SafeMath for int256;
+    using SafeMath for uint256;
 
     AggregatorV3Interface private _ethFeed;
     AggregatorV3Interface private _btcFeed;
@@ -42,10 +42,10 @@ contract EthToBtc {
         return "ETH / BTC";
     }
 
-    function getMainPrice() public view returns (int256){
-        int256 ethPrice = getLatestEthPrice() * 10**8;
-        int256 btcPrice = getLatestBtcPrice();
-        int256 price = ethPrice.roundedDiv(btcPrice);
+    function getMainPrice() public view returns (uint256){
+        uint256 ethPrice = getLatestEthPrice() * 10**8;
+        uint256 btcPrice = getLatestBtcPrice();
+        uint256 price = ethPrice.div(btcPrice);
         return price;
     }
 }
