@@ -5,11 +5,11 @@ pragma solidity >=0.6.0 <0.9.0;
 import "./SafeERC20.sol";
 
 /**
- * @dev A token holder contract that will allow a beneficiary to extract the
- * tokens after a given release time.
+ * @dev A token holder contract that will allow a beneficiary to extract
+ * the tokens after a given release time.
  *
- * Useful for simple vesting schedules like "advisors get all of their tokens
- * after 1 year".
+ * Useful for simple vesting schedules like "advisors get all of their
+ * tokens after 1 year".
  */
 contract TokenTimelock {
     using SafeERC20 for IERC20;
