@@ -81,7 +81,7 @@
         "absolutePath": "/Users/christophercruttenden/openzeppelin-contracts/contracts/access/roles/MinterRole.sol",
         "exportedSymbols": {
             "Context": [
-                15218
+                15653
             ],
             "MinterRole": [
                 2721
@@ -114,7 +114,7 @@
                 "id": 2615,
                 "nodeType": "ImportDirective",
                 "scope": 2722,
-                "sourceUnit": 15219,
+                "sourceUnit": 15654,
                 "src": "66:33:11",
                 "symbolAliases": [],
                 "unitAlias": ""
@@ -138,7 +138,7 @@
                             "id": 2617,
                             "name": "Context",
                             "nodeType": "IdentifierPath",
-                            "referencedDeclaration": 15218,
+                            "referencedDeclaration": 15653,
                             "src": "156:7:11"
                         },
                         "id": 2618,
@@ -147,14 +147,14 @@
                     }
                 ],
                 "contractDependencies": [
-                    15218
+                    15653
                 ],
                 "contractKind": "contract",
                 "fullyImplemented": true,
                 "id": 2721,
                 "linearizedBaseContracts": [
                     2721,
-                    15218
+                    15653
                 ],
                 "name": "MinterRole",
                 "nodeType": "ContractDefinition",
@@ -322,7 +322,7 @@
                                                     "name": "_msgSender",
                                                     "nodeType": "Identifier",
                                                     "overloadedDeclarations": [],
-                                                    "referencedDeclaration": 15205,
+                                                    "referencedDeclaration": 15640,
                                                     "src": "371:10:11",
                                                     "typeDescriptions": {
                                                         "typeIdentifier": "t_function_internal_view$__$returns$_t_address_payable_$",
@@ -427,7 +427,7 @@
                                                             "name": "_msgSender",
                                                             "nodeType": "Identifier",
                                                             "overloadedDeclarations": [],
-                                                            "referencedDeclaration": 15205,
+                                                            "referencedDeclaration": 15640,
                                                             "src": "459:10:11",
                                                             "typeDescriptions": {
                                                                 "typeIdentifier": "t_function_internal_view$__$returns$_t_address_payable_$",
@@ -865,7 +865,7 @@
                                                     "name": "_msgSender",
                                                     "nodeType": "Identifier",
                                                     "overloadedDeclarations": [],
-                                                    "referencedDeclaration": 15205,
+                                                    "referencedDeclaration": 15640,
                                                     "src": "836:10:11",
                                                     "typeDescriptions": {
                                                         "typeIdentifier": "t_function_internal_view$__$returns$_t_address_payable_$",
